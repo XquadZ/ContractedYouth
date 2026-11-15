@@ -1,0 +1,23 @@
+{"CgmExpc": {
+    "resultMsg": "success",
+    "키워드": "수습",
+    "page": "1",
+    "resultCode": "00",
+    "target": "molegCgmExpc",
+    "totalCnt": "1",
+    "cgmExpc": {
+        "id": "1",
+        "안건명": "법제처에서 제공하는 법제교육에는 어떤 것이 있는지 궁금합니다.",
+        "해석기관코드": "1170000",
+        "법령해석상세링크": "/DRF/lawService.do?OC=REDACTED&target=molegCgmExpc&ID=427824&type=HTML&mobileYn=",
+        "안건번호": "",
+        "법령해석일련번호": "427824",
+        "질의기관명": "",
+        "해석기관명": "법제처",
+        "해석일자": "",
+        "질의기관코드": "",
+        "데이터기준일시": "2025.11.24"
+    },
+    "section": "bdyText",
+    "numOfRows": "1"
+}}

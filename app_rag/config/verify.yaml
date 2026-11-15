@@ -1,0 +1,2 @@
+# verify.py 후처리 스위치. A.X temperature/ctx 등과 무관.
+ax_review_to_ok: true  # true=기본(켜기). AX 확인필요+비blocking needs_fact → 문제 없음

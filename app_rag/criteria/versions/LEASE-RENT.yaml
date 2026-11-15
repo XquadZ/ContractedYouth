@@ -1,0 +1,61 @@
+card_id: LEASE-RENT
+versions:
+- version: 1
+  effective_from: '1981-03-05'
+  effective_to: '2020-07-30'
+  apply_rule: unknown
+  rule_source:
+    law: 주택임대차보호법
+    quote: 미확인
+    source_status: 미확인
+  card:
+    safe:
+    - 법정 상한·협의에 따른 증액이거나 일방 확정 증액 없음
+    violation:
+    - 상한 초과·임대인 일방 차임·보증금 인상 확정
+    check_if:
+    - 민간임대 등록주택 여부 → 특별법 증액 한도
+    basis:
+    - law:주택임대차보호법:7
+    - decree:주택임대차보호법 시행령:8
+    match_keywords:
+    - 차임
+    - 월세
+    - 임대료
+    - 증액
+    - 인상
+    uses_facts: []
+    blocking_if: []
+    title: 차임·보증금 증액
+    missing_basis:
+    - law:민간임대주택에관한특별법:44
+  note: 개정 전 카드 초안(부칙 적용례 미확인 → unknown)
+- version: 2
+  effective_from: '2020-07-31'
+  effective_to: null
+  apply_rule: in_force
+  rule_source:
+    law: 주택임대차보호법
+    quote: 제2조(계약갱신 요구 등에 관한 적용례) ① 제6조의3 및 제7조의 개정규정은 이 법 시행 당시 존속 중인 임대차에 대하여도 적용한다.
+    source_status: 원문
+  card:
+    safe:
+    - 법정 상한·협의에 따른 증액이거나 일방 확정 증액 없음
+    violation:
+    - 상한 초과·임대인 일방 차임·보증금 인상 확정
+    check_if:
+    - 민간임대 등록주택 여부 → 특별법 증액 한도
+    basis:
+    - law:주택임대차보호법:7
+    - decree:주택임대차보호법 시행령:8
+    match_keywords:
+    - 차임
+    - 월세
+    - 임대료
+    - 증액
+    - 인상
+    uses_facts: []
+    blocking_if: []
+    title: 차임·보증금 증액
+    missing_basis:
+    - law:민간임대주택에관한특별법:44

@@ -1,0 +1,1 @@
+ROOT/Downloads/Desktop 및 D/E 드라이브에서 판결서·약관 데이터셋 폴더/zip 미발견. 사용자가 받은 위치 확인 후 data_contract/aihub_terms 로 해제 필요.

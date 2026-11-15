@@ -1,0 +1,93 @@
+{"lstrmRltService": {
+    "검색결과개수": "2",
+    "키워드": "수습",
+    "target": "lstrmRlt",
+    "법령용어": [
+        {
+            "id": "1",
+            "연계용어": [
+                {
+                    "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=67",
+                    "id": "1",
+                    "일상용어명": "대처",
+                    "용어관계": "연관어",
+                    "용어관계코드": "140305",
+                    "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=대처"
+                },
+                {
+                    "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=40689",
+                    "id": "2",
+                    "일상용어명": "뒤처리",
+                    "용어관계": "연관어",
+                    "용어관계코드": "140305",
+                    "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=뒤처리"
+                },
+                {
+                    "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=93045",
+                    "id": "3",
+                    "일상용어명": "뒷처리",
+                    "용어관계": "연관어",
+                    "용어관계코드": "140305",
+                    "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=뒷처리"
+                },
+                {
+                    "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=153857",
+                    "id": "4",
+                    "일상용어명": "미수습",
+                    "용어관계": "반의어",
+                    "용어관계코드": "140302",
+                    "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=미수습"
+                },
+                {
+                    "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=98003",
+                    "id": "5",
+                    "일상용어명": "사후조치",
+                    "용어관계": "연관어",
+                    "용어관계코드": "140305",
+                    "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=사후조치"
+                },
+                {
+                    "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=28989",
+                    "id": "6",
+                    "일상용어명": "정돈",
+                    "용어관계": "연관어",
+                    "용어관계코드": "140305",
+                    "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=정돈"
+                },
+                {
+                    "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=71",
+                    "id": "7",
+                    "일상용어명": "정리",
+                    "용어관계": "연관어",
+                    "용어관계코드": "140305",
+                    "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=정리"
+                }
+            ],
+            "법령용어명": "수습",
+            "비고": "흩어진 재산이나 물건을 거두어 정돈함/어수선한 사태를 거두어 바로잡음"
+        },
+        {
+            "id": "2",
+            "연계용어": [
+                {
+                    "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=27485",
+                    "id": "1",
+                    "일상용어명": "견습",
+                    "용어관계": "연관어",
+                    "용어관계코드": "140305",
+                    "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=견습"
+                },
+                {
+                    "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=5553",
+                    "id": "2",
+                    "일상용어명": "연습",
+                    "용어관계": "연관어",
+                    "용어관계코드": "140305",
+                    "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=연습"
+                }
+            ],
+            "법령용어명": "수습",
+            "비고": "수습(修習) 학업이나 실무 따위를 배워 익힘 또는 그런 일"
+        }
+    ]
+}}

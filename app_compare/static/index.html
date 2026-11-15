@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>계약서 점검 비교</title>
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand">
+        <h1>계약서 점검 비교</h1>
+        <span class="brand-sub">같은 계약서를 두 시스템으로 점검해 나란히 봅니다</span>
+      </div>
+      <nav class="tabs" role="tablist" aria-label="화면">
+        <button type="button" id="tab-check" role="tab" aria-selected="true">계약서 점검</button>
+        <button type="button" id="tab-replay" role="tab" aria-selected="false">평가 재생</button>
+      </nav>
+    </div>
+    <p class="notice">이 결과는 계약서 이해를 돕는 정보이며 법률 자문이 아닙니다. 중요한 결정 전에는 노무사·변호사 또는 공공 상담 창구(고용노동부 1350, 대한법률구조공단 132)에 확인하세요.</p>
+  </header>
+
+  <main id="view-check" class="wrap">
+    <section class="panel input" id="input-panel">
+      <div class="input-head">
+        <h2>계약서 입력</h2>
+        <button type="button" class="link" id="toggle-input" hidden>입력 펼치기</button>
+      </div>
+      <div class="input-body" id="input-body">
+        <div class="field">
+          <span class="label">예시 계약서</span>
+          <div class="chips-row" id="sample-chips" role="group" aria-label="예시 계약서"></div>
+          <select id="sample" class="sr-only" tabindex="-1" aria-hidden="true"></select>
+        </div>
+        <div class="field-row">
+          <label class="field">
+            <span class="label">계약 유형</span>
+            <select id="domain">
+              <option value="">자동 추정</option>
+              <option value="LAB">근로·알바</option>
+              <option value="LEASE">주택임대</option>
+              <option value="LOAN">차용</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="label">파일에서 불러오기 (.txt)</span>
+            <input id="file" type="file" accept=".txt,text/plain" />
+          </label>
+        </div>
+        <label class="field">
+          <span class="label">계약서 본문</span>
+          <textarea id="text" rows="9" placeholder="계약서 문장을 붙여 넣거나 위에서 예시를 고르세요."></textarea>
+        </label>
+        <div class="actions">
+          <button type="button" id="go" class="primary">두 시스템으로 점검</button>
+          <label class="switch"><input id="show-answer" type="checkbox" /> 예시 정답과 비교</label>
+          <span id="status" class="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="heads" class="board" hidden>
+      <div class="side left">
+        <div class="side-tag">왼쪽 · 나빴던 조합</div>
+        <div class="side-recipe">Qwen3-8B · BM25 검색 조문 · 숫자 규칙 없음</div>
+        <div class="tally" id="tally-left"></div>
+        <div class="side-foot" id="foot-left"></div>
+        <p class="chips sr-only" id="chips-left"></p>
+      </div>
+      <div class="board-mid">
+        <div class="mid-num" id="mid-diff">0</div>
+        <div class="mid-label">판정이 다른 조항</div>
+        <div class="mid-sub" id="mid-total"></div>
+      </div>
+      <div class="side right">
+        <div class="side-tag">오른쪽 · 최고 조합</div>
+        <div class="side-recipe">RoBERTa 주제 분류 · 숫자 규칙 · A.X 4.0 Light + 카탈로그 조문</div>
+        <div class="tally" id="tally-right"></div>
+        <div class="side-foot" id="foot-right"></div>
+        <p class="chips sr-only" id="chips-right"></p>
+      </div>
+    </section>
+
+    <section id="row-tools" class="row-tools" hidden>
+      <div class="seg" role="group" aria-label="조항 거르기" id="row-filter">
+        <button type="button" data-f="all" aria-pressed="true">전체</button>
+        <button type="button" data-f="differ" aria-pressed="false">판정 다름</button>
+        <button type="button" data-f="risk" aria-pressed="false">한쪽이라도 위험</button>
+        <button type="button" data-f="wrong" aria-pressed="false" hidden>정답과 다름</button>
+      </div>
+      <span class="count" id="row-count"></span>
+    </section>
+
+    <div id="col-heads" class="col-heads" hidden>
+      <span>나빴던 조합</span><span>최고 조합</span>
+    </div>
+    <section id="rows" class="rows"></section>
+
+    <details class="panel evidence">
+      <summary>이 두 조합을 고른 실험 근거</summary>
+      <p id="evidence-note" class="muted"></p>
+      <div class="table-wrap"><table id="evidence-table"></table></div>
+    </details>
+  </main>
+
+  <main id="view-replay" class="wrap" hidden>
+    <section class="panel">
+      <h2>저장된 실험 결과로 다시 보기</h2>
+      <p class="muted">위험·안전 쌍 문장 402건(표기 3종)에 대해 두 조합의 판정을 정답과 비교합니다. 새로 추론하지 않습니다.</p>
+      <div id="replay-summary" class="metrics"></div>
+      <p class="muted small" id="replay-code"></p>
+    </section>
+
+    <section class="panel filters">
+      <div class="seg" role="group" aria-label="오류 거르기" id="seg-err">
+        <button type="button" data-v="" aria-pressed="true">전체</button>
+        <button type="button" data-v="left" aria-pressed="false">왼쪽만 틀림</button>
+        <button type="button" data-v="right" aria-pressed="false">오른쪽만 틀림</button>
+        <button type="button" data-v="both" aria-pressed="false">둘 다 틀림</button>
+      </div>
+      <label class="switch"><input type="checkbox" id="f-diff" /> 판정이 다른 것만</label>
+      <label class="field inline"><span class="label">점검 항목</span><select id="f-check"><option value="">전체</option></select></label>
+      <label class="field inline"><span class="label">유형</span>
+        <select id="f-kind"><option value="">전체</option><option value="numeric">숫자형</option><option value="text">문구형</option></select></label>
+      <label class="field inline"><span class="label">표기</span>
+        <select id="f-surface"><option value="">전체 402건</option><option value="0">원문 134건</option><option value="A">조 제목 붙임</option><option value="B">원문자 붙임</option></select></label>
+      <select id="f-err" class="sr-only" tabindex="-1" aria-hidden="true"><option value=""></option><option value="left"></option><option value="right"></option><option value="both"></option></select>
+      <span class="count" id="replay-count"></span>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="table-wrap">
+        <table class="replay-table">
+          <thead><tr>
+            <th>문항</th><th>점검 항목</th><th>정답</th><th>나빴던 조합</th><th>최고 조합</th><th>판정 주체</th>
+          </tr></thead>
+          <tbody id="replay-rows"></tbody>
+        </table>
+      </div>
+      <button type="button" id="more" class="ghost" hidden>더 보기</button>
+    </section>
+  </main>
+
+  <footer class="wrap foot">일부 실험에 한국지능정보사회진흥원 AI 허브 데이터를 활용함</footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

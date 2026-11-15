@@ -1,0 +1,70 @@
+card_id: LOAN-INTEREST
+versions:
+- version: 1
+  effective_from: '2018-02-08'
+  effective_to: '2021-07-06'
+  apply_rule: contract_date
+  rule_source:
+    law: 이자제한법 제2조제1항의 최고이자율에 관한 규정
+    quote: 제2조(적용례) 이 영은 이 영 시행 이후 계약을 체결하거나 갱신하는 분부터 적용한다.
+    source_status: 원문
+  card:
+    safe:
+    - 이율·계산법이 있고 연 24% 이하(개인 간 전제) 또는 이자 없음 명시
+    violation:
+    - 명시 약정이율이 법정 최고(연 24% 등)를 초과
+    - 원금에서 선이자·수수료를 공제해 실질 이율이 상한 초과
+    check_if:
+    - 이자 지급만 있고 이율·계산 불명 → 합의·법정이율
+    basis:
+    - law:이자제한법:2
+    - law:이자제한법:7
+    - law:민법:598
+    match_keywords:
+    - 이자
+    - 이자율
+    - 이율
+    - 연리
+    - 퍼센트
+    - 선이자
+    - 공제
+    - 수수료
+    uses_facts:
+    - 약정연이율
+    - 실제교부액
+    blocking_if: []
+    title: 이자율
+- version: 2
+  effective_from: '2021-07-07'
+  effective_to: null
+  apply_rule: contract_date
+  rule_source:
+    law: 이자제한법 제2조제1항의 최고이자율에 관한 규정
+    quote: 제2조(적용례) 이 영은 이 영 시행 이후 계약을 체결하거나 갱신하는 분부터 적용한다.
+    source_status: 원문
+  card:
+    safe:
+    - 이율·계산법이 있고 연 20% 이하(개인 간 전제) 또는 이자 없음 명시
+    violation:
+    - 명시 약정이율이 법정 최고(연 20% 등)를 초과
+    - 원금에서 선이자·수수료를 공제해 실질 이율이 상한 초과
+    check_if:
+    - 이자 지급만 있고 이율·계산 불명 → 합의·법정이율
+    basis:
+    - law:이자제한법:2
+    - law:이자제한법:7
+    - law:민법:598
+    match_keywords:
+    - 이자
+    - 이자율
+    - 이율
+    - 연리
+    - 퍼센트
+    - 선이자
+    - 공제
+    - 수수료
+    uses_facts:
+    - 약정연이율
+    - 실제교부액
+    blocking_if: []
+    title: 이자율

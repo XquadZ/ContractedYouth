@@ -1,0 +1,13 @@
+{
+  "status": "parsed_image_pdf",
+  "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\cases\\주택임대차분쟁조정사례집.pdf",
+  "bytes": 35722003,
+  "n_pages": 101,
+  "text_layer": "없음(스캔/이미지 PDF, pdfplumber chars=0)",
+  "n_embedded_images_all_pages": 1100,
+  "case_count_unique_markers": "미확인(텍스트 레이어 없음, OCR 필요)",
+  "first_case_title": "미확인",
+  "first_case_text_head_300": "미확인 — 스캔본이라 텍스트 추출 불가. OCR 미설치/진행중.",
+  "source_note": "datasets 원본 35,722,003 bytes를 cases로 복사(원본 유지).",
+  "manual_page_url": "https://www.molit.go.kr/USR/policyData/m_34681/dtl.jsp?id=4599"
+}

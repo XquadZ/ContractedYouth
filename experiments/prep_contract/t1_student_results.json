@@ -1,0 +1,79 @@
+[
+  {
+    "model": "Qwen2.5-14B-Instruct",
+    "model_path": "C:\\Users\\DMLAB\\pilot_root\\models\\Qwen2.5-14B-Instruct",
+    "ctx": 4096,
+    "target_input_tokens": 3276,
+    "max_new_tokens": 512,
+    "load_ok": true,
+    "load_sec_once": 263.56,
+    "vram_after_load": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 5248 MiB, 24576 MiB, 42 %\n1, NVIDIA TITAN RTX, 5383 MiB, 24576 MiB, 11 %",
+    "quant": {
+      "load_in_4bit": true,
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_use_double_quant": true,
+      "bnb_4bit_compute_dtype": "float16"
+    },
+    "input_tokens_measured": 3240,
+    "input_chars": 4518,
+    "infer_ok": true,
+    "elapsed_sec": 26.301,
+    "completion_tokens": 160,
+    "prompt_tok_s": "미확인(HF generate 단일 호출 — 분리 미측정)",
+    "gen_tok_s": "미확인(HF generate 단일 호출 — 분리 미측정)",
+    "overall_tok_s": 129.275,
+    "prompt_tok_s_approx_via_max1": 669.922,
+    "gen_tok_s_approx": 7.454,
+    "vram_after_infer": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 9830 MiB, 24576 MiB, 9 %\n1, NVIDIA TITAN RTX, 9951 MiB, 24576 MiB, 97 %",
+    "content_preview": "1. 甲、乙、丙三人是否只需对其各自从戊处获得的分期支票金额负责，还是需要共同承担对戊的全部债务？\n2. 在租赁合同中，当租户A拖欠租金超过三年时，房东能否从保证金中扣除已过诉讼时效的未付月租金？\n3. 在甲与乙之间的物品供应合同中，丙作为连带保证人，在甲未能按时支付货款的情况下，丙是否需要履行其保证责任？\n4. 当公司法人代表为名义上的管理者而非实际经营者时，员工在提起未支付工资的民事诉讼时，应"
+  },
+  {
+    "model": "Qwen2.5-14B-Instruct",
+    "model_path": "C:\\Users\\DMLAB\\pilot_root\\models\\Qwen2.5-14B-Instruct",
+    "ctx": 8192,
+    "target_input_tokens": 6553,
+    "max_new_tokens": 512,
+    "load_ok": true,
+    "load_sec_once": 263.56,
+    "vram_after_load": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 5248 MiB, 24576 MiB, 42 %\n1, NVIDIA TITAN RTX, 5383 MiB, 24576 MiB, 11 %",
+    "quant": {
+      "load_in_4bit": true,
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_use_double_quant": true,
+      "bnb_4bit_compute_dtype": "float16"
+    },
+    "input_tokens_measured": 6467,
+    "input_chars": 9305,
+    "infer_ok": true,
+    "elapsed_sec": 39.361,
+    "completion_tokens": 117,
+    "prompt_tok_s": "미확인(HF generate 단일 호출 — 분리 미측정)",
+    "gen_tok_s": "미확인(HF generate 단일 호출 — 분리 미측정)",
+    "overall_tok_s": 167.271,
+    "prompt_tok_s_approx_via_max1": 401.117,
+    "gen_tok_s_approx": 5.035,
+    "vram_after_infer": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 22596 MiB, 24576 MiB, 31 %\n1, NVIDIA TITAN RTX, 22715 MiB, 24576 MiB, 99 %",
+    "content_preview": "1. 丙의 차용 행위가 상행위인지 여부\n2. 甲의 丙에 대한 채권에 상사시효가 적용되는지 여부\n3. 甲의 乙에 대한 채권에 상사시효가 적용되는지 여부\n4. 乙의 비상인 행위에도 불구하고 상사시효가 적용될 수 있는지 여부\n5. 甲이 乙과 丙에게 차용금 반환을 청구할 수 있는지 여부"
+  },
+  {
+    "model": "Qwen2.5-14B-Instruct",
+    "model_path": "C:\\Users\\DMLAB\\pilot_root\\models\\Qwen2.5-14B-Instruct",
+    "ctx": 16384,
+    "target_input_tokens": 13107,
+    "max_new_tokens": 512,
+    "load_ok": true,
+    "load_sec_once": 263.56,
+    "vram_after_load": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 5248 MiB, 24576 MiB, 42 %\n1, NVIDIA TITAN RTX, 5383 MiB, 24576 MiB, 11 %",
+    "quant": {
+      "load_in_4bit": true,
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_use_double_quant": true,
+      "bnb_4bit_compute_dtype": "float16"
+    },
+    "input_tokens_measured": 12926,
+    "input_chars": 18739,
+    "infer_ok": false,
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 24.90 GiB. GPU 0 has a total capacity of 24.00 GiB of which 14.36 GiB is free. Of the allocated memory 6.63 GiB is allocated by PyTorch, and 1.75 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\nTraceback (most recent call last):\n  File \"C:\\Users\\DMLAB\\pilot_root\\prep_contract\\t1_measure_student.py\", line 180, in main\n    gen = model.generate(\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\torch\\utils\\_contextlib.py\", line 120, in decorate_context\n    return func(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\generation\\utils.py\", line 2982, in generate\n    result = decoding_method(\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\generation\\utils.py\", line 3182, in _sample\n    outputs = self._prefill(\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\generation\\utils.py\", line 4293, in _prefill\n    return self(**model_inputs, return_dict=True)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1775, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1786, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\accelerate\\hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\utils\\generic.py\", line 943, in wrapper\n    output = func(self, *args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\models\\qwen2\\modeling_qwen2.py\", line 444, in forward\n    outputs: BaseModelOutputWithPast = self.model(\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1775, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1786, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\utils\\generic.py\", line 1081, in wrapper\n    output = func(self, *args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\utils\\output_capturing.py\", line 287, in wrapper\n    outputs = func(self, *args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\models\\qwen2\\modeling_qwen2.py\", line 380, in forward\n    hidden_states = decoder_layer(\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\modeling_layers.py\", line 110, in __call__\n    return super().__call__(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1775, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1786, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\accelerate\\hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\models\\qwen2\\modeling_qwen2.py\", line 274, in forward\n    hidden_states, _ = self.self_attn(\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1775, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1786, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\accelerate\\hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\models\\qwen2\\modeling_qwen2.py\", line 212, in forward\n    attn_output, attn_weights = attention_interface(\n  File \"C:\\Users\\DMLAB\\anaconda3\\envs\\pytorch\\lib\\site-packages\\transformers\\integrations\\sdpa_attention.py\", line 170, in sdpa_attention_forward\n    attn_output = torch.nn.functional.scaled_dot_product_attention(\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 24.90 GiB. GPU 0 has a total capacity of 24.00 GiB of which 14.36 GiB is free. Of the allocated memory 6.63 GiB is allocated by PyTorch, and 1.75 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n",
+    "vram_after_error": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 9451 MiB, 24576 MiB, 48 %\n1, NVIDIA TITAN RTX, 22715 MiB, 24576 MiB, 0 %"
+  }
+]

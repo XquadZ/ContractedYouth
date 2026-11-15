@@ -1,0 +1,290 @@
+{
+  "alba_cafe": {
+    "score": {
+      "left": {
+        "hit": 3,
+        "miss": 1,
+        "fp": 2,
+        "n_risk_gold": 4
+      },
+      "right": {
+        "hit": 3,
+        "miss": 1,
+        "fp": 0,
+        "n_risk_gold": 4
+      }
+    },
+    "done": {
+      "n": 12,
+      "domain": "LAB",
+      "wall_ms": 108360.7,
+      "left_ms": 108333.1,
+      "right_ms": 77818.1,
+      "left_calls": 36,
+      "right_calls": 15,
+      "verdicts": [
+        {
+          "i": 0,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 1,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 2,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 3,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 4,
+          "left": "risk",
+          "right": "risk",
+          "actor": "규칙 N/A→모델"
+        },
+        {
+          "i": 5,
+          "left": "risk",
+          "right": "risk",
+          "actor": "모델"
+        },
+        {
+          "i": 6,
+          "left": "safe",
+          "right": "risk",
+          "actor": "규칙"
+        },
+        {
+          "i": 7,
+          "left": "risk",
+          "right": "safe",
+          "actor": "규칙 N/A→모델"
+        },
+        {
+          "i": 8,
+          "left": "risk",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 9,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 10,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 11,
+          "left": "risk",
+          "right": "safe",
+          "actor": "모델"
+        }
+      ]
+    },
+    "n": 12
+  },
+  "oneroom_lease": {
+    "score": {
+      "left": {
+        "hit": 4,
+        "miss": 0,
+        "fp": 1,
+        "n_risk_gold": 4
+      },
+      "right": {
+        "hit": 4,
+        "miss": 0,
+        "fp": 0,
+        "n_risk_gold": 4
+      }
+    },
+    "done": {
+      "n": 11,
+      "domain": "LEASE",
+      "wall_ms": 158067.7,
+      "left_ms": 158040.2,
+      "right_ms": 126414.7,
+      "left_calls": 33,
+      "right_calls": 15,
+      "verdicts": [
+        {
+          "i": 0,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 1,
+          "left": "safe",
+          "right": "safe",
+          "actor": "규칙"
+        },
+        {
+          "i": 2,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 3,
+          "left": "risk",
+          "right": "safe",
+          "actor": "규칙"
+        },
+        {
+          "i": 4,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 5,
+          "left": "safe",
+          "right": "safe",
+          "actor": "규칙 N/A→모델"
+        },
+        {
+          "i": 6,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 7,
+          "left": "risk",
+          "right": "risk",
+          "actor": "규칙"
+        },
+        {
+          "i": 8,
+          "left": "risk",
+          "right": "risk",
+          "actor": "모델"
+        },
+        {
+          "i": 9,
+          "left": "risk",
+          "right": "risk",
+          "actor": "모델"
+        },
+        {
+          "i": 10,
+          "left": "risk",
+          "right": "risk",
+          "actor": "모델"
+        }
+      ]
+    },
+    "n": 11
+  },
+  "clean_alba": {
+    "score": {
+      "left": {
+        "hit": 0,
+        "miss": 0,
+        "fp": 4,
+        "n_risk_gold": 0
+      },
+      "right": {
+        "hit": 0,
+        "miss": 0,
+        "fp": 0,
+        "n_risk_gold": 0
+      }
+    },
+    "done": {
+      "n": 11,
+      "domain": "LAB",
+      "wall_ms": 64902.8,
+      "left_ms": 64877.1,
+      "right_ms": 35735.1,
+      "left_calls": 33,
+      "right_calls": 14,
+      "verdicts": [
+        {
+          "i": 0,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 1,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 2,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 3,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 4,
+          "left": "risk",
+          "right": "safe",
+          "actor": "규칙 N/A→모델"
+        },
+        {
+          "i": 5,
+          "left": "risk",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 6,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 7,
+          "left": "risk",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 8,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 9,
+          "left": "safe",
+          "right": "safe",
+          "actor": "모델"
+        },
+        {
+          "i": 10,
+          "left": "risk",
+          "right": "safe",
+          "actor": "모델"
+        }
+      ]
+    },
+    "n": 11
+  }
+}

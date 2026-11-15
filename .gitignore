@@ -1,0 +1,161 @@
+# --- secrets / env ---
+.env
+.env.*
+*.pem
+*credentials*
+*secret*
+
+# --- Windows junctions at ROOT (실제 내용은 experiments/, data/, docs/ 에만 커밋) ---
+/run3/
+/pilot/
+/prep_contract/
+/standard_forms/
+/datasets/
+/계약 법률 문서 서식 데이터/
+/관련 논문/
+/data/data_contract/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# --- OS / IDE ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# --- large model weights ---
+models/
+**/models/**/*.safetensors
+**/models/**/*.bin
+**/models/**/*.gguf
+**/models/**/*.pt
+**/models/**/*.onnx
+**/*.incomplete
+data_contract/models/
+
+# --- huge data packages ---
+data/aihub_full_package/
+계약 법률 문서 서식 데이터/
+
+# --- archives / toolkits ---
+tools/**/*.zip
+tools/llama.cpp/
+tools/cudart*/
+*.zip
+
+# --- datasets bulk (keep small metadata if any) ---
+data/datasets/**/*.zip
+data/datasets/**/*.pdf
+data/datasets/**/*.tar
+data/datasets/**/*.7z
+data/datasets/LawQA-Ko/
+data_local/
+
+# --- OCR rasters (keep txt) ---
+data_contract/cases/ocr/*.png
+data_contract/cases/*.pdf
+
+# --- law API bulk bodies (keep reports/scripts/lists) ---
+data_contract/law_api/**/bodies/
+data_contract/law_api/**/bodies_g2/
+data_contract/law_api/**/bodies_html/
+data_contract/law_api/**/bodies_parsed/
+data_contract/law_api/판례/bodies/
+data_contract/law_api/판례/bodies_filtered_v2/
+data_contract/law_api/법령해석례/**/bodies/
+data_contract/law_api/법령해석례/**/bodies_g2/
+data_contract/law_api/공정위/**/bodies/
+data_contract/law_api/공정위/**/bodies_g2/
+data_contract/law_api/행정규칙/**/pdfs/
+
+# --- extracted AI Hub forms can be large; keep vocab/reports ---
+# include aihub_forms label json if needed — uncomment to exclude:
+# data_contract/aihub_forms/TL_*/
+# data_contract/aihub_forms/VL_*/
+# data_contract/aihub_forms/TS_*/
+# data_contract/aihub_forms/VS_*/
+
+# --- experiment heavy artifacts ---
+experiments/run3/adapter_B/
+experiments/run3/adapter_C/
+experiments/run3/adapter_*/
+experiments/run3/**/*.gguf
+experiments/run3/**/checkpoint-*/
+experiments/run3/**/*.pt
+experiments/run3/**/*.safetensors
+experiments/**/__pycache__/
+experiments/pilot/**/*.gguf
+experiments/pilot/eval_aihub_ood.jsonl
+
+# --- logs ---
+*.log
+**/console.log
+
+# --- local caches ---
+.cache/
+**/.cache/
+
+# --- FreeLLMAPI desktop binaries (download from GitHub Releases) ---
+freellm/app/
+freellm/install/
+freellm/**/*.exe
+freellm/**/*.dmg
+freellm/**/*.AppImage
+
+# --- FreeLLMAPI local secrets (never commit) ---
+freellm/.env
+freellm/.env.*
+**/.encryption-key
+*.encryption-key
+
+# --- AI Hub raw terms / bulk law (PII·저작권·용량) — 증류용 교사 산출물만 별도 경로 ---
+data_contract/aihub_terms/TL_*/
+data_contract/aihub_terms/TS_*/
+data_contract/aihub_terms/VL_*/
+data_contract/aihub_terms/VS_*/
+data_contract/aihub_terms/**/*.zip
+data_contract/aihub_forms/TL_*/
+data_contract/aihub_forms/VL_*/
+data_contract/aihub_forms/TS_*/
+data_contract/aihub_forms/VS_*/
+
+# --- local experiment artifacts with clause text / embeddings ---
+exp_gap1/data/
+exp_gap1/data/**/*.jsonl
+exp_gap1/retrieval/**/*.npy
+exp_gap1/out/**/*.log
+exp_gap2/data/
+exp_gap2/retrieval/
+exp_gap2/out/gpu_log.csv
+exp_gap2/out/**/*.log
+exp_gap2/out/**/*.jsonl
+exp_gap2/out/**/*8B*
+exp_gap2/distill_audit/items.csv
+**/*.npy
+
+# keep distill_export/ (teacher reasons only, no clause)
+
+# T2 audit snippets stay on this machine
+exp_v2/t2_audit/
+exp_v2/data_profile/
+exp_v2/t2_input/
+app_rag/out/
+
+# app_rag local runtime
+app_rag/data_local/
+data_local/
+**/secret.key
+**/ADMIN_PASSWORD.txt
+**/app.db
+**/test_*.db
+**/*_app.db
+.cursor/
+*.bak
+

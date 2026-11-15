@@ -1,0 +1,22 @@
+[
+  {
+    "file": "32B_E2_C2.jsonl",
+    "n": 1000,
+    "bytes": 259038
+  },
+  {
+    "file": "32B_E2_C4.jsonl",
+    "n": 500,
+    "bytes": 109799
+  },
+  {
+    "file": "32B_E2_C5.jsonl",
+    "n": 299,
+    "bytes": 71706
+  },
+  {
+    "file": "32B_E2_R.jsonl",
+    "n": 200,
+    "bytes": 52952
+  }
+]

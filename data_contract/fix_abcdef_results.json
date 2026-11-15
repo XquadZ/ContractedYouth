@@ -1,0 +1,637 @@
+{
+  "oc_configured": true,
+  "A": {
+    "old_html_errors": {
+      "3-5": [
+        {
+          "file": "법령해석례\\list_고용노동부_근로계약.json",
+          "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+        },
+        {
+          "file": "법령해석례\\list_고용노동부_보증금.json",
+          "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+        },
+        {
+          "file": "법령해석례\\list_고용노동부_수습.json",
+          "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+        }
+      ],
+      "3-6": [
+        {
+          "file": "공정위\\list_임대차_약관_XML.xml",
+          "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+        },
+        {
+          "file": "공정위\\list_임대차계약서_XML.xml",
+          "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+        }
+      ],
+      "3-7": [
+        {
+          "file": "법령용어\\lstrm_list_p1.json",
+          "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+        },
+        {
+          "file": "법령용어\\lstrm_list_p2.json",
+          "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+        },
+        {
+          "file": "법령용어\\lstrm_list_p3.json",
+          "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+        }
+      ]
+    },
+    "guide_fix": {
+      "expc": "미승인 → 중앙부처 1차 해석 moelCgmExpc 등",
+      "ftc": "JSON 목록 사용",
+      "lstrm": "미승인 → lstrmRlt"
+    },
+    "expc_unauthorized": {
+      "target": "expc",
+      "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=expcListGuide",
+      "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)",
+      "conclusion": "target=expc 미승인. 중앙부처 1차 해석(moelCgmExpc 등)으로 대체 시도."
+    },
+    "ministry": {
+      "법무부": {
+        "target": "mojCgmExpc",
+        "ok": false,
+        "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)",
+        "guide": "https://open.law.go.kr/LSO/openApi/guideList.do (cgmExpc*ListGuide)",
+        "conclusion": "미승인 target — 신청 필요"
+      },
+      "고용노동부": {
+        "target": "moelCgmExpc",
+        "ok": true,
+        "guide": "https://open.law.go.kr/LSO/openApi/guideList.do → cgmExpc*ListGuide/InfoGuide",
+        "list_responses_ok": 10,
+        "unique_ids": 644,
+        "bodies_ok": 100,
+        "sample_head_300": "{\"CgmExpcService\": {\n    \"안건명\": \"10인 미만 사업장 취업규칙의 효력 등 관련 행정해석 변경\",\n    \"질의요지\": \"10인 미만 사업장 취업규칙의 효력 등 관련 행정해석 변경\",\n    \"해석기관코드\": \"1492000\",\n    \"안건번호\": \"근로기준팀-2046\",\n    \"이유\": \"\",\n    \"법령해석일련번호\": \"1968\",\n    \"질의기관명\": \"\",\n    \"관련법령\": \"\",\n    \"관리기관코드\": \"1492000\",\n    \"해석기관명\": \"고용노동부\",\n    \"질의기관코드\": \"",
+        "success_criterion": "목록: JSON CgmExpc; 본문: JSON CgmExpcService"
+      },
+      "국토교통부": {
+        "target": "molitCgmExpc",
+        "ok": true,
+        "guide": "https://open.law.go.kr/LSO/openApi/guideList.do → cgmExpc*ListGuide/InfoGuide",
+        "list_responses_ok": 8,
+        "unique_ids": 194,
+        "bodies_ok": 100,
+        "sample_head_300": "{\"CgmExpcService\": {\n    \"중분류\": \"\",\n    \"해석기관코드\": \"1613000\",\n    \"안건번호\": \"\",\n    \"이유\": \"\",\n    \"소분류\": \"\",\n    \"법령해석일련번호\": \"2291553\",\n    \"해석기관명\": \"국토교통부\",\n    \"관리기관코드\": \"1613000\",\n    \"해석일자\": \"20240501\",\n    \"대분류\": \"\",\n    \"데이터기준일시\": \"20251211\",\n    \"안건명\": \"A건설사업체의 대표이사가 B건설사업체의 등기이사로 취업하여 상시근로하며 건설",
+        "success_criterion": "목록: JSON CgmExpc; 본문: JSON CgmExpcService"
+      },
+      "법제처": {
+        "target": "molegCgmExpc",
+        "ok": true,
+        "guide": "https://open.law.go.kr/LSO/openApi/guideList.do → cgmExpc*ListGuide/InfoGuide",
+        "list_responses_ok": 7,
+        "unique_ids": 1,
+        "bodies_ok": 1,
+        "sample_head_300": "{\"CgmExpcService\": {\n    \"안건명\": \"법제처에서 제공하는 법제교육에는 어떤 것이 있는지 궁금합니다.\",\n    \"질의요지\": \"법제처에서 제공하는 법제교육에는 어떤 것이 있는지 궁금합니다.\",\n    \"해석기관코드\": \"1170000\",\n    \"안건번호\": \"\",\n    \"이유\": \"\",\n    \"법령해석일련번호\": \"427824\",\n    \"질의기관명\": \"\",\n    \"관련법령\": \"\",\n    \"관리기관코드\": \"1170000\",\n    \"해석기관명\": \"법제처\",\n    \"질의기관코드\": \"\",\n   ",
+        "success_criterion": "목록: JSON CgmExpc; 본문: JSON CgmExpcService"
+      }
+    },
+    "ftc": {
+      "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=cmtListGuide / cmtInfoGuide",
+      "fix": "목록·본문 type=JSON 실측 성공 (Ftc / FtcService).",
+      "list_responses_ok": 2,
+      "unique_ids": 65,
+      "bodies_ok": 65,
+      "sample_head_300": "{\"FtcService\": {\n    \"시정권고이유\": \"1. 권리설정 제한조항가. 약관조항<img src=\\\"/LSW/flDownload.do?flSeq=120743317\\\" alt=\\\"시정권고이유 1번째 이미지\\\" ><\\/img>나. 검토의견 : 무효ㅇ 임대차계약에 의해 부수적으로 발생하는 임차인의 보증금 반환청구권은 채권으로서 질권설정의 방법으로 담보제공을 할 수 있음- 이에 따라 임차인은 자금융통을 할 수 있는데 반해 임대인은 별다른 금전적 손해가 발생하지 않음- 그러나, 위 약관조항은 임대차계약과 관련하여 어떠한 권리설정도",
+      "error_if_any": null,
+      "success_criterion": "목록 JSON Ftc; 본문 JSON FtcService"
+    },
+    "lstrm": {
+      "target": "lstrm",
+      "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsTrmListGuide",
+      "ok": false,
+      "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)",
+      "conclusion": "미승인이면 lstrmRlt(법령용어-일상용어 연계)로 범위 내 수집"
+    },
+    "lstrmRlt": {
+      "guide": "http://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lstrmRltGuide",
+      "endpoint": "lawService.do (not lawSearch)",
+      "list_or_service_ok": 11,
+      "bodies_ok": 11,
+      "sample_head_300": "{\"lstrmRltService\": {\n    \"검색결과개수\": \"1\",\n    \"키워드\": \"근로계약\",\n    \"target\": \"lstrmRlt\",\n    \"법령용어\": {\n        \"id\": \"1\",\n        \"연계용어\": [\n            {\n                \"용어간관계링크\": \"/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=6729\",\n                \"id\": \"1\",\n                \"일상용어명\": \"",
+      "success_criterion": "JSON with lstrmRltService"
+    }
+  },
+  "B": {
+    "guide_history_api": {
+      "guideList": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "lsHistory_list": {
+        "url": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsHstListGuide",
+        "target": "lsHistory",
+        "type": "HTML only",
+        "params": [
+          "query",
+          "efYd",
+          "display",
+          "page",
+          "sort"
+        ]
+      },
+      "lsHistory_body": {
+        "url": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsHstInfoGuide",
+        "target": "lsHistory",
+        "type": "HTML only",
+        "params": [
+          "MST or ID"
+        ]
+      },
+      "also_used": "target=law JSON + efYd + 법령명한글 완전일치 필터 후 MST 본문(JSON) — 구조화 저장용"
+    },
+    "mismatched_previous_bodies": [
+      {
+        "file": "연혁\\근로기준법_body_MST_269393.json",
+        "expected": "근로기준법",
+        "actual_법령명": "근로기준법 시행규칙"
+      },
+      {
+        "file": "연혁\\근로기준법_body_MST_270551.json",
+        "expected": "근로기준법",
+        "actual_법령명": "근로기준법 시행령"
+      },
+      {
+        "file": "연혁\\민법_body_MST_266851.json",
+        "expected": "민법",
+        "actual_법령명": "민법법인 및 특수법인 등기규칙"
+      },
+      {
+        "file": "연혁\\민법_body_MST_266929.json",
+        "expected": "민법",
+        "actual_법령명": "난민법 시행규칙"
+      },
+      {
+        "file": "연혁\\민법_body_MST_273705.json",
+        "expected": "민법",
+        "actual_법령명": "난민법 시행령"
+      },
+      {
+        "file": "연혁\\주택임대차보호법_body_MST_287183.json",
+        "expected": "주택임대차보호법",
+        "actual_법령명": "주택임대차보호법 시행령"
+      }
+    ],
+    "laws": {
+      "근로기준법": {
+        "n_versions": 1,
+        "bodies_ok": 1,
+        "table": [
+          {
+            "법령명한글": "근로기준법",
+            "시행일": "20261008",
+            "공포일": "20260407",
+            "공포번호": "21533",
+            "MST": "285279",
+            "현행연혁코드": "현행",
+            "제개정구분명": "일부개정",
+            "body_type": "law_JSON_MST"
+          }
+        ],
+        "sample_head_300": "{\"법령\": {\n    \"개정문\": {\"개정문내용\": [[\n        \"국회에서 의결된 근로기준법 일부개정법률을 이에 공포한다.\",\n        \"          대통령        이재명 (인)\",\n        \"    2026년 4월 7일\",\n        \"          국무총리        김민석\",\n        \"          국무위원 고용노동부 장관        김영훈\",\n        \"⊙법률 제21533호\",\n        \"근로기준법 일부개정법률\",\n        \"근로기준법 일부를 다음과 같이 개"
+      },
+      "근로기준법 시행령": {
+        "n_versions": 1,
+        "bodies_ok": 1,
+        "table": [
+          {
+            "법령명한글": "근로기준법 시행령",
+            "시행일": "20251023",
+            "공포일": "20250408",
+            "공포번호": "35436",
+            "MST": "270551",
+            "현행연혁코드": "현행",
+            "제개정구분명": "일부개정",
+            "body_type": "law_JSON_MST"
+          }
+        ],
+        "sample_head_300": "{\"법령\": {\n    \"개정문\": {\"개정문내용\": [[\n        \"국무회의의 심의를 거친 근로기준법 시행령 일부개정령을 이에 공포한다.\",\n        \"          대통령 권한대행 국무총리        한덕수 (인)\",\n        \"    2025년 4월 8일\",\n        \"          국무총리        한덕수\",\n        \"          국무위원 고용노동부 장관        김문수\",\n        \"⊙대통령령 제35436호\",\n        \"근로기준법 시행령 일부개정령\",\n     "
+      },
+      "최저임금법": {
+        "n_versions": 1,
+        "bodies_ok": 1,
+        "table": [
+          {
+            "법령명한글": "최저임금법",
+            "시행일": "20200526",
+            "공포일": "20200526",
+            "공포번호": "17326",
+            "MST": "218303",
+            "현행연혁코드": "현행",
+            "제개정구분명": "타법개정",
+            "note": "현행_fallback (2022 이후 신규 시행판 없음)",
+            "body_type": "law_JSON_MST_현행"
+          }
+        ],
+        "sample_head_300": "{\"법령\": {\n    \"개정문\": {\"개정문내용\": [[\n        \"⊙법률 제17326호(2020.5.26)\",\n        \"법률용어 정비를 위한 환경노동위원회 소관 65개 법률 일부개정을 위한 법률\",\n        \"제1조부터 제63조까지 생략\",\n        \"제64조(「최저임금법」의 개정) 최저임금법 일부를 다음과 같이 개정한다.\",\n        \"  제5조제2항 본문 중 \\\"자에\\\"를 \\\"사람에\\\"로 한다.\",\n        \"  제7조 각 호 외의 부분 중 \\\"자로서\\\"를 \\\"사람으로서\\\"로, \\\"받은 자\\",
+        "fallback": true
+      },
+      "최저임금법 시행령": {
+        "n_versions": 1,
+        "bodies_ok": 1,
+        "table": [
+          {
+            "법령명한글": "최저임금법 시행령",
+            "시행일": "20190101",
+            "공포일": "20181231",
+            "공포번호": "29469",
+            "MST": "206564",
+            "현행연혁코드": "현행",
+            "제개정구분명": "일부개정",
+            "note": "현행_fallback (2022 이후 신규 시행판 없음)",
+            "body_type": "law_JSON_MST_현행"
+          }
+        ],
+        "sample_head_300": "{\"법령\": {\n    \"개정문\": {\"개정문내용\": [[\n        \"국무회의의 심의를 거친 최저임금법 시행령 일부개정령을 이에 공포한다.\",\n        \"          대통령        문재인 (인)\",\n        \"    2018년 12월 31일\",\n        \"          국무총리        이낙연\",\n        \"          국무위원 고용노동부 장관        이재갑\",\n        \"⊙대통령령 제29469호\",\n        \"최저임금법 시행령 일부개정령\",\n        \"최저임금",
+        "fallback": true
+      },
+      "주택임대차보호법": {
+        "n_versions": 1,
+        "bodies_ok": 1,
+        "table": [
+          {
+            "법령명한글": "주택임대차보호법",
+            "시행일": "20260102",
+            "공포일": "20251001",
+            "공포번호": "21065",
+            "MST": "276291",
+            "현행연혁코드": "현행",
+            "제개정구분명": "타법개정",
+            "body_type": "law_JSON_MST"
+          }
+        ],
+        "sample_head_300": "{\"법령\": {\n    \"개정문\": {\"개정문내용\": [[\n        \"⊙법률 제21065호(2025.10.1)\",\n        \"정부조직법 일부개정법률\",\n        \"[본문 생략]\",\n        \"        부칙\",\n        \"제1조(시행일) 이 법은 공포한 날부터 시행한다. 다만, 부칙 제7조에 따라 개정되는 법률 중 이 법 시행 전에 공포되었으나 시행일이 도래하지 아니한 법률을 개정한 부분은 각각 해당 법률의 시행일부터 시행하고, 다음 각 호의 개정규정은 해당 호에서 정하는 날부터 시행한다.\",\n    "
+      },
+      "주택임대차보호법 시행령": {
+        "n_versions": 1,
+        "bodies_ok": 1,
+        "table": [
+          {
+            "법령명한글": "주택임대차보호법 시행령",
+            "시행일": "20260701",
+            "공포일": "20260623",
+            "공포번호": "36423",
+            "MST": "287183",
+            "현행연혁코드": "현행",
+            "제개정구분명": "타법개정",
+            "body_type": "law_JSON_MST"
+          }
+        ],
+        "sample_head_300": "{\"법령\": {\n    \"개정문\": {\"개정문내용\": [[\n        \"⊙대통령령 제36423호(2026.6.23)\",\n        \"전남광주통합특별시 설치를 위한 특별법 시행령\",\n        \"[본문 생략]\",\n        \"        부칙\",\n        \"제1조(시행일) 이 영은 2026년 7월 1일부터 시행한다. <단서 생략>\",\n        \"제2조 생략\",\n        \"제3조(다른 법령의 개정) ①부터 <61>까지 생략\",\n        \"  <62> 주택임대차보호법 시행령 일부를 다음과 같이 개정한"
+      },
+      "민법": {
+        "n_versions": 1,
+        "bodies_ok": 1,
+        "table": [
+          {
+            "법령명한글": "민법",
+            "시행일": "20260317",
+            "공포일": "20260317",
+            "공포번호": "21454",
+            "MST": "284415",
+            "현행연혁코드": "현행",
+            "제개정구분명": "일부개정",
+            "body_type": "law_JSON_MST"
+          }
+        ],
+        "sample_head_300": "{\"법령\": {\n    \"개정문\": {\"개정문내용\": [[\n        \"국회에서 의결된 민법 일부개정법률을 이에 공포한다. \",\n        \"          대통령        이재명 (인)\",\n        \"    2026년 3월 17일\",\n        \"          국무총리        김민석\",\n        \"          국무위원 법무부 장관        정성호\",\n        \"⊙법률 제21454호\",\n        \"민법 일부개정법률\",\n        \"민법 일부를 다음과 같이 개정한다.\",\n  "
+      },
+      "이자제한법": {
+        "n_versions": 1,
+        "bodies_ok": 1,
+        "table": [
+          {
+            "법령명한글": "이자제한법",
+            "시행일": "20250722",
+            "공포일": "20250121",
+            "공포번호": "20714",
+            "MST": "268667",
+            "현행연혁코드": "현행",
+            "제개정구분명": "타법개정",
+            "body_type": "law_JSON_MST"
+          }
+        ],
+        "sample_head_300": "{\"법령\": {\n    \"개정문\": {\"개정문내용\": [[\n        \"⊙법률 제20714호(2025.1.21)\",\n        \"대부업 등의 등록 및 금융이용자 보호에 관한 법률 일부개정법률\",\n        \"[본문 생략]\",\n        \"        부칙\",\n        \"제1조(시행일) 이 법은 공포 후 6개월이 경과한 날부터 시행한다.\",\n        \"제2조부터 제5조까지 생략\",\n        \"제6조(다른 법률의 개정) ① 생략\",\n        \"  ② 이자제한법 일부를 다음과 같이 개정한다.\",\n  "
+      },
+      "이자제한법 제2조제1항의 최고이자율에 관한 규정": {
+        "n_versions": 1,
+        "bodies_ok": 1,
+        "table": [
+          {
+            "법령명한글": "이자제한법 제2조제1항의 최고이자율에 관한 규정",
+            "시행일": "20210707",
+            "공포일": "20210406",
+            "공포번호": "31593",
+            "MST": "230727",
+            "현행연혁코드": "현행",
+            "제개정구분명": "일부개정",
+            "note": "현행_fallback (2022 이후 신규 시행판 없음)",
+            "body_type": "law_JSON_MST_현행"
+          }
+        ],
+        "sample_head_300": "{\"법령\": {\n    \"개정문\": {\"개정문내용\": [[\n        \"국무회의의 심의를 거친 이자제한법 제2조제1항의 최고이자율에 관한 규정 일부개정령을 이에 공포한다.\",\n        \"          대통령        문재인 (인)\",\n        \"    2021년 4월 6일\",\n        \"          국무총리        정세균\",\n        \"          국무위원 법무부 장관        박범계\",\n        \"⊙대통령령 제31593호\",\n        \"이자제한법 제2조제1항의 최고이자",
+        "fallback": true
+      },
+      "보증인 보호를 위한 특별법": {
+        "n_versions": 1,
+        "bodies_ok": 1,
+        "table": [
+          {
+            "법령명한글": "보증인 보호를 위한 특별법",
+            "시행일": "20231221",
+            "공포일": "20230620",
+            "공포번호": "19504",
+            "MST": "251943",
+            "현행연혁코드": "현행",
+            "제개정구분명": "타법개정",
+            "body_type": "law_JSON_MST"
+          }
+        ],
+        "sample_head_300": "{\"법령\": {\n    \"개정문\": {\"개정문내용\": [[\n        \"⊙법률 제19504호(2023.6.20)\",\n        \"벤처투자 촉진에 관한 법률 일부개정법률\",\n        \"[본문 생략]\",\n        \"        부칙\",\n        \"제1조(시행일) 이 법은 공포 후 6개월이 경과한 날부터 시행한다.\",\n        \"제2조부터 제5조까지 생략\",\n        \"제6조(다른 법률의 개정) ①부터 ④까지 생략\",\n        \"  ⑤ 보증인 보호를 위한 특별법 일부를 다음과 같이 개정한다.\",\n"
+      }
+    },
+    "note_현행_fallback": "2022-01-01 이후 신규 시행판이 없는 법령은 현행(시행일<2022) 본문을 포함. 해당 기간에 적용되는 동일 텍스트임."
+  },
+  "C": {
+    "query": "적용 최저임금 고시",
+    "nw": [
+      1,
+      2
+    ],
+    "years": {
+      "2022": {
+        "ok": true,
+        "name": "2022년 적용 최저임금 고시",
+        "ID": "2100000203520",
+        "hourly": "9,160",
+        "evidence": "2022년 적용 최저임금은 시간급 9,160원",
+        "sample_head_300": "{\"AdmRulService\": {\n    \"행정규칙기본정보\": {\n        \"현행여부\": \"N\",\n        \"담당부서기관명\": \"고용노동부(근로기준정책과)\",\n        \"담당자명\": \"김형준\",\n        \"행정규칙종류코드\": \"B0003\",\n        \"행정규칙명\": \"2022년 적용 최저임금 고시\",\n        \"발령일자\": \"20210805\",\n        \"행정규칙종류\": \"고시\",\n        \"제개정구분코드\": \"200401\",\n        \"조문형식여부\": \"Y\",\n        \"소관",
+        "evidence_source": "제개정이유/조문내용"
+      },
+      "2023": {
+        "ok": true,
+        "name": "2023년 적용 최저임금 고시",
+        "ID": "2100000213591",
+        "hourly": "9,620",
+        "evidence": "2023년 적용 최저임금은 시간급 9,620원",
+        "sample_head_300": "{\"AdmRulService\": {\n    \"행정규칙기본정보\": {\n        \"현행여부\": \"N\",\n        \"담당부서기관명\": \"고용노동부(근로기준정책과)\",\n        \"담당자명\": \"김형준\",\n        \"행정규칙종류코드\": \"B0003\",\n        \"행정규칙명\": \"2023년 적용 최저임금 고시\",\n        \"발령일자\": \"20220805\",\n        \"행정규칙종류\": \"고시\",\n        \"제개정구분코드\": \"200401\",\n        \"조문형식여부\": \"Y\",\n        \"소관",
+        "evidence_source": "제개정이유/조문내용"
+      },
+      "2024": {
+        "ok": true,
+        "name": "2024년 적용 최저임금 고시",
+        "ID": "2100000227560",
+        "hourly": "9,860",
+        "evidence": "시간급 모 든 산 업 9,860 원",
+        "sample_head_300": "{\"AdmRulService\": {\n    \"행정규칙기본정보\": {\n        \"현행여부\": \"N\",\n        \"담당부서기관명\": \"고용노동부(근로기준정책과)\",\n        \"담당자명\": \"김형준\",\n        \"행정규칙종류코드\": \"B0003\",\n        \"행정규칙명\": \"2024년 적용 최저임금 고시\",\n        \"발령일자\": \"20230804\",\n        \"행정규칙종류\": \"고시\",\n        \"제개정구분코드\": \"200401\",\n        \"조문형식여부\": \"Y\",\n        \"소관",
+        "evidence_source": "첨부 PDF: 2024년 적용 최저임금 고시(고용노동부 고시 제2023-43호).pdf"
+      },
+      "2025": {
+        "ok": true,
+        "name": "2025년 적용 최저임금 고시",
+        "ID": "2100000245668",
+        "hourly": "10,030",
+        "evidence": "시간급 모 든 산 업 10,030 원",
+        "sample_head_300": "{\"AdmRulService\": {\n    \"행정규칙기본정보\": {\n        \"현행여부\": \"N\",\n        \"담당부서기관명\": \"고용노동부(근로기준정책과)\",\n        \"담당자명\": \"김형준\",\n        \"행정규칙종류코드\": \"B0003\",\n        \"행정규칙명\": \"2025년 적용 최저임금 고시\",\n        \"발령일자\": \"20240805\",\n        \"행정규칙종류\": \"고시\",\n        \"제개정구분코드\": \"200401\",\n        \"조문형식여부\": \"Y\",\n        \"소관",
+        "evidence_source": "첨부 PDF: 2025년 적용 최저임금 고시(고용노동부 고시 제2024-50호).pdf"
+      },
+      "2026": {
+        "ok": true,
+        "name": "2026년 적용 최저임금 고시",
+        "ID": "2100000262710",
+        "hourly": "10,320",
+        "evidence": "시간급 모 든 산 업 10,320 원",
+        "sample_head_300": "{\"AdmRulService\": {\n    \"행정규칙기본정보\": {\n        \"현행여부\": \"Y\",\n        \"담당부서기관명\": \"고용노동부(근로기준정책과)\",\n        \"담당자명\": \"김형준\",\n        \"행정규칙종류코드\": \"B0003\",\n        \"행정규칙명\": \"2026년 적용 최저임금 고시\",\n        \"발령일자\": \"20250805\",\n        \"행정규칙종류\": \"고시\",\n        \"제개정구분코드\": \"200401\",\n        \"조문형식여부\": \"Y\",\n        \"소관",
+        "evidence_source": "첨부 PDF: 2026년 적용 최저임금 고시(고용노동부 고시 제2025-47호).pdf"
+      }
+    },
+    "excluded_선원": []
+  },
+  "D": {
+    "filter_code": "def passes_special_agreement_filter(판시사항: str, 판결요지: str) -> bool:\n    blob = (판시사항 or \"\") + (판결요지 or \"\")\n    return (\"특약\" in blob) or (\"약정\" in blob)",
+    "existing_400": {
+      "n_files": 400,
+      "pass_판시사항_or_판결요지_특약_약정": 140,
+      "note": "판시사항+판결요지 필드만 검사(본문 전체 문자열 검색 제외). D 시작 전 mtime 기준 400건."
+    },
+    "full_list_fetch": {
+      "unique_list_n": 1986,
+      "bodies_fetched_new_or_reused": 1586,
+      "pass_count": 216,
+      "sample_head_300": "{\"PrecService\": {\n    \"판시사항\": \" [1] 근로계약 불이행에 대한 위약금 또는 손해배상액 예정의 약정을 금지하는 근로기준법 제20조의 규정 취지 및 사용자가 근로자에게 일정한 금원을 지급하면서 퇴직 후 일정한 사유가 발생하면 그 전부 또는 일부를 반환받기로 약정한 경우, 근로기준법 제20조가 금지하는 약정인지 판단하는 기준<br/> [2] 甲이 乙 주식회사와 체결한 텔레마케팅 업무위촉계약에서 甲의 보수는 유료회원으로부터 지급받는 금원에서 일체의 환불금을 공제한 금액인 \\u2018실매출액\\u2019의 10%이고,",
+      "success_criterion": "PrecService/판례 JSON + 판시사항|판결요지 contains 특약|약정"
+    },
+    "by_keyword_pass": {
+      "근로계약 위약금": 18,
+      "수습기간 임금": 6,
+      "보증 서면": 30,
+      "보증금 반환 특약": 26,
+      "위약예정": 27,
+      "임대차 특약 무효": 30,
+      "임대차 위약금": 24,
+      "원상복구 특약": 22,
+      "이자제한법 초과": 8,
+      "임금 공제": 12,
+      "휴게시간": 7,
+      "주휴수당": 27,
+      "차용증": 2,
+      "계약갱신요구권 포기": 0
+    }
+  },
+  "E": {
+    "has_금전대차계약서_detail": false,
+    "money_taxonomy": [
+      {
+        "대": "금전소비대차_채권_채무",
+        "중": "채권_채무계약",
+        "소": "채권양도계약서",
+        "count": 121
+      },
+      {
+        "대": "금전소비대차_채권_채무",
+        "중": "채권_채무계약",
+        "소": "채무승계계약서",
+        "count": 95
+      }
+    ],
+    "source_zips": [
+      {
+        "zip": "3.개방데이터\\1.데이터\\Training\\01.원천데이터\\TS_금전소비대차_채권_채무_채권_채무계약.zip",
+        "bytes": 592259
+      },
+      {
+        "zip": "3.개방데이터\\1.데이터\\Training\\02.라벨링데이터\\TL_금전소비대차_채권_채무_채권_채무계약.zip",
+        "bytes": 640780
+      },
+      {
+        "zip": "3.개방데이터\\1.데이터\\Validation\\01.원천데이터\\VS_금전소비대차_채권_채무_채권_채무계약.zip",
+        "bytes": 73007
+      },
+      {
+        "zip": "3.개방데이터\\1.데이터\\Validation\\02.라벨링데이터\\VL_금전소비대차_채권_채무_채권_채무계약.zip",
+        "bytes": 79559
+      }
+    ],
+    "conclusion": "개방 zip에 없음",
+    "source_root": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\datasets\\05.계약 법률 문서 서식 데이터",
+    "zip_entry_samples": {
+      "3.개방데이터\\1.데이터\\Training\\01.원천데이터\\TS_금전소비대차_채권_채무_채권_채무계약.zip": [
+        "/채권양도계약서_0004.json",
+        "/채권양도계약서_0037.json",
+        "/채권양도계약서_0013.json",
+        "/채권양도계약서_0011.json",
+        "/채권양도계약서_0007.json",
+        "/채권양도계약서_0008.json",
+        "/채권양도계약서_0005.json",
+        "/채권양도계약서_0036.json",
+        "/채권양도계약서_0020.json",
+        "/채권양도계약서_0009.json",
+        "/채권양도계약서_0086.json",
+        "/채권양도계약서_0024.json",
+        "/채권양도계약서_0067.json",
+        "/채권양도계약서_0010.json",
+        "/채권양도계약서_0022.json"
+      ],
+      "3.개방데이터\\1.데이터\\Training\\02.라벨링데이터\\TL_금전소비대차_채권_채무_채권_채무계약.zip": [
+        "/채권양도계약서_0031.json",
+        "/채권양도계약서_0011.json",
+        "/채권양도계약서_0012.json",
+        "/채권양도계약서_0010.json",
+        "/채권양도계약서_0035.json",
+        "/채권양도계약서_0036.json",
+        "/채권양도계약서_0008.json",
+        "/채권양도계약서_0007.json",
+        "/채권양도계약서_0009.json",
+        "/채권양도계약서_0025.json",
+        "/채권양도계약서_0075.json",
+        "/채권양도계약서_0018.json",
+        "/채권양도계약서_0027.json",
+        "/채권양도계약서_0085.json",
+        "/채권양도계약서_0020.json"
+      ],
+      "3.개방데이터\\1.데이터\\Validation\\01.원천데이터\\VS_금전소비대차_채권_채무_채권_채무계약.zip": [
+        "/채권양도계약서_0047.json",
+        "/채권양도계약서_0122.json",
+        "/채무승계계약서_0060.json",
+        "/채무승계계약서_0092.json",
+        "/채권양도계약서_0038.json",
+        "/채권양도계약서_0040.json",
+        "/채권양도계약서_0006.json",
+        "/채무승계계약서_0016.json",
+        "/채무승계계약서_0050.json",
+        "/채권양도계약서_0076.json",
+        "/채권양도계약서_0126.json",
+        "/채권양도계약서_0121.json",
+        "/채권양도계약서_0124.json",
+        "/채무승계계약서_0085.json",
+        "/채권양도계약서_0073.json"
+      ],
+      "3.개방데이터\\1.데이터\\Validation\\02.라벨링데이터\\VL_금전소비대차_채권_채무_채권_채무계약.zip": [
+        "/채무승계계약서_0076.json",
+        "/채권양도계약서_0073.json",
+        "/채무승계계약서_0016.json",
+        "/채권양도계약서_0040.json",
+        "/채권양도계약서_0125.json",
+        "/채무승계계약서_0051.json",
+        "/채무승계계약서_0068.json",
+        "/채무승계계약서_0063.json",
+        "/채권양도계약서_0074.json",
+        "/채권양도계약서_0047.json",
+        "/채권양도계약서_0006.json",
+        "/채권양도계약서_0064.json",
+        "/채권양도계약서_0121.json",
+        "/채권양도계약서_0126.json",
+        "/채무승계계약서_0092.json"
+      ]
+    }
+  },
+  "F": {
+    "hash_compare": [
+      {
+        "repo": "Qwen/Qwen3-8B",
+        "file": "model-00001-of-00005.safetensors",
+        "local_bytes": 3996250744,
+        "local_sha256": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f",
+        "hf_lfs_sha256": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f",
+        "match": true
+      },
+      {
+        "repo": "Qwen/Qwen3-8B",
+        "file": "model-00002-of-00005.safetensors",
+        "local_bytes": 3993160032,
+        "local_sha256": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282",
+        "hf_lfs_sha256": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282",
+        "match": true
+      },
+      {
+        "repo": "Qwen/Qwen3-8B",
+        "file": "model-00003-of-00005.safetensors",
+        "local_bytes": 3959604768,
+        "local_sha256": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836",
+        "hf_lfs_sha256": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836",
+        "match": true
+      },
+      {
+        "repo": "Qwen/Qwen3-8B",
+        "file": "model-00004-of-00005.safetensors",
+        "local_bytes": 3187841392,
+        "local_sha256": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a",
+        "hf_lfs_sha256": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a",
+        "match": true
+      },
+      {
+        "repo": "Qwen/Qwen3-8B",
+        "file": "model-00005-of-00005.safetensors",
+        "local_bytes": 1244659840,
+        "local_sha256": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff",
+        "hf_lfs_sha256": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff",
+        "match": true
+      },
+      {
+        "repo": "nlpai-lab/KURE-v1",
+        "file": "model.safetensors",
+        "local_bytes": 2271064456,
+        "local_sha256": "c18156e80caf8ff45eb84a24a853130c3bca03087ccb41b051f86e7556bae02c",
+        "hf_lfs_sha256": "c18156e80caf8ff45eb84a24a853130c3bca03087ccb41b051f86e7556bae02c",
+        "match": true
+      },
+      {
+        "repo": "BAAI/bge-m3",
+        "file": "pytorch_model.bin",
+        "local_bytes": 2271145830,
+        "local_sha256": "b5e0ce3470abf5ef3831aa1bd5553b486803e83251590ab7ff35a117cf6aad38",
+        "hf_lfs_sha256": "b5e0ce3470abf5ef3831aa1bd5553b486803e83251590ab7ff35a117cf6aad38",
+        "match": true
+      }
+    ],
+    "incomplete_remaining_paths": [
+      {
+        "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\Qwen3-8B\\.cache\\huggingface\\download\\ewHVStNi_qTCwOvZyUK4XvcG7h0=.5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282.2359eee0.incomplete",
+        "bytes": 1024000000
+      },
+      {
+        "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\Qwen3-8B\\.cache\\huggingface\\download\\fNjCg19rjPb4Qv_8lvghvyvUVYM=.b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a.8a59a8f1.incomplete",
+        "bytes": 2374128833
+      },
+      {
+        "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\Qwen3-8B\\.cache\\huggingface\\download\\fNjCg19rjPb4Qv_8lvghvyvUVYM=.b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a.c8066dd7.incomplete",
+        "bytes": 3103964316
+      },
+      {
+        "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\Qwen3-8B\\.cache\\huggingface\\download\\ucOYR0sM0bukMpWiwV3qkLpQbMA=.31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f.9647bb55.incomplete",
+        "bytes": 1024000000
+      },
+      {
+        "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\Qwen3-8B\\.cache\\huggingface\\download\\ucOYR0sM0bukMpWiwV3qkLpQbMA=.31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f.e2cd7e84.incomplete",
+        "bytes": 3017777202
+      },
+      {
+        "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\Qwen3-8B\\.cache\\huggingface\\download\\W6LiZUqSlTR2RfaiI-PdlBA4Fcg=.c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836.14d6a41d.incomplete",
+        "bytes": 1024000000
+      }
+    ],
+    "incomplete_n": 6
+  }
+}

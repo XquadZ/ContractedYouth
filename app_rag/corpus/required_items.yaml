@@ -1,0 +1,40 @@
+# 계약 유형별 필수 std_item. 근로은 근로기준법 제17조(+시행령 제8조) 기준.
+LAB:
+  - id: LAB-06
+    name: 임금
+    basis: 근로기준법 제17조 제1항 제1호
+  - id: LAB-04
+    name: 소정근로시간
+    basis: 근로기준법 제17조 제1항 제2호
+  - id: LAB-05
+    name: 휴일
+    basis: 근로기준법 제17조 제1항 제3호
+  - id: LAB-08
+    name: 연차 유급휴가
+    basis: 근로기준법 제17조 제1항 제4호
+  - id: LAB-03
+    name: 근무장소·업무
+    basis: 근로기준법 시행령 제8조
+  - id: LAB-07
+    name: 임금 지급일·지급방법
+    basis: 근로기준법 제17조 제2항
+LEASE:
+  - id: LEASE-02
+    name: 목적물 표시
+    basis: 주택임대차 표준계약서
+  - id: LEASE-03
+    name: 보증금·차임
+    basis: 주택임대차 표준계약서 제1조
+  - id: LEASE-05
+    name: 임대차기간
+    basis: 주택임대차보호법 제4조
+LOAN:
+  - id: LOAN-02
+    name: 원금
+    basis: 소비대차
+  - id: LOAN-03
+    name: 이자율
+    basis: 이자제한법 제2조
+  - id: LOAN-04
+    name: 변제기
+    basis: 민법 제603조

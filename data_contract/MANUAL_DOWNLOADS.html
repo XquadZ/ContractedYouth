@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>수동 다운로드 — data_contract</title>
+<style>
+body{font-family:"Pretendard",system-ui,sans-serif;background:#f6f3ee;color:#1a1a1a;margin:0;padding:1.5rem}
+.wrap{max-width:860px;margin:0 auto}
+.cmd{background:#1e293b;color:#e2e8f0;padding:.75rem 1rem;border-radius:8px;font-family:ui-monospace,monospace}
+.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0}
+.btn{display:inline-block;background:#0f766e;color:#fff;text-decoration:none;padding:.55rem 1rem;border-radius:8px}
+.why{color:#444} .status{color:#b45309;font-weight:600}
+</style>
+</head>
+<body><div class="wrap">
+<p class="cmd">python data_contract\scripts\after_manual.py</p>
+<h1>수동 다운로드 (5)</h1>
+
+<article class="card" id="g1_lsHistory">
+  <h2>Open API target=lsHistory 승인 확인</h2>
+  <p class="why">법령 연혁 목록/본문 HTML API(lsHistory) — G3 연혁 판 목록 보조에 필요</p>
+  <p><a class="btn" href="https://open.law.go.kr/LSO/openApi/useInfo.do" target="_blank" rel="noopener">다운로드 페이지 열기</a></p>
+  <p><strong>할 일:</strong> 마이페이지에서 target=lsHistory 승인 상태 확인</p>
+  <p><strong>저장 위치:</strong> <code>승인 후 python data_contract\scripts\after_manual.py</code></p>
+  <p class="status">상태: 대기</p>
+</article>
+<article class="card" id="g4_aihub580">
+  <h2>AI Hub 판결서·약관 데이터 (dataSetSn=580)</h2>
+  <p class="why">약관 유리/불리 라벨·임대차 샘플에 필요</p>
+  <p><a class="btn" href="https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=580" target="_blank" rel="noopener">다운로드 페이지 열기</a></p>
+  <p><strong>할 일:</strong> 약관 관련 원천·라벨 파일만 선택해 다운로드</p>
+  <p><strong>저장 위치:</strong> <code>Downloads 그대로 두면 after_manual.py가 처리</code></p>
+  <p class="status">상태: 대기</p>
+</article>
+<article class="card" id="g1_lstrm">
+  <h2>Open API target=lstrm 승인 확인</h2>
+  <p class="why">target=lstrm 권한 없음/실패</p>
+  <p><a class="btn" href="https://open.law.go.kr/LSO/openApi/useInfo.do" target="_blank" rel="noopener">다운로드 페이지 열기</a></p>
+  <p><strong>할 일:</strong> open.law.go.kr 마이페이지에서 target=lstrm 승인 상태 확인</p>
+  <p><strong>저장 위치:</strong> <code>승인 후 python data_contract\scripts\after_manual.py</code></p>
+  <p class="status">상태: 대기</p>
+</article>
+<article class="card" id="g1_mojCgmExpc">
+  <h2>Open API target=mojCgmExpc 승인 확인</h2>
+  <p class="why">target=mojCgmExpc 권한 없음/실패</p>
+  <p><a class="btn" href="https://open.law.go.kr/LSO/openApi/useInfo.do" target="_blank" rel="noopener">다운로드 페이지 열기</a></p>
+  <p><strong>할 일:</strong> open.law.go.kr 마이페이지에서 target=mojCgmExpc 승인 상태 확인</p>
+  <p><strong>저장 위치:</strong> <code>승인 후 python data_contract\scripts\after_manual.py</code></p>
+  <p class="status">상태: 대기</p>
+</article>
+<article class="card" id="g1_cgmExpc">
+  <h2>Open API target=cgmExpc 승인 확인</h2>
+  <p class="why">target=cgmExpc 권한 없음/실패</p>
+  <p><a class="btn" href="https://open.law.go.kr/LSO/openApi/useInfo.do" target="_blank" rel="noopener">다운로드 페이지 열기</a></p>
+  <p><strong>할 일:</strong> open.law.go.kr 마이페이지에서 target=cgmExpc 승인 상태 확인</p>
+  <p><strong>저장 위치:</strong> <code>승인 후 python data_contract\scripts\after_manual.py</code></p>
+  <p class="status">상태: 대기</p>
+</article>
+</div></body></html>

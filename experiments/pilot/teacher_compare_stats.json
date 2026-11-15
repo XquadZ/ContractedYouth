@@ -1,0 +1,26 @@
+{
+  "EXAONE-4.0-32B-Q6_K": {
+    "n": 20,
+    "skip": 0,
+    "four_section_ratio": 1.0,
+    "footer_ratio": 1.0,
+    "hallucinated_articles": [
+      "T07:제347조"
+    ],
+    "think_tag_count": 0,
+    "avg_gen_sec": 18.4463,
+    "avg_out_tokens": 281.0,
+    "avg_tok_per_sec": 15.243601485484655
+  },
+  "Qwen3-32B-Q6_K": {
+    "n": 20,
+    "skip": 0,
+    "four_section_ratio": 1.0,
+    "footer_ratio": 1.0,
+    "hallucinated_articles": [],
+    "think_tag_count": 0,
+    "avg_gen_sec": 30.365550000000002,
+    "avg_out_tokens": 464.55,
+    "avg_tok_per_sec": 15.305758351899394
+  }
+}

@@ -1,0 +1,313 @@
+[
+  {
+    "kind": "gguf",
+    "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\models\\EXAONE-4.0-32B-GGUF\\EXAONE-4.0-32B-Q6_K.gguf",
+    "name": "EXAONE-4.0-32B-Q6_K.gguf",
+    "bytes": 26259021600,
+    "GB": 24.456,
+    "quant_guess": "Q6_K"
+  },
+  {
+    "kind": "gguf",
+    "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\models\\Qwen3-32B-GGUF\\Qwen3-32B-Q6_K.gguf",
+    "name": "Qwen3-32B-Q6_K.gguf",
+    "bytes": 26883306112,
+    "GB": 25.037,
+    "quant_guess": "Q6_K"
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\models\\Qwen2.5-14B-Instruct",
+    "name": "Qwen2.5-14B-Instruct",
+    "bytes": 29551670037,
+    "GB": 27.522,
+    "model_type": "qwen2",
+    "vocab_size": 152064,
+    "max_position_embeddings": 32768,
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--microsoft--Phi-3-mini-4k-instruct\\snapshots\\f39ac1d28e925b323eae81227eaba4464caced4e",
+    "name": "f39ac1d28e925b323eae81227eaba4464caced4e",
+    "bytes": 7644766216,
+    "GB": 7.12,
+    "model_type": "phi3",
+    "vocab_size": 32064,
+    "max_position_embeddings": 4096,
+    "architectures": [
+      "Phi3ForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen-AgentWorld-35B-A3B\\snapshots\\60d2b0434a53d2e62a7c00a489586815d94ebffb",
+    "name": "60d2b0434a53d2e62a7c00a489586815d94ebffb",
+    "bytes": 3583,
+    "GB": 0.0,
+    "model_type": "qwen3_5_moe",
+    "vocab_size": null,
+    "max_position_embeddings": null,
+    "architectures": [
+      "Qwen3_5MoeForConditionalGeneration"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-14B-Instruct\\snapshots\\cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "name": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "bytes": 11554871,
+    "GB": 0.011,
+    "model_type": "qwen2",
+    "vocab_size": 152064,
+    "max_position_embeddings": 32768,
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-235B-A22B\\snapshots\\8efa61729e24bd65b1d152b5ab5409052aa80e65",
+    "name": "8efa61729e24bd65b1d152b5ab5409052aa80e65",
+    "bytes": 965,
+    "GB": 0.0,
+    "model_type": "qwen3_moe",
+    "vocab_size": 151936,
+    "max_position_embeddings": 40960,
+    "architectures": [
+      "Qwen3MoeForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-235B-A22B-FP8\\snapshots\\39eb2b067ea6b8e3e1dd97d3cd0c7ffeaf3e1a35",
+    "name": "39eb2b067ea6b8e3e1dd97d3cd0c7ffeaf3e1a35",
+    "bytes": 12909,
+    "GB": 0.0,
+    "model_type": "qwen3_moe",
+    "vocab_size": 151936,
+    "max_position_embeddings": 40960,
+    "architectures": [
+      "Qwen3MoeForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-235B-A22B-Instruct-2507\\snapshots\\ac9c66cc9b46af7306746a9250f23d47083d689e",
+    "name": "ac9c66cc9b46af7306746a9250f23d47083d689e",
+    "bytes": 964,
+    "GB": 0.0,
+    "model_type": "qwen3_moe",
+    "vocab_size": 151936,
+    "max_position_embeddings": 262144,
+    "architectures": [
+      "Qwen3MoeForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-235B-A22B-Instruct-2507-FP8\\snapshots\\e156cb4efae43fbee1a1ab073f946a1377e6b969",
+    "name": "e156cb4efae43fbee1a1ab073f946a1377e6b969",
+    "bytes": 12909,
+    "GB": 0.0,
+    "model_type": "qwen3_moe",
+    "vocab_size": 151936,
+    "max_position_embeddings": 262144,
+    "architectures": [
+      "Qwen3MoeForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-235B-A22B-MLX-6bit\\snapshots\\a9b4800972d7b032a3af9fd81bbeb4a6bee6b63f",
+    "name": "a9b4800972d7b032a3af9fd81bbeb4a6bee6b63f",
+    "bytes": 1193,
+    "GB": 0.0,
+    "model_type": "qwen3_moe",
+    "vocab_size": 151936,
+    "max_position_embeddings": 40960,
+    "architectures": [
+      "Qwen3MoeForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-235B-A22B-Thinking-2507\\snapshots\\6cbffae6d8e28b986a6b17bd36f42f9fa0f1f0a5",
+    "name": "6cbffae6d8e28b986a6b17bd36f42f9fa0f1f0a5",
+    "bytes": 964,
+    "GB": 0.0,
+    "model_type": "qwen3_moe",
+    "vocab_size": 151936,
+    "max_position_embeddings": 262144,
+    "architectures": [
+      "Qwen3MoeForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-8B\\snapshots\\b968826d9c46dd6066d109eabc6255188de91218",
+    "name": "b968826d9c46dd6066d109eabc6255188de91218",
+    "bytes": 728,
+    "GB": 0.0,
+    "model_type": "qwen3",
+    "vocab_size": 151936,
+    "max_position_embeddings": 40960,
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-Coder-480B-A35B-Instruct\\snapshots\\9d90cf8fca1bf7b7acca42d3fc9ae694a2194069",
+    "name": "9d90cf8fca1bf7b7acca42d3fc9ae694a2194069",
+    "bytes": 994,
+    "GB": 0.0,
+    "model_type": "qwen3_moe",
+    "vocab_size": 151936,
+    "max_position_embeddings": 262144,
+    "architectures": [
+      "Qwen3MoeForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-Coder-480B-A35B-Instruct-FP8\\snapshots\\003f183a92fbe5b9a8325aaa8b2ae797c91dd90f",
+    "name": "003f183a92fbe5b9a8325aaa8b2ae797c91dd90f",
+    "bytes": 8971,
+    "GB": 0.0,
+    "model_type": "qwen3_moe",
+    "vocab_size": 151936,
+    "max_position_embeddings": 262144,
+    "architectures": [
+      "Qwen3MoeForCausalLM"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-VL-235B-A22B-Instruct\\snapshots\\710c13861be6c466e66de3f484069440b8f31389",
+    "name": "710c13861be6c466e66de3f484069440b8f31389",
+    "bytes": 1663,
+    "GB": 0.0,
+    "model_type": "qwen3_vl_moe",
+    "vocab_size": null,
+    "max_position_embeddings": null,
+    "architectures": [
+      "Qwen3VLMoeForConditionalGeneration"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-VL-235B-A22B-Thinking\\snapshots\\6664affde68449468deb7527186455c7450c13c0",
+    "name": "6664affde68449468deb7527186455c7450c13c0",
+    "bytes": 1663,
+    "GB": 0.0,
+    "model_type": "qwen3_vl_moe",
+    "vocab_size": null,
+    "max_position_embeddings": null,
+    "architectures": [
+      "Qwen3VLMoeForConditionalGeneration"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3.5-35B-A3B\\snapshots\\59d61f3ce65a6d9863b86d2e96597125219dc754",
+    "name": "59d61f3ce65a6d9863b86d2e96597125219dc754",
+    "bytes": 3544,
+    "GB": 0.0,
+    "model_type": "qwen3_5_moe",
+    "vocab_size": null,
+    "max_position_embeddings": null,
+    "architectures": [
+      "Qwen3_5MoeForConditionalGeneration"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3.5-35B-A3B-Base\\snapshots\\0f0813072d2358973511097385626f21fcb6d422",
+    "name": "0f0813072d2358973511097385626f21fcb6d422",
+    "bytes": 3544,
+    "GB": 0.0,
+    "model_type": "qwen3_5_moe",
+    "vocab_size": null,
+    "max_position_embeddings": null,
+    "architectures": [
+      "Qwen3_5MoeForConditionalGeneration"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3.5-35B-A3B-FP8\\snapshots\\9d1823d2dee688a6b25e77009dc727688c44936e",
+    "name": "9d1823d2dee688a6b25e77009dc727688c44936e",
+    "bytes": 20530,
+    "GB": 0.0,
+    "model_type": "qwen3_5_moe",
+    "vocab_size": null,
+    "max_position_embeddings": null,
+    "architectures": [
+      "Qwen3_5MoeForConditionalGeneration"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3.5-35B-A3B-GPTQ-Int4\\snapshots\\3af5ca2972faf6de1fd6f4efc4d8d319ca751e8b",
+    "name": "3af5ca2972faf6de1fd6f4efc4d8d319ca751e8b",
+    "bytes": 4079,
+    "GB": 0.0,
+    "model_type": "qwen3_5_moe",
+    "vocab_size": null,
+    "max_position_embeddings": null,
+    "architectures": [
+      "Qwen3_5MoeForConditionalGeneration"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3.6-35B-A3B\\snapshots\\995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "name": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "bytes": 3686,
+    "GB": 0.0,
+    "model_type": "qwen3_5_moe",
+    "vocab_size": null,
+    "max_position_embeddings": null,
+    "architectures": [
+      "Qwen3_5MoeForConditionalGeneration"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--Qwen3.6-35B-A3B-FP8\\snapshots\\95a723d08a9490559dae23d0cff1d9466213d989",
+    "name": "95a723d08a9490559dae23d0cff1d9466213d989",
+    "bytes": 37000,
+    "GB": 0.0,
+    "model_type": "qwen3_5_moe",
+    "vocab_size": null,
+    "max_position_embeddings": null,
+    "architectures": [
+      "Qwen3_5MoeForConditionalGeneration"
+    ]
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--SAE-Res-Qwen3.5-35B-A3B-Base-W128K-L0_100\\snapshots\\c960d05effbd7e5e5839886ddbe221a6144e8d86",
+    "name": "c960d05effbd7e5e5839886ddbe221a6144e8d86",
+    "bytes": 591,
+    "GB": 0.0,
+    "model_type": "topk_sae",
+    "vocab_size": null,
+    "max_position_embeddings": null,
+    "architectures": null
+  },
+  {
+    "kind": "hf_dir",
+    "path": "C:\\Users\\DMLAB\\.cache\\huggingface\\hub\\models--Qwen--SAE-Res-Qwen3.5-35B-A3B-Base-W32K-L0_50\\snapshots\\6af81a5a1b16ac821e5a9267fb461493ccfe2770",
+    "name": "6af81a5a1b16ac821e5a9267fb461493ccfe2770",
+    "bytes": 587,
+    "GB": 0.0,
+    "model_type": "topk_sae",
+    "vocab_size": null,
+    "max_position_embeddings": null,
+    "architectures": null
+  }
+]

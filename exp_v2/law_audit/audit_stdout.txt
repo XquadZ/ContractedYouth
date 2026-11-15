@@ -1,0 +1,297 @@
+START audit_law
+CAT C:\Users\DMLAB_Server1\Contracted_Youth\data_contract\catalog\catalog_v0.2.json
+TEXTS C:\Users\DMLAB_Server1\Contracted_Youth\exp_v2\law_node_texts.jsonl
+LAW_DIR C:\Users\DMLAB_Server1\Contracted_Youth\data_contract\law_api\현행
+COUNT catalog_checks 72
+COUNT catalog_slots 33
+COUNT catalog_law_nodes 59
+COUNT t3 402 t4 67 texts 59
+COUNT mst_files 10
+KEYS 법령 ['개정문', '기본정보', '법령키', '부칙', '제개정이유', '조문']
+KEYS 기본정보 ['공동부령정보', '공포번호', '공포법령여부', '공포일자', '법령ID', '법령명_한글', '법령명_한자', '법령명약칭', '법종구분', '별표편집여부', '소관부처', '시행일자', '언어', '연락부서', '전화번호', '제개정구분', '제명변경여부', '편장절관', '한글법령여부']
+KEYS 조문단위 ['조문가지번호', '조문내용', '조문번호', '조문변경여부', '조문시행일자', '조문여부', '조문이동이전', '조문이동이후', '조문제개정유형', '조문제개정일자문자열', '조문제목', '조문참고자료', '조문키', '항']
+KEYS 항 ['항내용', '항번호', '항제개정유형', '항제개정일자문자열', '호']
+KEYS 호 ['목', '호내용', '호번호']
+KEYS 목 ['목내용', '목번호']
+KEYS 조문 ['조문단위']
+COUNT units_with_parent_pyunjang_keys 0
+COUNT 조문여부 {'조문': 1564, '전문': 164}
+COUNT 근로기준법_path_examples 3
+PATH 제2장 근로계약 | 제17조(근로조건의 명시) | 항=① 호=1.
+PATH 제3장 임금 | 제43조(임금 지급) | 항=① 호=
+PATH 제4장 근로시간과 휴식 | 제54조(휴게) | 항=① 호=
+LAW 근로기준법 시행령 units=80 전문=0 편=0 장=0 절=0 관=0 조=80 가지조=20 항0조=30 항=97 호=214 목=3 시행=20251023 편장절관코드=40030000
+LAW 근로기준법 units=146 전문=13 편=0 장=13 절=0 관=0 조=133 가지조=17 항0조=58 항=226 호=128 목=0 시행=20261008 편장절관코드=40030000
+LAW 민법 units=1337 전문=144 편=5 장=32 절=67 관=38 조=1193 가지조=75 항0조=727 항=1061 호=206 목=0 시행=20260317 편장절관코드=08010000
+LAW 보증인 보호를 위한 특별법 units=11 전문=0 편=0 장=0 절=0 관=0 조=11 가지조=0 항0조=6 항=15 호=4 목=24 시행=20231221 편장절관코드=08010000
+LAW 이자제한법 제2조제1항의 최고이자율에 관한 규정 units=1 전문=1 편=0 장=0 절=0 관=0 조=0 가지조=0 항0조=0 항=0 호=0 목=0 시행=20210707 편장절관코드=08010000
+LAW 이자제한법 units=8 전문=0 편=0 장=0 절=0 관=0 조=8 가지조=0 항0조=5 항=9 호=0 목=0 시행=20250722 편장절관코드=08010000
+LAW 주택임대차보호법 시행령 units=36 전문=0 편=0 장=0 절=0 관=0 조=36 가지조=1 항0조=8 항=69 호=91 목=4 시행=20260701 편장절관코드=08010000
+LAW 주택임대차보호법 units=42 전문=0 편=0 장=0 절=0 관=0 조=42 가지조=11 항0조=16 항=105 호=71 목=3 시행=20260102 편장절관코드=08010000
+LAW 최저임금법 시행령 units=27 전문=0 편=0 장=0 절=0 관=0 조=27 가지조=5 항0조=17 항=18 호=26 목=0 시행=20190101 편장절관코드=40030000
+LAW 최저임금법 units=40 전문=6 편=0 장=6 절=0 관=0 조=34 가지조=3 항0조=15 항=67 호=22 목=2 시행=20200526 편장절관코드=40030000
+TOTAL units=1728 전문=164 조=1564 가지조=132 항0조=882 항=1667 호=762 목=36 headings={'장': 51, '편': 5, '절': 67, '관': 38}
+AVG 조당항 1.065856777493606 항당호 0.45710857828434315
+COUNT 근로기준법_전문 13
+JANG 제1장 총칙
+JANG 제2장 근로계약
+JANG 제3장 임금
+JANG 제4장 근로시간과 휴식
+JANG 제5장 여성과 소년
+JANG 제6장 안전과 보건
+JANG 제6장의2 직장 내 괴롭힘의 금지 <신설 2019.1.15>
+JANG 제7장 기능 습득
+JANG 제8장 재해보상
+JANG 제9장 취업규칙
+JANG 제10장 기숙사
+JANG 제11장 노동감독관 등 <개정 2026.4.7>
+JANG 제12장 벌칙
+COUNT 민법_units 1337 전문=144 조=1193
+COUNT legal_basis_slots 85
+COUNT unique_legal_basis 59
+COUNT empty_legal_basis_checks 23
+EMPTY_BASIS L-I01 근로시간 합계 불일치
+EMPTY_BASIS L-I02 임금 환산 불일치
+EMPTY_BASIS L-I03 계약기간 날짜 오류
+EMPTY_BASIS L-I04 숫자·한글 금액 불일치
+EMPTY_BASIS L-I05 본문·특약 충돌
+EMPTY_BASIS H-M01 보증금·차임·지급일정 미기재
+EMPTY_BASIS H-M03 목적물 표시 미기재
+EMPTY_BASIS H-M04 관리비 금액·항목 미기재
+EMPTY_BASIS H-M07 선순위 권리 처리 특약 없음
+EMPTY_BASIS H-M09 중도해지 조건 미기재
+EMPTY_BASIS H-I01 계약금+중도금+잔금 ≠ 보증금
+EMPTY_BASIS H-I02 숫자·한글 금액 불일치
+EMPTY_BASIS H-I03 기간 날짜 오류·기간 표기 불일치
+EMPTY_BASIS H-I04 당사자 이름 불일치(본문 vs 서명란)
+EMPTY_BASIS H-I05 본문·특약 충돌
+EMPTY_BASIS H-U01 등기부 확인 필요(소유자·선순위 근저당)
+EMPTY_BASIS H-U02 건축물대장 확인 필요(용도·위반건축물)
+EMPTY_BASIS D-M01 원금 미기재
+EMPTY_BASIS D-M04 당사자 특정·서명 누락
+EMPTY_BASIS D-T04 1회 연체 시 기한이익 상실
+EMPTY_BASIS D-I01 숫자·한글 금액 불일치
+EMPTY_BASIS D-I02 이자 계산 불일치
+EMPTY_BASIS D-I03 날짜 오류
+COUNT basis_not_in_law_nodes 0 []
+COUNT law_nodes_not_in_basis 0 []
+COUNT t3_gold_node_refs 750 distinct 33
+COUNT t4_gold_node_refs 122 distinct 32
+COUNT verify_csv_rows 79
+NODE 근기법:제17조 kind=법령 조문 src=body chars=432 hang=2 checks=7 t3=18 t4=3 verify=8 match=ok jang=제2장 근로계약
+NODE 기간제법:제17조 kind=법령 조문 src=missing chars=0 hang=0 checks=7 t3=0 t4=0 verify=7 match=원본 없음 jang=
+NODE 근기법:제55조 kind=법령 조문 src=body chars=166 hang=2 checks=2 t3=18 t4=3 verify=2 match=ok jang=제4장 근로시간과 휴식
+NODE 근기법:제18조 kind=법령 조문 src=body chars=267 hang=3 checks=3 t3=18 t4=3 verify=1 match=ok jang=제2장 근로계약
+NODE 근기법:제60조 kind=법령 조문 src=body chars=1007 hang=7 checks=1 t3=0 t4=0 verify=1 match=ok jang=제4장 근로시간과 휴식
+NODE 근기령:제8조 kind=법령 조문 src=body chars=196 hang=1 checks=1 t3=0 t4=0 verify=1 match=ok jang=
+NODE 최임법:제6조 kind=법령 조문 src=body chars=1419 hang=9 checks=1 t3=30 t4=5 verify=1 match=ok jang=제2장 최저임금 <개정 2008.3.21>
+NODE 최임법:제5조 kind=법령 조문 src=body chars=460 hang=3 checks=1 t3=24 t4=4 verify=1 match=ok jang=제2장 최저임금 <개정 2008.3.21>
+NODE 최임령:제3조 kind=법령 조문 src=body chars=225 hang=0 checks=1 t3=24 t4=4 verify=1 match=ok jang=
+NODE 근기법:제20조 kind=법령 조문 src=body chars=66 hang=0 checks=1 t3=24 t4=4 verify=1 match=ok jang=제2장 근로계약
+NODE 근기법:제43조 kind=법령 조문 src=body chars=223 hang=2 checks=1 t3=24 t4=4 verify=1 match=ok jang=제3장 임금
+NODE 근기법:제54조 kind=법령 조문 src=body chars=108 hang=2 checks=1 t3=30 t4=5 verify=1 match=ok jang=제4장 근로시간과 휴식
+NODE 근기령:제30조 kind=법령 조문 src=body chars=197 hang=2 checks=1 t3=18 t4=3 verify=1 match=ok jang=
+NODE 기간제법:제6조 kind=법령 조문 src=missing chars=0 hang=0 checks=1 t3=0 t4=0 verify=1 match=원본 없음 jang=
+NODE 근기법:제56조 kind=법령 조문 src=body chars=392 hang=3 checks=1 t3=0 t4=0 verify=1 match=ok jang=제4장 근로시간과 휴식
+NODE 근기법:제4조 kind=법령 조문 src=body chars=57 hang=0 checks=1 t3=18 t4=3 verify=1 match=ok jang=제1장 총칙
+NODE 퇴직급여법:제8조 kind=법령 조문 src=missing chars=0 hang=0 checks=1 t3=18 t4=3 verify=1 match=원본 없음 jang=
+NODE 퇴직급여법:제9조 kind=법령 조문 src=missing chars=0 hang=0 checks=1 t3=18 t4=3 verify=1 match=원본 없음 jang=
+NODE 근기법:제26조 kind=법령 조문 src=body chars=331 hang=1 checks=1 t3=18 t4=3 verify=1 match=ok jang=제2장 근로계약
+NODE 근기법:제23조 kind=법령 조문 src=body chars=273 hang=2 checks=1 t3=18 t4=3 verify=1 match=ok jang=제2장 근로계약
+NODE 고용보험법:적용 범위 조문 kind=임시 이름 src=missing chars=0 hang=0 checks=1 t3=0 t4=0 verify=0 match=원본 없음 jang=
+NODE 산재법:적용 범위 조문 kind=임시 이름 src=missing chars=0 hang=0 checks=1 t3=0 t4=0 verify=0 match=원본 없음 jang=
+NODE 근기법:제22조 kind=법령 조문 src=body chars=222 hang=2 checks=1 t3=0 t4=0 verify=1 match=ok jang=제2장 근로계약
+NODE 근기법:제21조 kind=법령 조문 src=body chars=76 hang=0 checks=1 t3=0 t4=0 verify=1 match=ok jang=제2장 근로계약
+NODE 근기법:제11조 kind=법령 조문 src=body chars=260 hang=3 checks=1 t3=0 t4=0 verify=1 match=ok jang=제1장 총칙
+NODE 근기령:제7조 kind=법령 조문 src=body chars=75 hang=0 checks=1 t3=0 t4=0 verify=1 match=ok jang=
+NODE 주임법:제4조 kind=법령 조문 src=body chars=155 hang=2 checks=5 t3=54 t4=9 verify=3 match=ok jang=
+NODE 민법:제623조 kind=법령 조문 src=body chars=76 hang=0 checks=3 t3=36 t4=6 verify=2 match=ok jang=제2장 계약 / 제7절 임대차
+NODE 민법:제536조 kind=법령 조문 src=body chars=183 hang=2 checks=2 t3=18 t4=3 verify=2 match=ok jang=제2장 계약 / 제1절 총칙
+NODE 주임법:제3조의7 kind=법령 조문 src=body chars=342 hang=1 checks=1 t3=0 t4=0 verify=1 match=ok jang=
+NODE 주임법:제10조 kind=법령 조문 src=body chars=52 hang=0 checks=4 t3=72 t4=12 verify=5 match=ok jang=
+NODE 주임법:제6조의3 kind=법령 조문 src=body chars=1379 hang=6 checks=1 t3=18 t4=3 verify=1 match=ok jang=
+NODE 주임법:제7조 kind=법령 조문 src=body chars=360 hang=2 checks=1 t3=18 t4=3 verify=1 match=ok jang=
+NODE 주임령:제8조 kind=법령 조문 src=body chars=153 hang=2 checks=1 t3=18 t4=3 verify=1 match=ok jang=
+NODE 민법:제640조 kind=법령 조문 src=body chars=80 hang=0 checks=1 t3=18 t4=3 verify=1 match=ok jang=제2장 계약 / 제7절 임대차
+NODE 민법:제652조 kind=법령 조문 src=body chars=119 hang=0 checks=1 t3=18 t4=3 verify=1 match=ok jang=제2장 계약 / 제7절 임대차
+NODE 민법:제615조 kind=법령 조문 src=body chars=79 hang=0 checks=1 t3=0 t4=0 verify=1 match=ok jang=제2장 계약 / 제6절 사용대차
+NODE 민법:제654조 kind=법령 조문 src=body chars=55 hang=0 checks=1 t3=0 t4=0 verify=1 match=ok jang=제2장 계약 / 제7절 임대차
+NODE 판례:대법원 2023다249661 kind=판례 src=note_only chars=22 hang=0 checks=1 t3=0 t4=0 verify=0 match=원본 없음 jang=
+NODE 판례:통상손모 임차인 비부담 직접 판시 kind=판례 src=note_only chars=31 hang=0 checks=1 t3=0 t4=0 verify=0 match=원본 없음 jang=
+NODE 판례:대법원 94다34692 kind=판례 src=note_only chars=24 hang=0 checks=1 t3=18 t4=0 verify=0 match=원본 없음 jang=
+NODE 민법:제398조 kind=법령 조문 src=body chars=217 hang=5 checks=2 t3=18 t4=3 verify=2 match=ok jang=제1장 총칙 / 제2절 채권의 효력
+NODE 주임법:제3조 kind=법령 조문 src=body chars=768 hang=6 checks=1 t3=18 t4=3 verify=1 match=ok jang=
+NODE 주임법:제3조의2 kind=법령 조문 src=body chars=1633 hang=9 checks=1 t3=18 t4=3 verify=1 match=ok jang=
+NODE 주임법:제3조의3 kind=법령 조문 src=body chars=1393 hang=9 checks=1 t3=18 t4=3 verify=1 match=ok jang=
+NODE 민법:제626조 kind=법령 조문 src=body chars=201 hang=2 checks=1 t3=0 t4=0 verify=1 match=ok jang=제2장 계약 / 제7절 임대차
+NODE 판례:대법원 80다320,321 kind=판례 src=note_only chars=32 hang=0 checks=1 t3=0 t4=0 verify=0 match=원본 없음 jang=
+NODE 민법:제603조 kind=법령 조문 src=body chars=128 hang=2 checks=1 t3=0 t4=0 verify=1 match=ok jang=제2장 계약 / 제5절 소비대차
+NODE 민법:제600조 kind=법령 조문 src=body chars=118 hang=0 checks=1 t3=0 t4=0 verify=1 match=ok jang=제2장 계약 / 제5절 소비대차
+NODE 이자법:제2조 kind=법령 조문 src=body chars=310 hang=5 checks=1 t3=18 t4=3 verify=1 match=ok jang=
+NODE 이자규정:본문 kind=임시 이름 src=body chars=88 hang=0 checks=1 t3=18 t4=3 verify=1 match=조번호 아님 jang=
+NODE 이자법:제3조 kind=법령 조문 src=body chars=123 hang=0 checks=1 t3=0 t4=0 verify=1 match=ok jang=
+NODE 이자법:제6조 kind=법령 조문 src=body chars=89 hang=0 checks=1 t3=0 t4=0 verify=1 match=ok jang=
+NODE 민법:제607조 kind=법령 조문 src=body chars=127 hang=0 checks=1 t3=18 t4=3 verify=1 match=ok jang=제2장 계약 / 제5절 소비대차
+NODE 민법:제608조 kind=법령 조문 src=body chars=83 hang=0 checks=1 t3=18 t4=3 verify=1 match=ok jang=제2장 계약 / 제5절 소비대차
+NODE 민법:제428조의2 kind=법령 조문 src=body chars=215 hang=3 checks=1 t3=0 t4=0 verify=1 match=ok jang=제1장 총칙 / 제3절 수인의 채권자 및 채무자
+NODE 민법:제428조의3 kind=법령 조문 src=body chars=140 hang=2 checks=1 t3=0 t4=0 verify=1 match=ok jang=제1장 총칙 / 제3절 수인의 채권자 및 채무자
+NODE 보증법:제4조 kind=법령 조문 src=body chars=87 hang=0 checks=1 t3=0 t4=0 verify=1 match=ok jang=
+NODE 보증법:제7조 kind=법령 조문 src=body chars=332 hang=4 checks=1 t3=0 t4=0 verify=1 match=ok jang=
+COUNT kind {'법령 조문': 52, '임시 이름': 3, '판례': 4}
+COUNT text_source {'body': 49, 'missing': 6, 'note_only': 4}
+COUNT link {'legal_basis에 직접 적힘': 59}
+WROTE C:\Users\DMLAB_Server1\Contracted_Youth\exp_v2\law_audit\law_nodes_59.csv rows=59
+COUNT missing_근기법_제2장 21 of_units 28
+MISSING 근기법_제2장 제15조 이 법을 위반한 근로계약
+MISSING 근기법_제2장 제16조 계약기간
+MISSING 근기법_제2장 제19조 근로조건의 위반
+MISSING 근기법_제2장 제24조 경영상 이유에 의한 해고의 제한
+MISSING 근기법_제2장 제25조 우선 재고용 등
+MISSING 근기법_제2장 제27조 해고사유 등의 서면통지
+MISSING 근기법_제2장 제28조 부당해고등의 구제신청
+MISSING 근기법_제2장 제29조 조사 등
+MISSING 근기법_제2장 제30조 구제명령 등
+MISSING 근기법_제2장 제31조 구제명령 등의 확정
+MISSING 근기법_제2장 제32조 구제명령 등의 효력
+MISSING 근기법_제2장 제33조 이행강제금
+MISSING 근기법_제2장 제34조 퇴직급여 제도
+MISSING 근기법_제2장 제35조 
+MISSING 근기법_제2장 제36조 금품 청산
+MISSING 근기법_제2장 제37조 미지급 임금에 대한 지연이자
+MISSING 근기법_제2장 제38조 임금채권의 우선변제
+MISSING 근기법_제2장 제39조 사용증명서
+MISSING 근기법_제2장 제40조 취업 방해의 금지
+MISSING 근기법_제2장 제41조 근로자의 명부
+MISSING 근기법_제2장 제42조 계약 서류의 보존
+COUNT missing_근기법_제3장 16 of_units 17
+MISSING 근기법_제3장 제43조의2 체불사업주 명단 공개
+MISSING 근기법_제3장 제43조의3 임금등 체불자료의 제공
+MISSING 근기법_제3장 제43조의4 상습체불사업주에 대한 보조ㆍ지원 제한 등
+MISSING 근기법_제3장 제43조의5 업무위탁 등
+MISSING 근기법_제3장 제43조의6 체불사업주 명단공개 등을 위한 자료제공 등의 요청
+MISSING 근기법_제3장 제43조의7 출국금지
+MISSING 근기법_제3장 제43조의8 체불 임금등에 대한 손해배상청구
+MISSING 근기법_제3장 제44조 도급 사업에 대한 임금 지급
+MISSING 근기법_제3장 제44조의2 건설업에서의 임금 지급 연대책임
+MISSING 근기법_제3장 제44조의3 건설업의 공사도급에 있어서의 임금에 관한 특례
+MISSING 근기법_제3장 제44조의4 도급 사업에서 임금비용의 구분지급
+MISSING 근기법_제3장 제45조 비상시 지급
+MISSING 근기법_제3장 제46조 휴업수당
+MISSING 근기법_제3장 제47조 도급 근로자
+MISSING 근기법_제3장 제48조 임금대장 및 임금명세서
+MISSING 근기법_제3장 제49조 임금의 시효
+COUNT missing_근기법_제4장 12 of_units 16
+MISSING 근기법_제4장 제50조 근로시간
+MISSING 근기법_제4장 제51조 3개월 이내의 탄력적 근로시간제
+MISSING 근기법_제4장 제51조의2 3개월을 초과하는 탄력적 근로시간제
+MISSING 근기법_제4장 제51조의3 근로한 기간이 단위기간보다 짧은 경우의 임금 정산
+MISSING 근기법_제4장 제52조 선택적 근로시간제
+MISSING 근기법_제4장 제53조 연장 근로의 제한
+MISSING 근기법_제4장 제57조 보상 휴가제
+MISSING 근기법_제4장 제58조 근로시간 계산의 특례
+MISSING 근기법_제4장 제59조 근로시간 및 휴게시간의 특례
+MISSING 근기법_제4장 제61조 연차 유급휴가의 사용 촉진
+MISSING 근기법_제4장 제62조 유급휴가의 대체
+MISSING 근기법_제4장 제63조 적용의 제외
+COUNT missing_주임법_전체 34 of_units 42
+MISSING 주임법_전체 제1조 목적
+MISSING 주임법_전체 제2조 적용 범위
+MISSING 주임법_전체 제3조의4 「민법」에 따른 주택임대차등기의 효력 등
+MISSING 주임법_전체 제3조의5 경매에 의한 임차권의 소멸
+MISSING 주임법_전체 제3조의6 확정일자 부여 및 임대차 정보제공 등
+MISSING 주임법_전체 제5조 
+MISSING 주임법_전체 제6조 계약의 갱신
+MISSING 주임법_전체 제6조의2 묵시적 갱신의 경우 계약의 해지
+MISSING 주임법_전체 제7조의2 월차임 전환 시 산정률의 제한
+MISSING 주임법_전체 제8조 보증금 중 일정액의 보호
+MISSING 주임법_전체 제8조의2 주택임대차위원회
+MISSING 주임법_전체 제9조 주택 임차권의 승계
+MISSING 주임법_전체 제10조의2 초과 차임 등의 반환청구
+MISSING 주임법_전체 제11조 일시사용을 위한 임대차
+MISSING 주임법_전체 제12조 미등기 전세에의 준용
+MISSING 주임법_전체 제13조 「소액사건심판법」의 준용
+MISSING 주임법_전체 제14조 주택임대차분쟁조정위원회
+MISSING 주임법_전체 제15조 예산의 지원
+MISSING 주임법_전체 제16조 조정위원회의 구성 및 운영
+MISSING 주임법_전체 제17조 조정부의 구성 및 운영
+MISSING 주임법_전체 제18조 조정위원의 결격사유
+MISSING 주임법_전체 제19조 조정위원의 신분보장
+MISSING 주임법_전체 제20조 조정위원의 제척 등
+MISSING 주임법_전체 제21조 조정의 신청 등
+MISSING 주임법_전체 제22조 조정절차
+MISSING 주임법_전체 제23조 처리기간
+MISSING 주임법_전체 제24조 조사 등
+MISSING 주임법_전체 제25조 조정을 하지 아니하는 결정
+MISSING 주임법_전체 제26조 조정의 성립
+MISSING 주임법_전체 제27조 집행력의 부여
+MISSING 주임법_전체 제28조 비밀유지의무
+MISSING 주임법_전체 제29조 다른 법률의 준용
+MISSING 주임법_전체 제30조 주택임대차표준계약서 사용
+MISSING 주임법_전체 제31조 벌칙 적용에서 공무원 의제
+COUNT missing_민법_임대차618-654 32 of_units 37
+MISSING 민법_임대차618-654 제618조 임대차의 의의
+MISSING 민법_임대차618-654 제619조 처분능력, 권한없는 자의 할 수 있는 단기임대차
+MISSING 민법_임대차618-654 제620조 단기임대차의 갱신
+MISSING 민법_임대차618-654 제621조 임대차의 등기
+MISSING 민법_임대차618-654 제622조 건물등기있는 차지권의 대항력
+MISSING 민법_임대차618-654 제624조 임대인의 보존행위, 인용의무
+MISSING 민법_임대차618-654 제625조 임차인의 의사에 반하는 보존행위와 해지권
+MISSING 민법_임대차618-654 제627조 일부멸실 등과 감액청구, 해지권
+MISSING 민법_임대차618-654 제628조 차임증감청구권
+MISSING 민법_임대차618-654 제629조 임차권의 양도, 전대의 제한
+MISSING 민법_임대차618-654 제630조 전대의 효과
+MISSING 민법_임대차618-654 제631조 전차인의 권리의 확정
+MISSING 민법_임대차618-654 제632조 임차건물의 소부분을 타인에게 사용케 하는 경우
+MISSING 민법_임대차618-654 제633조 차임지급의 시기
+MISSING 민법_임대차618-654 제634조 임차인의 통지의무
+MISSING 민법_임대차618-654 제635조 기간의 약정없는 임대차의 해지통고
+MISSING 민법_임대차618-654 제636조 기간의 약정있는 임대차의 해지통고
+MISSING 민법_임대차618-654 제637조 임차인의 파산과 해지통고
+MISSING 민법_임대차618-654 제638조 해지통고의 전차인에 대한 통지
+MISSING 민법_임대차618-654 제639조 묵시의 갱신
+MISSING 민법_임대차618-654 제641조 동전
+MISSING 민법_임대차618-654 제642조 토지임대차의 해지와 지상건물 등에 대한 담보물권자에의 통지
+MISSING 민법_임대차618-654 제643조 임차인의 갱신청구권, 매수청구권
+MISSING 민법_임대차618-654 제644조 전차인의 임대청구권, 매수청구권
+MISSING 민법_임대차618-654 제645조 지상권목적토지의 임차인의 임대청구권, 매수청구권
+MISSING 민법_임대차618-654 제646조 임차인의 부속물매수청구권
+MISSING 민법_임대차618-654 제647조 전차인의 부속물매수청구권
+MISSING 민법_임대차618-654 제648조 임차지의 부속물, 과실 등에 대한 법정질권
+MISSING 민법_임대차618-654 제649조 임차지상의 건물에 대한 법정저당권
+MISSING 민법_임대차618-654 제650조 임차건물등의 부속물에 대한 법정질권
+MISSING 민법_임대차618-654 제651조 
+MISSING 민법_임대차618-654 제653조 일시사용을 위한 임대차의 특례
+COUNT 민법_소비대차_절_표제 '제5절 소비대차' units=11
+COUNT missing_민법_소비대차절 7 of_units 11
+MISSING 민법_소비대차절 제598조 소비대차의 의의
+MISSING 민법_소비대차절 제599조 파산과 소비대차의 실효
+MISSING 민법_소비대차절 제601조 무이자소비대차와 해제권
+MISSING 민법_소비대차절 제602조 대주의 담보책임
+MISSING 민법_소비대차절 제604조 반환불능으로 인한 시가상환
+MISSING 민법_소비대차절 제605조 준소비대차
+MISSING 민법_소비대차절 제606조 대물대차
+COUNT special_missing6 6
+SPECIAL missing6 기간제법:제17조 check=L-M01 title=임금 금액·계산방법 미기재 t3=0 t4=0
+SPECIAL missing6 기간제법:제17조 check=L-M02 title=임금 지급일·지급방법 미기재 t3=0 t4=0
+SPECIAL missing6 기간제법:제17조 check=L-M03 title=소정근로시간 미기재 t3=0 t4=0
+SPECIAL missing6 기간제법:제17조 check=L-M04 title=휴게시간 미기재 t3=0 t4=0
+SPECIAL missing6 기간제법:제17조 check=L-M05 title=단시간: 근로일·근로일별 근로시간 미기재 t3=0 t4=0
+SPECIAL missing6 기간제법:제17조 check=L-M08 title=근로계약기간(기간제) 미기재 t3=0 t4=0
+SPECIAL missing6 기간제법:제17조 check=L-M09 title=근무장소·업무 미기재 t3=0 t4=0
+SPECIAL missing6 기간제법:제6조 check=L-T07 title=단시간 초과근로 가산임금 배제 t3=0 t4=0
+SPECIAL missing6 퇴직급여법:제8조 check=L-T10 title=퇴직금 분할·포함 지급 약정 t3=18 t4=3
+SPECIAL missing6 퇴직급여법:제9조 check=L-T10 title=퇴직금 분할·포함 지급 약정 t3=18 t4=3
+SPECIAL missing6 고용보험법:적용 범위 조문 check=L-T12 title=사회보험 미가입 합의 t3=0 t4=0
+SPECIAL missing6 산재법:적용 범위 조문 check=L-T12 title=사회보험 미가입 합의 t3=0 t4=0
+COUNT special_note4 4
+SPECIAL note4 판례:대법원 2023다249661 check=H-T06 title=통상 손모까지 원상복구 부담 t3=0 t4=0
+SPECIAL note4 판례:통상손모 임차인 비부담 직접 판시 check=H-T06 title=통상 손모까지 원상복구 부담 t3=0 t4=0
+SPECIAL note4 판례:대법원 94다34692 check=H-T07 title=대규모 수선까지 임차인 부담 t3=18 t4=3
+SPECIAL note4 판례:대법원 80다320,321 check=H-T11 title=필요비·유익비 상환청구권 포기 t3=0 t4=0
+COUNT special_temp3 3
+SPECIAL temp3 고용보험법:적용 범위 조문 check=L-T12 title=사회보험 미가입 합의 t3=0 t4=0
+SPECIAL temp3 산재법:적용 범위 조문 check=L-T12 title=사회보험 미가입 합의 t3=0 t4=0
+SPECIAL temp3 이자규정:본문 check=D-T01 title=최고이자율(연 20%) 초과 t3=18 t4=3
+COUNT changelog_chars 945
+WROTE numbers.json
+DONE

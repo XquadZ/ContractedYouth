@@ -1,0 +1,8 @@
+﻿llama-server.exe : version: 0.6.0-dev (build 11556, commit a9d27ac69)
+위치 C:\Users\DMLAB\AppData\Local\Temp\ps-script-72fd9bbe-fccd-4e04-80f7-f0e2115e9b4b.ps1:108 문자:270
++ ... erver.exe"; & ".\tools\llama.cpp\llama-server.exe" --version 2>&1 | O ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (version: 0.6.0-...mmit a9d27ac69):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+built with Clang 20.1.8 for Windows x86_64

@@ -1,0 +1,76 @@
+card_id: LEASE-RENT
+day: '20261112'
+status: 본문 승인 가능 · 적용 기준은 관리자가 선택
+needs_change: true
+reason: 법령 개정으로 차임·보증금 증액 상한이 20분의 1에서 10분의 1로 변경됨
+before_card:
+  safe:
+  - 차임·보증금 증액이 법정 상한(20분의 1) 이내이거나 일방 확정 증액 없음
+  violation:
+  - 증액이 20분의 1을 초과하거나 임대인 일방 인상 확정
+  check_if:
+  - 민간임대 등록주택 여부 → 특별법 증액 한도
+  basis:
+  - law:주택임대차보호법:7
+  - decree:주택임대차보호법 시행령:8
+  match_keywords:
+  - 차임
+  - 월세
+  - 임대료
+  - 증액
+  - 인상
+  uses_facts: []
+  blocking_if: []
+  title: 차임·보증금 증액
+  missing_basis:
+  - law:민간임대주택에관한특별법:44
+proposed:
+  safe:
+  - 차임·보증금 증액이 법정 상한(10분의 1) 이내이거나 일방 확정 증액 없음
+  violation:
+  - 증액이 10분의 1을 초과하거나 임대인 일방 인상 확정
+  check_if:
+  - 민간임대 등록주택 여부 → 특별법 증액 한도
+  basis:
+  - law:주택임대차보호법:7
+  - decree:주택임대차보호법 시행령:8
+rule_candidates:
+- index: 1
+  text: 제1조(시행일) 이 법은 공포한 날부터 시행한다.
+- index: 2
+  text: 제2조(계약갱신 요구 등에 관한 적용례) ① 제6조의3 및 제7조의 개정규정은 이 법 시행 당시 존속 중인 임대차에 대하여도 적용한다.
+- index: 3
+  text: 제3조(경과조치) 이 법 시행 전에 체결된 임대차에 대하여는 종전의 규정에 따른다.
+rule_index: null
+rule_index_model: null
+apply_rule: unknown
+apply_rule_model: unknown
+rule_quote: null
+validation:
+  body: &id001
+    ok: true
+    errors: []
+    length: 96
+  rule: &id002
+    ok: false
+    errors:
+    - rule_index_null
+    apply_rule: unknown
+    rule_index: null
+    rule_quote: null
+  ok: false
+  body_ok: true
+  rule_ok: false
+  status: 본문 승인 가능 · 적용 기준은 관리자가 선택
+  approvable: body_only
+  apply_rule: unknown
+  rule_index: null
+  rule_quote: null
+  errors:
+  - rule_index_null
+  manual: false
+  length: 96
+validation_body: *id001
+validation_rule: *id002
+llm_parse_ok: true
+created_at: '2026-11-12T16:44:39'

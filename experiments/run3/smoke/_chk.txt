@@ -1,0 +1,3 @@
+items 898 Counter({'고용': 300, '계약': 300, '채권채무': 298})
+teacher 3
+{"teacher_n": 3, "passed": 3, "header_normalized": 3, "reason_counts": {}, "train_n": 2, "val_n": 1, "domain_counts": {"고용": 1, "계약": 1, "채권채무": 1}}

@@ -1,0 +1,883 @@
+{
+  "started": "202610142259",
+  "manual": [
+    {
+      "id": "g1_lsHistory",
+      "title": "Open API target=lsHistory 승인 확인",
+      "why": "법령 연혁 목록/본문 HTML API(lsHistory) — G3 연혁 판 목록 보조에 필요",
+      "url": "https://open.law.go.kr/LSO/openApi/useInfo.do",
+      "action": "마이페이지에서 target=lsHistory 승인 상태 확인",
+      "dest": "승인 후 python data_contract\\scripts\\after_manual.py",
+      "targets": [
+        "lsHistory"
+      ]
+    },
+    {
+      "id": "g4_aihub580",
+      "title": "AI Hub 판결서·약관 데이터 (dataSetSn=580)",
+      "why": "약관 유리/불리 라벨·임대차 샘플에 필요",
+      "url": "https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=580",
+      "action": "약관 관련 원천·라벨 파일만 선택해 다운로드",
+      "dest": "Downloads 그대로 두면 after_manual.py가 처리"
+    },
+    {
+      "id": "g1_lstrm",
+      "title": "Open API target=lstrm 승인 확인",
+      "why": "target=lstrm 권한 없음/실패",
+      "url": "https://open.law.go.kr/LSO/openApi/useInfo.do",
+      "action": "open.law.go.kr 마이페이지에서 target=lstrm 승인 상태 확인",
+      "dest": "승인 후 python data_contract\\scripts\\after_manual.py",
+      "targets": [
+        "lstrm"
+      ]
+    },
+    {
+      "id": "g1_mojCgmExpc",
+      "title": "Open API target=mojCgmExpc 승인 확인",
+      "why": "target=mojCgmExpc 권한 없음/실패",
+      "url": "https://open.law.go.kr/LSO/openApi/useInfo.do",
+      "action": "open.law.go.kr 마이페이지에서 target=mojCgmExpc 승인 상태 확인",
+      "dest": "승인 후 python data_contract\\scripts\\after_manual.py",
+      "targets": [
+        "mojCgmExpc"
+      ]
+    },
+    {
+      "id": "g1_cgmExpc",
+      "title": "Open API target=cgmExpc 승인 확인",
+      "why": "target=cgmExpc 권한 없음/실패",
+      "url": "https://open.law.go.kr/LSO/openApi/useInfo.do",
+      "action": "open.law.go.kr 마이페이지에서 target=cgmExpc 승인 상태 확인",
+      "dest": "승인 후 python data_contract\\scripts\\after_manual.py",
+      "targets": [
+        "cgmExpc"
+      ]
+    }
+  ],
+  "G1": {
+    "probe": {
+      "expc": {
+        "ok": true,
+        "kind": "JSON",
+        "keys": [
+          "Expc"
+        ],
+        "head": "{\"Expc\": {\n    \"resultMsg\": \"success\",\n    \"키워드\": \"근로계약\",\n    \"page\": \"1\",\n    \"expc\": [\n        {\n            \"id\": \"1\",\n            \"안건명\": \"강원도 태백시 - 「청원경찰법 시행령」 제8조제3항(태백시장이 임용한 청원경찰에 대한 견책처분 시 6개월"
+      },
+      "lstrm": {
+        "ok": false,
+        "unauthorized": true,
+        "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)",
+        "kind": "HTML"
+      },
+      "mojCgmExpc": {
+        "ok": false,
+        "unauthorized": true,
+        "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)",
+        "kind": "HTML"
+      },
+      "cgmExpc": {
+        "ok": false,
+        "unauthorized": true,
+        "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)",
+        "kind": "HTML"
+      },
+      "ftc": {
+        "ok": true,
+        "kind": "JSON",
+        "keys": [
+          "Ftc"
+        ],
+        "head": "{\"Ftc\": {\n    \"ftc\": [\n        {\n            \"id\": \"1\",\n            \"사건번호\": \"2008약관1616\",\n            \"결정문일련번호\": \"10781\",\n            \"문서유형\": \"시정권고서\",\n            \"결정번호\": \"제2008 - 041호\",\n            \""
+      },
+      "ftc_XML": {
+        "ok": false,
+        "unauthorized": true,
+        "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)",
+        "kind": "HTML"
+      }
+    },
+    "expc_collect": {
+      "list_responses": 9,
+      "unique_ids": 515,
+      "bodies": 515,
+      "sample_head_300": "{\"ExpcService\": {\n    \"해석기관코드\": \"1170000\",\n    \"안건번호\": \"08-0431\",\n    \"이유\": \"○ 「청원경찰법」 제5조제3항 및 같은 법 시행령 제8조제3항에 따르면 청원경찰보수의 호봉간의 승급기간 및 승급액에 관하여는 청원경찰이 배치된 사업장의 취업규칙에 의하되, 이에 관한 취업규칙이 없을 때는 경찰관인 순경의 승급에 관한 규정을 준용하도록 규정하고 있고, 같은 법 시행령 제17조에 따르면 청원경찰에 대한 징계의 종류를 파면, 감봉(1월 이상 6월 이하로 하되, 봉급의 3분의 1을 감함)",
+      "success_criterion": "JSON list + JSON body"
+    },
+    "lstrm_collect": null,
+    "_done": true
+  },
+  "G2": {
+    "rows": [
+      {
+        "target": "moelCgmExpc",
+        "org": "고용노동부",
+        "keyword": "근로계약",
+        "totalCnt": 1261,
+        "saved_list": 1261,
+        "saved_body": 1261,
+        "union_bodies_target": 1534
+      },
+      {
+        "target": "moelCgmExpc",
+        "org": "고용노동부",
+        "keyword": "최저임금",
+        "totalCnt": 38,
+        "saved_list": 38,
+        "saved_body": 38,
+        "union_bodies_target": 1534
+      },
+      {
+        "target": "moelCgmExpc",
+        "org": "고용노동부",
+        "keyword": "주휴",
+        "totalCnt": 183,
+        "saved_list": 183,
+        "saved_body": 183,
+        "union_bodies_target": 1534
+      },
+      {
+        "target": "moelCgmExpc",
+        "org": "고용노동부",
+        "keyword": "수습",
+        "totalCnt": 39,
+        "saved_list": 39,
+        "saved_body": 39,
+        "union_bodies_target": 1534
+      },
+      {
+        "target": "moelCgmExpc",
+        "org": "고용노동부",
+        "keyword": "임대차",
+        "totalCnt": 29,
+        "saved_list": 29,
+        "saved_body": 29,
+        "union_bodies_target": 1534
+      },
+      {
+        "target": "moelCgmExpc",
+        "org": "고용노동부",
+        "keyword": "보증금",
+        "totalCnt": 13,
+        "saved_list": 13,
+        "saved_body": 13,
+        "union_bodies_target": 1534
+      },
+      {
+        "target": "moelCgmExpc",
+        "org": "고용노동부",
+        "keyword": "이자",
+        "totalCnt": 72,
+        "saved_list": 72,
+        "saved_body": 72,
+        "union_bodies_target": 1534
+      },
+      {
+        "target": "molitCgmExpc",
+        "org": "국토교통부",
+        "keyword": "근로계약",
+        "totalCnt": 3,
+        "saved_list": 3,
+        "saved_body": 3,
+        "union_bodies_target": 194
+      },
+      {
+        "target": "molitCgmExpc",
+        "org": "국토교통부",
+        "keyword": "최저임금",
+        "totalCnt": 0,
+        "saved_list": 0,
+        "saved_body": 0,
+        "union_bodies_target": 194
+      },
+      {
+        "target": "molitCgmExpc",
+        "org": "국토교통부",
+        "keyword": "주휴",
+        "totalCnt": 0,
+        "saved_list": 0,
+        "saved_body": 0,
+        "union_bodies_target": 194
+      },
+      {
+        "target": "molitCgmExpc",
+        "org": "국토교통부",
+        "keyword": "수습",
+        "totalCnt": 3,
+        "saved_list": 3,
+        "saved_body": 3,
+        "union_bodies_target": 194
+      },
+      {
+        "target": "molitCgmExpc",
+        "org": "국토교통부",
+        "keyword": "임대차",
+        "totalCnt": 123,
+        "saved_list": 123,
+        "saved_body": 123,
+        "union_bodies_target": 194
+      },
+      {
+        "target": "molitCgmExpc",
+        "org": "국토교통부",
+        "keyword": "보증금",
+        "totalCnt": 41,
+        "saved_list": 41,
+        "saved_body": 41,
+        "union_bodies_target": 194
+      },
+      {
+        "target": "molitCgmExpc",
+        "org": "국토교통부",
+        "keyword": "이자",
+        "totalCnt": 33,
+        "saved_list": 33,
+        "saved_body": 33,
+        "union_bodies_target": 194
+      },
+      {
+        "target": "molegCgmExpc",
+        "org": "법제처",
+        "keyword": "근로계약",
+        "totalCnt": 0,
+        "saved_list": 0,
+        "saved_body": 0,
+        "union_bodies_target": 1
+      },
+      {
+        "target": "molegCgmExpc",
+        "org": "법제처",
+        "keyword": "최저임금",
+        "totalCnt": 0,
+        "saved_list": 0,
+        "saved_body": 0,
+        "union_bodies_target": 1
+      },
+      {
+        "target": "molegCgmExpc",
+        "org": "법제처",
+        "keyword": "주휴",
+        "totalCnt": 0,
+        "saved_list": 0,
+        "saved_body": 0,
+        "union_bodies_target": 1
+      },
+      {
+        "target": "molegCgmExpc",
+        "org": "법제처",
+        "keyword": "수습",
+        "totalCnt": 1,
+        "saved_list": 1,
+        "saved_body": 1,
+        "union_bodies_target": 1
+      },
+      {
+        "target": "molegCgmExpc",
+        "org": "법제처",
+        "keyword": "임대차",
+        "totalCnt": 0,
+        "saved_list": 0,
+        "saved_body": 0,
+        "union_bodies_target": 1
+      },
+      {
+        "target": "molegCgmExpc",
+        "org": "법제처",
+        "keyword": "보증금",
+        "totalCnt": 0,
+        "saved_list": 0,
+        "saved_body": 0,
+        "union_bodies_target": 1
+      },
+      {
+        "target": "molegCgmExpc",
+        "org": "법제처",
+        "keyword": "이자",
+        "totalCnt": 0,
+        "saved_list": 0,
+        "saved_body": 0,
+        "union_bodies_target": 1
+      },
+      {
+        "target": "mojCgmExpc",
+        "org": "법무부",
+        "keyword": "근로계약",
+        "totalCnt": null,
+        "saved_list": 0,
+        "saved_body": 0,
+        "error": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+      },
+      {
+        "target": "mojCgmExpc",
+        "org": "법무부",
+        "keyword": "최저임금",
+        "totalCnt": null,
+        "saved_list": 0,
+        "saved_body": 0,
+        "error": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+      },
+      {
+        "target": "mojCgmExpc",
+        "org": "법무부",
+        "keyword": "주휴",
+        "totalCnt": null,
+        "saved_list": 0,
+        "saved_body": 0,
+        "error": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+      },
+      {
+        "target": "mojCgmExpc",
+        "org": "법무부",
+        "keyword": "수습",
+        "totalCnt": null,
+        "saved_list": 0,
+        "saved_body": 0,
+        "error": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+      },
+      {
+        "target": "mojCgmExpc",
+        "org": "법무부",
+        "keyword": "임대차",
+        "totalCnt": null,
+        "saved_list": 0,
+        "saved_body": 0,
+        "error": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+      },
+      {
+        "target": "mojCgmExpc",
+        "org": "법무부",
+        "keyword": "보증금",
+        "totalCnt": null,
+        "saved_list": 0,
+        "saved_body": 0,
+        "error": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+      },
+      {
+        "target": "mojCgmExpc",
+        "org": "법무부",
+        "keyword": "이자",
+        "totalCnt": null,
+        "saved_list": 0,
+        "saved_body": 0,
+        "error": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. OPEN API 로그인 후 [OPEN API] -> [OPEN API 신청] -> 등록된 API 선택 후 법령종류를 체크해 주세요. 동일한 문제가 지속될 경우 아래 번호로 문의해 주시기 바랍니다. 법제처 공동활용 유지보수팀(02-2109-6446)"
+      },
+      {
+        "target": "ftc",
+        "keyword": "임대차 약관",
+        "totalCnt": 24,
+        "saved_list": 24,
+        "saved_body": 24
+      },
+      {
+        "target": "ftc",
+        "keyword": "임대차계약서",
+        "totalCnt": 153,
+        "saved_list": 153,
+        "saved_body": 153
+      },
+      {
+        "target": "prec",
+        "keyword": "임대차 특약 무효",
+        "totalCnt": 161,
+        "saved_list": 161,
+        "saved_body": 161
+      },
+      {
+        "target": "prec",
+        "keyword": "원상복구 특약",
+        "totalCnt": 79,
+        "saved_list": 79,
+        "saved_body": 79
+      },
+      {
+        "target": "prec",
+        "keyword": "임대차 위약금",
+        "totalCnt": 151,
+        "saved_list": 151,
+        "saved_body": 151
+      },
+      {
+        "target": "prec",
+        "keyword": "보증금 반환 특약",
+        "totalCnt": 507,
+        "saved_list": 507,
+        "saved_body": 507
+      },
+      {
+        "target": "prec",
+        "keyword": "계약갱신요구권 포기",
+        "totalCnt": 13,
+        "saved_list": 13,
+        "saved_body": 13
+      },
+      {
+        "target": "prec",
+        "keyword": "근로계약 위약금",
+        "totalCnt": 136,
+        "saved_list": 136,
+        "saved_body": 136
+      },
+      {
+        "target": "prec",
+        "keyword": "위약예정",
+        "totalCnt": 308,
+        "saved_list": 308,
+        "saved_body": 308
+      },
+      {
+        "target": "prec",
+        "keyword": "임금 공제",
+        "totalCnt": 1555,
+        "saved_list": 1555,
+        "saved_body": 1555
+      },
+      {
+        "target": "prec",
+        "keyword": "수습기간 임금",
+        "totalCnt": 135,
+        "saved_list": 135,
+        "saved_body": 135
+      },
+      {
+        "target": "prec",
+        "keyword": "주휴수당",
+        "totalCnt": 200,
+        "saved_list": 200,
+        "saved_body": 200
+      },
+      {
+        "target": "prec",
+        "keyword": "휴게시간",
+        "totalCnt": 2065,
+        "saved_list": 2065,
+        "saved_body": 2065
+      },
+      {
+        "target": "prec",
+        "keyword": "이자제한법 초과",
+        "totalCnt": 460,
+        "saved_list": 460,
+        "saved_body": 460
+      },
+      {
+        "target": "prec",
+        "keyword": "보증 서면",
+        "totalCnt": 1123,
+        "saved_list": 1123,
+        "saved_body": 1123
+      },
+      {
+        "target": "prec",
+        "keyword": "차용증",
+        "totalCnt": 1253,
+        "saved_list": 1253,
+        "saved_body": 1253
+      }
+    ],
+    "_done": true
+  },
+  "G3": {
+    "method": {
+      "list_api": "target=law JSON + efYd=20220101~오늘 + 법령명한글 완전일치",
+      "guide_lsHistory": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsHstListGuide",
+      "guide_lsHistory_body": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsHstInfoGuide",
+      "note": "lsHistory는 type=HTML only. 구조화는 law+MST JSON 우선, 실패 시 HTML 저장+파싱"
+    },
+    "laws": {
+      "근로기준법": {
+        "versions": [
+          {
+            "시행일": "20261008",
+            "공포일": "20260407",
+            "공포번호": "21533",
+            "MST": "285279",
+            "현행연혁코드": "현행",
+            "본문저장": true,
+            "본문유형": "law_JSON_MST"
+          }
+        ],
+        "n": 1,
+        "bodies_ok": 1
+      },
+      "근로기준법 시행령": {
+        "versions": [
+          {
+            "시행일": "20251023",
+            "공포일": "20250408",
+            "공포번호": "35436",
+            "MST": "270551",
+            "현행연혁코드": "현행",
+            "본문저장": true,
+            "본문유형": "law_JSON_MST"
+          }
+        ],
+        "n": 1,
+        "bodies_ok": 1
+      },
+      "주택임대차보호법": {
+        "versions": [
+          {
+            "시행일": "20260102",
+            "공포일": "20251001",
+            "공포번호": "21065",
+            "MST": "276291",
+            "현행연혁코드": "현행",
+            "본문저장": true,
+            "본문유형": "law_JSON_MST"
+          }
+        ],
+        "n": 1,
+        "bodies_ok": 1
+      },
+      "주택임대차보호법 시행령": {
+        "versions": [
+          {
+            "시행일": "20260701",
+            "공포일": "20260623",
+            "공포번호": "36423",
+            "MST": "287183",
+            "현행연혁코드": "현행",
+            "본문저장": true,
+            "본문유형": "law_JSON_MST"
+          }
+        ],
+        "n": 1,
+        "bodies_ok": 1
+      },
+      "민법": {
+        "versions": [
+          {
+            "시행일": "20260317",
+            "공포일": "20260317",
+            "공포번호": "21454",
+            "MST": "284415",
+            "현행연혁코드": "현행",
+            "본문저장": true,
+            "본문유형": "law_JSON_MST"
+          }
+        ],
+        "n": 1,
+        "bodies_ok": 1
+      },
+      "보증인 보호를 위한 특별법": {
+        "versions": [
+          {
+            "시행일": "20231221",
+            "공포일": "20230620",
+            "공포번호": "19504",
+            "MST": "251943",
+            "현행연혁코드": "현행",
+            "본문저장": true,
+            "본문유형": "law_JSON_MST"
+          }
+        ],
+        "n": 1,
+        "bodies_ok": 1
+      }
+    },
+    "mismatches_rejected": [
+      {
+        "expected": "근로기준법",
+        "actual": "근로기준법 시행규칙",
+        "MST": "269393"
+      },
+      {
+        "expected": "근로기준법",
+        "actual": "근로기준법 시행령",
+        "MST": "270551"
+      },
+      {
+        "expected": "주택임대차보호법",
+        "actual": "주택임대차보호법 시행령",
+        "MST": "287183"
+      },
+      {
+        "expected": "민법",
+        "actual": "난민법 시행규칙",
+        "MST": "266929"
+      },
+      {
+        "expected": "민법",
+        "actual": "민법법인 및 특수법인 등기규칙",
+        "MST": "266851"
+      },
+      {
+        "expected": "민법",
+        "actual": "난민법 시행령",
+        "MST": "273705"
+      },
+      {
+        "expected": "민법",
+        "actual": "북한이탈주민의 보호 및 정착지원에 관한 법률 시행규칙",
+        "MST": "280245"
+      },
+      {
+        "expected": "민법",
+        "actual": "북한이탈주민의 보호 및 정착지원에 관한 법률 시행령",
+        "MST": "288389"
+      },
+      {
+        "expected": "민법",
+        "actual": "북한이탈주민의 보호 및 정착지원에 관한 법률",
+        "MST": "283937"
+      }
+    ],
+    "mismatch_count": 9,
+    "verify": {
+      "주택임대차보호법_제7조": {
+        "rows": [
+          {
+            "시행일": "20260102",
+            "MST": "276291",
+            "조문텍스트": "제7조(차임 등의 증감청구권) ① 당사자는 약정한 차임이나 보증금이 임차주택에 관한 조세, 공과금, 그 밖의 부담의 증감이나 경제사정의 변동으로 인하여 적절하지 아니하게 된 때에는 장래에 대하여 그 증감을 청구할 수 있다. 이 경우 증액청구는 임대차계약 또는 약정한 차임이나 보증금의 증액이 있은 후 1년 이내에는 하지 못한다. <개정 2020.7.31> ② 제1항에 따른 증액청구는 약정한 차임이나 보증금의 20분의 1의 금액을 초과하지 못한다. 다만, 특별시ㆍ광역시ㆍ특별자치시ㆍ도 및 특별자치도는 관할 구역 내의 지역별 임대차 시장 여건 등을 고려하여 본문의 범위에서 증액청구의 상한을 조례로 달리 정할 수 있다. <신설 2020.7.31>"
+          }
+        ],
+        "changes_detected": false,
+        "note": "2022-01-01 이후 법령명 완전일치 시행판이 1건이면 비교 대상 단일 행"
+      },
+      "근로기준법_제17조": {
+        "rows": [
+          {
+            "시행일": "20261008",
+            "MST": "285279",
+            "조문텍스트": "제17조(근로조건의 명시) ① 사용자는 근로계약을 체결할 때에 근로자에게 다음 각 호의 사항을 명시하여야 한다. 근로계약 체결 후 다음 각 호의 사항을 변경하는 경우에도 또한 같다. <개정 2010.5.25> 1. 임금 2. 소정근로시간 3. 제55조에 따른 휴일 4. 제60조에 따른 연차 유급휴가 5. 그 밖에 대통령령으로 정하는 근로조건 ② 사용자는 제1항제1호와 관련한 임금의 구성항목ㆍ계산방법ㆍ지급방법 및 제2호부터 제4호까지의 사항이 명시된 서면(「전자문서 및 전자거래 기본법」 제2조제1호에 따른 전자문서를 포함한다)을 근로자에게 교부하여야 한다. 다만, 본문에 따른 사항이 단체협약 또는 취업규칙의 변경 등 대통령령으로 정하는 사유로 인하여 변경되는 경우에는 근로자의 요구가 있으면 그 근로자에게 교부하여야 한다. <신설 2010.5.25, 2021.1.5>"
+          }
+        ],
+        "changes_detected": false,
+        "note": "2022-01-01 이후 법령명 완전일치 시행판이 1건이면 비교 대상 단일 행"
+      }
+    },
+    "excluded_note": "최저임금법·시행령·이자제한 최고이자율 규정은 2022 이전 시행판이 현행이라 G3 제외(기존 리포트 근거 유지)",
+    "_done": true,
+    "manual_extra": [],
+    "lsHistory_status": {
+      "ok": false,
+      "error_text": "국가법령정보 공동활용 미신청된 목록/본문에 대한 접근입니다. … 법제처 공동활용 유지보수팀(02-2109-6446)",
+      "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsHstListGuide"
+    }
+  },
+  "G4": {
+    "candidates": [],
+    "partial_ignored": [],
+    "processed": null,
+    "status": "not_found",
+    "_done": true
+  },
+  "G5": {
+    "has_금전대차계약서_in_open_zip": false,
+    "zip_entry_samples": {
+      "3.개방데이터\\1.데이터\\Training\\01.원천데이터\\TS_금전소비대차_채권_채무_채권_채무계약.zip": [
+        "/채권양도계약서_0004.json",
+        "/채권양도계약서_0037.json",
+        "/채권양도계약서_0013.json",
+        "/채권양도계약서_0011.json",
+        "/채권양도계약서_0007.json",
+        "/채권양도계약서_0008.json",
+        "/채권양도계약서_0005.json",
+        "/채권양도계약서_0036.json",
+        "/채권양도계약서_0020.json",
+        "/채권양도계약서_0009.json",
+        "/채권양도계약서_0086.json",
+        "/채권양도계약서_0024.json",
+        "/채권양도계약서_0067.json",
+        "/채권양도계약서_0010.json",
+        "/채권양도계약서_0022.json",
+        "/채권양도계약서_0016.json",
+        "/채권양도계약서_0032.json",
+        "/채권양도계약서_0012.json",
+        "/채권양도계약서_0043.json",
+        "/채권양도계약서_0018.json",
+        "/채권양도계약서_0029.json",
+        "/채권양도계약서_0136.json",
+        "/채권양도계약서_0045.json",
+        "/채권양도계약서_0035.json",
+        "/채권양도계약서_0030.json",
+        "/채권양도계약서_0056.json",
+        "/채권양도계약서_0089.json",
+        "/채권양도계약서_0034.json",
+        "/채권양도계약서_0026.json",
+        "/채권양도계약서_0051.json",
+        "/채권양도계약서_0025.json",
+        "/채권양도계약서_0081.json",
+        "/채권양도계약서_0028.json",
+        "/채권양도계약서_0031.json",
+        "/채권양도계약서_0062.json",
+        "/채권양도계약서_0048.json",
+        "/채권양도계약서_0050.json",
+        "/채권양도계약서_0053.json",
+        "/채권양도계약서_0049.json",
+        "/채권양도계약서_0019.json"
+      ],
+      "3.개방데이터\\1.데이터\\Training\\02.라벨링데이터\\TL_금전소비대차_채권_채무_채권_채무계약.zip": [
+        "/채권양도계약서_0031.json",
+        "/채권양도계약서_0011.json",
+        "/채권양도계약서_0012.json",
+        "/채권양도계약서_0010.json",
+        "/채권양도계약서_0035.json",
+        "/채권양도계약서_0036.json",
+        "/채권양도계약서_0008.json",
+        "/채권양도계약서_0007.json",
+        "/채권양도계약서_0009.json",
+        "/채권양도계약서_0025.json",
+        "/채권양도계약서_0075.json",
+        "/채권양도계약서_0018.json",
+        "/채권양도계약서_0027.json",
+        "/채권양도계약서_0085.json",
+        "/채권양도계약서_0020.json",
+        "/채권양도계약서_0024.json",
+        "/채권양도계약서_0066.json",
+        "/채권양도계약서_0039.json",
+        "/채권양도계약서_0051.json",
+        "/채권양도계약서_0016.json",
+        "/채권양도계약서_0034.json",
+        "/채권양도계약서_0019.json",
+        "/채권양도계약서_0030.json",
+        "/채권양도계약서_0032.json",
+        "/채권양도계약서_0049.json",
+        "/채권양도계약서_0063.json",
+        "/채권양도계약서_0072.json",
+        "/채권양도계약서_0022.json",
+        "/채권양도계약서_0065.json",
+        "/채권양도계약서_0005.json",
+        "/채권양도계약서_0048.json",
+        "/채권양도계약서_0004.json",
+        "/채권양도계약서_0026.json",
+        "/채권양도계약서_0013.json",
+        "/채권양도계약서_0060.json",
+        "/채권양도계약서_0081.json",
+        "/채권양도계약서_0041.json",
+        "/채권양도계약서_0056.json",
+        "/채권양도계약서_0037.json",
+        "/채권양도계약서_0043.json"
+      ],
+      "3.개방데이터\\1.데이터\\Validation\\01.원천데이터\\VS_금전소비대차_채권_채무_채권_채무계약.zip": [
+        "/채권양도계약서_0047.json",
+        "/채권양도계약서_0122.json",
+        "/채무승계계약서_0060.json",
+        "/채무승계계약서_0092.json",
+        "/채권양도계약서_0038.json",
+        "/채권양도계약서_0040.json",
+        "/채권양도계약서_0006.json",
+        "/채무승계계약서_0016.json",
+        "/채무승계계약서_0050.json",
+        "/채권양도계약서_0076.json",
+        "/채권양도계약서_0126.json",
+        "/채권양도계약서_0121.json",
+        "/채권양도계약서_0124.json",
+        "/채무승계계약서_0085.json",
+        "/채권양도계약서_0073.json",
+        "/채무승계계약서_0063.json",
+        "/채무승계계약서_0051.json",
+        "/채권양도계약서_0114.json",
+        "/채권양도계약서_0074.json",
+        "/채권양도계약서_0125.json",
+        "/채권양도계약서_0064.json",
+        "/채무승계계약서_0034.json",
+        "/채무승계계약서_0068.json",
+        "/채무승계계약서_0076.json"
+      ],
+      "3.개방데이터\\1.데이터\\Validation\\02.라벨링데이터\\VL_금전소비대차_채권_채무_채권_채무계약.zip": [
+        "/채무승계계약서_0076.json",
+        "/채권양도계약서_0073.json",
+        "/채무승계계약서_0016.json",
+        "/채권양도계약서_0040.json",
+        "/채권양도계약서_0125.json",
+        "/채무승계계약서_0051.json",
+        "/채무승계계약서_0068.json",
+        "/채무승계계약서_0063.json",
+        "/채권양도계약서_0074.json",
+        "/채권양도계약서_0047.json",
+        "/채권양도계약서_0006.json",
+        "/채권양도계약서_0064.json",
+        "/채권양도계약서_0121.json",
+        "/채권양도계약서_0126.json",
+        "/채무승계계약서_0092.json",
+        "/채권양도계약서_0124.json",
+        "/채무승계계약서_0060.json",
+        "/채권양도계약서_0114.json",
+        "/채권양도계약서_0038.json",
+        "/채권양도계약서_0076.json",
+        "/채무승계계약서_0050.json",
+        "/채무승계계약서_0034.json",
+        "/채권양도계약서_0122.json",
+        "/채무승계계약서_0085.json"
+      ]
+    },
+    "taxonomy": [
+      {
+        "대": "금전소비대차_채권_채무",
+        "중": "채권_채무계약",
+        "소": "채권양도계약서",
+        "count": 121
+      },
+      {
+        "대": "금전소비대차_채권_채무",
+        "중": "채권_채무계약",
+        "소": "채무승계계약서",
+        "count": 95
+      }
+    ],
+    "aihubshell": {
+      "tried": false,
+      "key_present": false,
+      "listing": null,
+      "note": "키 없음 — aihubshell 목록 조회 건너뜀"
+    },
+    "conclusion": "개방 zip에 없음 / 데이터셋에 개방 안 됨",
+    "dataset_url": "https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=71834",
+    "_done": true
+  },
+  "G6": {
+    "ok": true,
+    "engine": "tesseract:C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+    "use_gpu": false,
+    "n_pages": 101,
+    "samples": [
+      {
+        "page": 4,
+        "head_300": "쵸 주 택 임 대 차 분 쟁 조 정 사 례 집\n\n",
+        "hangul_ratio": 0.48148148148148145,
+        "broken_ratio": 0.0
+      },
+      {
+        "page": 15,
+        "head_300": "",
+        "hangul_ratio": 0.0,
+        "broken_ratio": 0.0
+      },
+      {
+        "page": 36,
+        "head_300": "리 뿌 똥 흥 호\n\n- 피 신 청 인 들 은 공 동 하 여 2021. O. O. 까 지 신 청 인 에 게 = 30,500,000 원 을 지 급 한 다 . we\n\n이 를 지 체 하 면 피 신 청 인 들 은 신 청 인 에 게 2021. O. <). 부 터 다 갖 는 날 까 지 연 5% 의 비 율 로\n\n- 신 청 인 은 2021. O. O. 피 신 청 인 들 로 부 터 금 579,500,000 원 ( 제 1 항 기 재 임 대 차 계 약 의\n임 차 보 증 금 610,000,000 원 중 위 2 항 기 재 금 액 을 AM 나 머 지 금 액 ",
+        "hangul_ratio": 0.3623481781376518,
+        "broken_ratio": 0.0
+      },
+      {
+        "page": 82,
+        "head_300": "D SE 등 주 택 하 자 에 대 한 유 지 ㆍ 수 선 의 무 는 임 대 인 의 의 무 임 을 확 인 하 여 임 대 차 계 약\n종 료 후 보 증 금 을 전 액 반 환 하 도록 한 사 례\n\n- ( 사 실 관 계 ) 임 차 인이 누 수 등 주 택 의 하 사 로 계 약 해 시 의 사 를 통 보 하 고 보 증 금 반 환 을\n요 청 하 였 고 임 대 인 은 원 상 회 복 비 용 공 제 후 보 증 금 을 반 환 하 겠 다 고 +g\n\n- ( 조 정 ) 외 관 으 로 누 수 가 확 인 되 시 않 아 임 차 인이 이 를 Ole] 인 지 하 고 있 ",
+        "hangul_ratio": 0.44500359453630484,
+        "broken_ratio": 0.0
+      },
+      {
+        "page": 95,
+        "head_300": "",
+        "hangul_ratio": 0.0,
+        "broken_ratio": 0.0
+      }
+    ],
+    "avg_hangul_ratio": 0.25776665083108763,
+    "quality_ok": false,
+    "toc_pages": [],
+    "case_title_count": 6,
+    "case_titles_sample": [
+      "사 례 1\n\n조 정 요 지",
+      "사 례 2\n\n* 기 존 계 약 기 간 만 료 시에 임 대 차 종 료 하 는 것 으 로 하 되 , 임 대 인이 보 증 금 일 부 를",
+      "사 례 1\n\n* 임 차 인 의 계 약 갱 신 요 구 당 시 의 Sa 임 대 인 에 게 실 거주 사 유 가 없 어 계 약 을 갱 신 된",
+      "사 례 3\n\n* 임 대 인이 BA 임 대 목 적 물 의 매 도 예 정 을 언 급 한 사 실 , 임 대 목 적 물 소 재 지 가 임 대 인 의",
+      "사 례 2\n\n* 임 대 인이 실 거주 갱 신 거 절 하 여 임 차 인이 퇴 거 한 이 후 임 대 인이 제 3 자 에 임 대 한 사 실 을",
+      "사 례 3\n\n* 임 대 인이 실 거주 갱 신 거 절 하 여 엄 차 인이 퇴 거 한 이 후 임 대 인이 제 3 자 에 임 대 한 사 실 을 확 인"
+    ],
+    "stopped_low_quality": true,
+    "_done": true
+  },
+  "manual_count": 5
+}

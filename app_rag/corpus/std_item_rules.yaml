@@ -1,0 +1,98 @@
+# 조 제목·본문 키워드로 std_item을 정한다. 여러 개면 전부 쓴다.
+rules:
+  - id: LAB-01
+    domain: LAB
+    keywords: [당사자, 사업주, 근로자, 성명]
+  - id: LAB-02
+    domain: LAB
+    keywords: [근로개시일, 계약기간, 근로계약기간, 계약 기간]
+  - id: LAB-03
+    domain: LAB
+    keywords: [근무 장소, 근무장소, 업무의 내용, 담당 업무]
+  - id: LAB-04
+    domain: LAB
+    keywords: [휴게, 근로시간, 근무시간, 소정근로]
+  - id: LAB-05
+    domain: LAB
+    keywords: [주휴, 휴일, 근로일, 주 5일]
+  - id: LAB-06
+    domain: LAB
+    keywords: [시급, 월급, 임금, 최저임금]
+  - id: LAB-07
+    domain: LAB
+    keywords: [지급일, 임금지급, 계좌]
+  - id: LAB-08
+    domain: LAB
+    keywords: [연차, 유급휴가, 휴가]
+  - id: LAB-09
+    domain: LAB
+    keywords: [사회보험, 고용보험, 산재, 국민연금, 건강보험]
+  - id: LAB-10
+    domain: LAB
+    keywords: [교부, 계약서 교부]
+  - id: LAB-11
+    domain: LAB
+    keywords: [수습, 시용]
+  - id: LAB-12
+    domain: LAB
+    keywords: [해고, 퇴직, 해지, 종료]
+  - id: LAB-13
+    domain: LAB
+    keywords: [위약, 벌금, 손해배상, 지각]
+  - id: LAB-14
+    domain: LAB
+    keywords: [특약, 그 밖의]
+  - id: LEASE-01
+    domain: LEASE
+    keywords: [임대인, 임차인, 당사자]
+  - id: LEASE-02
+    domain: LEASE
+    keywords: [목적물, 부동산, 임차주택]
+  - id: LEASE-03
+    domain: LEASE
+    keywords: [보증금, 월세, 차임, 계약금, 잔금]
+  - id: LEASE-04
+    domain: LEASE
+    keywords: [관리비]
+  - id: LEASE-05
+    domain: LEASE
+    keywords: [임대차기간, 갱신, 계약기간]
+  - id: LEASE-06
+    domain: LEASE
+    keywords: [증액, 인상, 차임 증]
+  - id: LEASE-07
+    domain: LEASE
+    keywords: [수선, 수리, 유지]
+  - id: LEASE-08
+    domain: LEASE
+    keywords: [원상회복, 원상복구, 반환]
+  - id: LEASE-09
+    domain: LEASE
+    keywords: [해지, 해제, 연체]
+  - id: LEASE-10
+    domain: LEASE
+    keywords: [위약, 손해배상]
+  - id: LEASE-11
+    domain: LEASE
+    keywords: [전입신고, 대항력, 확정일자, 우선변제]
+  - id: LEASE-12
+    domain: LEASE
+    keywords: [특약, 출입]
+  - id: LOAN-01
+    domain: LOAN
+    keywords: [채권자, 채무자, 당사자]
+  - id: LOAN-02
+    domain: LOAN
+    keywords: [원금, 차용금, 대여금]
+  - id: LOAN-03
+    domain: LOAN
+    keywords: [이자, 이율]
+  - id: LOAN-04
+    domain: LOAN
+    keywords: [변제, 반환시기]
+  - id: LOAN-05
+    domain: LOAN
+    keywords: [지연, 연체이자]
+  - id: LOAN-06
+    domain: LOAN
+    keywords: [보증, 근보증]

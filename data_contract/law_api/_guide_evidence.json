@@ -1,0 +1,138 @@
+{
+  "portal_list": "https://open.law.go.kr/LSO/openApi/guideList.do",
+  "law_list": {
+    "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?targe=1&target=law&type=1",
+    "url": "http://www.law.go.kr/DRF/lawSearch.do",
+    "target": "law",
+    "key_params": [
+      "OC",
+      "target=law",
+      "type",
+      "search(1명/2본문)",
+      "query",
+      "display<=100",
+      "page",
+      "efYd",
+      "ancYd",
+      "date",
+      "nb"
+    ]
+  },
+  "law_body": {
+    "guide_candidates_tried": [
+      "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lawInfoGuide",
+      "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsInfoGuide",
+      "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsBodInfoGuide"
+    ],
+    "note": "본문 가이드 htmlName 페이지는 404. 목록 API 응답의 법령상세링크가 lawService.do?target=law&MST={법령일련번호} 형태임을 확인(실측). ID 파라미터는 '일치하는 법령이 없습니다' 응답. 따라서 MST=법령일련번호로 본문 조회.",
+    "url": "http://www.law.go.kr/DRF/lawService.do",
+    "target": "law",
+    "params_confirmed_by_list_link": [
+      "OC",
+      "target=law",
+      "MST=법령일련번호",
+      "type"
+    ],
+    "evidence": "LawSearch.law[].법령상세링크 실측 필드"
+  },
+  "prec_list": {
+    "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=precListGuide",
+    "url": "http://www.law.go.kr/DRF/lawSearch.do",
+    "target": "prec",
+    "key_params": [
+      "search=2 본문검색",
+      "query",
+      "display",
+      "page"
+    ]
+  },
+  "prec_body": {
+    "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=precInfoGuide",
+    "url": "http://www.law.go.kr/DRF/lawService.do",
+    "target": "prec",
+    "key_params": [
+      "ID(판례일련번호)",
+      "type"
+    ]
+  },
+  "admrul_list": {
+    "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=admrulListGuide",
+    "url": "http://www.law.go.kr/DRF/lawSearch.do",
+    "target": "admrul",
+    "key_params": [
+      "nw(1현행/2연혁)",
+      "query",
+      "knd",
+      "search",
+      "prmlYd"
+    ]
+  },
+  "admrul_body": {
+    "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=admrulInfoGuide",
+    "url": "http://www.law.go.kr/DRF/lawService.do",
+    "target": "admrul",
+    "key_params": [
+      "ID",
+      "LID",
+      "LM"
+    ]
+  },
+  "expc_list": {
+    "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=expcListGuide",
+    "url": "http://www.law.go.kr/DRF/lawSearch.do",
+    "target": "expc",
+    "key_params": [
+      "search",
+      "query",
+      "inq",
+      "rpl"
+    ]
+  },
+  "expc_body": {
+    "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=expcInfoGuide",
+    "url": "http://www.law.go.kr/DRF/lawService.do",
+    "target": "expc",
+    "key_params": [
+      "ID"
+    ]
+  },
+  "ftc_list": {
+    "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=cmtListGuide",
+    "url": "http://www.law.go.kr/DRF/lawSearch.do",
+    "target": "ftc",
+    "key_params": [
+      "search",
+      "query",
+      "type=HTML|XML (가이드상 JSON 미기재)"
+    ],
+    "type_note": "가이드 표기는 HTML/XML. JSON 시도 후 실패 시 XML 저장."
+  },
+  "ftc_body": {
+    "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=cmtInfoGuide",
+    "url": "http://www.law.go.kr/DRF/lawService.do",
+    "target": "ftc",
+    "key_params": [
+      "ID",
+      "type=HTML|XML"
+    ]
+  },
+  "lstrm_list": {
+    "guide": "https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsTrmListGuide",
+    "url": "http://www.law.go.kr/DRF/lawSearch.do",
+    "target": "lstrm"
+  },
+  "lstrmRlt": {
+    "guide": "http://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lstrmRltGuide",
+    "url": "http://www.law.go.kr/DRF/lawService.do",
+    "target": "lstrmRlt",
+    "key_params": [
+      "query|MST",
+      "trmRltCd"
+    ]
+  },
+  "history": {
+    "efYd_list": "법령 목록 API efYd 범위 필터 문서화됨 (law list guide)",
+    "asof_body": "특정일 시점 본문 전용 파라미터는 가이드에서 미확인. 연혁 목록(시행일>=20220101) 저장 후 각 법령일련번호로 본문 조회 시도.",
+    "admrul_nw": "행정규칙 목록 nw=2 연혁 (admrulListGuide)"
+  }
+}

@@ -1,0 +1,7 @@
+.env
+.env.*
+*.pem
+*secret*
+*credentials*
+*.key
+encryption_key_value*

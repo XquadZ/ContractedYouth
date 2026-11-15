@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>관리자 · 원본 삭제</title>
+  <style>
+    body { font-family: "Pretendard","Noto Sans KR",sans-serif; margin:0; background:#f5f7fb; color:#223; }
+    header { padding:16px 24px; background:#1f4b99; color:#fff; display:flex; justify-content:space-between; align-items:center; }
+    main { display:grid; grid-template-columns: 240px 1fr; gap:16px; padding:16px; }
+    .panel { background:#fff; border-radius:10px; padding:12px; box-shadow:0 4px 14px rgba(0,0,0,.05); }
+    li { list-style:none; padding:8px 10px; cursor:pointer; border-radius:6px; }
+    li:hover, li.on { background:#e8eef8; }
+    table { width:100%; border-collapse:collapse; font-size:.92rem; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid #e6ebf3; }
+    button { background:#b42318; color:#fff; border:0; border-radius:6px; padding:6px 10px; cursor:pointer; }
+    .note { color:#667; font-size:.85rem; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>관리자 · 파일 상태만 표시 (내용은 보지 않음)</strong>
+    <a href="/static/review.html" style="color:#fff">검토로</a>
+  </header>
+  <main>
+    <div class="panel">
+      <h3>사용자</h3>
+      <ul id="users"></ul>
+    </div>
+    <div class="panel">
+      <h3 id="title">파일</h3>
+      <table>
+        <thead><tr><th>파일명</th><th>크기</th><th>올린 시각</th><th>만료</th><th>상태</th><th></th></tr></thead>
+        <tbody id="files"></tbody>
+      </table>
+      <p class="note">관리자는 계약서 내용을 보지 않습니다.</p>
+    </div>
+  </main>
+  <script>
+    let selected = null;
+    async function loadUsers() {
+      const r = await fetch("/api/admin/users");
+      if (r.status === 401 || r.status === 403) { location.href = "/login"; return; }
+      const j = await r.json();
+      const ul = document.getElementById("users");
+      ul.innerHTML = "";
+      (j.users || []).forEach(u => {
+        const li = document.createElement("li");
+        li.textContent = `${u.login_id} (${u.role})`;
+        li.onclick = () => { selected = u.id; [...ul.children].forEach(x => x.classList.remove("on")); li.classList.add("on"); loadFiles(u.id, u.login_id); };
+        ul.appendChild(li);
+      });
+    }
+    async function loadFiles(uid, name) {
+      document.getElementById("title").textContent = `${name} 파일`;
+      const r = await fetch(`/api/admin/users/${uid}/files`);
+      const j = await r.json();
+      const tb = document.getElementById("files");
+      tb.innerHTML = "";
+      const seoul = (iso) => {
+        try {
+          return new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Seoul", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date(iso));
+        } catch (_) { return iso || "-"; }
+      };
+      (j.files || []).forEach(f => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${f.filename}</td><td>${f.size}</td><td>${seoul(f.created_at)}</td><td>${seoul(f.expires_at)}</td><td>${f.status}</td><td></td>`;
+        if (f.status === "active") {
+          const btn = document.createElement("button");
+          btn.textContent = "원본 삭제";
+          btn.onclick = async () => {
+            if (!confirm("원본을 즉시 삭제할까요?")) return;
+            await fetch(`/api/admin/files/${f.id}/delete`, { method: "POST" });
+            loadFiles(uid, name);
+          };
+          tr.lastChild.appendChild(btn);
+        }
+        tb.appendChild(tr);
+      });
+    }
+    loadUsers();
+  </script>
+</body>
+</html>

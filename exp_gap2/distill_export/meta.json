@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "tokenizer_path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\Qwen3-8B",
+    "morph_analyzer": "none (kiwipiepy not installed)",
+    "content_token_method": "fallback: 2글자 이상 어절에서 조사 제거 후 앞 2글자로 clause/조문 매칭",
+    "sentence_rule": "문장 분리: 정규식 `(?<=다)\\.|[.。]` 로 분할 후 공백 제거·빈 조각 제외. 즉 '다.' 직전 경계와 일반 마침표(./。)를 경계로 센다.",
+    "tokenizer_backend": "tokenizers.Tokenizer.from_file(tokenizer.json)"
+  },
+  "file_counts": {
+    "32B_C2": 1000,
+    "32B_C4": 500,
+    "32B_C5": 299,
+    "8B_C2": 1000,
+    "8B_C4": 500
+  },
+  "parse_fail_counts": {
+    "32B_C2": 0,
+    "32B_C4": 0,
+    "32B_C5": 0,
+    "8B_C2": 0,
+    "8B_C4": 0
+  },
+  "empty_reason_counts": {
+    "32B_C2": 0,
+    "32B_C4": 0,
+    "32B_C5": 0,
+    "8B_C2": 0,
+    "8B_C4": 0
+  },
+  "learn_tables": {
+    "32B_C2": {
+      "정답": 482,
+      "정답∧완전중복아님": 429,
+      "정답∧일반형아님": 328,
+      "정답∧자료밖법령없음∧프롬프트없음": 482,
+      "위모두": 315
+    },
+    "32B_C4": {
+      "정답": 363,
+      "정답∧완전중복아님": 332,
+      "정답∧일반형아님": 225,
+      "정답∧자료밖법령없음∧프롬프트없음": 363,
+      "위모두": 219
+    },
+    "32B_C5": {
+      "정답": 220,
+      "정답∧완전중복아님": 220,
+      "정답∧일반형아님": 185,
+      "정답∧자료밖법령없음∧프롬프트없음": 220,
+      "위모두": 185
+    }
+  },
+  "overlap_counts": {
+    "C2∩C4": 109,
+    "C2∩C5": 74,
+    "C4∩C5": 103,
+    "C2∩C4∩C5": 58,
+    "unique_ids": 491
+  },
+  "distill_pairs": [
+    {
+      "cond": "C2",
+      "n": 155
+    },
+    {
+      "cond": "C4",
+      "n": 105
+    }
+  ],
+  "skipped": [],
+  "elapsed_sec": 6.7
+}

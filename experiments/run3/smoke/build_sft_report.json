@@ -1,0 +1,15 @@
+{
+  "teacher_n": 3,
+  "passed": 3,
+  "header_normalized": 3,
+  "reason_counts": {},
+  "domain_counts": {
+    "고용": 1,
+    "계약": 1,
+    "채권채무": 1
+  },
+  "train_n": 2,
+  "val_n": 1,
+  "fail_examples": {},
+  "tokenizer_ok": true
+}

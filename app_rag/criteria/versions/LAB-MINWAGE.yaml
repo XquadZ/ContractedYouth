@@ -1,0 +1,70 @@
+card_id: LAB-MINWAGE
+versions:
+- version: 1
+  effective_from: '2026-01-01'
+  effective_to: '2026-12-31'
+  apply_rule: performance_period
+  rule_source:
+    law: 최저임금법 제10조제2항
+    quote: ② 제1항에 따라 고시된 최저임금은 다음 연도 1월 1일부터 효력이 발생한다. 다만, 고용노동부장관은 사업의 종류별로 임금교섭시기
+      등을 고려하여 필요하다고 인정하면 효력발생 시기를 따로 정할 수 있다. <개정 2010.6.4>
+    source_status: 원문
+    amount: 10320
+    year: 2026
+  card:
+    safe:
+    - 시간급이 2026년 최저임금(시간당 10,320원, config/min_wage.yaml) 이상
+    - 수습 감액은 1년↑계약·3개월 이내·단순노무 제외·10% 이내
+    violation: &id001
+    - 최저임금 미달
+    - 수습 감액 요건을 깨고 감액
+    check_if: &id002
+    - 월급만 있고 1주·1일 소정근로시간이 없어 시간환산이 안 됨
+    basis:
+    - law:최저임금법:5
+    - law:최저임금법:6:1
+    - law:최저임금법:10
+    - notice:최저임금고시:2026
+    match_keywords: &id003
+    - 최저임금
+    - 시급
+    - 시간급
+    - 최저
+    uses_facts: &id004
+    - 시급
+    - 월급
+    - 1주 소정근로시간
+    - 적용연도
+    blocking_if: &id005
+    - when: 수습 감액이 있음
+      fact: 단순노무여부
+      cues:
+      - 수습
+      - 감액|감급|최저임금.{0,20}%
+    title: 최저임금
+- version: 2
+  effective_from: '2027-01-01'
+  effective_to: null
+  apply_rule: performance_period
+  rule_source:
+    law: 최저임금법 제10조제2항
+    quote: ② 제1항에 따라 고시된 최저임금은 다음 연도 1월 1일부터 효력이 발생한다. 다만, 고용노동부장관은 사업의 종류별로 임금교섭시기
+      등을 고려하여 필요하다고 인정하면 효력발생 시기를 따로 정할 수 있다. <개정 2010.6.4>
+    source_status: 원문
+    amount: 10700
+    year: 2027
+  card:
+    safe:
+    - 시간급이 2027년 최저임금(시간당 10,700원, config/min_wage.yaml) 이상
+    - 수습 감액은 1년↑계약·3개월 이내·단순노무 제외·10% 이내
+    violation: *id001
+    check_if: *id002
+    basis:
+    - law:최저임금법:5
+    - law:최저임금법:6:1
+    - law:최저임금법:10
+    - notice:최저임금고시:2027
+    match_keywords: *id003
+    uses_facts: *id004
+    blocking_if: *id005
+    title: 최저임금

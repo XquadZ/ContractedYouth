@@ -1,0 +1,19 @@
+[에이전트가 못 하는 것 — 직접 해주세요]
+
+1) 관리자 PowerShell로 이 파일 실행 후 재부팅:
+   exp_gap2\scripts\ADMIN_FIX_GPU.ps1
+   (TDR 60초, 파워리밋 220W, HAGS 끄기)
+
+2) NVIDIA 드라이버 클린 재설치 권장 (DDU → Studio 드라이버 또는 다른 560/55x 버전)
+
+3) 하드웨어: PSU 용량·GPU 전원 케이블(Y스플리터 최소화)·먼지/온도 점검
+
+4) 재부팅 후 GPU lost 없는지 확인:
+   nvidia-smi
+   (GPU 0,1 둘 다 보여야 함)
+
+그다음 실험 재개:
+   cd exp_gap2\scripts
+   python resume_32b_robust.py
+
+현재 C5는 약 65/1000까지 저장된 상태(크래시 전). 스크립트가 이어서 감.

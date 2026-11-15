@@ -1,0 +1,10 @@
+{
+  "before": "24564 MiB, 10571 MiB, 13572 MiB",
+  "after_qwen": "24564 MiB, 19938 MiB, 4205 MiB",
+  "after_both": "24564 MiB, 23474 MiB, 669 MiB",
+  "ports": [
+    8081,
+    8082
+  ],
+  "reasoning": "auto"
+}

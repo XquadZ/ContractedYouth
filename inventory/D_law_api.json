@@ -1,0 +1,681 @@
+{
+  "folders": {
+    "공정위": {
+      "n_files": 8,
+      "bytes": 142780,
+      "kinds": {
+        "html": 2,
+        "other": 1,
+        "json": 5
+      },
+      "json_ok": 5,
+      "html": 2,
+      "empty": 0,
+      "other": 1,
+      "broken_json": 0,
+      "samples": [
+        {
+          "file": "ftc_임대차_약관_p1.json",
+          "top": [
+            "Ftc"
+          ]
+        },
+        {
+          "file": "ftc_임대차계약서_p1.json",
+          "top": [
+            "Ftc"
+          ]
+        }
+      ]
+    },
+    "법령용어": {
+      "n_files": 24,
+      "bytes": 60269,
+      "kinds": {
+        "json": 18,
+        "html": 5,
+        "other": 1
+      },
+      "json_ok": 18,
+      "html": 5,
+      "empty": 0,
+      "other": 1,
+      "broken_json": 0,
+      "samples": [
+        {
+          "file": "lstrmRlt_근로계약.json",
+          "top": [
+            "lstrmRltService"
+          ]
+        },
+        {
+          "file": "lstrmRlt_보증금.json",
+          "top": [
+            "lstrmRltService"
+          ]
+        }
+      ]
+    },
+    "법령해석례": {
+      "n_files": 112,
+      "bytes": 3091326,
+      "kinds": {
+        "html": 28,
+        "other": 2,
+        "json": 82
+      },
+      "json_ok": 82,
+      "html": 28,
+      "empty": 0,
+      "other": 2,
+      "broken_json": 0,
+      "samples": [
+        {
+          "file": "list_근로계약_p1.json",
+          "top": [
+            "Expc"
+          ]
+        },
+        {
+          "file": "list_보증금_p1.json",
+          "top": [
+            "Expc"
+          ]
+        }
+      ]
+    },
+    "연혁": {
+      "n_files": 39,
+      "bytes": 2936488,
+      "kinds": {
+        "other": 1,
+        "json": 37,
+        "html": 1
+      },
+      "json_ok": 37,
+      "html": 1,
+      "empty": 0,
+      "other": 1,
+      "broken_json": 0,
+      "samples": [
+        {
+          "file": "근로기준법 시행령_efYd_list.json",
+          "top": [
+            "LawSearch"
+          ]
+        },
+        {
+          "file": "근로기준법 시행령_revision_table.json",
+          "top": "list"
+        }
+      ]
+    },
+    "연혁_g3": {
+      "n_files": 24,
+      "bytes": 46040,
+      "kinds": {
+        "json": 12,
+        "html": 12
+      },
+      "json_ok": 12,
+      "html": 12,
+      "empty": 0,
+      "other": 0,
+      "broken_json": 0,
+      "samples": [
+        {
+          "file": "근로기준법 시행령_list_p1.json",
+          "top": [
+            "LawSearch"
+          ]
+        },
+        {
+          "file": "근로기준법 시행령_list_p1_old_202610142259.json",
+          "top": [
+            "LawSearch"
+          ]
+        }
+      ]
+    },
+    "연혁_v2_exact": {
+      "n_files": 20,
+      "bytes": 32024,
+      "kinds": {
+        "json": 10,
+        "html": 10
+      },
+      "json_ok": 10,
+      "html": 10,
+      "empty": 0,
+      "other": 0,
+      "broken_json": 0,
+      "samples": [
+        {
+          "file": "근로기준법 시행령_law_efYd_p1.json",
+          "top": [
+            "LawSearch"
+          ]
+        },
+        {
+          "file": "근로기준법_law_efYd_p1.json",
+          "top": [
+            "LawSearch"
+          ]
+        }
+      ]
+    },
+    "판례": {
+      "n_files": 117,
+      "bytes": 7196267,
+      "kinds": {
+        "json": 116,
+        "other": 1
+      },
+      "json_ok": 116,
+      "html": 0,
+      "empty": 0,
+      "other": 1,
+      "broken_json": 0,
+      "samples": [
+        {
+          "file": "list_계약갱신요구권_포기_p1.json",
+          "top": [
+            "PrecSearch"
+          ]
+        },
+        {
+          "file": "list_근로계약_위약금_p1.json",
+          "top": [
+            "PrecSearch"
+          ]
+        }
+      ]
+    },
+    "행정규칙": {
+      "n_files": 15,
+      "bytes": 92082,
+      "kinds": {
+        "other": 1,
+        "json": 14
+      },
+      "json_ok": 14,
+      "html": 0,
+      "empty": 0,
+      "other": 1,
+      "broken_json": 0,
+      "samples": [
+        {
+          "file": "최저임금_2022_search.json",
+          "top": [
+            "AdmRulSearch"
+          ]
+        },
+        {
+          "file": "최저임금_2026_body.json",
+          "top": [
+            "AdmRulService"
+          ]
+        }
+      ]
+    },
+    "현행": {
+      "n_files": 21,
+      "bytes": 2025707,
+      "kinds": {
+        "other": 1,
+        "html": 1,
+        "json": 19
+      },
+      "json_ok": 19,
+      "html": 1,
+      "empty": 0,
+      "other": 1,
+      "broken_json": 0,
+      "samples": [
+        {
+          "file": "근로기준법 시행령_search.json",
+          "top": [
+            "LawSearch"
+          ]
+        },
+        {
+          "file": "근로기준법_body_MST.json",
+          "top": [
+            "법령"
+          ]
+        }
+      ]
+    }
+  },
+  "current_laws": [
+    {
+      "file": "SKIPPED_OC.txt",
+      "status": "parse_fail"
+    },
+    {
+      "file": "근로기준법 시행령_body_MST.json",
+      "name": "근로기준법 시행령",
+      "efYd": "20251023",
+      "n_article_nodes": 80,
+      "top_keys": [
+        "법령"
+      ]
+    },
+    {
+      "file": "근로기준법 시행령_search.json",
+      "name": "근로기준법 시행령",
+      "efYd": "20251023",
+      "n_article_nodes": 0,
+      "top_keys": [
+        "LawSearch"
+      ]
+    },
+    {
+      "file": "근로기준법_body_MST.json",
+      "name": "근로기준법",
+      "efYd": "20261008",
+      "n_article_nodes": 146,
+      "top_keys": [
+        "법령"
+      ]
+    },
+    {
+      "file": "근로기준법_search.json",
+      "name": "근로기준법",
+      "efYd": "20261008",
+      "n_article_nodes": 0,
+      "top_keys": [
+        "LawSearch"
+      ]
+    },
+    {
+      "file": "민법_body_MST.json",
+      "name": "민법",
+      "efYd": "20260317",
+      "n_article_nodes": 1337,
+      "top_keys": [
+        "법령"
+      ]
+    },
+    {
+      "file": "민법_search.json",
+      "name": "난민법",
+      "efYd": "20161220",
+      "n_article_nodes": 0,
+      "top_keys": [
+        "LawSearch"
+      ]
+    },
+    {
+      "file": "보증인 보호를 위한 특별법_body_MST.json",
+      "name": "보증인 보호를 위한 특별법",
+      "efYd": "20231221",
+      "n_article_nodes": 11,
+      "top_keys": [
+        "법령"
+      ]
+    },
+    {
+      "file": "보증인 보호를 위한 특별법_search.json",
+      "name": "보증인 보호를 위한 특별법",
+      "efYd": "20231221",
+      "n_article_nodes": 0,
+      "top_keys": [
+        "LawSearch"
+      ]
+    },
+    {
+      "file": "이자제한법 제2조제1항의 최고이자율에 관한 규정_body_MST.json",
+      "name": "이자제한법 제2조제1항의 최고이자율에 관한 규정",
+      "efYd": "20210707",
+      "n_article_nodes": 1,
+      "top_keys": [
+        "법령"
+      ]
+    },
+    {
+      "file": "이자제한법 제2조제1항의 최고이자율에 관한 규정_search.json",
+      "name": "이자제한법 제2조제1항의 최고이자율에 관한 규정",
+      "efYd": "20210707",
+      "n_article_nodes": 0,
+      "top_keys": [
+        "LawSearch"
+      ]
+    },
+    {
+      "file": "이자제한법_body_MST.json",
+      "name": "이자제한법",
+      "efYd": "20250722",
+      "n_article_nodes": 8,
+      "top_keys": [
+        "법령"
+      ]
+    },
+    {
+      "file": "이자제한법_search.json",
+      "name": "이자제한법",
+      "efYd": "20250722",
+      "n_article_nodes": 0,
+      "top_keys": [
+        "LawSearch"
+      ]
+    },
+    {
+      "file": "주택임대차보호법 시행령_body_MST.json",
+      "name": "주택임대차보호법 시행령",
+      "efYd": "20260701",
+      "n_article_nodes": 36,
+      "top_keys": [
+        "법령"
+      ]
+    },
+    {
+      "file": "주택임대차보호법 시행령_search.json",
+      "name": "주택임대차보호법 시행령",
+      "efYd": "20260701",
+      "n_article_nodes": 0,
+      "top_keys": [
+        "LawSearch"
+      ]
+    },
+    {
+      "file": "주택임대차보호법_body_MST.json",
+      "name": "주택임대차보호법",
+      "efYd": "20260102",
+      "n_article_nodes": 42,
+      "top_keys": [
+        "법령"
+      ]
+    },
+    {
+      "file": "주택임대차보호법_search.json",
+      "name": "주택임대차보호법",
+      "efYd": "20260102",
+      "n_article_nodes": 0,
+      "top_keys": [
+        "LawSearch"
+      ]
+    },
+    {
+      "file": "최저임금법 시행령_body_MST.json",
+      "name": "최저임금법 시행령",
+      "efYd": "20190101",
+      "n_article_nodes": 27,
+      "top_keys": [
+        "법령"
+      ]
+    },
+    {
+      "file": "최저임금법 시행령_search.json",
+      "name": "최저임금법 시행령",
+      "efYd": "20190101",
+      "n_article_nodes": 0,
+      "top_keys": [
+        "LawSearch"
+      ]
+    },
+    {
+      "file": "최저임금법_body_MST.json",
+      "name": "최저임금법",
+      "efYd": "20200526",
+      "n_article_nodes": 40,
+      "top_keys": [
+        "법령"
+      ]
+    },
+    {
+      "file": "최저임금법_search.json",
+      "name": "최저임금법",
+      "efYd": "20200526",
+      "n_article_nodes": 0,
+      "top_keys": [
+        "LawSearch"
+      ]
+    }
+  ],
+  "wanted": [
+    {
+      "want": "근로기준법",
+      "present": true
+    },
+    {
+      "want": "근로기준법 시행령",
+      "present": true
+    },
+    {
+      "want": "최저임금법",
+      "present": true
+    },
+    {
+      "want": "기간제 및 단시간근로자 보호 등에 관한 법률",
+      "present": false
+    },
+    {
+      "want": "주택임대차보호법",
+      "present": true
+    },
+    {
+      "want": "주택임대차보호법 시행령",
+      "present": true
+    },
+    {
+      "want": "민법",
+      "present": true
+    },
+    {
+      "want": "약관의 규제에 관한 법률",
+      "present": false
+    },
+    {
+      "want": "보증인 보호를 위한 특별법",
+      "present": true
+    },
+    {
+      "want": "이자제한법",
+      "present": true
+    },
+    {
+      "want": "대부업 등의 등록 및 금융이용자 보호에 관한 법률",
+      "present": false
+    },
+    {
+      "want": "고용보험법",
+      "present": false
+    },
+    {
+      "want": "산업재해보상보험법",
+      "present": false
+    }
+  ],
+  "article_split_flag_counts": {
+    "has_article_nodes": 10,
+    "no_article_nodes": 10
+  },
+  "prec": {
+    "n_files": 117,
+    "n_records_parsed": 10921,
+    "html": 0,
+    "empty": 0,
+    "broken": 0,
+    "top20_caseNm": [
+      [
+        "요양불승인처분취소",
+        706
+      ],
+      [
+        "유족급여및장의비부지급처분취소",
+        633
+      ],
+      [
+        "임금",
+        387
+      ],
+      [
+        "손해배상(기)",
+        299
+      ],
+      [
+        "손해배상청구사건",
+        140
+      ],
+      [
+        "대여금",
+        128
+      ],
+      [
+        "구상금",
+        89
+      ],
+      [
+        "손해배상(자)",
+        81
+      ],
+      [
+        "임금등",
+        80
+      ],
+      [
+        "손해배상",
+        71
+      ],
+      [
+        "퇴직금",
+        63
+      ],
+      [
+        "요양급여불승인처분취소",
+        63
+      ],
+      [
+        "부당이득금",
+        58
+      ],
+      [
+        "배당이의",
+        58
+      ],
+      [
+        "청구이의",
+        57
+      ],
+      [
+        "유족급여 및 장의비 부지급 처분 취소",
+        56
+      ],
+      [
+        "임대차보증금",
+        53
+      ],
+      [
+        "해고무효확인등",
+        52
+      ],
+      [
+        "보험금",
+        51
+      ],
+      [
+        "보증채무금",
+        50
+      ]
+    ],
+    "fill": {
+      "판시사항_empty": 10921,
+      "판결요지_empty": 10921,
+      "전문_empty": 10921
+    },
+    "fields_seen": [
+      [
+        "id",
+        10921
+      ],
+      [
+        "사건번호",
+        10921
+      ],
+      [
+        "데이터출처명",
+        10921
+      ],
+      [
+        "사건종류코드",
+        10921
+      ],
+      [
+        "사건종류명",
+        10921
+      ],
+      [
+        "선고",
+        10921
+      ],
+      [
+        "선고일자",
+        10921
+      ],
+      [
+        "판례일련번호",
+        10921
+      ],
+      [
+        "판결유형",
+        10921
+      ],
+      [
+        "법원종류코드",
+        10921
+      ],
+      [
+        "법원명",
+        10921
+      ],
+      [
+        "판례상세링크",
+        10921
+      ],
+      [
+        "사건명",
+        10921
+      ]
+    ],
+    "query_notes": [],
+    "near_400_cut": "건수가 400 근처가 아님"
+  },
+  "expc": {
+    "n_files": 112,
+    "n_records": 4565,
+    "html": 28,
+    "empty": 0,
+    "fill": {
+      "질의요지_empty": 4565,
+      "회답_empty": 4565,
+      "이유_empty": 4565
+    }
+  },
+  "ftc": {
+    "n_files": 8,
+    "n_records": 5,
+    "html": 2,
+    "yakgwan_records": 5,
+    "kind_keyword_counts": {
+      "의결키워드": 5,
+      "약관키워드": 5
+    },
+    "reason_field": null,
+    "reason_samples": [],
+    "file_list": [
+      "list_임대차_약관_XML.xml",
+      "list_임대차계약서_XML.xml",
+      "SKIPPED_OC.txt",
+      "g2_full\\ftc_임대차_약관_p1.json",
+      "g2_full\\ftc_임대차계약서_p1.json",
+      "g2_full\\ftc_임대차계약서_p2.json",
+      "v2\\list_임대차_약관.json",
+      "v2\\list_임대차계약서.json"
+    ]
+  },
+  "terms": {
+    "n_files": 24,
+    "n_records_est": 18
+  }
+}

@@ -1,0 +1,5 @@
+train_failed: TypeError: TrainingArguments.__init__() got an unexpected keyword argument 'warmup_ratio'
+Traceback (most recent call last):
+  File "C:\Users\DMLAB\Desktop\학부-AI서비스 개발\run3\train_qlora.py", line 151, in train_one
+    args_tr = TrainingArguments(
+TypeError: TrainingArguments.__init__() got an unexpected keyword argument 'warmup_ratio'

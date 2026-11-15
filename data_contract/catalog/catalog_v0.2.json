@@ -1,0 +1,3653 @@
+{
+ "version": "0.2",
+ "status": "근거 조문 원문 대조 완료(2026-10-15). 미확정: H-T06, L-T12",
+ "params": {
+  "min_wage_hourly": {
+   "2022": 9160,
+   "2023": 9620,
+   "2024": 9860,
+   "2025": 10030,
+   "2026": 10320
+  },
+  "max_interest_rate_annual": {
+   "from_2021-07-07": 0.2
+  },
+  "lease_increase_cap": 0.05,
+  "weekly_holiday_threshold_hours": 15,
+  "break_rule": [
+   {
+    "work_hours_gt": 4,
+    "break_min": 30
+   },
+   {
+    "work_hours_gt": 8,
+    "break_min": 60
+   }
+  ],
+  "probation_cut": {
+   "max_rate": 0.1,
+   "max_months": 3,
+   "min_contract_years": 1,
+   "excluded": "단순노무업무(고용노동부 고시 직종)"
+  },
+  "small_business_threshold": 5
+ },
+ "laws": {
+  "근기법": "근로기준법",
+  "근기령": "근로기준법 시행령",
+  "기간제법": "기간제 및 단시간근로자 보호 등에 관한 법률",
+  "최임법": "최저임금법",
+  "최임령": "최저임금법 시행령",
+  "퇴직급여법": "근로자퇴직급여 보장법",
+  "주임법": "주택임대차보호법",
+  "주임령": "주택임대차보호법 시행령",
+  "민법": "민법",
+  "이자법": "이자제한법",
+  "이자규정": "이자제한법 제2조제1항의 최고이자율에 관한 규정",
+  "보증법": "보증인 보호를 위한 특별법",
+  "고용보험법": "고용보험법",
+  "산재법": "산업재해보상보험법"
+ },
+ "not_collected_laws": [],
+ "contract_types": [
+  {
+   "id": "LAB_PT",
+   "name": "근로계약(단시간·알바)",
+   "standard_forms": [
+    "L1",
+    "L4"
+   ],
+   "aihub": [
+    "아르바이트계약서",
+    "근로(고용)계약서"
+   ]
+  },
+  {
+   "id": "LAB_FX",
+   "name": "근로계약(기간제·기간없음)",
+   "standard_forms": [
+    "L2",
+    "L3",
+    "L5",
+    "L6"
+   ],
+   "aihub": [
+    "근로(고용)계약서"
+   ]
+  },
+  {
+   "id": "LEASE",
+   "name": "주택임대차(원룸·오피스텔 주거용)",
+   "standard_forms": [
+    "H1",
+    "H2",
+    "H2a",
+    "H3*(민간임대)"
+   ],
+   "aihub": [
+    "주거용부동산임대계약서"
+   ]
+  },
+  {
+   "id": "LOAN",
+   "name": "금전차용·보증",
+   "standard_forms": [
+    "D1",
+    "D2"
+   ],
+   "aihub": []
+  }
+ ],
+ "slots": [
+  {
+   "id": "S_L_PARTY",
+   "domain": "LAB",
+   "name": "당사자",
+   "aihub_labels": [
+    "계약의 당사자",
+    "사용자의 인적사항",
+    "근로자의 인적사항"
+   ],
+   "standard_ref": "서문"
+  },
+  {
+   "id": "S_L_TERM",
+   "domain": "LAB",
+   "name": "근로계약기간·개시일",
+   "aihub_labels": [
+    "근로 계약 기간",
+    "계약기간"
+   ],
+   "standard_ref": "1."
+  },
+  {
+   "id": "S_L_PLACE",
+   "domain": "LAB",
+   "name": "근무장소·업무",
+   "aihub_labels": [
+    "근무 장소",
+    "담당 업무"
+   ],
+   "standard_ref": "2.~3."
+  },
+  {
+   "id": "S_L_HOURS",
+   "domain": "LAB",
+   "name": "근로시간·휴게",
+   "aihub_labels": [
+    "근로 시간"
+   ],
+   "standard_ref": "4."
+  },
+  {
+   "id": "S_L_DAYS",
+   "domain": "LAB",
+   "name": "근로일·휴일(주휴)",
+   "aihub_labels": [
+    "휴일"
+   ],
+   "standard_ref": "4.~5."
+  },
+  {
+   "id": "S_L_WAGE",
+   "domain": "LAB",
+   "name": "임금(금액·구성·가산)",
+   "aihub_labels": [
+    "임금액",
+    "기타급여"
+   ],
+   "standard_ref": "5./6."
+  },
+  {
+   "id": "S_L_PAY",
+   "domain": "LAB",
+   "name": "임금 지급일·지급방법",
+   "aihub_labels": [
+    "임금 지급일",
+    "임금 지급 방법"
+   ],
+   "standard_ref": "5./6."
+  },
+  {
+   "id": "S_L_LEAVE",
+   "domain": "LAB",
+   "name": "연차유급휴가",
+   "aihub_labels": [
+    "휴가"
+   ],
+   "standard_ref": "6./7."
+  },
+  {
+   "id": "S_L_INS",
+   "domain": "LAB",
+   "name": "사회보험",
+   "aihub_labels": [
+    "사회보험의 가입"
+   ],
+   "standard_ref": "7./8."
+  },
+  {
+   "id": "S_L_COPY",
+   "domain": "LAB",
+   "name": "계약서 교부",
+   "aihub_labels": [
+    "계약서의 교부"
+   ],
+   "standard_ref": "8./9."
+  },
+  {
+   "id": "S_L_PROB",
+   "domain": "LAB",
+   "name": "수습",
+   "aihub_labels": [
+    "수습 기간"
+   ],
+   "standard_ref": "(표준 없음)"
+  },
+  {
+   "id": "S_L_END",
+   "domain": "LAB",
+   "name": "퇴직·해고",
+   "aihub_labels": [
+    "근로계약의 종료",
+    "퇴직 절차",
+    "퇴직금",
+    "계약의 해제, 해지"
+   ],
+   "standard_ref": "(표준 없음)"
+  },
+  {
+   "id": "S_L_PENALTY",
+   "domain": "LAB",
+   "name": "손해배상·위약",
+   "aihub_labels": [
+    "손해배상의 예정",
+    "위약벌"
+   ],
+   "standard_ref": "(표준 없음)"
+  },
+  {
+   "id": "S_L_SPECIAL",
+   "domain": "LAB",
+   "name": "기타·특약",
+   "aihub_labels": [
+    "기타",
+    "계약의 내용"
+   ],
+   "standard_ref": "10./11."
+  },
+  {
+   "id": "S_H_PARTY",
+   "domain": "LEASE",
+   "name": "당사자·서명",
+   "aihub_labels": [
+    "계약의 당사자",
+    "임대인의 인적사항",
+    "임차인의 인적사항",
+    "임대인의 기명날인",
+    "임차인의 기명날인"
+   ],
+   "standard_ref": "말미"
+  },
+  {
+   "id": "S_H_OBJ",
+   "domain": "LEASE",
+   "name": "목적물 표시",
+   "aihub_labels": [
+    "부동산의 표시"
+   ],
+   "standard_ref": "1."
+  },
+  {
+   "id": "S_H_MONEY",
+   "domain": "LEASE",
+   "name": "보증금·차임·지급일정",
+   "aihub_labels": [
+    "임차보증금",
+    "차임",
+    "대금 지급 방법"
+   ],
+   "standard_ref": "제1조"
+  },
+  {
+   "id": "S_H_MGMT",
+   "domain": "LEASE",
+   "name": "관리비",
+   "aihub_labels": [
+    "관리비 및 제세공과금"
+   ],
+   "standard_ref": "제1조(관리비)"
+  },
+  {
+   "id": "S_H_TERM",
+   "domain": "LEASE",
+   "name": "임대차기간·갱신",
+   "aihub_labels": [
+    "계약기간",
+    "기간의 갱신"
+   ],
+   "standard_ref": "제2조"
+  },
+  {
+   "id": "S_H_ADJ",
+   "domain": "LEASE",
+   "name": "차임·보증금 증감",
+   "aihub_labels": [
+    "임대료 및 관리비의 조정"
+   ],
+   "standard_ref": "(표준 없음)"
+  },
+  {
+   "id": "S_H_REPAIR",
+   "domain": "LEASE",
+   "name": "수선·유지보수",
+   "aihub_labels": [
+    "유지 보수의무",
+    "시설물의 개조 및 설치"
+   ],
+   "standard_ref": "제3조/특약"
+  },
+  {
+   "id": "S_H_RESTORE",
+   "domain": "LEASE",
+   "name": "원상회복",
+   "aihub_labels": [
+    "원상회복의무"
+   ],
+   "standard_ref": "제7조"
+  },
+  {
+   "id": "S_H_TERMIN",
+   "domain": "LEASE",
+   "name": "해제·해지",
+   "aihub_labels": [
+    "계약의 해제, 해지"
+   ],
+   "standard_ref": "제5~6조"
+  },
+  {
+   "id": "S_H_PENALTY",
+   "domain": "LEASE",
+   "name": "위약금·손해배상",
+   "aihub_labels": [
+    "손해배상의 예정",
+    "연체이자"
+   ],
+   "standard_ref": "제8조"
+  },
+  {
+   "id": "S_H_RIGHTS",
+   "domain": "LEASE",
+   "name": "대항력·우선변제·정보제공",
+   "aihub_labels": [],
+   "standard_ref": "확인사항/특약"
+  },
+  {
+   "id": "S_H_SPECIAL",
+   "domain": "LEASE",
+   "name": "특약사항",
+   "aihub_labels": [
+    "기타",
+    "금지사항",
+    "비용상환 청구권 포기 특약",
+    "임대목적물 출입권 및 출입통제권"
+   ],
+   "standard_ref": "특약"
+  },
+  {
+   "id": "S_D_PARTY",
+   "domain": "LOAN",
+   "name": "당사자·서명",
+   "aihub_labels": [
+    "채권자의 인적사항",
+    "채무자의 인적사항",
+    "채권자의 기명날인",
+    "채무자의 기명날인"
+   ],
+   "standard_ref": "서문/말미"
+  },
+  {
+   "id": "S_D_PRINC",
+   "domain": "LOAN",
+   "name": "원금·지급",
+   "aihub_labels": [
+    "계약의 내용"
+   ],
+   "standard_ref": "제1조"
+  },
+  {
+   "id": "S_D_INT",
+   "domain": "LOAN",
+   "name": "이자",
+   "aihub_labels": [],
+   "standard_ref": "이자"
+  },
+  {
+   "id": "S_D_REPAY",
+   "domain": "LOAN",
+   "name": "변제기·변제방법",
+   "aihub_labels": [
+    "채무의 이행",
+    "채무이행",
+    "변제충당"
+   ],
+   "standard_ref": "변제"
+  },
+  {
+   "id": "S_D_DEFAULT",
+   "domain": "LOAN",
+   "name": "지연손해금·기한이익상실",
+   "aihub_labels": [
+    "계약의 해제, 해지"
+   ],
+   "standard_ref": "(서식별)"
+  },
+  {
+   "id": "S_D_COLL",
+   "domain": "LOAN",
+   "name": "담보·대물변제",
+   "aihub_labels": [],
+   "standard_ref": "(서식별)"
+  },
+  {
+   "id": "S_D_GUAR",
+   "domain": "LOAN",
+   "name": "보증",
+   "aihub_labels": [
+    "보증"
+   ],
+   "standard_ref": "보증인"
+  }
+ ],
+ "checks": [
+  {
+   "id": "L-M01",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_WAGE",
+   "category": "missing",
+   "severity": "violation",
+   "title": "임금 금액·계산방법 미기재",
+   "condition": "임금액 또는 구성항목·계산방법이 서면에 없음",
+   "detect": "rule+model",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제17조",
+     "verified": true
+    },
+    {
+     "law": "기간제법",
+     "article": "제17조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "(임금 항목 삭제)"
+   ],
+   "params": []
+  },
+  {
+   "id": "L-M02",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_PAY",
+   "category": "missing",
+   "severity": "violation",
+   "title": "임금 지급일·지급방법 미기재",
+   "condition": "지급일 또는 지급방법이 없음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제17조",
+     "verified": true
+    },
+    {
+     "law": "기간제법",
+     "article": "제17조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-M03",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_HOURS",
+   "category": "missing",
+   "severity": "violation",
+   "title": "소정근로시간 미기재",
+   "condition": "시작·종료 시각 또는 1일/1주 시간이 없음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제17조",
+     "verified": true
+    },
+    {
+     "law": "기간제법",
+     "article": "제17조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-M04",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_HOURS",
+   "category": "missing",
+   "severity": "violation",
+   "title": "휴게시간 미기재",
+   "condition": "휴게시간 기재 없음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "기간제법",
+     "article": "제17조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-M05",
+   "contract_types": [
+    "LAB_PT"
+   ],
+   "slot": "S_L_DAYS",
+   "category": "missing",
+   "severity": "violation",
+   "title": "단시간: 근로일·근로일별 근로시간 미기재",
+   "condition": "단시간근로자 계약인데 요일별 근로일·시간이 없음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "기간제법",
+     "article": "제17조",
+     "verified": true,
+     "note": "단시간근로자 서면명시 사항"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-M06",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_DAYS",
+   "category": "missing",
+   "severity": "violation",
+   "title": "휴일(주휴일) 미기재",
+   "condition": "주휴일 기재 없음(주 15시간 미만이면 해당 없음 표기 가능)",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제17조",
+     "verified": true
+    },
+    {
+     "law": "근기법",
+     "article": "제55조",
+     "verified": true
+    },
+    {
+     "law": "근기법",
+     "article": "제18조",
+     "verified": true,
+     "note": "제3항"
+    }
+   ],
+   "scope_conditions": [
+    "1주 소정근로 15시간 미만이면 해당 없음(근기법 제18조③)"
+   ],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-M07",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_LEAVE",
+   "category": "missing",
+   "severity": "violation",
+   "title": "연차유급휴가 미기재",
+   "condition": "연차 관련 기재 없음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제17조",
+     "verified": true
+    },
+    {
+     "law": "근기법",
+     "article": "제60조",
+     "verified": true
+    },
+    {
+     "law": "근기법",
+     "article": "제18조",
+     "verified": true,
+     "note": "제3항"
+    }
+   ],
+   "scope_conditions": [
+    "상시 5인 이상(5인 미만은 연차 미적용)",
+    "1주 소정근로 15시간 미만이면 해당 없음(근기법 제18조③)"
+   ],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-M08",
+   "contract_types": [
+    "LAB_FX",
+    "LAB_PT"
+   ],
+   "slot": "S_L_TERM",
+   "category": "missing",
+   "severity": "violation",
+   "title": "근로계약기간(기간제) 미기재",
+   "condition": "기간제인데 종료일 없음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "기간제법",
+     "article": "제17조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-M09",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_PLACE",
+   "category": "missing",
+   "severity": "violation",
+   "title": "근무장소·업무 미기재",
+   "condition": "근무장소 또는 업무내용 없음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "근기령",
+     "article": "제8조",
+     "verified": true
+    },
+    {
+     "law": "기간제법",
+     "article": "제17조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-M10",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_COPY",
+   "category": "missing",
+   "severity": "info",
+   "title": "계약서 교부 조항 없음",
+   "condition": "교부 문구 없음(교부 의무 자체는 법정 의무)",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제17조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-T01",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_WAGE",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "최저임금 미달 시급",
+   "condition": "시급(또는 환산 시급) < 계약 연도 최저임금",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "최임법",
+     "article": "제6조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "시급은 8,500원으로 한다.",
+    "일급 60,000원(1일 8시간 근무)"
+   ],
+   "params": [
+    "min_wage_hourly"
+   ]
+  },
+  {
+   "id": "L-T02",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_PROB",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "수습 감액 요건 위반",
+   "condition": "1년 미만 계약에 감액 / 3개월 초과 감액 / 10% 초과 감액 / 단순노무직 감액",
+   "detect": "rule+model",
+   "legal_basis": [
+    {
+     "law": "최임법",
+     "article": "제5조",
+     "verified": true
+    },
+    {
+     "law": "최임령",
+     "article": "제3조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "수습기간 3개월 동안은 최저임금의 80%를 지급한다.",
+    "6개월 수습기간 동안 시급의 90%를 지급한다."
+   ],
+   "params": [
+    "probation_cut",
+    "min_wage_hourly"
+   ]
+  },
+  {
+   "id": "L-T03",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_PENALTY",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "위약금·손해배상 예정(지각·중도퇴사 벌금)",
+   "condition": "근로계약 불이행에 대한 위약금 또는 손해배상액을 미리 정함",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제20조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "지각 1회당 10,000원을 급여에서 차감한다.",
+    "계약기간 내 퇴사 시 1개월분 급여를 위약금으로 지급한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "L-T04",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_PAY",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "임금에서 임의 공제",
+   "condition": "유니폼비·파손 변상·교육비 등을 임금에서 일방 공제",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제43조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "유니폼 비용 30,000원은 첫 달 급여에서 공제한다.",
+    "매장 기물 파손 시 해당 금액을 급여에서 공제한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "L-T05",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_HOURS",
+   "category": "risk",
+   "severity": "violation",
+   "title": "휴게시간 미달·미부여",
+   "condition": "4시간 근로에 30분, 8시간에 1시간 미만이거나 '부여하지 않을 수 있다'",
+   "detect": "rule+model",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제54조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "휴게시간은 업무 사정에 따라 부여하지 않을 수 있다.",
+    "근무시간 09:00~18:00(휴게 30분)"
+   ],
+   "params": [
+    "break_rule"
+   ]
+  },
+  {
+   "id": "L-T06",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_DAYS",
+   "category": "risk",
+   "severity": "violation",
+   "title": "주 15시간 이상인데 주휴 배제",
+   "condition": "1주 소정근로 15시간 이상인데 주휴일·주휴수당을 없앰 (개근 요건: 근기령 제30조①)",
+   "detect": "rule+model",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제55조",
+     "verified": true
+    },
+    {
+     "law": "근기법",
+     "article": "제18조",
+     "verified": true,
+     "note": "제3항: 15시간 미만 적용 제외"
+    },
+    {
+     "law": "근기령",
+     "article": "제30조",
+     "verified": true,
+     "note": "제1항: 소정근로일 개근 시 유급휴일"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "주휴수당은 지급하지 않는다.(주 5일, 1일 5시간 근무)"
+   ],
+   "params": [
+    "weekly_holiday_threshold_hours"
+   ]
+  },
+  {
+   "id": "L-T07",
+   "contract_types": [
+    "LAB_PT"
+   ],
+   "slot": "S_L_WAGE",
+   "category": "risk",
+   "severity": "violation",
+   "title": "단시간 초과근로 가산임금 배제",
+   "condition": "소정근로시간 초과 근로에 50% 가산 없음을 정함",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "기간제법",
+     "article": "제6조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [
+    "상시 5인 이상만 적용(기간제법 제3조①, 시행령 별표1에 제6조 없음)"
+   ],
+   "inject_examples": [
+    "정해진 시간 외 추가 근무는 동일 시급으로 계산한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "L-T08",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_WAGE",
+   "category": "risk",
+   "severity": "violation",
+   "title": "연장·야간·휴일 가산수당 배제",
+   "condition": "연장·야간·휴일근로 가산 없음을 정함",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제56조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [
+    "상시 5인 이상만 적용"
+   ],
+   "inject_examples": [
+    "야간 근무도 주간과 동일한 시급을 적용한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "L-T09",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_HOURS",
+   "category": "risk",
+   "severity": "unfavorable",
+   "title": "근로시간 일방 변경 권한",
+   "condition": "사용자가 업무 사정에 따라 근로시간·근로일을 일방 변경할 수 있게 함",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제4조",
+     "verified": true,
+     "note": "근로조건 대등결정"
+    },
+    {
+     "law": "근기법",
+     "article": "제17조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "근무시간은 매장 사정에 따라 사업주가 변경할 수 있다."
+   ],
+   "params": []
+  },
+  {
+   "id": "L-T10",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_END",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "퇴직금 분할·포함 지급 약정",
+   "condition": "월급·시급에 퇴직금을 포함하거나 매월 나눠 지급",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "퇴직급여법",
+     "article": "제8조",
+     "verified": true
+    },
+    {
+     "law": "퇴직급여법",
+     "article": "제9조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [
+    "계속근로 1년 이상·주 15시간 이상일 때 퇴직금 발생"
+   ],
+   "inject_examples": [
+    "퇴직금은 매월 급여에 포함하여 지급한 것으로 본다."
+   ],
+   "params": []
+  },
+  {
+   "id": "L-T11",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_END",
+   "category": "risk",
+   "severity": "violation",
+   "title": "예고 없는 해고 조항",
+   "condition": "사용자가 언제든 즉시 해고할 수 있게 함",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제26조",
+     "verified": true,
+     "note": "해고예고 30일"
+    },
+    {
+     "law": "근기법",
+     "article": "제23조",
+     "verified": true,
+     "note": "제1항(정당한 이유)은 5인 이상만. 5인 미만은 제23조②·제26조만 적용(근기령 별표1)"
+    }
+   ],
+   "scope_conditions": [
+    "정당한 이유 제한은 상시 5인 이상, 해고예고(제26조)는 5인 미만도 적용"
+   ],
+   "inject_examples": [
+    "사업주는 필요시 근로자를 즉시 해고할 수 있다."
+   ],
+   "params": []
+  },
+  {
+   "id": "L-T12",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_INS",
+   "category": "risk",
+   "severity": "caution",
+   "title": "사회보험 미가입 합의",
+   "condition": "4대보험 미가입을 합의하거나 보험료 대신 금액 지급",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "고용보험법",
+     "article": "적용 범위 조문",
+     "verified": false,
+     "note": "조문 미확정 — 신규 수집 법령에서 확정 필요"
+    },
+    {
+     "law": "산재법",
+     "article": "적용 범위 조문",
+     "verified": false,
+     "note": "조문 미확정 — 신규 수집 법령에서 확정 필요"
+    }
+   ],
+   "scope_conditions": [
+    "가입 예외 요건(소정근로 월 60시간 미만 등) 확인 필요"
+   ],
+   "inject_examples": [
+    "4대보험은 가입하지 않으며 대신 시급에 500원을 더한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "L-T13",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_SPECIAL",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "강제저축·저축금 관리",
+   "condition": "근로계약에 덧붙여 저축 또는 저축금 관리를 정함",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제22조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-T14",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_SPECIAL",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "전차금 상계",
+   "condition": "선불금을 임금과 상계",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제21조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-I01",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_HOURS",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "근로시간 합계 불일치",
+   "condition": "요일별 시간 합 ≠ 1주 소정시간 / 시작·종료·휴게로 계산한 시간 ≠ 기재 시간",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-I02",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_WAGE",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "임금 환산 불일치",
+   "condition": "시급×시간과 월(일)급 기재 금액이 맞지 않음",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-I03",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_TERM",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "계약기간 날짜 오류",
+   "condition": "종료일 < 시작일, 존재하지 않는 날짜",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-I04",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_WAGE",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "숫자·한글 금액 불일치",
+   "condition": "숫자 금액과 한글 금액이 다름",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-I05",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_SPECIAL",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "본문·특약 충돌",
+   "condition": "본문 조건과 특약이 서로 다름",
+   "detect": "model",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "L-U01",
+   "contract_types": [
+    "LAB_PT",
+    "LAB_FX"
+   ],
+   "slot": "S_L_SPECIAL",
+   "category": "uncheckable",
+   "severity": "info",
+   "title": "사업장 상시근로자 수(5인) 확인 필요",
+   "condition": "가산수당·연차·해고제한 적용 여부가 5인 기준에 따라 달라짐",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "근기법",
+     "article": "제11조",
+     "verified": true
+    },
+    {
+     "law": "근기령",
+     "article": "제7조",
+     "verified": true,
+     "note": "별표1"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": [
+    "small_business_threshold"
+   ]
+  },
+  {
+   "id": "H-M01",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_MONEY",
+   "category": "missing",
+   "severity": "violation",
+   "title": "보증금·차임·지급일정 미기재",
+   "condition": "보증금/월차임 금액 또는 계약금·잔금 일정 없음",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-M02",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_TERM",
+   "category": "missing",
+   "severity": "caution",
+   "title": "임대차기간 미기재",
+   "condition": "시작·종료일 없음 — 기간을 정하지 않은 임대차는 2년으로 봄(주임법 제4조①)",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "주임법",
+     "article": "제4조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-M03",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_OBJ",
+   "category": "missing",
+   "severity": "violation",
+   "title": "목적물 표시 미기재",
+   "condition": "주소·호수·면적 없음",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-M04",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_MGMT",
+   "category": "missing",
+   "severity": "caution",
+   "title": "관리비 금액·항목 미기재",
+   "condition": "관리비 여부·금액·포함 항목 없음",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [
+    "2023 표준계약서는 관리비 기재란 있음"
+   ],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-M05",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_REPAIR",
+   "category": "missing",
+   "severity": "caution",
+   "title": "수선 부담 범위 미기재",
+   "condition": "누가 어떤 수리를 하는지 없음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제623조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-M06",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_MONEY",
+   "category": "missing",
+   "severity": "caution",
+   "title": "보증금 반환 시기·방법 미기재",
+   "condition": "종료 시 반환 시기 없음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제536조",
+     "verified": true,
+     "note": "동시이행"
+    },
+    {
+     "law": "주임법",
+     "article": "제4조",
+     "verified": true,
+     "note": "제2항: 보증금 반환 시까지 임대차 존속"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-M07",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_RIGHTS",
+   "category": "missing",
+   "severity": "caution",
+   "title": "선순위 권리 처리 특약 없음",
+   "condition": "근저당 말소·증액 금지 등 특약 없음(등기부 확인 필요)",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-M08",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_RIGHTS",
+   "category": "missing",
+   "severity": "caution",
+   "title": "임대인 정보 제시(선순위 확정일자·미납세금) 확인란 없음",
+   "condition": "2023 표준계약서의 정보 제시 확인 내용 없음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "주임법",
+     "article": "제3조의7",
+     "verified": true,
+     "note": "조문 존재 확인. 최초 시행일(2023 신설 추정)은 연혁 미수집으로 미확인"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-M09",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_TERMIN",
+   "category": "missing",
+   "severity": "caution",
+   "title": "중도해지 조건 미기재",
+   "condition": "중도 퇴거 시 처리 없음",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-T01",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_TERM",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "2년 미만 기간을 임차인에게 불리하게 강제",
+   "condition": "2년 미만 약정 + 기간 종료 시 무조건 퇴거 등",
+   "detect": "rule+model",
+   "legal_basis": [
+    {
+     "law": "주임법",
+     "article": "제4조",
+     "verified": true
+    },
+    {
+     "law": "주임법",
+     "article": "제10조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "임대차 기간은 1년으로 하며, 만료 시 임차인은 즉시 퇴거한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "H-T02",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_TERM",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "계약갱신요구권 포기",
+   "condition": "갱신요구권 행사 포기·배제",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "주임법",
+     "article": "제6조의3",
+     "verified": true
+    },
+    {
+     "law": "주임법",
+     "article": "제10조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "임차인은 계약갱신요구권을 행사하지 않기로 한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "H-T03",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_ADJ",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "5% 초과 증액 약정",
+   "condition": "갱신·존속 중 차임·보증금 5% 초과 증액 또는 1년 내 재증액",
+   "detect": "rule+model",
+   "legal_basis": [
+    {
+     "law": "주임법",
+     "article": "제7조",
+     "verified": true
+    },
+    {
+     "law": "주임령",
+     "article": "제8조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "월세는 매년 10%씩 인상한다."
+   ],
+   "params": [
+    "lease_increase_cap"
+   ]
+  },
+  {
+   "id": "H-T04",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_TERMIN",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "1회 연체 즉시 해지",
+   "condition": "차임 1회(1기) 연체로 해지 가능",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제640조",
+     "verified": true
+    },
+    {
+     "law": "민법",
+     "article": "제652조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "월세를 1회라도 연체하면 임대인은 즉시 계약을 해지할 수 있다."
+   ],
+   "params": []
+  },
+  {
+   "id": "H-T05",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_MONEY",
+   "category": "risk",
+   "severity": "unfavorable",
+   "title": "새 임차인 입주 후 보증금 반환",
+   "condition": "보증금 반환을 신규 임차인 입주·계약을 조건으로 함 — 무효 단정 불가, 불리 조항으로 안내",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제536조",
+     "verified": true,
+     "note": "보증금 반환과 명도의 동시이행"
+    },
+    {
+     "law": "주임법",
+     "article": "제4조",
+     "verified": true,
+     "note": "제2항: 보증금 반환 시까지 임대차 존속"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "보증금은 새로운 임차인이 입주한 후에 반환한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "H-T06",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_RESTORE",
+   "category": "risk",
+   "severity": "unfavorable",
+   "title": "통상 손모까지 원상복구 부담",
+   "condition": "자연 마모·노후까지 임차인 부담, 전체 도배·장판 교체 비용 전가",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제615조",
+     "verified": true
+    },
+    {
+     "law": "민법",
+     "article": "제654조",
+     "verified": true,
+     "note": "제615조 준용"
+    },
+    {
+     "law": "판례",
+     "article": "대법원 2023다249661",
+     "verified": true,
+     "note": "원상회복은 임차 당시 상태로 반환하면 됨"
+    },
+    {
+     "law": "판례",
+     "article": "통상손모 임차인 비부담 직접 판시",
+     "verified": false,
+     "note": "수집 판례 38건 중 직접 판시 없음 — 추가 검색 필요"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "퇴거 시 임차인은 사용기간과 관계없이 도배·장판 전체 교체 비용을 부담한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "H-T07",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_REPAIR",
+   "category": "risk",
+   "severity": "unfavorable",
+   "title": "대규모 수선까지 임차인 부담",
+   "condition": "보일러·배관 등 주요 설비 수리비 전부 임차인 부담",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제623조",
+     "verified": true
+    },
+    {
+     "law": "판례",
+     "article": "대법원 94다34692",
+     "verified": true,
+     "note": "수선의무 면제특약은 통상·소규모 수선에 한정"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "보일러, 배관 등 모든 시설의 수리비는 임차인이 부담한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "H-T08",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_PENALTY",
+   "category": "risk",
+   "severity": "unfavorable",
+   "title": "과다한 위약금·보증금 몰수",
+   "condition": "중도해지·특약 위반 시 보증금 몰수, 수개월분 차임 위약금",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제398조",
+     "verified": true,
+     "note": "제2항 감액"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "임차인이 특약을 위반하면 보증금 전액은 임대인에게 귀속된다."
+   ],
+   "params": []
+  },
+  {
+   "id": "H-T09",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_RIGHTS",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "전입신고·확정일자·임차권등기 금지",
+   "condition": "대항력·우선변제 수단을 금지하거나 포기",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "주임법",
+     "article": "제3조",
+     "verified": true
+    },
+    {
+     "law": "주임법",
+     "article": "제3조의2",
+     "verified": true
+    },
+    {
+     "law": "주임법",
+     "article": "제3조의3",
+     "verified": true
+    },
+    {
+     "law": "주임법",
+     "article": "제10조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "임차인은 전입신고를 하지 않기로 한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "H-T10",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_SPECIAL",
+   "category": "risk",
+   "severity": "unfavorable",
+   "title": "임대인 일방 해지·무단 출입",
+   "condition": "임대인이 언제든 해지하거나 사전 통지 없이 출입 가능",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "주임법",
+     "article": "제4조",
+     "verified": true
+    },
+    {
+     "law": "주임법",
+     "article": "제10조",
+     "verified": true
+    },
+    {
+     "law": "민법",
+     "article": "제623조",
+     "verified": true,
+     "note": "무단 출입 부분: 사용·수익 유지 의무"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "임대인은 필요한 경우 언제든지 방에 출입할 수 있다."
+   ],
+   "params": []
+  },
+  {
+   "id": "H-T11",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_SPECIAL",
+   "category": "risk",
+   "severity": "caution",
+   "title": "필요비·유익비 상환청구권 포기",
+   "condition": "비용상환청구권 포기 특약(임의규정이라 유효할 수 있음 — 주의 안내)",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제626조",
+     "verified": true
+    },
+    {
+     "law": "판례",
+     "article": "대법원 80다320,321",
+     "verified": true,
+     "note": "비용상환 포기 특약은 원상복구 면제를 포함하는 것으로 해석"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "임차인은 퇴거 시 설치한 시설에 대한 비용을 청구하지 않는다."
+   ],
+   "params": []
+  },
+  {
+   "id": "H-I01",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_MONEY",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "계약금+중도금+잔금 ≠ 보증금",
+   "condition": "합계 불일치",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-I02",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_MONEY",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "숫자·한글 금액 불일치",
+   "condition": "",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-I03",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_TERM",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "기간 날짜 오류·기간 표기 불일치",
+   "condition": "",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-I04",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_PARTY",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "당사자 이름 불일치(본문 vs 서명란)",
+   "condition": "",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-I05",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_SPECIAL",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "본문·특약 충돌",
+   "condition": "",
+   "detect": "model",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-U01",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_RIGHTS",
+   "category": "uncheckable",
+   "severity": "info",
+   "title": "등기부 확인 필요(소유자·선순위 근저당)",
+   "condition": "계약서만으로 확인 불가 — 고정 안내",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "H-U02",
+   "contract_types": [
+    "LEASE"
+   ],
+   "slot": "S_H_OBJ",
+   "category": "uncheckable",
+   "severity": "info",
+   "title": "건축물대장 확인 필요(용도·위반건축물)",
+   "condition": "계약서만으로 확인 불가 — 고정 안내",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "D-M01",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_PRINC",
+   "category": "missing",
+   "severity": "violation",
+   "title": "원금 미기재",
+   "condition": "",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "D-M02",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_REPAY",
+   "category": "missing",
+   "severity": "caution",
+   "title": "변제기 미기재",
+   "condition": "갚을 날짜 없음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제603조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "D-M03",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_INT",
+   "category": "missing",
+   "severity": "caution",
+   "title": "이자 약정 미기재",
+   "condition": "이자 여부·이율 없음 — 이자 약정이 없으면 원칙적으로 무이자(해석, 상인 간 거래는 예외)",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제600조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "D-M04",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_PARTY",
+   "category": "missing",
+   "severity": "violation",
+   "title": "당사자 특정·서명 누락",
+   "condition": "",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "D-T01",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_INT",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "최고이자율(연 20%) 초과",
+   "condition": "약정 이율 > 연 20%(초과분 무효)",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "이자법",
+     "article": "제2조",
+     "verified": true
+    },
+    {
+     "law": "이자규정",
+     "article": "본문",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "이자는 월 3%로 한다."
+   ],
+   "params": [
+    "max_interest_rate_annual"
+   ]
+  },
+  {
+   "id": "D-T02",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_INT",
+   "category": "risk",
+   "severity": "unfavorable",
+   "title": "선이자 공제",
+   "condition": "빌려줄 때 이자를 미리 떼고 지급",
+   "detect": "rule+model",
+   "legal_basis": [
+    {
+     "law": "이자법",
+     "article": "제3조",
+     "verified": true,
+     "note": "간주이자 — 확인 필요"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "대여금 100만원 중 이자 10만원을 공제하고 90만원을 지급한다."
+   ],
+   "params": []
+  },
+  {
+   "id": "D-T03",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_DEFAULT",
+   "category": "risk",
+   "severity": "unfavorable",
+   "title": "과다 지연손해금",
+   "condition": "연체 시 고율 지연손해금",
+   "detect": "rule+model",
+   "legal_basis": [
+    {
+     "law": "이자법",
+     "article": "제6조",
+     "verified": true,
+     "note": "배상액 감액 — 확인 필요"
+    },
+    {
+     "law": "민법",
+     "article": "제398조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "D-T04",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_DEFAULT",
+   "category": "risk",
+   "severity": "caution",
+   "title": "1회 연체 시 기한이익 상실",
+   "condition": "한 번 연체로 잔액 전부 즉시 상환",
+   "detect": "model",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [
+    "1회라도 상환이 지연되면 남은 금액 전부를 즉시 갚는다."
+   ],
+   "params": []
+  },
+  {
+   "id": "D-T05",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_COLL",
+   "category": "risk",
+   "severity": "invalid",
+   "title": "원리금 초과 대물변제 예약",
+   "condition": "갚지 못하면 원리금보다 비싼 물건을 넘김",
+   "detect": "model",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제607조",
+     "verified": true
+    },
+    {
+     "law": "민법",
+     "article": "제608조",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [
+    "기한 내 갚지 못하면 채무자의 노트북과 자전거의 소유권은 채권자에게 넘어간다."
+   ],
+   "params": []
+  },
+  {
+   "id": "D-G01",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_GUAR",
+   "category": "missing",
+   "severity": "invalid",
+   "title": "보증 서면·기명날인 누락",
+   "condition": "보증인의 서명 또는 기명날인 있는 서면 없음(효력 없음)",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제428조의2",
+     "verified": true
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "D-G02",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_GUAR",
+   "category": "missing",
+   "severity": "invalid",
+   "title": "보증 최고액 미기재",
+   "condition": "보증채무 최고액이 서면에 특정되지 않음",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "민법",
+     "article": "제428조의3",
+     "verified": true,
+     "note": "근보증"
+    },
+    {
+     "law": "보증법",
+     "article": "제4조",
+     "verified": true,
+     "note": "조문 번호 확인 필요"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "D-G03",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_GUAR",
+   "category": "missing",
+   "severity": "caution",
+   "title": "보증기간 미기재",
+   "condition": "기간 약정 없음(법정 기간 적용)",
+   "detect": "rule",
+   "legal_basis": [
+    {
+     "law": "보증법",
+     "article": "제7조",
+     "verified": true,
+     "note": "확인 필요"
+    }
+   ],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "D-I01",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_PRINC",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "숫자·한글 금액 불일치",
+   "condition": "",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "D-I02",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_INT",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "이자 계산 불일치",
+   "condition": "이율과 이자 금액이 맞지 않음",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  },
+  {
+   "id": "D-I03",
+   "contract_types": [
+    "LOAN"
+   ],
+   "slot": "S_D_REPAY",
+   "category": "inconsistent",
+   "severity": "info",
+   "title": "날짜 오류",
+   "condition": "변제기 < 대여일",
+   "detect": "rule",
+   "legal_basis": [],
+   "scope_conditions": [],
+   "inject_examples": [],
+   "params": []
+  }
+ ],
+ "law_nodes": [
+  {
+   "id": "근기법:제17조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제17조",
+   "verified": true
+  },
+  {
+   "id": "기간제법:제17조",
+   "law_short": "기간제법",
+   "law_full": "기간제 및 단시간근로자 보호 등에 관한 법률",
+   "article": "제17조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제55조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제55조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제18조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제18조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제60조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제60조",
+   "verified": true
+  },
+  {
+   "id": "근기령:제8조",
+   "law_short": "근기령",
+   "law_full": "근로기준법 시행령",
+   "article": "제8조",
+   "verified": true
+  },
+  {
+   "id": "최임법:제6조",
+   "law_short": "최임법",
+   "law_full": "최저임금법",
+   "article": "제6조",
+   "verified": true
+  },
+  {
+   "id": "최임법:제5조",
+   "law_short": "최임법",
+   "law_full": "최저임금법",
+   "article": "제5조",
+   "verified": true
+  },
+  {
+   "id": "최임령:제3조",
+   "law_short": "최임령",
+   "law_full": "최저임금법 시행령",
+   "article": "제3조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제20조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제20조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제43조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제43조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제54조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제54조",
+   "verified": true
+  },
+  {
+   "id": "근기령:제30조",
+   "law_short": "근기령",
+   "law_full": "근로기준법 시행령",
+   "article": "제30조",
+   "verified": true
+  },
+  {
+   "id": "기간제법:제6조",
+   "law_short": "기간제법",
+   "law_full": "기간제 및 단시간근로자 보호 등에 관한 법률",
+   "article": "제6조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제56조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제56조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제4조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제4조",
+   "verified": true
+  },
+  {
+   "id": "퇴직급여법:제8조",
+   "law_short": "퇴직급여법",
+   "law_full": "근로자퇴직급여 보장법",
+   "article": "제8조",
+   "verified": true
+  },
+  {
+   "id": "퇴직급여법:제9조",
+   "law_short": "퇴직급여법",
+   "law_full": "근로자퇴직급여 보장법",
+   "article": "제9조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제26조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제26조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제23조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제23조",
+   "verified": true
+  },
+  {
+   "id": "고용보험법:적용 범위 조문",
+   "law_short": "고용보험법",
+   "law_full": "고용보험법",
+   "article": "적용 범위 조문",
+   "verified": false
+  },
+  {
+   "id": "산재법:적용 범위 조문",
+   "law_short": "산재법",
+   "law_full": "산업재해보상보험법",
+   "article": "적용 범위 조문",
+   "verified": false
+  },
+  {
+   "id": "근기법:제22조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제22조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제21조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제21조",
+   "verified": true
+  },
+  {
+   "id": "근기법:제11조",
+   "law_short": "근기법",
+   "law_full": "근로기준법",
+   "article": "제11조",
+   "verified": true
+  },
+  {
+   "id": "근기령:제7조",
+   "law_short": "근기령",
+   "law_full": "근로기준법 시행령",
+   "article": "제7조",
+   "verified": true
+  },
+  {
+   "id": "주임법:제4조",
+   "law_short": "주임법",
+   "law_full": "주택임대차보호법",
+   "article": "제4조",
+   "verified": true
+  },
+  {
+   "id": "민법:제623조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제623조",
+   "verified": true
+  },
+  {
+   "id": "민법:제536조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제536조",
+   "verified": true
+  },
+  {
+   "id": "주임법:제3조의7",
+   "law_short": "주임법",
+   "law_full": "주택임대차보호법",
+   "article": "제3조의7",
+   "verified": true
+  },
+  {
+   "id": "주임법:제10조",
+   "law_short": "주임법",
+   "law_full": "주택임대차보호법",
+   "article": "제10조",
+   "verified": true
+  },
+  {
+   "id": "주임법:제6조의3",
+   "law_short": "주임법",
+   "law_full": "주택임대차보호법",
+   "article": "제6조의3",
+   "verified": true
+  },
+  {
+   "id": "주임법:제7조",
+   "law_short": "주임법",
+   "law_full": "주택임대차보호법",
+   "article": "제7조",
+   "verified": true
+  },
+  {
+   "id": "주임령:제8조",
+   "law_short": "주임령",
+   "law_full": "주택임대차보호법 시행령",
+   "article": "제8조",
+   "verified": true
+  },
+  {
+   "id": "민법:제640조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제640조",
+   "verified": true
+  },
+  {
+   "id": "민법:제652조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제652조",
+   "verified": true
+  },
+  {
+   "id": "민법:제615조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제615조",
+   "verified": true
+  },
+  {
+   "id": "민법:제654조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제654조",
+   "verified": true
+  },
+  {
+   "id": "판례:대법원 2023다249661",
+   "law_short": "판례",
+   "law_full": "판례",
+   "article": "대법원 2023다249661",
+   "verified": true
+  },
+  {
+   "id": "판례:통상손모 임차인 비부담 직접 판시",
+   "law_short": "판례",
+   "law_full": "판례",
+   "article": "통상손모 임차인 비부담 직접 판시",
+   "verified": false
+  },
+  {
+   "id": "판례:대법원 94다34692",
+   "law_short": "판례",
+   "law_full": "판례",
+   "article": "대법원 94다34692",
+   "verified": true
+  },
+  {
+   "id": "민법:제398조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제398조",
+   "verified": true
+  },
+  {
+   "id": "주임법:제3조",
+   "law_short": "주임법",
+   "law_full": "주택임대차보호법",
+   "article": "제3조",
+   "verified": true
+  },
+  {
+   "id": "주임법:제3조의2",
+   "law_short": "주임법",
+   "law_full": "주택임대차보호법",
+   "article": "제3조의2",
+   "verified": true
+  },
+  {
+   "id": "주임법:제3조의3",
+   "law_short": "주임법",
+   "law_full": "주택임대차보호법",
+   "article": "제3조의3",
+   "verified": true
+  },
+  {
+   "id": "민법:제626조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제626조",
+   "verified": true
+  },
+  {
+   "id": "판례:대법원 80다320,321",
+   "law_short": "판례",
+   "law_full": "판례",
+   "article": "대법원 80다320,321",
+   "verified": true
+  },
+  {
+   "id": "민법:제603조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제603조",
+   "verified": true
+  },
+  {
+   "id": "민법:제600조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제600조",
+   "verified": true
+  },
+  {
+   "id": "이자법:제2조",
+   "law_short": "이자법",
+   "law_full": "이자제한법",
+   "article": "제2조",
+   "verified": true
+  },
+  {
+   "id": "이자규정:본문",
+   "law_short": "이자규정",
+   "law_full": "이자제한법 제2조제1항의 최고이자율에 관한 규정",
+   "article": "본문",
+   "verified": true
+  },
+  {
+   "id": "이자법:제3조",
+   "law_short": "이자법",
+   "law_full": "이자제한법",
+   "article": "제3조",
+   "verified": true
+  },
+  {
+   "id": "이자법:제6조",
+   "law_short": "이자법",
+   "law_full": "이자제한법",
+   "article": "제6조",
+   "verified": true
+  },
+  {
+   "id": "민법:제607조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제607조",
+   "verified": true
+  },
+  {
+   "id": "민법:제608조",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제608조",
+   "verified": true
+  },
+  {
+   "id": "민법:제428조의2",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제428조의2",
+   "verified": true
+  },
+  {
+   "id": "민법:제428조의3",
+   "law_short": "민법",
+   "law_full": "민법",
+   "article": "제428조의3",
+   "verified": true
+  },
+  {
+   "id": "보증법:제4조",
+   "law_short": "보증법",
+   "law_full": "보증인 보호를 위한 특별법",
+   "article": "제4조",
+   "verified": true
+  },
+  {
+   "id": "보증법:제7조",
+   "law_short": "보증법",
+   "law_full": "보증인 보호를 위한 특별법",
+   "article": "제7조",
+   "verified": true
+  }
+ ],
+ "edges": [
+  {
+   "from": "LAB_PT",
+   "to": "S_L_PARTY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_TERM",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_PLACE",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_HOURS",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_DAYS",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_WAGE",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_PAY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_LEAVE",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_INS",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_COPY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_PROB",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_END",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_PENALTY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_PT",
+   "to": "S_L_SPECIAL",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_PARTY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_TERM",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_PLACE",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_HOURS",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_DAYS",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_WAGE",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_PAY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_LEAVE",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_INS",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_COPY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_PROB",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_END",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_PENALTY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LAB_FX",
+   "to": "S_L_SPECIAL",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_PARTY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_OBJ",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_MONEY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_MGMT",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_TERM",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_ADJ",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_REPAIR",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_RESTORE",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_TERMIN",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_PENALTY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_RIGHTS",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LEASE",
+   "to": "S_H_SPECIAL",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LOAN",
+   "to": "S_D_PARTY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LOAN",
+   "to": "S_D_PRINC",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LOAN",
+   "to": "S_D_INT",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LOAN",
+   "to": "S_D_REPAY",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LOAN",
+   "to": "S_D_DEFAULT",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LOAN",
+   "to": "S_D_COLL",
+   "rel": "has_slot"
+  },
+  {
+   "from": "LOAN",
+   "to": "S_D_GUAR",
+   "rel": "has_slot"
+  },
+  {
+   "from": "S_L_WAGE",
+   "to": "L-M01",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-M01",
+   "to": "근기법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-M01",
+   "to": "기간제법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_PAY",
+   "to": "L-M02",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-M02",
+   "to": "근기법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-M02",
+   "to": "기간제법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_HOURS",
+   "to": "L-M03",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-M03",
+   "to": "근기법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-M03",
+   "to": "기간제법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_HOURS",
+   "to": "L-M04",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-M04",
+   "to": "기간제법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_DAYS",
+   "to": "L-M05",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-M05",
+   "to": "기간제법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_DAYS",
+   "to": "L-M06",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-M06",
+   "to": "근기법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-M06",
+   "to": "근기법:제55조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-M06",
+   "to": "근기법:제18조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_LEAVE",
+   "to": "L-M07",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-M07",
+   "to": "근기법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-M07",
+   "to": "근기법:제60조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-M07",
+   "to": "근기법:제18조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_TERM",
+   "to": "L-M08",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-M08",
+   "to": "기간제법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_PLACE",
+   "to": "L-M09",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-M09",
+   "to": "근기령:제8조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-M09",
+   "to": "기간제법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_COPY",
+   "to": "L-M10",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-M10",
+   "to": "근기법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_WAGE",
+   "to": "L-T01",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T01",
+   "to": "최임법:제6조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_PROB",
+   "to": "L-T02",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T02",
+   "to": "최임법:제5조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-T02",
+   "to": "최임령:제3조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_PENALTY",
+   "to": "L-T03",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T03",
+   "to": "근기법:제20조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_PAY",
+   "to": "L-T04",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T04",
+   "to": "근기법:제43조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_HOURS",
+   "to": "L-T05",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T05",
+   "to": "근기법:제54조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_DAYS",
+   "to": "L-T06",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T06",
+   "to": "근기법:제55조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-T06",
+   "to": "근기법:제18조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-T06",
+   "to": "근기령:제30조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_WAGE",
+   "to": "L-T07",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T07",
+   "to": "기간제법:제6조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_WAGE",
+   "to": "L-T08",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T08",
+   "to": "근기법:제56조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_HOURS",
+   "to": "L-T09",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T09",
+   "to": "근기법:제4조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-T09",
+   "to": "근기법:제17조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_END",
+   "to": "L-T10",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T10",
+   "to": "퇴직급여법:제8조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-T10",
+   "to": "퇴직급여법:제9조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_END",
+   "to": "L-T11",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T11",
+   "to": "근기법:제26조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-T11",
+   "to": "근기법:제23조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_INS",
+   "to": "L-T12",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T12",
+   "to": "고용보험법:적용 범위 조문",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-T12",
+   "to": "산재법:적용 범위 조문",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_SPECIAL",
+   "to": "L-T13",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T13",
+   "to": "근기법:제22조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_SPECIAL",
+   "to": "L-T14",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-T14",
+   "to": "근기법:제21조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_L_HOURS",
+   "to": "L-I01",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_L_WAGE",
+   "to": "L-I02",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_L_TERM",
+   "to": "L-I03",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_L_WAGE",
+   "to": "L-I04",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_L_SPECIAL",
+   "to": "L-I05",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_L_SPECIAL",
+   "to": "L-U01",
+   "rel": "has_check"
+  },
+  {
+   "from": "L-U01",
+   "to": "근기법:제11조",
+   "rel": "based_on"
+  },
+  {
+   "from": "L-U01",
+   "to": "근기령:제7조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_MONEY",
+   "to": "H-M01",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_H_TERM",
+   "to": "H-M02",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-M02",
+   "to": "주임법:제4조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_OBJ",
+   "to": "H-M03",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_H_MGMT",
+   "to": "H-M04",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_H_REPAIR",
+   "to": "H-M05",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-M05",
+   "to": "민법:제623조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_MONEY",
+   "to": "H-M06",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-M06",
+   "to": "민법:제536조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-M06",
+   "to": "주임법:제4조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_RIGHTS",
+   "to": "H-M07",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_H_RIGHTS",
+   "to": "H-M08",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-M08",
+   "to": "주임법:제3조의7",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_TERMIN",
+   "to": "H-M09",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_H_TERM",
+   "to": "H-T01",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-T01",
+   "to": "주임법:제4조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T01",
+   "to": "주임법:제10조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_TERM",
+   "to": "H-T02",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-T02",
+   "to": "주임법:제6조의3",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T02",
+   "to": "주임법:제10조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_ADJ",
+   "to": "H-T03",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-T03",
+   "to": "주임법:제7조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T03",
+   "to": "주임령:제8조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_TERMIN",
+   "to": "H-T04",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-T04",
+   "to": "민법:제640조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T04",
+   "to": "민법:제652조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_MONEY",
+   "to": "H-T05",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-T05",
+   "to": "민법:제536조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T05",
+   "to": "주임법:제4조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_RESTORE",
+   "to": "H-T06",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-T06",
+   "to": "민법:제615조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T06",
+   "to": "민법:제654조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T06",
+   "to": "판례:대법원 2023다249661",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T06",
+   "to": "판례:통상손모 임차인 비부담 직접 판시",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_REPAIR",
+   "to": "H-T07",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-T07",
+   "to": "민법:제623조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T07",
+   "to": "판례:대법원 94다34692",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_PENALTY",
+   "to": "H-T08",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-T08",
+   "to": "민법:제398조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_RIGHTS",
+   "to": "H-T09",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-T09",
+   "to": "주임법:제3조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T09",
+   "to": "주임법:제3조의2",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T09",
+   "to": "주임법:제3조의3",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T09",
+   "to": "주임법:제10조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_SPECIAL",
+   "to": "H-T10",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-T10",
+   "to": "주임법:제4조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T10",
+   "to": "주임법:제10조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T10",
+   "to": "민법:제623조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_SPECIAL",
+   "to": "H-T11",
+   "rel": "has_check"
+  },
+  {
+   "from": "H-T11",
+   "to": "민법:제626조",
+   "rel": "based_on"
+  },
+  {
+   "from": "H-T11",
+   "to": "판례:대법원 80다320,321",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_H_MONEY",
+   "to": "H-I01",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_H_MONEY",
+   "to": "H-I02",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_H_TERM",
+   "to": "H-I03",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_H_PARTY",
+   "to": "H-I04",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_H_SPECIAL",
+   "to": "H-I05",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_H_RIGHTS",
+   "to": "H-U01",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_H_OBJ",
+   "to": "H-U02",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_D_PRINC",
+   "to": "D-M01",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_D_REPAY",
+   "to": "D-M02",
+   "rel": "has_check"
+  },
+  {
+   "from": "D-M02",
+   "to": "민법:제603조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_D_INT",
+   "to": "D-M03",
+   "rel": "has_check"
+  },
+  {
+   "from": "D-M03",
+   "to": "민법:제600조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_D_PARTY",
+   "to": "D-M04",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_D_INT",
+   "to": "D-T01",
+   "rel": "has_check"
+  },
+  {
+   "from": "D-T01",
+   "to": "이자법:제2조",
+   "rel": "based_on"
+  },
+  {
+   "from": "D-T01",
+   "to": "이자규정:본문",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_D_INT",
+   "to": "D-T02",
+   "rel": "has_check"
+  },
+  {
+   "from": "D-T02",
+   "to": "이자법:제3조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_D_DEFAULT",
+   "to": "D-T03",
+   "rel": "has_check"
+  },
+  {
+   "from": "D-T03",
+   "to": "이자법:제6조",
+   "rel": "based_on"
+  },
+  {
+   "from": "D-T03",
+   "to": "민법:제398조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_D_DEFAULT",
+   "to": "D-T04",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_D_COLL",
+   "to": "D-T05",
+   "rel": "has_check"
+  },
+  {
+   "from": "D-T05",
+   "to": "민법:제607조",
+   "rel": "based_on"
+  },
+  {
+   "from": "D-T05",
+   "to": "민법:제608조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_D_GUAR",
+   "to": "D-G01",
+   "rel": "has_check"
+  },
+  {
+   "from": "D-G01",
+   "to": "민법:제428조의2",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_D_GUAR",
+   "to": "D-G02",
+   "rel": "has_check"
+  },
+  {
+   "from": "D-G02",
+   "to": "민법:제428조의3",
+   "rel": "based_on"
+  },
+  {
+   "from": "D-G02",
+   "to": "보증법:제4조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_D_GUAR",
+   "to": "D-G03",
+   "rel": "has_check"
+  },
+  {
+   "from": "D-G03",
+   "to": "보증법:제7조",
+   "rel": "based_on"
+  },
+  {
+   "from": "S_D_PRINC",
+   "to": "D-I01",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_D_INT",
+   "to": "D-I02",
+   "rel": "has_check"
+  },
+  {
+   "from": "S_D_REPAY",
+   "to": "D-I03",
+   "rel": "has_check"
+  }
+ ],
+ "category_names": {
+  "missing": "누락",
+  "risk": "위험 조항",
+  "inconsistent": "불일치",
+  "uncheckable": "확인 불가"
+ },
+ "severity_names": {
+  "invalid": "무효",
+  "violation": "법 위반",
+  "unfavorable": "불리",
+  "caution": "주의",
+  "info": "정보"
+ },
+ "unresolved_checks": [
+  "H-T06",
+  "L-T12"
+ ]
+}

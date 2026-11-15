@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>계약서 점검 비교</title>
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <header class="top">
+    <h1>계약서 점검 비교</h1>
+    <p class="notice">이 결과는 계약서 이해를 돕는 정보이며 법률 자문이 아닙니다. 중요한 결정 전에는 노무사·변호사 또는 공공 상담 창구(고용노동부 1350, 대한법률구조공단 132)에 확인하세요.</p>
+    <nav>
+      <button type="button" id="tab-check" class="on">계약서 점검</button>
+      <button type="button" id="tab-replay">평가 재생</button>
+    </nav>
+  </header>
+
+  <main id="view-check">
+    <section class="input">
+      <label>예시
+        <select id="sample"></select>
+      </label>
+      <label>계약 유형
+        <select id="domain">
+          <option value="">자동 추정</option>
+          <option value="LAB">근로·알바</option>
+          <option value="LEASE">주택임대</option>
+          <option value="LOAN">차용</option>
+        </select>
+      </label>
+      <label class="file">.txt 업로드
+        <input id="file" type="file" accept=".txt,text/plain" />
+      </label>
+      <label class="grow">붙여넣기
+        <textarea id="text" rows="10" placeholder="계약서 문장을 붙여 넣으세요."></textarea>
+      </label>
+      <div class="row">
+        <button type="button" id="go">점검</button>
+        <label class="check"><input id="show-answer" type="checkbox" /> 예시 정답과 비교</label>
+        <span id="status"></span>
+      </div>
+    </section>
+    <section id="heads" class="heads" hidden>
+      <div class="head bad">
+        <h2>나빴던 조합</h2>
+        <p>Qwen3-8B · BM25 검색 조문 · 규칙 없음</p>
+        <p class="chips" id="chips-left"></p>
+      </div>
+      <div class="head good">
+        <h2>최고 조합</h2>
+        <p>KLUE-RoBERTa · 숫자 규칙 · A.X 4.0 Light · 카탈로그 조문</p>
+        <p class="chips" id="chips-right"></p>
+      </div>
+    </section>
+    <section id="rows"></section>
+    <details class="evidence">
+      <summary>실험 근거</summary>
+      <p id="evidence-note"></p>
+      <table id="evidence-table"></table>
+    </details>
+  </main>
+
+  <main id="view-replay" hidden>
+    <section id="replay-summary"></section>
+    <section class="filters">
+      <label><input type="checkbox" id="f-diff" /> 판정이 다른 것만</label>
+      <label>오류
+        <select id="f-err">
+          <option value="">전체</option>
+          <option value="left">왼쪽만 틀림</option>
+          <option value="right">오른쪽만 틀림</option>
+          <option value="both">둘 다 틀림</option>
+        </select>
+      </label>
+      <label>check
+        <select id="f-check"><option value="">전체</option></select>
+      </label>
+      <label>종류
+        <select id="f-kind">
+          <option value="">전체</option>
+          <option value="numeric">numeric</option>
+          <option value="text">text</option>
+        </select>
+      </label>
+      <label>surface
+        <select id="f-surface">
+          <option value="">402건</option>
+          <option value="0">0 (134)</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+        </select>
+      </label>
+      <span id="replay-count"></span>
+    </section>
+    <div id="replay-rows"></div>
+  </main>
+
+  <footer>일부 실험에 한국지능정보사회진흥원 AI 허브 데이터를 활용함</footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

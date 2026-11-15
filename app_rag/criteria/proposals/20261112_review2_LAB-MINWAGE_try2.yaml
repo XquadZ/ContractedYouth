@@ -1,0 +1,89 @@
+card_id: LAB-MINWAGE
+day: '20261112'
+status: 대기
+needs_change: true
+reason: 최저임금 금액이 변경되었습니다.
+before_card:
+  safe:
+  - 시간급이 계약 기간에 해당하는 연도의 최저임금(config/min_wage.yaml) 이상
+  - 수습 감액은 1년↑계약·3개월 이내·단순노무 제외·10% 이내
+  violation:
+  - 최저임금 미달
+  - 수습 감액 요건을 깨고 감액
+  check_if:
+  - 월급만 있고 1주·1일 소정근로시간이 없어 시간환산이 안 됨
+  basis:
+  - law:최저임금법:5
+  - law:최저임금법:6:1
+  - law:최저임금법:6:3
+  - decree:최저임금법 시행령:3
+  - notice:최저임금고시:2026
+  match_keywords:
+  - 최저임금
+  - 시급
+  - 시간급
+  - 최저
+  uses_facts:
+  - 시급
+  - 월급
+  - 1주 소정근로시간
+  - 적용연도
+  blocking_if:
+  - when: 수습 감액이 있음
+    fact: 단순노무여부
+    cues:
+    - 수습
+    - 감액|감급|최저임금.{0,20}%
+  title: 최저임금
+proposed:
+  safe:
+  - 시간급이 계약 기간에 해당하는 연도의 최저임금(config/min_wage.yaml) 이상
+  - 수습 감액은 1년↑계약·3개월 이내·단순노무 제외·10% 이내
+  violation:
+  - 최저임금 미달
+  - 수습 감액 요건을 깨고 감액
+  check_if:
+  - 월급만 있고 1주·1일 소정근로시간이 없어 시간환산이 안 됨
+  basis:
+  - law:최저임금법:5
+  - law:최저임금법:6:1
+  - law:최저임금법:6:3
+  - decree:최저임금법 시행령:3
+  - notice:최저임금고시:2027
+rule_candidates:
+- index: 1
+  text: 제1조 (시행일) 이 법은 공포한 날로부터 시행한다.
+- index: 2
+  text: 제3조 (최초로 시행되는 최저임금의 결정에 관한 경과조치) ①노동부장관은 이 법 시행후 최초로 시행할 최저임금의 결정을 위하여 1987년
+    6월 30일까지 심의위원회를 구성하여 1987년 7월 1일까지 심의위원회에 최저임금의 심의를 요청하여야 한다.
+rule_index: 1
+rule_index_model: 1
+apply_rule: contract_date
+apply_rule_model: contract_date
+rule_quote: 제1조 (시행일) 이 법은 공포한 날로부터 시행한다.
+validation:
+  body: &id001
+    ok: true
+    errors: []
+    length: 139
+  rule: &id002
+    ok: true
+    errors: []
+    apply_rule: contract_date
+    rule_index: 1
+    rule_quote: 제1조 (시행일) 이 법은 공포한 날로부터 시행한다.
+  ok: true
+  body_ok: true
+  rule_ok: true
+  status: 대기
+  approvable: true
+  apply_rule: contract_date
+  rule_index: 1
+  rule_quote: 제1조 (시행일) 이 법은 공포한 날로부터 시행한다.
+  errors: []
+  manual: false
+  length: 139
+validation_body: *id001
+validation_rule: *id002
+llm_parse_ok: true
+created_at: '2026-11-12T16:44:16'

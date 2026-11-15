@@ -1,0 +1,446 @@
+# needs_facts → uses_facts(표시만) / blocking_if(조건 시에만 확인 필요)
+- id: LAB-TERM
+  title: 계약기간
+  match_keywords:
+  - 계약기간
+  - 근로개시일
+  - 기간의 정함
+  - 근로계약기간
+  - 만료
+  safe:
+  - 무기한은 개시일만, 기간제는 시작·종료일이 모두 있고 모순 없음
+  violation:
+  - 기간제인데 종료일 공란으로 기간을 확정할 수 없음
+  check_if:
+  - ‘필요 시 연장’만 있고 연장 절차·통지 시점이 없음 → 실제 통지 관행
+  - 날짜가 없는 날이거나 앞뒤가 바뀜 → 실제 시작·종료일
+  uses_facts:
+  - 시작일
+  - 종료일
+  blocking_if: []
+  basis:
+  - law:근로기준법:17
+- id: LAB-PLACE
+  title: 근무장소
+  match_keywords:
+  - 근무장소
+  - 근무지
+  - 사업장
+  - 취업의 장소
+  - 전근
+  - 배치전환
+  safe:
+  - 구체적 주소·점포명이 있고, 변경·전근은 사전 상호 협의한다고만 적음
+  violation: []
+  check_if:
+  - ‘일방적으로 변경·전근 가능’처럼 사용자가 근무지를 마음대로 바꿀 수 있다고만 적음
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:근로기준법:17
+  - decree:근로기준법 시행령:8
+- id: LAB-DUTY
+  title: 업무 내용
+  match_keywords:
+  - 업무
+  - 직무
+  - 직종
+  - 담당업무
+  - 업무의 내용
+  safe:
+  - 담당 업무·직종이 구체적으로 적혀 있고, 범위 변경은 상호 협의한다고만 적음
+  violation: []
+  check_if:
+  - ‘기타 회사가 지시하는 모든 업무’처럼 범위를 한없이 넓히는 문구만 있음
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:근로기준법:17
+  - decree:근로기준법 시행령:8
+- id: LAB-REST
+  title: 근로시간·휴게
+  match_keywords:
+  - 휴게
+  - 근로시간
+  - 근무시간
+  - 소정근로
+  - 시업
+  - 종업
+  safe:
+  - 4시간에 30분 이상·8시간에 1시간 이상 휴게를 근무 도중에 줌
+  - 1일 8시간·1주 40시간 이내 명시
+  violation:
+  - 휴게 없음·기준 미달
+  - 휴게를 근무 종료 후에만 줌
+  - 1일 8시간·1주 40시간 초과를 상시로 정함(상시 5명 이상)
+  check_if:
+  - ‘한가할 때 휴게’만 있고 시간을 정하지 않음
+  uses_facts:
+  - 일_근로시간
+  - 주_근로시간
+  - 상시근로자수
+  blocking_if: []
+  basis:
+  - law:근로기준법:54
+  missing_basis:
+  - law:근로기준법:50
+- id: LAB-HOLIDAY
+  title: 휴일·주휴
+  match_keywords:
+  - 주휴
+  - 유급휴일
+  - 휴일
+  - 주휴일
+  - 공휴일
+  safe:
+  - 1주 평균 1회 이상 유급휴일(주휴)을 명시
+  - 초단시간(주 15시간 미만)이면 주휴 비적용을 명시
+  violation:
+  - 주휴를 주지 않거나 무조건 무급으로 정함(주 15시간 이상인데)
+  check_if:
+  - 주휴수당을 시급에 포함한다고만 적고 금액을 구분하지 않음
+  uses_facts:
+  - 주_소정근로시간
+  blocking_if: []
+  basis:
+  - law:근로기준법:55
+  - decree:근로기준법 시행령:30
+  - law:근로기준법:18
+- id: LAB-WAGE
+  title: 임금(구성·계산·지급)
+  match_keywords:
+  - 임금
+  - 급여
+  - 시급
+  - 월급
+  - 지급일
+  - 지급방법
+  - 구성항목
+  safe:
+  - 구성·계산·지급방법·지급일이 있고, 통화·직접·전액·매월 1회 이상 일정일 지급
+  violation:
+  - 임의 공제
+  - 직접 지급 배제
+  - 지급일 없음
+  - 통화 외 지급을 원칙으로 함(법령·협약 근거 없음)
+  check_if:
+  - 법령·협약에 없는 공제를 사용자가 마음대로 한다고만 적음
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:근로기준법:17
+  - law:근로기준법:43
+- id: LAB-MINWAGE
+  title: 최저임금
+  match_keywords:
+  - 최저임금
+  - 시급
+  - 시간급
+  - 최저
+  safe:
+  - 시간급이 계약 기간에 해당하는 연도의 최저임금(config/min_wage.yaml) 이상
+  - 수습 감액은 1년↑계약·3개월 이내·단순노무 제외·10% 이내
+  violation:
+  - 최저임금 미달
+  - 수습 감액 요건을 깨고 감액
+  check_if:
+  - 월급만 있고 1주·1일 소정근로시간이 없어 시간환산이 안 됨
+  uses_facts:
+  - 시급
+  - 월급
+  - 1주 소정근로시간
+  - 적용연도
+  blocking_if:
+  - when: 수습 감액이 있음
+    fact: 단순노무여부
+    cues:
+    - 수습
+    - 감액|감급|최저임금.{0,20}%
+  basis:
+  - law:최저임금법:5
+  - law:최저임금법:6:1
+  - law:최저임금법:6:3
+  - decree:최저임금법 시행령:3
+  - notice:최저임금고시:2026
+- id: LAB-PROBATION
+  title: 수습
+  match_keywords:
+  - 수습
+  - 시용
+  - 수습기간
+  - 수습 중
+  safe:
+  - 수습 기간·처우가 명확하고, 감액 시 최저임금법 제5조·시행령 제3조 요건을 충족
+  violation:
+  - 수습이라는 이유로 최저임금 미만·10% 초과 감액
+  - 1년 미만 계약에 감액
+  check_if:
+  - 수습 후 본계약 전환 기준이 모호
+  uses_facts:
+  - 수습 기간
+  - 감액률
+  - 계약기간(개월)
+  blocking_if:
+  - when: 감액이 있음
+    fact: 단순노무여부
+    cues:
+    - 감액|감급
+    - '%|퍼센트|최저임금'
+  basis:
+  - law:최저임금법:5
+  - decree:최저임금법 시행령:3
+- id: LAB-OT
+  title: 연장·야간·휴일 가산
+  match_keywords:
+  - 연장
+  - 야간
+  - 휴일근로
+  - 가산
+  - 시간외
+  - 연장근로
+  safe:
+  - 연장·야간·휴일근로에 법정 가산(50% 이상)을 지급한다고 적거나, 가산을 배제하는 문구가 없음
+  violation:
+  - 연장·야간·휴일 가산을 지급하지 않거나 포괄로 배제
+  check_if:
+  - 포괄임금제만 있고 내역·할증이 안 보임 → 실제 산정
+  - 5인 미만 여부
+  uses_facts:
+  - 상시근로자수
+  blocking_if: []
+  basis:
+  - law:근로기준법:56
+- id: LAB-PT-OT
+  title: 단시간 초과근로 가산
+  match_keywords:
+  - 단시간
+  - 초과근로
+  - 소정근로 초과
+  - 가산임금률
+  safe:
+  - 단시간 근로자가 약정 시간을 넘기면 법정시간 내라도 50% 이상 가산
+  violation:
+  - 단시간 초과근로 가산을 배제·미지급으로 정함
+  check_if:
+  - 단시간인지(통상근로자 대비 짧은 소정근로) 불명
+  - 상시 5명 미만 여부
+  uses_facts:
+  - 단시간여부
+  - 약정_소정근로
+  - 상시근로자수
+  blocking_if: []
+  basis:
+  - law:근로기준법:18
+  missing_basis:
+  - 기간제법 제6조 제3항
+- id: LAB-ANNUAL
+  title: 연차유급휴가
+  match_keywords:
+  - 연차
+  - 유급휴가
+  - 연차유급휴가
+  - 휴가 포기
+  safe:
+  - 근로기준법 제60조에 따라 부여한다고 명시
+  - 사용·일정을 상호 협의한다고만 있고 포기·미부여 없음
+  violation:
+  - 연차를 주지 않음
+  - 미리 연차 전부를 포기한다고 정함
+  check_if:
+  - 주 15시간 미만(초단시간)인지
+  - 5인 미만인지
+  uses_facts:
+  - 주_소정근로시간
+  - 상시근로자수
+  blocking_if: []
+  basis:
+  - law:근로기준법:60:1
+  - law:근로기준법:60:2
+  - law:근로기준법:18
+- id: LAB-INSURE
+  title: 사회보험
+  match_keywords:
+  - 사회보험
+  - 고용보험
+  - 산재
+  - 국민연금
+  - 건강보험
+  - 4대보험
+  safe:
+  - 4대보험 적용 여부를 항목별로 표시
+  - 근로자인데 전액 개인 부담·미가입을 강제하지 않음
+  violation:
+  - 근로자임에도 사회보험 미가입을 전제로 함
+  - 위장 프리랜서로 보험을 회피
+  check_if:
+  - 가입 대상·부담 비율이 계약만으로 불명
+  uses_facts: []
+  blocking_if:
+  - when: 프리랜서·용역·3.3% 문구
+    fact: 근로자성
+    cues:
+    - 프리랜서|용역|3\.3\s*%|사업소득
+  basis: []
+  missing_basis:
+  - 고용보험법
+  - 국민연금법
+  - 건강보험법
+  - 산업재해보상보험법
+- id: LAB-DELIVER
+  title: 계약서 교부
+  match_keywords:
+  - 교부
+  - 사본
+  - 서면
+  - 계약서 교부
+  - 교부요구
+  safe:
+  - 체결 시 서면(전자문서 포함) 교부, 전자문서 수령·확인 문구가 있어도 안전
+  violation:
+  - 요구할 때만 준다
+  - 교부하지 않는다고 정함
+  check_if:
+  - 전자계약만 언급 → 실제 교부 여부
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:근로기준법:17
+- id: LAB-DISMISS
+  title: 해고 예고
+  match_keywords:
+  - 해고
+  - 해고예고
+  - 해고 예고
+  - 즉시해고
+  - 권고사직
+  safe:
+  - 해고 시 30일 전 예고 또는 30일분 이상 통상임금(예외 사유는 법에 따름)
+  violation:
+  - 예고·예고수당 없이 언제든 해고 가능하다고 정함
+  check_if:
+  - 계속근로 3개월 미만 등 예외 해당 여부
+  uses_facts: []
+  blocking_if:
+  - when: 3개월 미만은 예고 없이 같은 예외 문구
+    fact: 계속근로기간
+    cues:
+    - 3\s*개월\s*미만
+    - 예고\s*없이|예고\s*제외|즉시\s*해고
+  basis:
+  - law:근로기준법:26
+  - law:근로기준법:23
+- id: LAB-SEVERANCE
+  title: 퇴직금
+  match_keywords:
+  - 퇴직금
+  - 퇴직급여
+  - DC
+  - DB
+  - IRP
+  safe:
+  - 퇴직급여 제도를 법에 따라 적용한다고 하거나 포기를 강요하지 않음
+  violation:
+  - 임금에 퇴직금 포함으로 지급 면제
+  - 퇴직금 사전 포기
+  check_if:
+  - 계속근로 1년 미만·주 15시간 미만 여부
+  uses_facts:
+  - 1주 소정근로시간
+  blocking_if:
+  - when: 근속 기간에 따라 퇴직금을 빼는 문구
+    fact: 계속근로기간
+    cues:
+    - 1\s*년\s*미만
+    - 퇴직금.{0,20}(없|미지급|해당\s*없|적용\s*없)
+    - 근속.{0,12}(미만|미달)
+  basis: []
+  missing_basis:
+  - 근로자퇴직급여 보장법
+- id: LAB-PENALTY
+  title: 위약금·손해배상 예정
+  match_keywords:
+  - 위약금
+  - 손해배상
+  - 배상액 예정
+  - 위약
+  safe:
+  - 불이행에 대한 위약금·손해배상액 예정 조항이 없음
+  violation:
+  - 계약 불이행 시 위약금·배상액을 미리 정함
+  check_if:
+  - 실제 손해 배상 절차만 있는지(예정인지) 구분
+  - 교육비 등 회사가 실제로 쓴 비용을 일정 기간 안에 퇴사하면 돌려받는 약정 → 실제 비용인지, 금액·기간이 합리적인지(유효할 수 있음)
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:근로기준법:20
+- id: LAB-OFFSET
+  title: 전차금 상계·강제 저축
+  match_keywords:
+  - 전차금
+  - 상계
+  - 강제 저축
+  - 저축금
+  - 가불
+  safe:
+  - 전차금·전대채권과 임금 상계 금지, 강제 저축·저축금 관리 계약 없음
+  violation:
+  - 가불·전차금을 임금에서 상계
+  - 강제 저축·사용자가 저축 강제
+  check_if:
+  - 근로자 위탁 저축인지(제22조 제2항 요건)
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:근로기준법:21
+  - law:근로기준법:22
+- id: LAB-WAIVER
+  title: 법 적용 배제·신고 금지·취업규칙 불리 변경
+  match_keywords:
+  - 법 적용 배제
+  - 신고 금지
+  - 진정 금지
+  - 취업규칙
+  - 불리하게 변경
+  - 포괄 동의
+  safe:
+  - 근로기준법·신고권리를 배제하지 않음
+  - 취업규칙 불리 변경에 일방 동의 포괄 위임 없음
+  violation:
+  - 근로기준법 적용 배제
+  - 신고·진정 금지
+  - 취업규칙 불리 변경을 사전 일괄 동의
+  check_if:
+  - 일반적 성실이행 조항인지 배제 조항인지
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:근로기준법:15
+  - law:근로기준법:4
+  missing_basis:
+  - law:근로기준법:94
+# LAB-GENERAL: 다른 카드 match_keywords 매칭 0일 때만(파이프라인).
+- id: LAB-GENERAL
+  title: 평범한 조항
+  match_keywords: []
+  exclude_keywords:
+  - 포기
+  - 면제
+  - 배상
+  - 공제
+  - 위약
+  - 일방
+  - 통보
+  - 단축
+  - 강제
+  - 불가
+  - 거부할 수 없
+  safe:
+  - 권리박탈·의무가중 없이 협의·제공·기재·법령 준수만 있으면 문제 없음
+  violation:
+  - exclude 단어로 근로자 권리를 줄이거나 의무·비용을 늘림
+  check_if:
+  - exclude 단어가 있으면 이 카드 쓰지 말고 항목 카드 검토
+  uses_facts: []
+  blocking_if: []
+  basis: []

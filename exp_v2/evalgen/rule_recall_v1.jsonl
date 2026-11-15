@@ -1,0 +1,17 @@
+{"id":"R01","domain":"LAB","q":"2026년 최저임금은 시간당 얼마인가?","answer":"10,320원","answer_type":"number","value":10320,"law_nodes":["최임법:제6조"]}
+{"id":"R02","domain":"LAB","q":"1일 근로시간이 8시간이면 휴게시간은 최소 얼마를 주어야 하는가?","answer":"1시간","answer_type":"number","value":60,"unit":"분","law_nodes":["근기법:제54조"]}
+{"id":"R03","domain":"LAB","q":"1일 근로시간이 4시간이면 휴게시간은 최소 얼마를 주어야 하는가?","answer":"30분","answer_type":"number","value":30,"unit":"분","law_nodes":["근기법:제54조"]}
+{"id":"R04","domain":"LAB","q":"주휴일(유급휴일)이 적용되려면 1주 소정근로시간이 최소 몇 시간 이상이어야 하는가?","answer":"15시간","answer_type":"number","value":15,"law_nodes":["근기법:제18조","근기법:제55조"]}
+{"id":"R05","domain":"LAB","q":"수습 중인 근로자에게 최저임금을 감액할 수 있는 최대 비율과 기간은?","answer":"10%, 수습 시작일부터 3개월 이내 (1년 이상 계약, 단순노무업무 제외)","answer_type":"text","law_nodes":["최임법:제5조","최임령:제3조"]}
+{"id":"R06","domain":"LAB","q":"사용자가 근로자를 해고하려면 최소 며칠 전에 예고해야 하는가?","answer":"30일","answer_type":"number","value":30,"law_nodes":["근기법:제26조"]}
+{"id":"R07","domain":"LAB","q":"근로계약에서 위약금이나 손해배상액을 미리 정하는 계약은 허용되는가?","answer":"허용되지 않는다(금지)","answer_type":"yesno","value":false,"law_nodes":["근기법:제20조"]}
+{"id":"R08","domain":"LAB","q":"퇴직금을 받으려면 계속근로기간이 최소 얼마 이상이어야 하는가?","answer":"1년","answer_type":"number","value":1,"unit":"년","law_nodes":["퇴직급여법:제8조"]}
+{"id":"R09","domain":"LAB","q":"퇴직금은 퇴직한 날부터 원칙적으로 며칠 이내에 지급해야 하는가?","answer":"14일","answer_type":"number","value":14,"law_nodes":["퇴직급여법:제9조"]}
+{"id":"R10","domain":"LEASE","q":"주택임대차에서 기간을 정하지 않았거나 2년 미만으로 정한 경우 기간은 몇 년으로 보는가?","answer":"2년","answer_type":"number","value":2,"law_nodes":["주임법:제4조"]}
+{"id":"R11","domain":"LEASE","q":"주택임대차에서 차임이나 보증금 증액 청구의 상한은 약정 금액의 몇 %인가?","answer":"5% (20분의 1)","answer_type":"number","value":5,"law_nodes":["주임법:제7조","주임령:제8조"]}
+{"id":"R12","domain":"LEASE","q":"임차인이 계약갱신요구권을 행사할 수 있는 횟수는?","answer":"1회","answer_type":"number","value":1,"law_nodes":["주임법:제6조의3"]}
+{"id":"R13","domain":"LEASE","q":"건물 임대차에서 차임 연체액이 몇 기에 달하면 임대인이 해지할 수 있는가?","answer":"2기","answer_type":"number","value":2,"law_nodes":["민법:제640조"]}
+{"id":"R14","domain":"LEASE","q":"임대인은 임차인이 목적물을 사용·수익하는 데 필요한 상태를 유지할 의무를 지는가?","answer":"진다","answer_type":"yesno","value":true,"law_nodes":["민법:제623조"]}
+{"id":"R15","domain":"LEASE","q":"주택 임차인이 대항력을 갖추려면 주택 인도와 함께 무엇을 마쳐야 하는가?","answer":"주민등록(전입신고)","answer_type":"text","law_nodes":["주임법:제3조"]}
+{"id":"R16","domain":"LOAN","q":"금전 대차에서 이자의 최고이율은 연 몇 %인가?","answer":"연 20%","answer_type":"number","value":20,"law_nodes":["이자법:제2조","이자규정:본문"]}
+{"id":"R17","domain":"LOAN","q":"차용물에 갈음하여 다른 재산을 넘기기로 한 예약에서, 그 재산 가액이 원리금을 넘으면 그 예약의 효력은?","answer":"효력이 없다(채무자에게 불리한 부분 무효)","answer_type":"text","law_nodes":["민법:제607조","민법:제608조"]}

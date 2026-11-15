@@ -1,0 +1,1 @@
+﻿exists=True bytes=64 path=%APPDATA%\FreeLLMAPI\.encryption-key

@@ -1,0 +1,44 @@
+{"lstrmRltService": {
+    "검색결과개수": "1",
+    "키워드": "특약",
+    "target": "lstrmRlt",
+    "법령용어": {
+        "id": "1",
+        "연계용어": [
+            {
+                "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=835",
+                "id": "1",
+                "일상용어명": "계약",
+                "용어관계": "연관어",
+                "용어관계코드": "140305",
+                "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=계약"
+            },
+            {
+                "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=156013",
+                "id": "2",
+                "일상용어명": "특별약속",
+                "용어관계": "연관어",
+                "용어관계코드": "140305",
+                "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=특별약속"
+            },
+            {
+                "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=9505",
+                "id": "3",
+                "일상용어명": "특별합의",
+                "용어관계": "연관어",
+                "용어관계코드": "140305",
+                "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=특별합의"
+            },
+            {
+                "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=9501",
+                "id": "4",
+                "일상용어명": "특약사항",
+                "용어관계": "연관어",
+                "용어관계코드": "140305",
+                "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=특약사항"
+            }
+        ],
+        "법령용어명": "특약",
+        "비고": ""
+    }
+}}

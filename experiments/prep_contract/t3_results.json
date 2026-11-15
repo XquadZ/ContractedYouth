@@ -1,0 +1,17 @@
+{
+  "oc_configured": false,
+  "status": "OC 미설정",
+  "note": "환경변수 LAW_OC 비어 있음. T3 전체 건너뜀.",
+  "history_doc_evidence": {
+    "source_url": "https://open.law.go.kr/LSO/openApi/guideResult.do?targe=1&target=law&type=1",
+    "endpoint": "http://www.law.go.kr/DRF/lawSearch.do?target=law",
+    "params_found": {
+      "efYd": "시행일자 범위 검색(20090101~20090130)",
+      "date": "법령의 공포일자 검색",
+      "ancYd": "공포일자 범위 검색",
+      "response_field_현행연혁코드": "검색 결과 필드에 현행연혁코드 존재"
+    },
+    "as_of_single_date_body_fetch": "미확인(OC 없어 실제 호출 불가). 목록 검색의 efYd는 범위 필터이며, 특정일 시점 본문(연혁판) 전용 target 여부는 OC 승인 후 재확인 필요.",
+    "conclusion_without_OC": "문서상 시행일(efYd) 필터는 존재. 2022-01-01 시점 본문 단건 조회 성공 여부는 OC 미설정으로 미확인."
+  }
+}

@@ -1,0 +1,59 @@
+card_id: LEASE-RENEW
+versions:
+- version: 1
+  effective_from: '1981-03-05'
+  effective_to: '2020-07-30'
+  apply_rule: unknown
+  rule_source:
+    law: 주택임대차보호법
+    quote: 미확인
+    source_status: 미확인
+  card:
+    safe:
+    - 갱신 조항이 민법·약정에 따라 명시
+    violation:
+    - 법령상 계약갱신요구권 규정이 없던 시기 — 약정·민법 기준
+    check_if:
+    - 2020-07-31 개정 이후 기준과 다를 수 있음
+    basis:
+    - law:주택임대차보호법:6:3
+    - law:주택임대차보호법:6
+    - law:주택임대차보호법:6:2
+    match_keywords:
+    - 갱신
+    - 재계약
+    - 계약갱신
+    - 갱신요구
+    - 묵시적
+    uses_facts: []
+    blocking_if: []
+    title: 갱신요구권
+  note: 개정 전 카드 초안(부칙 적용례 미확인 → unknown)
+- version: 2
+  effective_from: '2020-07-31'
+  effective_to: null
+  apply_rule: in_force
+  rule_source:
+    law: 주택임대차보호법
+    quote: 제2조(계약갱신 요구 등에 관한 적용례) ① 제6조의3 및 제7조의 개정규정은 이 법 시행 당시 존속 중인 임대차에 대하여도 적용한다.
+    source_status: 원문
+  card:
+    safe:
+    - 갱신요구권을 법령에 따라 행사한다고 하거나 포기 문구 없음
+    violation:
+    - 갱신요구권 포기·행사 불가·묵시적 갱신 후 해지권 배제
+    check_if:
+    - 갱신 거절 사유 나열 → 정당 사유 해당 여부
+    basis:
+    - law:주택임대차보호법:6:3
+    - law:주택임대차보호법:6
+    - law:주택임대차보호법:6:2
+    match_keywords:
+    - 갱신
+    - 재계약
+    - 계약갱신
+    - 갱신요구
+    - 묵시적
+    uses_facts: []
+    blocking_if: []
+    title: 갱신요구권

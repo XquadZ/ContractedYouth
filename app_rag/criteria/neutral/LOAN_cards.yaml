@@ -1,0 +1,192 @@
+- id: LOAN-PARTY
+  title: 당사자
+  match_keywords:
+  - 채권자
+  - 채무자
+  - 차주
+  - 대여인
+  - 차용인
+  safe:
+  - 당사자 성명·지위가 구분되어 있음
+  violation: []
+  check_if:
+  - 대리·승낙 근거 불명 → 실제 당사자
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:민법:598
+- id: LOAN-PRINCIPAL
+  title: 원금
+  match_keywords:
+  - 원금
+  - 차용금
+  - 대여금
+  - 차입금
+  - 금액
+  - 한글
+  - 금
+  safe:
+  - 원금이 숫자·한글로 일치하게 특정됨
+  violation: []
+  check_if:
+  - 금액 공란·불명 → 실제 교부액
+  - 숫자와 한글 금액 불일치
+  uses_facts:
+  - 원금
+  - 숫자원금
+  blocking_if: []
+  basis:
+  - law:민법:598
+- id: LOAN-INTEREST
+  title: 이자율
+  match_keywords:
+  - 이자
+  - 이자율
+  - 이율
+  - 연리
+  - 퍼센트
+  - 선이자
+  - 공제
+  - 수수료
+  safe:
+  - 이율·계산법이 있고 연 20% 이하(개인 간 전제) 또는 이자 없음 명시
+  violation:
+  - 명시 약정이율이 법정 최고(연 20% 등)를 초과
+  - 원금에서 선이자·수수료를 공제해 실질 이율이 상한 초과
+  check_if:
+  - 이자 지급만 있고 이율·계산 불명 → 합의·법정이율
+  uses_facts:
+  - 약정연이율
+  - 실제교부액
+  blocking_if: []
+  basis:
+  - law:이자제한법:2
+  - law:이자제한법:7
+  - law:민법:598
+- id: LOAN-DELAY
+  title: 지연이자
+  match_keywords:
+  - 지연
+  - 연체이자
+  - 지연손해
+  - 연체
+  safe:
+  - 지연 이자·손해금이 약정·법정 범위로 적음
+  violation: []
+  check_if:
+  - 지연 연 이율이 명목 이자 대비 과도 → 감액 가능성
+  uses_facts:
+  - 지연연이율
+  blocking_if: []
+  basis:
+  - law:이자제한법:6
+  - law:민법:398
+- id: LOAN-DUEDATE
+  title: 변제기
+  match_keywords:
+  - 변제기
+  - 상환일
+  - 만기
+  - 변제일
+  - 기일
+  safe:
+  - 변제 기한·분할 일정이 있음
+  violation: []
+  check_if:
+  - 변제기 미기재 → 합의·최고 사실
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:민법:602
+- id: LOAN-REPAY
+  title: 변제 방법
+  match_keywords:
+  - 변제
+  - 상환
+  - 입금
+  - 계좌
+  - 분할
+  safe:
+  - 변제 장소·방법·계좌가 구체적
+  violation: []
+  check_if:
+  - 일방 계좌 변경만 가능 → 실제 합의
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:민법:604
+- id: LOAN-ACCEL
+  title: 기한이익 상실
+  match_keywords:
+  - 기한이익
+  - 기한의 이익
+  - 잔액
+  - 전액 변제
+  - 즉시 변제
+  safe:
+  - 기한이익 상실 사유·통지가 법정 요건을 따름
+  violation: []
+  check_if:
+  - 1회 연체로 잔액 전액·즉시 변제 → 통지·최고 여부
+  uses_facts:
+  - 최소연체횟수
+  blocking_if: []
+  basis:
+  - law:민법:388
+  - law:민법:387
+- id: LOAN-GUARANTEE
+  title: 보증
+  match_keywords:
+  - 보증
+  - 보증인
+  - 연대보증
+  - 최고액
+  safe:
+  - 보증인 서면 서명, 근보증은 최고액·기간이 있음
+  violation:
+  - 서면 서명 없이 보증, 근보증 최고액 미특정
+  check_if:
+  - 보증기간 미기재 → 특별법 적용·법정 기간
+  uses_facts:
+  - 보증인_서명_유무
+  blocking_if: []
+  basis:
+  - law:민법:428:2
+  - law:민법:428:3
+  missing_basis:
+  - law:보증인보호를위한특별법:7
+- id: LOAN-COLLATERAL
+  title: 담보·대물
+  match_keywords:
+  - 담보
+  - 질권
+  - 저당
+  - 양도
+  - 대물
+  safe:
+  - 담보 제공·실행이 잔존 채무 범위와 연동
+  violation:
+  - 원리금보다 과다한 재산 전부를 변제 예약으로 넘김
+  check_if:
+  - 담보 가치·채무액 대조 → 평가
+  uses_facts:
+  - 원금
+  blocking_if: []
+  basis:
+  - law:민법:607
+  - law:민법:608
+- id: LOAN-SPECIAL
+  title: 특약
+  match_keywords:
+  - 특약
+  - 특별약정
+  - 기타
+  safe:
+  - 특약이 이자·보증·담보 카드 위반에 해당하지 않음
+  violation: []
+  check_if:
+  - 권리 포기·일방 처분만 있는지 → 항목 카드 우선
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:민법:598

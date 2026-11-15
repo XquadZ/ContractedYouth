@@ -1,0 +1,44 @@
+{"lstrmRltService": {
+    "검색결과개수": "1",
+    "키워드": "차용",
+    "target": "lstrmRlt",
+    "법령용어": {
+        "id": "1",
+        "연계용어": [
+            {
+                "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=14697",
+                "id": "1",
+                "일상용어명": "대용",
+                "용어관계": "연관어",
+                "용어관계코드": "140305",
+                "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=대용"
+            },
+            {
+                "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=833",
+                "id": "2",
+                "일상용어명": "대차",
+                "용어관계": "연관어",
+                "용어관계코드": "140305",
+                "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=대차"
+            },
+            {
+                "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=5349",
+                "id": "3",
+                "일상용어명": "대출",
+                "용어관계": "연관어",
+                "용어관계코드": "140305",
+                "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=대출"
+            },
+            {
+                "용어간관계링크": "/DRF/lawService.do?OC=REDACTED&target=dlytrmRlt&type=XML&MST=14699",
+                "id": "4",
+                "일상용어명": "차입",
+                "용어관계": "연관어",
+                "용어관계코드": "140305",
+                "일상용어조회링크": "/DRF/lawSearch.do?OC=REDACTED&target=dlytrm&type=XML&query=차입"
+            }
+        ],
+        "법령용어명": "차용",
+        "비고": ""
+    }
+}}

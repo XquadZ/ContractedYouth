@@ -1,0 +1,134 @@
+{"id": "L-T01-P1-R", "pair_id": "L-T01-P1", "check_id": "L-T01", "domain": "LAB", "risky": true, "clause": "시급은 9,860원으로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T01-P1-S", "pair_id": "L-T01-P1", "check_id": "L-T01", "domain": "LAB", "risky": false, "clause": "시급은 10,320원으로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T01-P2-R", "pair_id": "L-T01-P2", "check_id": "L-T01", "domain": "LAB", "risky": true, "clause": "시급은 10,000원으로 하며 매월 10일에 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T01-P2-S", "pair_id": "L-T01-P2", "check_id": "L-T01", "domain": "LAB", "risky": false, "clause": "시급은 10,500원으로 하며 매월 10일에 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T01-P3-R", "pair_id": "L-T01-P3", "check_id": "L-T01", "domain": "LAB", "risky": true, "clause": "일급은 80,000원으로 한다.(1일 8시간 근무)", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T01-P3-S", "pair_id": "L-T01-P3", "check_id": "L-T01", "domain": "LAB", "risky": false, "clause": "일급은 84,000원으로 한다.(1일 8시간 근무)", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T01-P4-R", "pair_id": "L-T01-P4", "check_id": "L-T01", "domain": "LAB", "risky": true, "clause": "월 기본급은 2,000,000원으로 한다.(주 40시간 근무, 주휴수당 포함)", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T01-P4-S", "pair_id": "L-T01-P4", "check_id": "L-T01", "domain": "LAB", "risky": false, "clause": "월 기본급은 2,160,000원으로 한다.(주 40시간 근무, 주휴수당 포함)", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T01-P5-R", "pair_id": "L-T01-P5", "check_id": "L-T01", "domain": "LAB", "risky": true, "clause": "수당 없이 시간당 9,500원을 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T01-P5-S", "pair_id": "L-T01-P5", "check_id": "L-T01", "domain": "LAB", "risky": false, "clause": "수당과 별도로 시간당 11,000원을 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T02-P1-R", "pair_id": "L-T02-P1", "check_id": "L-T02", "domain": "LAB", "risky": true, "clause": "수습기간 3개월 동안은 최저임금의 80%를 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T02-P1-S", "pair_id": "L-T02-P1", "check_id": "L-T02", "domain": "LAB", "risky": false, "clause": "수습기간 3개월 동안의 임금은 정상 임금과 동일하게 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T02-P2-R", "pair_id": "L-T02-P2", "check_id": "L-T02", "domain": "LAB", "risky": true, "clause": "수습기간 6개월 동안은 시급의 90%를 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T02-P2-S", "pair_id": "L-T02-P2", "check_id": "L-T02", "domain": "LAB", "risky": false, "clause": "수습기간은 3개월로 하며, 수습기간 중에도 약정한 시급 전액을 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T02-P3-R", "pair_id": "L-T02-P3", "check_id": "L-T02", "domain": "LAB", "risky": true, "clause": "근로계약기간은 6개월로 하며, 수습기간 3개월 동안은 최저임금의 90%를 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T02-P3-S", "pair_id": "L-T02-P3", "check_id": "L-T02", "domain": "LAB", "risky": false, "clause": "근로계약기간은 6개월로 하며, 별도의 수습기간은 두지 않는다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T02-P4-R", "pair_id": "L-T02-P4", "check_id": "L-T02", "domain": "LAB", "risky": true, "clause": "수습기간에는 시급 8,000원을 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T02-P4-S", "pair_id": "L-T02-P4", "check_id": "L-T02", "domain": "LAB", "risky": false, "clause": "수습기간에도 시급 10,500원을 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T03-P1-R", "pair_id": "L-T03-P1", "check_id": "L-T03", "domain": "LAB", "risky": true, "clause": "지각 1회당 10,000원을 벌금으로 급여에서 차감한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T03-P1-S", "pair_id": "L-T03-P1", "check_id": "L-T03", "domain": "LAB", "risky": false, "clause": "지각한 시간에 대해서는 그 시간만큼의 임금을 지급하지 않는다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T03-P2-R", "pair_id": "L-T03-P2", "check_id": "L-T03", "domain": "LAB", "risky": true, "clause": "계약기간 내 퇴사하는 경우 근로자는 1개월분 급여를 위약금으로 지급한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T03-P2-S", "pair_id": "L-T03-P2", "check_id": "L-T03", "domain": "LAB", "risky": false, "clause": "근로자가 고의 또는 중대한 과실로 회사에 손해를 끼친 경우 실제 발생한 손해를 배상한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T03-P3-R", "pair_id": "L-T03-P3", "check_id": "L-T03", "domain": "LAB", "risky": true, "clause": "무단결근 시 1일당 50,000원의 벌금을 부과한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T03-P3-S", "pair_id": "L-T03-P3", "check_id": "L-T03", "domain": "LAB", "risky": false, "clause": "무단결근한 날에 대해서는 임금을 지급하지 않는다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T03-P4-R", "pair_id": "L-T03-P4", "check_id": "L-T03", "domain": "LAB", "risky": true, "clause": "근로자가 3개월 이내에 그만두면 그동안 받은 급여의 10%를 회사에 반환한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T03-P4-S", "pair_id": "L-T03-P4", "check_id": "L-T03", "domain": "LAB", "risky": false, "clause": "퇴사를 원하는 경우 근로자는 30일 전에 회사에 알린다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T04-P1-R", "pair_id": "L-T04-P1", "check_id": "L-T04", "domain": "LAB", "risky": true, "clause": "유니폼 비용 30,000원은 첫 달 급여에서 공제한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T04-P1-S", "pair_id": "L-T04-P1", "check_id": "L-T04", "domain": "LAB", "risky": false, "clause": "근로소득세와 4대보험료 근로자 부담분은 법령에 따라 급여에서 공제한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T04-P2-R", "pair_id": "L-T04-P2", "check_id": "L-T04", "domain": "LAB", "risky": true, "clause": "매장 기물을 파손한 경우 해당 금액을 급여에서 공제한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T04-P2-S", "pair_id": "L-T04-P2", "check_id": "L-T04", "domain": "LAB", "risky": false, "clause": "유니폼은 회사가 무상으로 지급한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T04-P3-R", "pair_id": "L-T04-P3", "check_id": "L-T04", "domain": "LAB", "risky": true, "clause": "계산 착오로 금전이 부족한 경우 부족분은 담당 근로자의 급여에서 공제한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T04-P3-S", "pair_id": "L-T04-P3", "check_id": "L-T04", "domain": "LAB", "risky": false, "clause": "임금은 매월 25일에 근로자 명의 계좌로 전액 지급한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T04-P4-R", "pair_id": "L-T04-P4", "check_id": "L-T04", "domain": "LAB", "risky": true, "clause": "회식비는 참석 여부와 관계없이 매월 급여에서 20,000원씩 공제한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T04-P4-S", "pair_id": "L-T04-P4", "check_id": "L-T04", "domain": "LAB", "risky": false, "clause": "기물 파손이 발생한 경우 경위를 확인하여 근로자와 협의한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T05-P1-R", "pair_id": "L-T05-P1", "check_id": "L-T05", "domain": "LAB", "risky": true, "clause": "근무시간은 09:00부터 18:00까지로 하며, 휴게시간은 30분으로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T05-P1-S", "pair_id": "L-T05-P1", "check_id": "L-T05", "domain": "LAB", "risky": false, "clause": "근무시간은 09:00부터 18:00까지로 하며, 휴게시간은 1시간으로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T05-P2-R", "pair_id": "L-T05-P2", "check_id": "L-T05", "domain": "LAB", "risky": true, "clause": "1일 6시간 근무하며 별도의 휴게시간은 없다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T05-P2-S", "pair_id": "L-T05-P2", "check_id": "L-T05", "domain": "LAB", "risky": false, "clause": "1일 6시간 근무하며 휴게시간은 30분으로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T05-P3-R", "pair_id": "L-T05-P3", "check_id": "L-T05", "domain": "LAB", "risky": true, "clause": "휴게시간은 업무 사정에 따라 부여하지 않을 수 있다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T05-P3-S", "pair_id": "L-T05-P3", "check_id": "L-T05", "domain": "LAB", "risky": false, "clause": "휴게시간은 근로시간 도중에 주며, 근로자가 자유롭게 이용할 수 있다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T05-P4-R", "pair_id": "L-T05-P4", "check_id": "L-T05", "domain": "LAB", "risky": true, "clause": "1일 근로시간은 8시간이며 휴게시간은 20분으로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T05-P4-S", "pair_id": "L-T05-P4", "check_id": "L-T05", "domain": "LAB", "risky": false, "clause": "1일 근로시간은 8시간이며 휴게시간은 1시간으로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T05-P5-R", "pair_id": "L-T05-P5", "check_id": "L-T05", "domain": "LAB", "risky": true, "clause": "근무시간은 10:00부터 14:00까지(4시간)이며 휴게시간은 없다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T05-P5-S", "pair_id": "L-T05-P5", "check_id": "L-T05", "domain": "LAB", "risky": false, "clause": "근무시간은 10:00부터 13:30까지(3시간 30분)이며 휴게시간은 없다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T06-P1-R", "pair_id": "L-T06-P1", "check_id": "L-T06", "domain": "LAB", "risky": true, "clause": "주 5일, 1일 5시간 근무하며 주휴수당은 지급하지 않는다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T06-P1-S", "pair_id": "L-T06-P1", "check_id": "L-T06", "domain": "LAB", "risky": false, "clause": "주 2일, 1일 5시간 근무하며 주휴수당은 지급하지 않는다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T06-P2-R", "pair_id": "L-T06-P2", "check_id": "L-T06", "domain": "LAB", "risky": true, "clause": "주 3일, 1일 6시간 근무하며 주휴수당은 지급하지 않는다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T06-P2-S", "pair_id": "L-T06-P2", "check_id": "L-T06", "domain": "LAB", "risky": false, "clause": "주 3일, 1일 4시간 근무하며 주휴수당은 지급하지 않는다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T06-P3-R", "pair_id": "L-T06-P3", "check_id": "L-T06", "domain": "LAB", "risky": true, "clause": "주 4일, 1일 4시간 근무하며 주휴일은 무급으로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T06-P3-S", "pair_id": "L-T06-P3", "check_id": "L-T06", "domain": "LAB", "risky": false, "clause": "주 5일, 1일 5시간 근무하며 1주 소정근로일을 개근한 경우 주휴수당을 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "L-T09-P1-R", "pair_id": "L-T09-P1", "check_id": "L-T09", "domain": "LAB", "risky": true, "clause": "근무시간은 매장 사정에 따라 사업주가 변경할 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T09-P1-S", "pair_id": "L-T09-P1", "check_id": "L-T09", "domain": "LAB", "risky": false, "clause": "근무시간을 변경할 필요가 있는 경우 근로자와 협의하여 정한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T09-P2-R", "pair_id": "L-T09-P2", "check_id": "L-T09", "domain": "LAB", "risky": true, "clause": "근무요일과 시간은 사업주가 매주 정하여 통보한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T09-P2-S", "pair_id": "L-T09-P2", "check_id": "L-T09", "domain": "LAB", "risky": false, "clause": "근무요일과 시간은 근로자와 합의하여 근무표로 정한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T09-P3-R", "pair_id": "L-T09-P3", "check_id": "L-T09", "domain": "LAB", "risky": true, "clause": "사업주는 필요한 경우 근로자의 동의 없이 근무시간을 늘릴 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T09-P3-S", "pair_id": "L-T09-P3", "check_id": "L-T09", "domain": "LAB", "risky": false, "clause": "연장근무는 근로자의 동의가 있는 경우에만 한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T10-P1-R", "pair_id": "L-T10-P1", "check_id": "L-T10", "domain": "LAB", "risky": true, "clause": "퇴직금은 매월 급여에 포함하여 지급한 것으로 본다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T10-P1-S", "pair_id": "L-T10-P1", "check_id": "L-T10", "domain": "LAB", "risky": false, "clause": "1년 이상 계속 근무하고 퇴직하는 경우 법령에 따라 퇴직금을 지급한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T10-P2-R", "pair_id": "L-T10-P2", "check_id": "L-T10", "domain": "LAB", "risky": true, "clause": "시급에는 퇴직금이 포함되어 있으므로 퇴직 시 별도의 퇴직금은 지급하지 않는다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T10-P2-S", "pair_id": "L-T10-P2", "check_id": "L-T10", "domain": "LAB", "risky": false, "clause": "퇴직금은 퇴직일로부터 14일 이내에 지급한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T10-P3-R", "pair_id": "L-T10-P3", "check_id": "L-T10", "domain": "LAB", "risky": true, "clause": "퇴직금 대신 매월 100,000원을 추가로 지급한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T10-P3-S", "pair_id": "L-T10-P3", "check_id": "L-T10", "domain": "LAB", "risky": false, "clause": "퇴직금은 근로자퇴직급여 보장법에서 정하는 바에 따른다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T11-P1-R", "pair_id": "L-T11-P1", "check_id": "L-T11", "domain": "LAB", "risky": true, "clause": "사업주는 필요시 근로자를 즉시 해고할 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T11-P1-S", "pair_id": "L-T11-P1", "check_id": "L-T11", "domain": "LAB", "risky": false, "clause": "근로자를 해고하려면 적어도 30일 전에 예고하여야 하며, 예고하지 않은 경우 30일분 이상의 통상임금을 지급한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T11-P2-R", "pair_id": "L-T11-P2", "check_id": "L-T11", "domain": "LAB", "risky": true, "clause": "회사는 언제든지 예고 없이 근로계약을 해지할 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T11-P2-S", "pair_id": "L-T11-P2", "check_id": "L-T11", "domain": "LAB", "risky": false, "clause": "해고는 그 사유와 시기를 서면으로 통지한다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T11-P3-R", "pair_id": "L-T11-P3", "check_id": "L-T11", "domain": "LAB", "risky": true, "clause": "근무태도가 불량하다고 판단되면 당일 해고하며 별도 수당은 지급하지 않는다.", "kind": "text", "source": "template_v1"}
+{"id": "L-T11-P3-S", "pair_id": "L-T11-P3", "check_id": "L-T11", "domain": "LAB", "risky": false, "clause": "근로자는 퇴사하려는 날의 30일 전까지 회사에 알린다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T01-P1-R", "pair_id": "H-T01-P1", "check_id": "H-T01", "domain": "LEASE", "risky": true, "clause": "임대차 기간은 1년으로 하며, 만료 시 임차인은 즉시 퇴거한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T01-P1-S", "pair_id": "H-T01-P1", "check_id": "H-T01", "domain": "LEASE", "risky": false, "clause": "임대차 기간은 2년으로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T01-P2-R", "pair_id": "H-T01-P2", "check_id": "H-T01", "domain": "LEASE", "risky": true, "clause": "계약기간은 6개월로 하고 임차인은 기간 연장을 주장할 수 없다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T01-P2-S", "pair_id": "H-T01-P2", "check_id": "H-T01", "domain": "LEASE", "risky": false, "clause": "임대차 기간은 인도일로부터 24개월로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T01-P3-R", "pair_id": "H-T01-P3", "check_id": "H-T01", "domain": "LEASE", "risky": true, "clause": "임대차 기간은 1년이며 임차인은 2년의 기간을 주장하지 않기로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T01-P3-S", "pair_id": "H-T01-P3", "check_id": "H-T01", "domain": "LEASE", "risky": false, "clause": "임대차 기간은 2년으로 하며, 기간 만료 후 갱신은 주택임대차보호법에 따른다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T02-P1-R", "pair_id": "H-T02-P1", "check_id": "H-T02", "domain": "LEASE", "risky": true, "clause": "임차인은 계약갱신요구권을 행사하지 않기로 한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T02-P1-S", "pair_id": "H-T02-P1", "check_id": "H-T02", "domain": "LEASE", "risky": false, "clause": "임차인은 주택임대차보호법에 따라 계약갱신을 요구할 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T02-P2-R", "pair_id": "H-T02-P2", "check_id": "H-T02", "domain": "LEASE", "risky": true, "clause": "임차인은 계약 만료 시 갱신을 요구할 수 없다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T02-P2-S", "pair_id": "H-T02-P2", "check_id": "H-T02", "domain": "LEASE", "risky": false, "clause": "계약 갱신을 원하는 경우 임차인은 만료 6개월 전부터 2개월 전까지 임대인에게 요구한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T02-P3-R", "pair_id": "H-T02-P3", "check_id": "H-T02", "domain": "LEASE", "risky": true, "clause": "본 계약은 갱신되지 않으며, 임차인은 이에 대해 이의를 제기하지 않는다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T02-P3-S", "pair_id": "H-T02-P3", "check_id": "H-T02", "domain": "LEASE", "risky": false, "clause": "계약 갱신 여부는 주택임대차보호법에서 정한 바에 따른다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T03-P1-R", "pair_id": "H-T03-P1", "check_id": "H-T03", "domain": "LEASE", "risky": true, "clause": "월세는 매년 10%씩 인상한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T03-P1-S", "pair_id": "H-T03-P1", "check_id": "H-T03", "domain": "LEASE", "risky": false, "clause": "계약 갱신 시 차임 증액은 5% 이내에서 협의한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T03-P2-R", "pair_id": "H-T03-P2", "check_id": "H-T03", "domain": "LEASE", "risky": true, "clause": "계약 갱신 시 보증금은 8% 인상한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T03-P2-S", "pair_id": "H-T03-P2", "check_id": "H-T03", "domain": "LEASE", "risky": false, "clause": "계약 기간 중 월세는 인상하지 않는다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T03-P3-R", "pair_id": "H-T03-P3", "check_id": "H-T03", "domain": "LEASE", "risky": true, "clause": "임대인은 1년마다 차임을 7% 범위에서 인상할 수 있다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T03-P3-S", "pair_id": "H-T03-P3", "check_id": "H-T03", "domain": "LEASE", "risky": false, "clause": "임대인이 차임 증액을 청구하는 경우 약정한 차임의 20분의 1을 넘지 않는다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T04-P1-R", "pair_id": "H-T04-P1", "check_id": "H-T04", "domain": "LEASE", "risky": true, "clause": "월세를 1회라도 연체하면 임대인은 즉시 계약을 해지할 수 있다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T04-P1-S", "pair_id": "H-T04-P1", "check_id": "H-T04", "domain": "LEASE", "risky": false, "clause": "임차인이 차임을 2기 이상 연체한 경우 임대인은 계약을 해지할 수 있다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T04-P2-R", "pair_id": "H-T04-P2", "check_id": "H-T04", "domain": "LEASE", "risky": true, "clause": "차임 지급이 하루라도 늦어지면 계약은 자동으로 해지된다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T04-P2-S", "pair_id": "H-T04-P2", "check_id": "H-T04", "domain": "LEASE", "risky": false, "clause": "월세가 연체된 경우 임대인은 임차인에게 지급을 독촉할 수 있다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T04-P3-R", "pair_id": "H-T04-P3", "check_id": "H-T04", "domain": "LEASE", "risky": true, "clause": "임차인이 월세를 한 번 연체한 경우 임대인은 보증금에서 공제하고 계약을 해지한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T04-P3-S", "pair_id": "H-T04-P3", "check_id": "H-T04", "domain": "LEASE", "risky": false, "clause": "차임 연체액이 2기의 차임액에 달하면 임대인은 계약을 해지할 수 있다.", "kind": "numeric", "source": "template_v1"}
+{"id": "H-T05-P1-R", "pair_id": "H-T05-P1", "check_id": "H-T05", "domain": "LEASE", "risky": true, "clause": "보증금은 새로운 임차인이 입주한 후에 반환한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T05-P1-S", "pair_id": "H-T05-P1", "check_id": "H-T05", "domain": "LEASE", "risky": false, "clause": "임대차가 종료되면 임대인은 주택을 인도받음과 동시에 보증금을 반환한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T05-P2-R", "pair_id": "H-T05-P2", "check_id": "H-T05", "domain": "LEASE", "risky": true, "clause": "보증금은 다음 임차인과 계약이 체결되어 그 보증금을 받은 후에 돌려준다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T05-P2-S", "pair_id": "H-T05-P2", "check_id": "H-T05", "domain": "LEASE", "risky": false, "clause": "보증금은 계약 종료일에 주택 열쇠를 반환받으면서 지급한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T05-P3-R", "pair_id": "H-T05-P3", "check_id": "H-T05", "domain": "LEASE", "risky": true, "clause": "임대인은 새 세입자를 구할 때까지 보증금 반환을 미룰 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T05-P3-S", "pair_id": "H-T05-P3", "check_id": "H-T05", "domain": "LEASE", "risky": false, "clause": "임대인은 계약 종료 시 미납 차임을 공제한 나머지 보증금을 반환한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T07-P1-R", "pair_id": "H-T07-P1", "check_id": "H-T07", "domain": "LEASE", "risky": true, "clause": "보일러, 배관 등 모든 시설의 수리비는 임차인이 부담한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T07-P1-S", "pair_id": "H-T07-P1", "check_id": "H-T07", "domain": "LEASE", "risky": false, "clause": "전구, 수도꼭지 패킹 교체 등 소규모 수선은 임차인이 부담한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T07-P2-R", "pair_id": "H-T07-P2", "check_id": "H-T07", "domain": "LEASE", "risky": true, "clause": "건물 누수와 외벽 균열 수리를 포함한 일체의 수선은 임차인이 한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T07-P2-S", "pair_id": "H-T07-P2", "check_id": "H-T07", "domain": "LEASE", "risky": false, "clause": "보일러, 배관 등 주요 설비의 수리는 임대인이 부담한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T07-P3-R", "pair_id": "H-T07-P3", "check_id": "H-T07", "domain": "LEASE", "risky": true, "clause": "주택의 하자는 원인과 관계없이 임차인이 비용을 부담하여 수리한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T07-P3-S", "pair_id": "H-T07-P3", "check_id": "H-T07", "domain": "LEASE", "risky": false, "clause": "임차인의 과실로 생긴 파손은 임차인이 수리한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T08-P1-R", "pair_id": "H-T08-P1", "check_id": "H-T08", "domain": "LEASE", "risky": true, "clause": "임차인이 특약을 위반하면 보증금 전액은 임대인에게 귀속된다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T08-P1-S", "pair_id": "H-T08-P1", "check_id": "H-T08", "domain": "LEASE", "risky": false, "clause": "임차인의 계약 위반으로 임대인에게 손해가 발생한 경우 실제 손해를 배상한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T08-P2-R", "pair_id": "H-T08-P2", "check_id": "H-T08", "domain": "LEASE", "risky": true, "clause": "임차인이 중도 해지하는 경우 보증금의 50%를 위약금으로 몰수한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T08-P2-S", "pair_id": "H-T08-P2", "check_id": "H-T08", "domain": "LEASE", "risky": false, "clause": "임차인이 중도 해지하는 경우 새 임차인 중개수수료를 부담한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T08-P3-R", "pair_id": "H-T08-P3", "check_id": "H-T08", "domain": "LEASE", "risky": true, "clause": "반려동물을 키운 사실이 확인되면 보증금은 반환하지 않는다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T08-P3-S", "pair_id": "H-T08-P3", "check_id": "H-T08", "domain": "LEASE", "risky": false, "clause": "반려동물 사육은 임대인과 사전에 협의한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T09-P1-R", "pair_id": "H-T09-P1", "check_id": "H-T09", "domain": "LEASE", "risky": true, "clause": "임차인은 전입신고를 하지 않기로 한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T09-P1-S", "pair_id": "H-T09-P1", "check_id": "H-T09", "domain": "LEASE", "risky": false, "clause": "임차인은 입주 후 전입신고와 확정일자를 받을 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T09-P2-R", "pair_id": "H-T09-P2", "check_id": "H-T09", "domain": "LEASE", "risky": true, "clause": "임차인은 확정일자를 받지 않는다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T09-P2-S", "pair_id": "H-T09-P2", "check_id": "H-T09", "domain": "LEASE", "risky": false, "clause": "임대인은 임차인의 전입신고에 협조한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T09-P3-R", "pair_id": "H-T09-P3", "check_id": "H-T09", "domain": "LEASE", "risky": true, "clause": "임차인은 임대인의 동의 없이 전입신고나 임차권등기를 할 수 없다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T09-P3-S", "pair_id": "H-T09-P3", "check_id": "H-T09", "domain": "LEASE", "risky": false, "clause": "임차인은 잔금 지급일에 전입신고를 하기로 한다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T10-P1-R", "pair_id": "H-T10-P1", "check_id": "H-T10", "domain": "LEASE", "risky": true, "clause": "임대인은 필요한 경우 언제든지 방에 출입할 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T10-P1-S", "pair_id": "H-T10-P1", "check_id": "H-T10", "domain": "LEASE", "risky": false, "clause": "임대인은 수선 등 필요한 경우 임차인과 미리 협의한 후 출입할 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T10-P2-R", "pair_id": "H-T10-P2", "check_id": "H-T10", "domain": "LEASE", "risky": true, "clause": "임대인은 관리를 위해 임차인의 동의 없이 주택에 들어갈 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T10-P2-S", "pair_id": "H-T10-P2", "check_id": "H-T10", "domain": "LEASE", "risky": false, "clause": "긴급한 누수 등 사고 시에는 임차인에게 알린 후 출입할 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T10-P3-R", "pair_id": "H-T10-P3", "check_id": "H-T10", "domain": "LEASE", "risky": true, "clause": "임대인은 예비 임차인에게 방을 보여 주기 위해 임차인이 없을 때도 출입할 수 있다.", "kind": "text", "source": "template_v1"}
+{"id": "H-T10-P3-S", "pair_id": "H-T10-P3", "check_id": "H-T10", "domain": "LEASE", "risky": false, "clause": "임대인이 주택을 점검하려면 일시를 정하여 임차인의 동의를 받는다.", "kind": "text", "source": "template_v1"}
+{"id": "D-T01-P1-R", "pair_id": "D-T01-P1", "check_id": "D-T01", "domain": "LOAN", "risky": true, "clause": "이자는 월 3%로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "D-T01-P1-S", "pair_id": "D-T01-P1", "check_id": "D-T01", "domain": "LOAN", "risky": false, "clause": "이자는 월 1%로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "D-T01-P2-R", "pair_id": "D-T01-P2", "check_id": "D-T01", "domain": "LOAN", "risky": true, "clause": "이자율은 연 24%로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "D-T01-P2-S", "pair_id": "D-T01-P2", "check_id": "D-T01", "domain": "LOAN", "risky": false, "clause": "이자율은 연 12%로 한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "D-T01-P3-R", "pair_id": "D-T01-P3", "check_id": "D-T01", "domain": "LOAN", "risky": true, "clause": "이자는 매달 원금의 2.5%를 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "D-T01-P3-S", "pair_id": "D-T01-P3", "check_id": "D-T01", "domain": "LOAN", "risky": false, "clause": "이자는 매달 원금의 1.5%를 지급한다.", "kind": "numeric", "source": "template_v1"}
+{"id": "D-T05-P1-R", "pair_id": "D-T05-P1", "check_id": "D-T05", "domain": "LOAN", "risky": true, "clause": "기한 내 갚지 못하면 채무자의 노트북과 자전거의 소유권은 채권자에게 넘어간다.", "kind": "text", "source": "template_v1"}
+{"id": "D-T05-P1-S", "pair_id": "D-T05-P1", "check_id": "D-T05", "domain": "LOAN", "risky": false, "clause": "기한 내 갚지 못하면 채무자는 연 12%의 지연이자를 지급한다.", "kind": "text", "source": "template_v1"}
+{"id": "D-T05-P2-R", "pair_id": "D-T05-P2", "check_id": "D-T05", "domain": "LOAN", "risky": true, "clause": "100만원을 갚지 못하면 채무자 소유 자동차(시가 800만원)를 채권자가 가져간다.", "kind": "text", "source": "template_v1"}
+{"id": "D-T05-P2-S", "pair_id": "D-T05-P2", "check_id": "D-T05", "domain": "LOAN", "risky": false, "clause": "담보물을 처분하는 경우 채권액을 넘는 금액은 채무자에게 돌려준다.", "kind": "text", "source": "template_v1"}
+{"id": "D-T05-P3-R", "pair_id": "D-T05-P3", "check_id": "D-T05", "domain": "LOAN", "risky": true, "clause": "변제기에 갚지 못하면 담보로 맡긴 물건은 정산 없이 채권자의 소유가 된다.", "kind": "text", "source": "template_v1"}
+{"id": "D-T05-P3-S", "pair_id": "D-T05-P3", "check_id": "D-T05", "domain": "LOAN", "risky": false, "clause": "변제기에 갚지 못하면 당사자는 상환 일정을 다시 협의한다.", "kind": "text", "source": "template_v1"}

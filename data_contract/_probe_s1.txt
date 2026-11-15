@@ -1,0 +1,18 @@
+exists=True path=C:\Users\DMLAB\Desktop\학부-AI서비스 개발\05.계약 법률 문서 서식 데이터
+n_zips=12
+592259	3.개방데이터\1.데이터\Training\01.원천데이터\TS_금전소비대차_채권_채무_채권_채무계약.zip
+1572823	3.개방데이터\1.데이터\Training\01.원천데이터\TS_부동산매매_임대차_부동산임대.zip
+2494710	3.개방데이터\1.데이터\Training\01.원천데이터\TS_인사_고용_노무_고용계약.zip
+640780	3.개방데이터\1.데이터\Training\02.라벨링데이터\TL_금전소비대차_채권_채무_채권_채무계약.zip
+1671046	3.개방데이터\1.데이터\Training\02.라벨링데이터\TL_부동산매매_임대차_부동산임대.zip
+2613525	3.개방데이터\1.데이터\Training\02.라벨링데이터\TL_인사_고용_노무_고용계약.zip
+73007	3.개방데이터\1.데이터\Validation\01.원천데이터\VS_금전소비대차_채권_채무_채권_채무계약.zip
+176991	3.개방데이터\1.데이터\Validation\01.원천데이터\VS_부동산매매_임대차_부동산임대.zip
+280618	3.개방데이터\1.데이터\Validation\01.원천데이터\VS_인사_고용_노무_고용계약.zip
+79559	3.개방데이터\1.데이터\Validation\02.라벨링데이터\VL_금전소비대차_채권_채무_채권_채무계약.zip
+189185	3.개방데이터\1.데이터\Validation\02.라벨링데이터\VL_부동산매매_임대차_부동산임대.zip
+295636	3.개방데이터\1.데이터\Validation\02.라벨링데이터\VL_인사_고용_노무_고용계약.zip
+
+HITS
+0	DIR	C:\Users\DMLAB\Desktop\학부-AI서비스 개발\data_contract\aihub_terms
+0	DIR	C:\Users\DMLAB\Desktop\학부-AI서비스 개발\data_contract\aihub_terms

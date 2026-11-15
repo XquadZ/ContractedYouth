@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>관리자</title>
+  <style>
+    body { font-family: "Pretendard","Noto Sans KR",sans-serif; margin:0; background:#f5f7fb; color:#223; }
+    header { padding:16px 24px; background:#1f4b99; color:#fff; display:flex; justify-content:space-between; align-items:center; }
+    nav { display:flex; gap:8px; padding:12px 16px; }
+    nav button { border:0; background:#e8eef8; padding:8px 12px; border-radius:6px; cursor:pointer; }
+    nav button.on { background:#1f4b99; color:#fff; }
+    main { padding:0 16px 24px; }
+    .panel { background:#fff; border-radius:10px; padding:12px; box-shadow:0 4px 14px rgba(0,0,0,.05); margin-bottom:12px; }
+    .grid { display:grid; grid-template-columns: 240px 1fr; gap:16px; }
+    li { list-style:none; padding:8px 10px; cursor:pointer; border-radius:6px; }
+    li:hover, li.on { background:#e8eef8; }
+    table { width:100%; border-collapse:collapse; font-size:.92rem; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid #e6ebf3; vertical-align:top; }
+    button.danger { background:#b42318; color:#fff; border:0; border-radius:6px; padding:6px 10px; cursor:pointer; }
+    button.ok { background:#1f4b99; color:#fff; border:0; border-radius:6px; padding:6px 10px; cursor:pointer; }
+    button.muted { background:#667; color:#fff; border:0; border-radius:6px; padding:6px 10px; cursor:pointer; }
+    .note { color:#667; font-size:.85rem; margin-top:8px; }
+    pre { white-space:pre-wrap; font-size:.85rem; background:#f7f9fc; padding:8px; border-radius:6px; }
+    .hidden { display:none; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>관리자</strong>
+    <a href="/static/review.html" style="color:#fff">검토로</a>
+  </header>
+  <nav>
+    <button id="tabFiles" class="on">파일</button>
+    <button id="tabLaw">법령 변경</button>
+  </nav>
+  <main>
+    <section id="viewFiles">
+      <div class="grid">
+        <div class="panel">
+          <h3>사용자</h3>
+          <ul id="users"></ul>
+        </div>
+        <div class="panel">
+          <h3 id="title">파일</h3>
+          <table>
+            <thead><tr><th>파일명</th><th>크기</th><th>올린 시각</th><th>만료</th><th>상태</th><th></th></tr></thead>
+            <tbody id="files"></tbody>
+          </table>
+          <p class="note">관리자는 계약서 내용을 보지 않습니다.</p>
+        </div>
+      </div>
+    </section>
+    <section id="viewLaw" class="hidden">
+      <div class="panel">
+        <h3>법령 확인</h3>
+        <p id="lwCheckMeta">불러오는 중…</p>
+        <button class="ok" id="lwCheckNow">지금 확인</button>
+        <p class="note">일반 사용자는 이 API에 403입니다.</p>
+      </div>
+      <div class="panel">
+        <h3>변경 목록</h3>
+        <div id="lwChanges"></div>
+      </div>
+      <div class="panel">
+        <h3>수정안</h3>
+        <table>
+          <thead><tr><th>파일</th><th>카드</th><th>상태</th><th>적용 기준</th><th>이유</th><th></th></tr></thead>
+          <tbody id="lwProposals"></tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h3>카드 버전 이력</h3>
+        <div id="lwVersions"></div>
+      </div>
+    </section>
+  </main>
+  <script>
+    let selected = null;
+    const tabFiles = document.getElementById("tabFiles");
+    const tabLaw = document.getElementById("tabLaw");
+    function show(tab) {
+      const files = tab === "files";
+      tabFiles.classList.toggle("on", files);
+      tabLaw.classList.toggle("on", !files);
+      document.getElementById("viewFiles").classList.toggle("hidden", !files);
+      document.getElementById("viewLaw").classList.toggle("hidden", files);
+      if (!files) loadLaw();
+    }
+    tabFiles.onclick = () => show("files");
+    tabLaw.onclick = () => show("law");
+
+    async function loadUsers() {
+      const r = await fetch("/api/admin/users");
+      if (r.status === 401 || r.status === 403) { location.href = "/login"; return; }
+      const j = await r.json();
+      const ul = document.getElementById("users");
+      ul.innerHTML = "";
+      (j.users || []).forEach(u => {
+        const li = document.createElement("li");
+        li.textContent = `${u.login_id} (${u.role})`;
+        li.onclick = () => { selected = u.id; [...ul.children].forEach(x => x.classList.remove("on")); li.classList.add("on"); loadFiles(u.id, u.login_id); };
+        ul.appendChild(li);
+      });
+    }
+    async function loadFiles(uid, name) {
+      document.getElementById("title").textContent = `${name} 파일`;
+      const r = await fetch(`/api/admin/users/${uid}/files`);
+      const j = await r.json();
+      const tb = document.getElementById("files");
+      tb.innerHTML = "";
+      (j.files || []).forEach(f => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${f.filename}</td><td>${f.size}</td><td>${f.created_at}</td><td>${f.expires_at}</td><td>${f.status}</td><td></td>`;
+        if (f.status === "active") {
+          const btn = document.createElement("button");
+          btn.className = "danger";
+          btn.textContent = "원본 삭제";
+          btn.onclick = async () => {
+            if (!confirm("원본을 즉시 삭제할까요?")) return;
+            await fetch(`/api/admin/files/${f.id}/delete`, { method: "POST" });
+            loadFiles(uid, name);
+          };
+          tr.lastChild.appendChild(btn);
+        }
+        tb.appendChild(tr);
+      });
+    }
+
+    async function loadLaw() {
+      const r = await fetch("/api/admin/lawwatch");
+      if (r.status === 403) { alert("관리자만 볼 수 있습니다."); return; }
+      if (r.status === 401) { location.href = "/login"; return; }
+      const j = await r.json();
+      const check = j.check || {};
+      document.getElementById("lwCheckMeta").textContent =
+        `마지막 확인: ${check.checked_at || "없음"} · 법령 ${j.n_laws || 0} · ${JSON.stringify(check.summary || {})}`;
+      const ch = document.getElementById("lwChanges");
+      const items = ((j.changes || {}).items) || [];
+      if (!items.length) {
+        ch.innerHTML = "<p class='note'>변경 보고 없음</p>";
+      } else {
+        ch.innerHTML = items.map(it => {
+          const byeol = it.byeol || {};
+          const cards = (it.impacted_cards || []).map(c => c.card_id).join(", ");
+          const rows = (it.changes || []).slice(0, 8).map(c =>
+            `<tr><td>${it.law}</td><td>${c.id || ""}</td><td>${c.kind}</td><td>${(it.after_meta || {}).effective || ""}</td>
+             <td><pre>${(c.before || "").slice(0,180)}</pre></td>
+             <td><pre>${(c.after || "").slice(0,180)}</pre></td>
+             <td>${byeol.rule_quote || ""}</td></tr>`
+          ).join("");
+          return `<p><b>${it.law}</b> 영향 카드: ${cards || "(없음)"} · 적용 기준 ${byeol.apply_rule || ""}</p>
+            <table><thead><tr><th>법령</th><th>조</th><th>종류</th><th>시행일</th><th>전</th><th>후</th><th>부칙</th></tr></thead><tbody>${rows}</tbody></table>`;
+        }).join("");
+      }
+      const tb = document.getElementById("lwProposals");
+      tb.innerHTML = "";
+      (j.proposals || []).forEach(p => {
+        const tr = document.createElement("tr");
+        const manual = p.status === "수동 수정 필요" || p.validation_ok === false || p.manual === true;
+        const statusLabel = manual ? "수동 수정 필요" : (p.status || "");
+        tr.innerHTML = `<td>${p.file}</td><td>${p.card_id || ""}</td><td>${statusLabel}</td><td>${p.apply_rule || ""}</td><td>${p.reason || ""}</td><td></td>`;
+        const cell = tr.lastChild;
+        if (p.status === "대기" && !manual) {
+          const a = document.createElement("button"); a.className = "ok"; a.textContent = "승인";
+          a.onclick = async () => { await fetch("/api/admin/lawwatch/approve", { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({file:p.file}) }); loadLaw(); };
+          cell.appendChild(a);
+        } else if (manual) {
+          const note = document.createElement("span");
+          note.className = "note";
+          note.textContent = "승인 불가 · 수동 수정 필요";
+          cell.appendChild(note);
+        }
+        if (p.status === "대기" || manual) {
+          const b = document.createElement("button"); b.className = "muted"; b.textContent = "반려";
+          b.onclick = async () => { await fetch("/api/admin/lawwatch/reject", { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({file:p.file}) }); loadLaw(); };
+          cell.appendChild(b);
+        }
+        if (p.card_id && p.status === "승인") {
+          const c = document.createElement("button"); c.className = "danger"; c.textContent = "되돌리기";
+          c.onclick = async () => { await fetch("/api/admin/lawwatch/revert", { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({card_id:p.card_id}) }); loadLaw(); };
+          cell.appendChild(c);
+        }
+        tb.appendChild(tr);
+      });
+      const ver = document.getElementById("lwVersions");
+      ver.innerHTML = (j.versions || []).map(v =>
+        `<p><b>${v.card_id}</b></p><table><thead><tr><th>버전</th><th>시행일</th><th>적용 기준</th></tr></thead><tbody>${
+          (v.versions || []).map(x => `<tr><td>${x.version}</td><td>${x.effective_from || ""}</td><td>${x.apply_rule || ""}</td></tr>`).join("")
+        }</tbody></table>`
+      ).join("") || "<p class='note'>버전 없음</p>";
+    }
+    document.getElementById("lwCheckNow").onclick = async () => {
+      document.getElementById("lwCheckMeta").textContent = "확인 중…";
+      await fetch("/api/admin/lawwatch/check", { method: "POST" });
+      loadLaw();
+    };
+    loadUsers();
+  </script>
+</body>
+</html>

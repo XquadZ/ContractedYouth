@@ -1,0 +1,333 @@
+{
+  "models": [
+    {
+      "repo_id": "Qwen/Qwen3-8B",
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\Qwen3-8B",
+      "exists": true,
+      "n_files": 15,
+      "total_bytes": 16397461266,
+      "total_GB": 15.271,
+      "incomplete_remaining": 6,
+      "files": [
+        {
+          "rel": ".gitattributes",
+          "bytes": 1570,
+          "sha256": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930"
+        },
+        {
+          "rel": "config.json",
+          "bytes": 728,
+          "sha256": "f7c4eadfbbf522470667b797a3c89be2524832d2d599797248dc304fff447c30"
+        },
+        {
+          "rel": "generation_config.json",
+          "bytes": 239,
+          "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2"
+        },
+        {
+          "rel": "LICENSE",
+          "bytes": 11343,
+          "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+        },
+        {
+          "rel": "merges.txt",
+          "bytes": 1671853,
+          "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+        },
+        {
+          "rel": "model-00001-of-00005.safetensors",
+          "bytes": 3996250744,
+          "sha256": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f"
+        },
+        {
+          "rel": "model-00002-of-00005.safetensors",
+          "bytes": 3993160032,
+          "sha256": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282"
+        },
+        {
+          "rel": "model-00003-of-00005.safetensors",
+          "bytes": 3959604768,
+          "sha256": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836"
+        },
+        {
+          "rel": "model-00004-of-00005.safetensors",
+          "bytes": 3187841392,
+          "sha256": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a"
+        },
+        {
+          "rel": "model-00005-of-00005.safetensors",
+          "bytes": 1244659840,
+          "sha256": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff"
+        },
+        {
+          "rel": "model.safetensors.index.json",
+          "bytes": 32878,
+          "sha256": "f9fdbcb91c23971c13ec5d5f2573d2349e8f61f2f049371ec699281748fdb1bc"
+        },
+        {
+          "rel": "README.md",
+          "bytes": 16660,
+          "sha256": "0f36caaff9c2516411a7738db384606263ba653c1e63e61d72f511606164d5a6"
+        },
+        {
+          "rel": "tokenizer.json",
+          "bytes": 11422654,
+          "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+        },
+        {
+          "rel": "tokenizer_config.json",
+          "bytes": 9732,
+          "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+        },
+        {
+          "rel": "vocab.json",
+          "bytes": 2776833,
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+        }
+      ]
+    },
+    {
+      "repo_id": "nlpai-lab/KURE-v1",
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\KURE-v1",
+      "exists": true,
+      "n_files": 13,
+      "total_bytes": 2288774961,
+      "total_GB": 2.132,
+      "incomplete_remaining": 0,
+      "files": [
+        {
+          "rel": ".gitattributes",
+          "bytes": 1620,
+          "sha256": "f2919710d8127894f436ba6e44d1e6a7daa4e5b778632fbe42b735104db0e081"
+        },
+        {
+          "rel": "1_Pooling\\config.json",
+          "bytes": 297,
+          "sha256": "13e69897522ee8255104483ed9f219465d1be3936654a54a318758738052789e"
+        },
+        {
+          "rel": "config.json",
+          "bytes": 807,
+          "sha256": "852d42e020c7f989c2acaf30fc683b7f768e8c6d1ab17166e835442162bd825d"
+        },
+        {
+          "rel": "config_sentence_transformers.json",
+          "bytes": 220,
+          "sha256": "8c73684c2160f2209f3706d6cbe0e933287fe6945d9546042be4c105cdb5252e"
+        },
+        {
+          "rel": "kure_logo.png",
+          "bytes": 593567,
+          "sha256": "6323352feee84b8d2fcc0ba74b9761315e2eb96e7a424906ecca1ec4abf508ef"
+        },
+        {
+          "rel": "model.safetensors",
+          "bytes": 2271064456,
+          "sha256": "c18156e80caf8ff45eb84a24a853130c3bca03087ccb41b051f86e7556bae02c"
+        },
+        {
+          "rel": "modules.json",
+          "bytes": 349,
+          "sha256": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf"
+        },
+        {
+          "rel": "README.md",
+          "bytes": 17338,
+          "sha256": "31eee15f3a8169b6749a4ac61c56e63ad5a6d9dbb6c96d4c6fae3c0522c61d6d"
+        },
+        {
+          "rel": "sentence_bert_config.json",
+          "bytes": 54,
+          "sha256": "eb9b44b13c0f52a3b3685c3b1cbdea1ba8b04bea123b98f61610048940776eb1"
+        },
+        {
+          "rel": "special_tokens_map.json",
+          "bytes": 964,
+          "sha256": "8c785abebea9ae3257b61681b4e6fd8365ceafde980c21970d001e834cf10835"
+        },
+        {
+          "rel": "tokenizer.json",
+          "bytes": 17083053,
+          "sha256": "fb3c3b93c46fd5a8634e262e1b7de7da11a18b527aa2282b312952b692781dfd"
+        },
+        {
+          "rel": "tokenizer_config.json",
+          "bytes": 1203,
+          "sha256": "b87c8703482b0300d3da30e201519aa641f6a450f5eb5bf1e624afbf70c74d80"
+        },
+        {
+          "rel": "trainer_state.json",
+          "bytes": 11033,
+          "sha256": "034d53976146a1922e238cf779dbbe33e861a771d50b73f1f18f1ae82c01b06a"
+        }
+      ]
+    },
+    {
+      "repo_id": "BAAI/bge-m3",
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\bge-m3",
+      "exists": true,
+      "n_files": 30,
+      "total_bytes": 4587317404,
+      "total_GB": 4.272,
+      "incomplete_remaining": 0,
+      "files": [
+        {
+          "rel": ".gitattributes",
+          "bytes": 1627,
+          "sha256": "7363a8ebd782ede400e72bb3e88c19248478eb6f280a7376d398fc2f22707b9a"
+        },
+        {
+          "rel": "1_Pooling\\config.json",
+          "bytes": 191,
+          "sha256": "e54c164a07274f2eb45bb724f54a79d1efcc90c41573887cd9a29aeee0597352"
+        },
+        {
+          "rel": "colbert_linear.pt",
+          "bytes": 2100674,
+          "sha256": "19bfbae397c2b7524158c919d0e9b19393c5639d098f0a66932c91ed8f5f9abb"
+        },
+        {
+          "rel": "config.json",
+          "bytes": 687,
+          "sha256": "26159e7ad065073448460117eb24b7a4572f6f4e78eadff65dc0a11c052449fa"
+        },
+        {
+          "rel": "config_sentence_transformers.json",
+          "bytes": 123,
+          "sha256": "1eef72430e7194a1e59680e635aed81ffa083f05668dbc5bb1c56c04c0999c38"
+        },
+        {
+          "rel": "imgs\\.DS_Store",
+          "bytes": 6148,
+          "sha256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3"
+        },
+        {
+          "rel": "imgs\\bm25.jpg",
+          "bytes": 131849,
+          "sha256": "4d88d1c224dc6dae62b76547e1e79ed12e1085b94dc1fe0c50440a948277d89a"
+        },
+        {
+          "rel": "imgs\\long.jpg",
+          "bytes": 485432,
+          "sha256": "d2a44539154d2cee75abd032fe773d5514f1129b741c4641cde12554762709a6"
+        },
+        {
+          "rel": "imgs\\miracl.jpg",
+          "bytes": 576482,
+          "sha256": "a48c10a1be83aa7a92a25d85dbc6d2c0194b59503a2599a9e89bd7e063c32a66"
+        },
+        {
+          "rel": "imgs\\mkqa.jpg",
+          "bytes": 608027,
+          "sha256": "ae331fb64bdceeaafecc2f8cd89a2d55a3e41c429dcc5ba906cb9a7bdb73cf2b"
+        },
+        {
+          "rel": "imgs\\nqa.jpg",
+          "bytes": 158358,
+          "sha256": "5385ca9d6af4124932281039e1366d704d10ed81e905526f795f5732352394bb"
+        },
+        {
+          "rel": "imgs\\others.webp",
+          "bytes": 20984,
+          "sha256": "9222ef69ba79cbd3aa8c659bd3cbbf9d90b3dbb040526f56298ed9ceb05ec9df"
+        },
+        {
+          "rel": "long.jpg",
+          "bytes": 126894,
+          "sha256": "4ba03433ef54575eeef5a291abd81661eb53c432677934dc4050565893e7a8a9"
+        },
+        {
+          "rel": "modules.json",
+          "bytes": 349,
+          "sha256": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf"
+        },
+        {
+          "rel": "onnx\\config.json",
+          "bytes": 698,
+          "sha256": "f24afd5de914fba8c668426c43d208a1a54022500c63b2c160be20891686fce8"
+        },
+        {
+          "rel": "onnx\\Constant_7_attr__value",
+          "bytes": 65552,
+          "sha256": "cdf16f72c5d07b36484056e601ed9687f78477e5d85cee85a34f2406b7fb5906"
+        },
+        {
+          "rel": "onnx\\model.onnx",
+          "bytes": 724923,
+          "sha256": "f84251230831afb359ab26d9fd37d5936d4d9bb5d1d5410e66442f630f24435b"
+        },
+        {
+          "rel": "onnx\\model.onnx_data",
+          "bytes": 2266820608,
+          "sha256": "1eebfb28493f67bba03ce0ef64bfdc7fc5a3bd9d7493f818bb1d78cd798416b4"
+        },
+        {
+          "rel": "onnx\\sentencepiece.bpe.model",
+          "bytes": 5069051,
+          "sha256": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865"
+        },
+        {
+          "rel": "onnx\\special_tokens_map.json",
+          "bytes": 964,
+          "sha256": "8c785abebea9ae3257b61681b4e6fd8365ceafde980c21970d001e834cf10835"
+        },
+        {
+          "rel": "onnx\\tokenizer.json",
+          "bytes": 17082821,
+          "sha256": "6710678b12670bc442b99edc952c4d996ae309a7020c1fa0096dd245c2faf790"
+        },
+        {
+          "rel": "onnx\\tokenizer_config.json",
+          "bytes": 1173,
+          "sha256": "7e4c1cc848840aeccdd763458c18dd525eb0f795c992e00ebe9c28554e7db2d4"
+        },
+        {
+          "rel": "pytorch_model.bin",
+          "bytes": 2271145830,
+          "sha256": "b5e0ce3470abf5ef3831aa1bd5553b486803e83251590ab7ff35a117cf6aad38"
+        },
+        {
+          "rel": "README.md",
+          "bytes": 15822,
+          "sha256": "0b81ccf9134e5874d620a86e6905062ea999e779c34eb1a7e65eaeb7fe00e450"
+        },
+        {
+          "rel": "sentence_bert_config.json",
+          "bytes": 54,
+          "sha256": "eb9b44b13c0f52a3b3685c3b1cbdea1ba8b04bea123b98f61610048940776eb1"
+        },
+        {
+          "rel": "sentencepiece.bpe.model",
+          "bytes": 5069051,
+          "sha256": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865"
+        },
+        {
+          "rel": "sparse_linear.pt",
+          "bytes": 3516,
+          "sha256": "45c93804d2142b8f6d7ec6914ae23a1eee9c6a1d27d83d908a20d2afb3595ad9"
+        },
+        {
+          "rel": "special_tokens_map.json",
+          "bytes": 964,
+          "sha256": "8c785abebea9ae3257b61681b4e6fd8365ceafde980c21970d001e834cf10835"
+        },
+        {
+          "rel": "tokenizer.json",
+          "bytes": 17098108,
+          "sha256": "21106b6d7dab2952c1d496fb21d5dc9db75c28ed361a05f5020bbba27810dd08"
+        },
+        {
+          "rel": "tokenizer_config.json",
+          "bytes": 444,
+          "sha256": "a62b2b6784f990259fddef5f16388693a8043be4f69179e6a5257eeb3f9abac4"
+        }
+      ]
+    }
+  ],
+  "disk_before_GB": {
+    "C": 2583.75
+  },
+  "disk_after_GB": {
+    "C": 2570.56
+  }
+}

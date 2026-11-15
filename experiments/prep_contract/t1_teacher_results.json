@@ -1,0 +1,146 @@
+[
+  {
+    "model": "Qwen3-32B-Q6_K.gguf",
+    "model_path": "C:\\Users\\DMLAB\\pilot_root\\models\\Qwen3-32B-GGUF\\Qwen3-32B-Q6_K.gguf",
+    "ctx": 4096,
+    "target_input_tokens": 3276,
+    "max_new_tokens": 512,
+    "load_ok": true,
+    "server_pid": 10040,
+    "vram_after_load": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 14328 MiB, 24576 MiB, 8 %\n1, NVIDIA TITAN RTX, 13365 MiB, 24576 MiB, 0 %",
+    "input_tokens_measured": 3325,
+    "input_chars": 4709,
+    "infer_ok": true,
+    "elapsed_sec": 16.314,
+    "usage": {
+      "completion_tokens": 112,
+      "prompt_tokens": 3390,
+      "total_tokens": 3502,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 3390,
+      "prompt_ms": 9386.758,
+      "prompt_per_token_ms": 2.768955162241888,
+      "prompt_per_second": 361.14705417994156,
+      "predicted_n": 112,
+      "predicted_ms": 6900.546,
+      "predicted_per_token_ms": 62.167081081081086,
+      "predicted_per_second": 16.085683654597766
+    },
+    "content_preview": "1. **보증금 미전부에 대한 책임 소재**  \n2. **임차인의 중도퇴실 시 보증금 반환 조건**  \n3. **대필 계약서와 수수료 부담에 대한 유효성**  \n4. **새로운 임차인과의 계약 과정에서의 권리·의무 분배**  \n5. **보증금 정산서의 법적 효력 및 임대인의 이행 여부**",
+    "raw_keys": [
+      "choices",
+      "created",
+      "model",
+      "system_fingerprint",
+      "object",
+      "usage",
+      "id",
+      "timings"
+    ],
+    "prompt_tok_s": 361.14705417994156,
+    "gen_tok_s": 16.085683654597766,
+    "vram_after_infer": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 14322 MiB, 24576 MiB, 55 %\n1, NVIDIA TITAN RTX, 13383 MiB, 24576 MiB, 42 %",
+    "vram_after_stop": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 664 MiB, 24576 MiB, 18 %\n1, NVIDIA TITAN RTX, 0 MiB, 24576 MiB, 0 %"
+  },
+  {
+    "model": "Qwen3-32B-Q6_K.gguf",
+    "model_path": "C:\\Users\\DMLAB\\pilot_root\\models\\Qwen3-32B-GGUF\\Qwen3-32B-Q6_K.gguf",
+    "ctx": 8192,
+    "target_input_tokens": 6553,
+    "max_new_tokens": 512,
+    "load_ok": true,
+    "server_pid": 15876,
+    "vram_after_load": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 14867 MiB, 24576 MiB, 11 %\n1, NVIDIA TITAN RTX, 13877 MiB, 24576 MiB, 26 %",
+    "input_tokens_measured": 6520,
+    "input_chars": 9471,
+    "infer_ok": true,
+    "elapsed_sec": 19.266,
+    "usage": {
+      "completion_tokens": 171,
+      "prompt_tokens": 6585,
+      "total_tokens": 6756,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 6585,
+      "prompt_ms": 8588.599,
+      "prompt_per_token_ms": 1.3042671222475324,
+      "prompt_per_second": 766.7141055252433,
+      "predicted_n": 171,
+      "predicted_ms": 10644.874,
+      "predicted_per_token_ms": 62.61690588235294,
+      "predicted_per_second": 15.970127969574841
+    },
+    "content_preview": "1. **상법 제3조의 적용 대상 여부** – 비상인인 乙의 행위에도 상사시효가 적용되는지.  \n2. **상행위의 성립 여부** – 丙의 차입 행위가 상행위에 해당하는지.  \n3. **상사시효의 공동 적용 가능성** – 甲과 乙 간 채권관계에도 상사시효가 적용되는지.  \n4. **시효완성 여부 판단** – 10억 원 대여금채권이 시효완성되었는지.  \n5. ",
+    "raw_keys": [
+      "choices",
+      "created",
+      "model",
+      "system_fingerprint",
+      "object",
+      "usage",
+      "id",
+      "timings"
+    ],
+    "prompt_tok_s": 766.7141055252433,
+    "gen_tok_s": 15.970127969574841,
+    "vram_after_infer": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 14865 MiB, 24576 MiB, 57 %\n1, NVIDIA TITAN RTX, 13895 MiB, 24576 MiB, 42 %",
+    "vram_after_stop": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 665 MiB, 24576 MiB, 20 %\n1, NVIDIA TITAN RTX, 0 MiB, 24576 MiB, 0 %"
+  },
+  {
+    "model": "Qwen3-32B-Q6_K.gguf",
+    "model_path": "C:\\Users\\DMLAB\\pilot_root\\models\\Qwen3-32B-GGUF\\Qwen3-32B-Q6_K.gguf",
+    "ctx": 16384,
+    "target_input_tokens": 13107,
+    "max_new_tokens": 512,
+    "load_ok": true,
+    "server_pid": 15956,
+    "vram_after_load": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 15956 MiB, 24576 MiB, 39 %\n1, NVIDIA TITAN RTX, 14901 MiB, 24576 MiB, 22 %",
+    "input_tokens_measured": 13067,
+    "input_chars": 19040,
+    "infer_ok": true,
+    "elapsed_sec": 22.463,
+    "usage": {
+      "completion_tokens": 94,
+      "prompt_tokens": 13132,
+      "total_tokens": 13226,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 13132,
+      "prompt_ms": 16049.557,
+      "prompt_per_token_ms": 1.2221715656411818,
+      "prompt_per_second": 818.2157301911822,
+      "predicted_n": 94,
+      "predicted_ms": 6383.012,
+      "predicted_per_token_ms": 68.6345376344086,
+      "predicted_per_second": 14.569924042129328
+    },
+    "content_preview": "1. **누수 사고의 책임 소재**  \n2. **공동주택 노후화에 따른 책임 배분**  \n3. **임차인의 사과 및 조치 노력의 법적 효력**  \n4. **소유자와 임차인 간의 손해배상 책임 구분**  \n5. **층간 관계 갈등이 소송에 미치는 영향**",
+    "raw_keys": [
+      "choices",
+      "created",
+      "model",
+      "system_fingerprint",
+      "object",
+      "usage",
+      "id",
+      "timings"
+    ],
+    "prompt_tok_s": 818.2157301911822,
+    "gen_tok_s": 14.569924042129328,
+    "vram_after_infer": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 16025 MiB, 24576 MiB, 59 %\n1, NVIDIA TITAN RTX, 14919 MiB, 24576 MiB, 41 %",
+    "vram_after_stop": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA TITAN RTX, 687 MiB, 24576 MiB, 14 %\n1, NVIDIA TITAN RTX, 0 MiB, 24576 MiB, 0 %"
+  }
+]

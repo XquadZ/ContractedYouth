@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>(계)약한청년들</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <link rel="stylesheet" href="/static/app.css?v=figma2" />
+  <link rel="icon" href="/static/assets/logo.png?v=figma2" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand-link" href="#home" data-view="home">
+        <img class="brand-logo" src="/static/assets/logo.png" alt="" width="48" height="44" />
+        <span class="brand-name"><span class="brand-paren">(계)</span>약한청년들</span>
+        <span class="brand-beta">BETA</span>
+      </a>
+      <nav class="pc-nav" aria-label="메인 메뉴">
+        <a href="#home" data-view="home">서비스 소개</a>
+        <a href="#check" data-view="check">계약서 검토</a>
+        <a href="#guide" data-view="guide">이용 방법</a>
+        <a href="#faq" data-view="faq">자주 묻는 질문</a>
+      </nav>
+      <div class="nav-actions">
+        <span id="health" class="health">서버 확인 중</span>
+        <button type="button" class="ghost-pill" id="install-hint" hidden>바로가기 설치 ↗</button>
+        <a class="btn-start" href="#check" data-view="check">무료로 시작하기 <span>↗</span></a>
+      </div>
+    </div>
+  </header>
+
+  <section id="view-home" class="view">
+    <div class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">2030을 위한 계약서파트너</p>
+          <h1>처음 하는 계약,<br /><span>혼자 고민하지 마세요.</span></h1>
+          <p class="lede">첫 자취방부터 첫 출근까지.<br />어려운 계약서는 쉽게, 놓치기 쉬운 조항은 꼼꼼하게.<br />당신의 새로운 시작에 안심을 더해요.</p>
+          <div class="hero-cta">
+            <a class="btn-white" href="#check" data-view="check">내 계약서 확인하기</a>
+            <button type="button" class="btn-ghost" id="btn-sample">샘플 리포트 보기</button>
+          </div>
+          <p class="hero-note">가입 없이 체험 · 근로 / 부동산 / 금전거래 계약</p>
+        </div>
+        <div class="hero-preview-wrap">
+          <aside class="float-card float-easy" aria-hidden="true">
+            <div class="float-icon">✧</div>
+            <div>
+              <strong>어려운 말은, 쉬운 말로</strong>
+              <p>내 계약에 필요한 내용만 한눈에</p>
+            </div>
+          </aside>
+          <article class="preview-card" aria-label="계약서 분석 결과 예시">
+            <div class="preview-top">
+              <div class="preview-brand">
+                <img src="/static/assets/logo.png" alt="" width="25" height="25" />
+                <span><b>(계)</b>약한청년들</span>
+              </div>
+              <span class="dots">● ● ●</span>
+            </div>
+            <div class="preview-body">
+              <aside class="preview-side">
+                <p>⌂ 내 대시보드</p>
+                <p class="on">▤ 계약서 검토</p>
+                <p>◷ 검토 기록</p>
+                <p>□ 이용 가이드</p>
+              </aside>
+              <div class="preview-main">
+                <div class="preview-head">
+                  <div>
+                    <p class="kicker">MY CONTRACT REPORT</p>
+                    <h3>내 계약서, 꼼꼼히 살펴봤어요.</h3>
+                  </div>
+                  <span class="chip-ex">예시 리포트</span>
+                </div>
+                <p class="preview-file">주택임대차계약서_샘플.pdf · 부동산 계약</p>
+                <div class="preview-score">
+                  <div class="score-ring">주의</div>
+                  <div>
+                    <strong>서명 전, 함께 확인해봐요</strong>
+                    <p>확인이 필요한 조항을 쉽게 정리했어요.</p>
+                    <p class="score-note">확인 필요 2건 · 참고 1건</p>
+                  </div>
+                </div>
+                <ul class="preview-rows">
+                  <li><span>01 수리비 부담 범위</span><em class="need">확인 필요</em></li>
+                  <li><span>02 보증금 반환 조건</span><em class="need">확인 필요</em></li>
+                  <li><span>03 관리비 세부 항목</span><em class="ref">참고</em></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <aside class="float-card float-right" aria-hidden="true">
+            <div class="float-icon">✓</div>
+            <div>
+              <strong>작은 글씨 속, 중요한 내 권리</strong>
+              <p>놓치기 쉬운 조건도 한 번 더 확인해요.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <ul class="hero-points">
+        <li>✧ 복잡한 법률 용어를 쉬운 설명으로</li>
+        <li>▤ 내 상황에 맞는 계약 유형 선택</li>
+        <li>↗ 업로드부터 리포트까지 한곳에서</li>
+      </ul>
+    </div>
+
+    <section class="domain-sec" id="domains">
+      <div class="sec-inner">
+        <div class="sec-head">
+          <div>
+            <p class="eyebrow blue">A CONTRACT FOR EVERY FIRST</p>
+            <h2>어떤 시작을 앞두고 있나요?</h2>
+          </div>
+          <p class="sec-sub">지금 내 상황에 맞는 계약을 골라보세요.<br />중요한 확인 포인트를 함께 살펴볼게요.</p>
+        </div>
+        <div class="domain-grid">
+          <button type="button" class="domain-card on" data-domain="LEASE" data-sample="oneroom_lease">
+            <span class="d-icon blue">⌂</span>
+            <h3>처음 구하는 내 공간</h3>
+            <p>소중한 보증금, 매달 내는 월세.<br />마음 놓고 살 수 있도록 확인해요.</p>
+            <small>부동산 계약 · 전세 / 월세 / 임대차</small>
+            <span class="d-arrow">↗</span>
+          </button>
+          <button type="button" class="domain-card" data-domain="LAB" data-sample="alba_cafe">
+            <span class="d-icon green">▣</span>
+            <h3>열심히 일하는 내 시간</h3>
+            <p>첫 알바도, 설레는 첫 회사도.<br />일한 만큼 존중받을 수 있도록.</p>
+            <small>근로 계약 · 아르바이트 / 인턴 / 정규직</small>
+            <span class="d-arrow">↗</span>
+          </button>
+          <button type="button" class="domain-card" data-domain="LOAN" data-sample="">
+            <span class="d-icon gold">₩</span>
+            <h3>확실히 지키는 내 약속</h3>
+            <p>가까운 사이일수록 더 명확하게.<br />금전거래의 조건을 함께 살펴봐요.</p>
+            <small>금전거래 계약 · 차용증 / 금전소비대차</small>
+            <span class="d-arrow">↗</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps-sec" id="how">
+      <div class="sec-inner steps-grid">
+        <div class="steps-copy">
+          <p class="eyebrow blue">LESS WORRY, MORE CLARITY</p>
+          <h2>계약서 한 장,<br />안심으로 바꾸는 세 단계.</h2>
+          <p class="sec-sub">법률 용어를 몰라도 괜찮아요.<br />복잡한 과정 없이 차근차근 시작해보세요.</p>
+          <ol class="step-list">
+            <li><span>01</span><div><strong>계약 유형을 선택해요</strong><p>부동산, 근로, 금전거래 중 골라주세요.</p></div></li>
+            <li><span>02</span><div><strong>계약서 파일을 준비해요</strong><p>텍스트로 붙여 넣거나 예시 계약서를 고르면 돼요.</p></div></li>
+            <li><span>03</span><div><strong>쉬운 말로 정리된 리포트를 확인해요</strong><p>조항별 설명과 확인할 질문을 살펴보세요.</p></div></li>
+          </ol>
+        </div>
+        <article class="mini-check">
+          <div class="mini-head">
+            <strong>내 계약서 확인하기</strong>
+            <span class="chip-ex">체험용 프로토타입</span>
+          </div>
+          <div class="tabs" role="tablist">
+            <button type="button" class="tab on" data-domain="LEASE" data-sample="oneroom_lease">부동산 계약</button>
+            <button type="button" class="tab" data-domain="LAB" data-sample="alba_cafe">근로 계약</button>
+            <button type="button" class="tab" data-domain="LOAN" data-sample="">금전거래</button>
+          </div>
+          <p class="mini-hint">선택한 유형의 예시 조항으로 점검 과정을 바로 볼 수 있어요. 원문은 서버에 저장하지 않습니다.</p>
+          <a class="btn-blue" href="#check" data-view="check" id="btn-home-check">지금 점검해 보기</a>
+        </article>
+      </div>
+    </section>
+
+    <p class="legal-banner">이 결과는 계약서 이해를 돕는 정보이며 법률 자문이 아닙니다. 중요한 결정 전에는 노무사·변호사 또는 공공 상담 창구(고용노동부 1350, 대한법률구조공단 132)에 확인하세요.</p>
+  </section>
+
+  <section id="view-check" class="view check-view" hidden>
+    <div class="check-shell">
+      <aside class="check-side" aria-label="검토 메뉴">
+        <a href="#home" data-view="home">⌂ 내 대시보드</a>
+        <a class="on" href="#check" data-view="check">▤ 계약서 검토</a>
+        <a href="#check" data-view="check">◷ 검토 기록</a>
+        <a href="#guide" data-view="guide">□ 이용 가이드</a>
+      </aside>
+      <div class="check-main">
+        <div class="check-title">
+          <div>
+            <p class="kicker">MY CONTRACT REPORT</p>
+            <h2>내 계약서, 꼼꼼히 살펴봤어요.</h2>
+          </div>
+          <span id="status" class="status" aria-live="polite"></span>
+        </div>
+
+        <section class="panel input" id="input-panel">
+          <div class="input-head">
+            <h3>계약서 입력</h3>
+            <button type="button" class="link" id="toggle-input" hidden>입력 펼치기</button>
+          </div>
+          <div class="input-body" id="input-body">
+            <div class="tabs domain-tabs" role="tablist" aria-label="계약 유형">
+              <button type="button" class="tab on" data-domain="LEASE" data-sample="oneroom_lease">부동산 계약</button>
+              <button type="button" class="tab" data-domain="LAB" data-sample="alba_cafe">근로 계약</button>
+              <button type="button" class="tab" data-domain="LOAN" data-sample="">금전거래</button>
+            </div>
+            <div class="field">
+              <span class="label">예시 계약서</span>
+              <div class="chips-row" id="sample-chips" role="group" aria-label="예시 계약서"></div>
+            </div>
+            <label class="field">
+              <span class="label">파일에서 불러오기 (.txt)</span>
+              <input id="file" type="file" accept=".txt,text/plain" />
+            </label>
+            <label class="field">
+              <span class="label">계약서 본문</span>
+              <textarea id="text" rows="10" placeholder="계약서 문장을 붙여 넣거나 위에서 예시를 고르세요. 원문은 서버 디스크에 저장하지 않습니다."></textarea>
+            </label>
+            <div class="actions">
+              <button type="button" id="go" class="btn-blue">점검 시작</button>
+              <label class="switch"><input id="no-llm" type="checkbox" /> 검색만 (A.X 끄기)</label>
+            </div>
+          </div>
+        </section>
+
+        <ol class="pipe" id="pipe" hidden aria-label="점검 과정">
+          <li data-step="split">1 나누기</li>
+          <li data-step="facts">2 사실표</li>
+          <li data-step="retrieve">3 검색</li>
+          <li data-step="judge">4 A.X 판정</li>
+          <li data-step="verify">5 검증</li>
+          <li data-step="report">6 리포트</li>
+        </ol>
+
+        <section id="facts-panel" class="panel facts" hidden>
+          <h3>사실표</h3>
+          <p class="muted">계약서 전체에서 정규식으로만 뽑았습니다. 없으면 null입니다.</p>
+          <dl id="facts-dl" class="facts-dl"></dl>
+        </section>
+
+        <section id="tally-panel" class="board" hidden>
+          <div class="tally" id="tally"></div>
+        </section>
+
+        <section id="critical" class="panel critical" hidden>
+          <h3>치명 항목</h3>
+          <ul id="critical-list"></ul>
+        </section>
+
+        <section id="cards" class="cards"></section>
+
+        <section id="missing-panel" class="panel" hidden>
+          <h3>누락 항목</h3>
+          <ul id="missing-list"></ul>
+        </section>
+        <section id="mismatch-panel" class="panel" hidden>
+          <h3>불일치</h3>
+          <ul id="mismatch-list"></ul>
+        </section>
+        <section id="needs-panel" class="panel" hidden>
+          <h3>직접 확인할 것</h3>
+          <ul id="needs-list"></ul>
+        </section>
+        <section id="next-panel" class="panel" hidden>
+          <h3>다음 행동</h3>
+          <ul id="next-list"></ul>
+          <p class="muted" id="helpline"></p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-guide" class="view page-view" hidden>
+    <div class="page-card">
+      <p class="eyebrow blue">HOW IT WORKS</p>
+      <h2>이용 방법</h2>
+      <ol class="guide-ol">
+        <li><strong>유형을 고릅니다.</strong> 부동산·근로·금전거래 중 지금 계약에 맞는 칸을 고르세요.</li>
+        <li><strong>문장을 넣습니다.</strong> .txt 파일을 올리거나 본문을 붙여 넣습니다. 예시 계약서로 먼저 과정을 볼 수 있습니다. 원문은 디스크에 저장하지 않습니다.</li>
+        <li><strong>과정을 봅니다.</strong> 나누기 → 사실표 → 검색 → A.X 판정 → 검증 → 리포트 순서로 진행됩니다.</li>
+        <li><strong>조항별로 확인합니다.</strong> 위반·위험·확인 필요·문제 없음과 근거 ID, 인용문을 함께 봅니다.</li>
+      </ol>
+      <a class="btn-blue" href="#check" data-view="check">계약서 검토로 이동</a>
+    </div>
+  </section>
+
+  <section id="view-faq" class="view page-view" hidden>
+    <div class="page-card">
+      <p class="eyebrow blue">FAQ</p>
+      <h2>자주 묻는 질문</h2>
+      <dl class="faq-dl">
+        <dt>계약서가 서버에 남나요?</dt>
+        <dd>남기지 않습니다. 점검을 위해 메모리에서만 읽고, 로그에는 조항 수·지연·판정·근거 ID만 남깁니다.</dd>
+        <dt>외부 AI를 쓰나요?</dt>
+        <dd>쓰지 않습니다. 검색은 로컬 BM25와 bge-m3, 판정은 이 컴퓨터의 A.X 4.0 Light(8082)만 사용합니다.</dd>
+        <dt>결과를 변호사가 써 준 건가요?</dt>
+        <dd>아닙니다. 이해를 돕는 정보이며 법률 자문이 아닙니다. 고용노동부 1350, 대한법률구조공단 132에 확인하세요.</dd>
+        <dt>A.X가 꺼져 있으면요?</dt>
+        <dd>검색만 켜면 근거 조항은 볼 수 있고, 판정은 비어 있을 수 있습니다. 헤더의 상태 표시를 확인하세요.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <footer class="site-foot">상담 창구 고용노동부 1350 · 대한법률구조공단 132</footer>
+
+  <nav class="mobile-nav" aria-label="모바일 메뉴">
+    <a href="#home" data-view="home">⌂<span>홈</span></a>
+    <a href="#check" data-view="check">▤<span>검토</span></a>
+    <a href="#guide" data-view="guide">□<span>가이드</span></a>
+    <a href="#faq" data-view="faq">?<span>FAQ</span></a>
+  </nav>
+
+  <script src="/static/app.js?v=figma2"></script>
+</body>
+</html>

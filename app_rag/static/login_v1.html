@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>로그인 · 계약서 점검</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <style>
+    body { font-family: "Pretendard", "Noto Sans KR", sans-serif; background: #f3f5f8; margin: 0; }
+    .wrap { max-width: 420px; margin: 8vh auto; padding: 24px; background: #fff; border-radius: 12px; box-shadow: 0 8px 24px rgba(20,40,80,.08); }
+    h1 { font-size: 1.4rem; margin: 0 0 8px; }
+    p.sub { color: #667; margin: 0 0 20px; font-size: .92rem; }
+    label { display:block; font-size:.85rem; margin: 12px 0 4px; color:#334; }
+    input { width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid #cfd6e4; border-radius:8px; font-size:1rem; }
+    button { margin-top:16px; width:100%; padding:12px; border:0; border-radius:8px; background:#1f4b99; color:#fff; font-weight:600; cursor:pointer; }
+    button.secondary { background:#e8eef8; color:#1f4b99; margin-top:8px; }
+    .err { color:#b42318; font-size:.9rem; margin-top:10px; min-height:1.2em; }
+    .tabs { display:flex; gap:8px; margin-bottom:12px; }
+    .tabs button { flex:1; background:#eef2f8; color:#345; margin:0; }
+    .tabs button.on { background:#1f4b99; color:#fff; }
+    .hidden { display:none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>계약서 점검</h1>
+    <p class="sub">만 19세 이상만 가입할 수 있어요.</p>
+    <div class="tabs">
+      <button type="button" id="tabLogin" class="on">로그인</button>
+      <button type="button" id="tabSignup">가입</button>
+    </div>
+    <form id="loginForm">
+      <label>아이디</label>
+      <input name="login_id" autocomplete="username" required />
+      <label>비밀번호</label>
+      <input name="password" type="password" autocomplete="current-password" required />
+      <button type="submit">로그인</button>
+      <button type="button" class="secondary" id="helpPw">비밀번호 찾기 / 탈퇴</button>
+    </form>
+    <form id="signupForm" class="hidden">
+      <label>아이디 (영문·숫자 4~20자)</label>
+      <input name="login_id" required />
+      <label>비밀번호 (8자 이상)</label>
+      <input name="password" type="password" required />
+      <label>생년월일</label>
+      <input name="birth_date" type="date" required />
+      <button type="submit">가입하기</button>
+    </form>
+    <div class="err" id="err"></div>
+  </div>
+  <script>
+    const err = document.getElementById("err");
+    const loginForm = document.getElementById("loginForm");
+    const signupForm = document.getElementById("signupForm");
+    document.getElementById("tabLogin").onclick = () => {
+      loginForm.classList.remove("hidden"); signupForm.classList.add("hidden");
+      document.getElementById("tabLogin").classList.add("on");
+      document.getElementById("tabSignup").classList.remove("on");
+      err.textContent = "";
+    };
+    document.getElementById("tabSignup").onclick = () => {
+      signupForm.classList.remove("hidden"); loginForm.classList.add("hidden");
+      document.getElementById("tabSignup").classList.add("on");
+      document.getElementById("tabLogin").classList.remove("on");
+      err.textContent = "";
+    };
+    document.getElementById("helpPw").onclick = async () => {
+      const r = await fetch("/api/auth/password-help", { method: "POST" });
+      const j = await r.json();
+      alert(j.message || "관리자에게 문의하세요");
+    };
+    loginForm.onsubmit = async (e) => {
+      e.preventDefault();
+      const fd = new FormData(loginForm);
+      const body = { login_id: fd.get("login_id"), password: fd.get("password") };
+      const r = await fetch("/api/auth/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      const j = await r.json();
+      if (!r.ok) { err.textContent = j.error || "실패"; return; }
+      location.href = "/static/review.html";
+    };
+    signupForm.onsubmit = async (e) => {
+      e.preventDefault();
+      const fd = new FormData(signupForm);
+      const body = { login_id: fd.get("login_id"), password: fd.get("password"), birth_date: fd.get("birth_date") };
+      const r = await fetch("/api/auth/signup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      const j = await r.json();
+      if (!r.ok) { err.textContent = j.error || "실패"; return; }
+      location.href = "/static/review.html";
+    };
+  </script>
+</body>
+</html>

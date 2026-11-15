@@ -1,0 +1,77 @@
+{
+  "disk_before_GB": {
+    "C": 2583.75
+  },
+  "disk_after_GB": {
+    "C": 2570.55
+  },
+  "downloads": [
+    {
+      "repo_id": "Qwen/Qwen3-8B",
+      "local_dir": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\Qwen3-8B",
+      "ok": true,
+      "error": null,
+      "disk_free_gb_before": 2583.75,
+      "HF_TOKEN_set": true,
+      "bytes": 16397461266,
+      "GB": 15.271,
+      "n_files": 15,
+      "config_summary": {
+        "model_type": "qwen3",
+        "vocab_size": 151936,
+        "max_position_embeddings": 40960,
+        "architectures": [
+          "Qwen3ForCausalLM"
+        ]
+      },
+      "license_file": "LICENSE",
+      "license": "Apache License",
+      "disk_free_gb_after": 2576.97
+    },
+    {
+      "repo_id": "nlpai-lab/KURE-v1",
+      "local_dir": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\KURE-v1",
+      "ok": true,
+      "error": null,
+      "disk_free_gb_before": 2576.97,
+      "HF_TOKEN_set": true,
+      "bytes": 2288774961,
+      "GB": 2.132,
+      "n_files": 13,
+      "config_summary": {
+        "model_type": "xlm-roberta",
+        "vocab_size": 250002,
+        "max_position_embeddings": 8194,
+        "architectures": [
+          "XLMRobertaModel"
+        ]
+      },
+      "license_file": "README.md",
+      "license": "license: mit",
+      "disk_free_gb_after": 2574.83
+    },
+    {
+      "repo_id": "BAAI/bge-m3",
+      "local_dir": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\models\\bge-m3",
+      "ok": true,
+      "error": null,
+      "disk_free_gb_before": 2574.83,
+      "HF_TOKEN_set": true,
+      "bytes": 4587317404,
+      "GB": 4.272,
+      "n_files": 30,
+      "config_summary": {
+        "model_type": "xlm-roberta",
+        "vocab_size": 250002,
+        "max_position_embeddings": 8194,
+        "architectures": [
+          "XLMRobertaModel"
+        ]
+      },
+      "license_file": "README.md",
+      "license": "license: mit",
+      "disk_free_gb_after": 2570.56
+    }
+  ],
+  "verify_path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\data_contract\\s5_verify.json"
+}

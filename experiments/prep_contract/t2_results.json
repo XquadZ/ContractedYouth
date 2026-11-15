@@ -1,0 +1,443 @@
+{
+  "tool_status": {
+    "hwp5txt": "C:\\Users\\DMLAB\\anaconda3\\Scripts\\hwp5txt.EXE",
+    "pdftotext": null,
+    "pdfplumber": true,
+    "olefile": true
+  },
+  "n_files": 26,
+  "rows": [
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\_excluded\\상가건물임대차권리금계약서(국토교통부작성)_2015-05-27.hwp",
+      "rel": "standard_forms\\_excluded\\상가건물임대차권리금계약서(국토교통부작성)_2015-05-27.hwp",
+      "ext": ".hwp",
+      "size": 24576,
+      "ok": true,
+      "chars": 1369,
+      "preview_300": "\n<그림>\n\n<그림>\n\n\n\n\n<표>\n상가건물 임대차 권리금계약서\n-  / 3 -\n\n\n\n  [계약내용]\n 제1조(권리금의 지급) 신규임차인은 임차인에게 다음과 같이 권리금을 지급한다.\n\n<표>\n\n 제2조(임차인의 의무) ① 임차인은 신규임차인을 임대인에게 주선하여야 하며, 임대인과 신규임차인 간에 임대차계약이 체결될 수 있도록 협력하여야 한다. \n   ② 임차인은 신규임차인이 정상적인 영업을 개시할 수 있도록 전화가입권의 이전, 사업등록의 폐지 등에 협력하여야 한다.\n   ③ 임차인은 신규임차인이 잔금을 지급할 때까지 권리금의 대가로",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 누락(가능) — hwp5txt 평문, 테이블 구조 없음",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\상가건물임대차권리금계약서(국토교통부작성)_2015-05-27_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\_excluded\\상가건물임대차표준계약서_2026-05-12(사용용).hwp",
+      "rel": "standard_forms\\_excluded\\상가건물임대차표준계약서_2026-05-12(사용용).hwp",
+      "ext": ".hwp",
+      "size": 97792,
+      "ok": true,
+      "chars": 2466,
+      "preview_300": "\n<그림>\n\n<그림>\n\n\n\n<그림>\n\n\n<표>\n상가건물 임대차 표준계약서\n-  / 4 -\n\n\n 제2조(임대차기간) 임대인은 임차 상가건물을 임대차 목적대로 사용‧수익할 수 있는 상태로         년      월        일까지 임차인에게 인도하고, 임대차기간은 인도일로부터          년           월          일까지로 한다. \n 제3조(임차목적) 임차인은 임차 상가건물을           (업종)을 위한 용도로 사용한다.\n 제4조(사용·관리·수선) ① 임차인은 임대인의 동의 없이 임차 상가건물의 구조․용도",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 가능(공백/탭) — 구조 미확인",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\상가건물임대차표준계약서_2026-05-12(사용용)_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\_excluded\\상가건물임대차표준계약서_2026-05-12(원본게시용).pdf",
+      "rel": "standard_forms\\_excluded\\상가건물임대차표준계약서_2026-05-12(원본게시용).pdf",
+      "ext": ".pdf",
+      "size": 132122,
+      "ok": true,
+      "chars": 6625,
+      "preview_300": "이 계약서는 법무부에서 국토교통부‧서울시․중소벤처기업부･소상공인진흥공단 등 유관 기관 및 학계 전문가와 함께 민법,\n상가건물 임대차보호법, 공인중개사법 등 관계법령에 근거하여 만들었습니다. 법의 보호를 받기 위해 【중요확인사항】(별지)을\n꼭 확인하시기 바랍니다.\nq보증금 있는 월세\n상가건물 임대차 표준계약서 q전세 q월세\n임대인(이름 또는 법인명 기재)과 임차인(이름 또는 법인명 기재)은 아래와 같이 임대차 계약을 체결한다\n[임차 상가건물의 표시]\n소 재 지\n토 지 지목 면적 ㎡\n건 물 구조‧용도 면적 ㎡\n임차할부분 면적 ㎡\n유의사",
+      "meta": {
+        "tables_found": true,
+        "method": "pdfplumber",
+        "table_cell_count": 71
+      },
+      "table_status": "표 추출됨(셀/테이블 텍스트 감지)",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\상가건물임대차표준계약서_2026-05-12(원본게시용)_1_pdf.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\labor\\L1-L3_표준근로계약서묶음(5종)_2025-03.hwp",
+      "rel": "standard_forms\\labor\\L1-L3_표준근로계약서묶음(5종)_2025-03.hwp",
+      "ext": ".hwp",
+      "size": 69120,
+      "ok": true,
+      "chars": 7351,
+      "preview_300": "\n<표>\n\n                (이하 “사업주”라 함)과(와)            (이하 “근로자”라 함)은 다음과 같이 근로계약을 체결한다.\n1. 근로개시일 :      년   월   일부터\n2. 근 무 장 소 : \n3. 업무의 내용 : \n4. 소정근로시간 :   시  분 ~   시  분 (휴게 :  시  분 ~  시  분) (1일  시간, 1주  시간)\n5. 근무일/휴일 : 매주   일 근무(필요시, 근무요일       ), 주휴일 매주   요일\n - 공휴일(대체공휴일 포함)은 근로기준법이 정하는 바에 따르며, 근로자의",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\nundefined UnderlineStyle value: 15\r\ndefined name/values: {'SOLID': UnderlineStyle.SOLID, 'DASHED': UnderlineStyle.DASHED, 'DOTTED': UnderlineStyle.DOTTED, 'DASH_DOT'"
+      },
+      "table_status": "표 가능(공백/탭) — 구조 미확인",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\L1-L3_표준근로계약서묶음(5종)_2025-03_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\labor\\L4-L6_표준근로계약서묶음(7종)_2019-06.hwp",
+      "rel": "standard_forms\\labor\\L4-L6_표준근로계약서묶음(7종)_2019-06.hwp",
+      "ext": ".hwp",
+      "size": 131072,
+      "ok": true,
+      "chars": 6319,
+      "preview_300": "\n<표>\n\n                (이하 “사업주”라 함)과(와)            (이하 “근로자”라 함)은 다음과 같이 근로계약을 체결한다.\n1. 근로개시일 :      년   월   일부터\n2. 근 무 장 소 : \n3. 업무의 내용 : \n4. 소정근로시간 :    시   분부터    시   분까지 (휴게시간 :  시  분~  시   분)\n5. 근무일/휴일 : 매주   일(또는 매일단위)근무, 주휴일 매주   요일\n6. 임  금\n  - 월(일, 시간)급 :                    원\n  - 상여금 : 있음 ( ",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 가능(공백/탭) — 구조 미확인",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\L4-L6_표준근로계약서묶음(7종)_2019-06_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H1_주택임대차표준계약서_2023-10-06(사용용).hwp",
+      "rel": "standard_forms\\lease\\H1_주택임대차표준계약서_2023-10-06(사용용).hwp",
+      "ext": ".hwp",
+      "size": 102400,
+      "ok": true,
+      "chars": 2438,
+      "preview_300": "\n<그림>\n\n<그림>\n\n\n\n<그림>\n\n\n<그림>\n주택임대차표준계약서\n<표>\n\n\n-  / 4 -\n\n 제2조(임대차기간) 임대인은 임차주택을 임대차 목적대로 사용‧수익할 수 있는 상태로         년      월      일까지 임차인에게 인도하고, 임대차기간은 인도일로부터          년           월          일까지로 한다. \n 제3조(입주 전 수리) 임대인과 임차인은 임차주택의 수리가 필요한 시설물 및 비용부담에 관하여 다음과 같이 합의한다.\n\n<표>\n\n\n\n 제4조(임차주택의 사용·관리·수선) ① 임차인은 임",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 가능(공백/탭) — 구조 미확인",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H1_주택임대차표준계약서_2023-10-06(사용용)_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H1_주택임대차표준계약서_2023-10-06(원본게시용).pdf",
+      "rel": "standard_forms\\lease\\H1_주택임대차표준계약서_2023-10-06(원본게시용).pdf",
+      "ext": ".pdf",
+      "size": 206939,
+      "ok": true,
+      "chars": 9782,
+      "preview_300": "이 계약서는 법무부가 국토교통부·서울시 및 관련 전문가들과 함께 민법, 주택임대차보호법, 공인중개사법 등 관계법령에 근거하여\n만들었습니다. 법의 보호를 받기 위해 【중요확인사항】(별지1)을 꼭 확인하시기 바랍니다.\n주택임대차표준계약서\nq보증금 있는 월세\nq전세 q월세\n임대인(이름 또는 법인명 기재)과 임차인(이름 또는 법인명 기재)은 아래와 같이 임대차 계약을 체결한다\n[임차주택의 표시]\n소 재 지 (도로명주소)\n토 지 지목 면적 ㎡\n건 물 구조‧용도 면적 ㎡\n임차할부분 상세주소가 있는 경우 동‧층‧호 정확히 기재 면적 ㎡\nq 신규",
+      "meta": {
+        "tables_found": true,
+        "method": "pdfplumber",
+        "table_cell_count": 92
+      },
+      "table_status": "표 추출됨(셀/테이블 텍스트 감지)",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H1_주택임대차표준계약서_2023-10-06(원본게시용)_1_pdf.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H2_주택임대차표준계약서_2022(사용용).hwp",
+      "rel": "standard_forms\\lease\\H2_주택임대차표준계약서_2022(사용용).hwp",
+      "ext": ".hwp",
+      "size": 111616,
+      "ok": true,
+      "chars": 2437,
+      "preview_300": "\n<그림>\n\n<그림>\n\n\n\n<그림>\n\n\n<그림>\n주택임대차표준계약서\n<표>\n\n\n-  / 4 -\n\n 제2조(임대차기간) 임대인은 임차주택을 임대차 목적대로 사용‧수익할 수 있는 상태로         년      월      일까지 임차인에게 인도하고, 임대차기간은 인도일로부터          년           월          일까지로 한다. \n\n<표>\n 제3조(입주 전 수리) 임대인과 임차인은 임차주택의 수리가 필요한 시설물 및 비용부담에 관하여 다음과 같이 합의한다.\n\n\n\n\n\n 제4조(임차주택의 사용·관리·수선) ① 임차인은",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 가능(공백/탭) — 구조 미확인",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H2_주택임대차표준계약서_2022(사용용)_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H2_주택임대차표준계약서_2022(원본게시용).pdf",
+      "rel": "standard_forms\\lease\\H2_주택임대차표준계약서_2022(원본게시용).pdf",
+      "ext": ".pdf",
+      "size": 199088,
+      "ok": true,
+      "chars": 9370,
+      "preview_300": "이 계약서는 법무부가 국토교통부·서울시 및 관련 전문가들과 함께 민법, 주택임대차보호법, 공인중개사법 등 관계법령에 근거하여\n만들었습니다. 법의 보호를 받기 위해 【중요확인사항】(별지1)을 꼭 확인하시기 바랍니다.\n주택임대차표준계약서\nq보증금 있는 월세\nq전세 q월세\n임대인(이름 또는 법인명 기재)과 임차인(이름 또는 법인명 기재)은 아래와 같이 임대차 계약을 체결한다\n[임차주택의 표시]\n소 재 지 (도로명주소)\n토 지 지목 면적 ㎡\n건 물 구조‧용도 면적 ㎡\n임차할부분 상세주소가 있는 경우 동‧층‧호 정확히 기재 면적 ㎡\nq 신규",
+      "meta": {
+        "tables_found": true,
+        "method": "pdfplumber",
+        "table_cell_count": 105
+      },
+      "table_status": "표 추출됨(셀/테이블 텍스트 감지)",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H2_주택임대차표준계약서_2022(원본게시용)_1_pdf.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H2a_주택임대차표준계약서_2023-04(사용용).hwp",
+      "rel": "standard_forms\\lease\\H2a_주택임대차표준계약서_2023-04(사용용).hwp",
+      "ext": ".hwp",
+      "size": 105472,
+      "ok": true,
+      "chars": 2437,
+      "preview_300": "\n<그림>\n\n<그림>\n\n\n\n<그림>\n\n\n<그림>\n주택임대차표준계약서\n<표>\n\n\n-  / 5 -\n\n 제2조(임대차기간) 임대인은 임차주택을 임대차 목적대로 사용‧수익할 수 있는 상태로         년      월      일까지 임차인에게 인도하고, 임대차기간은 인도일로부터          년           월          일까지로 한다. \n\n<표>\n 제3조(입주 전 수리) 임대인과 임차인은 임차주택의 수리가 필요한 시설물 및 비용부담에 관하여 다음과 같이 합의한다.\n\n\n\n\n\n 제4조(임차주택의 사용·관리·수선) ① 임차인은",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 가능(공백/탭) — 구조 미확인",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H2a_주택임대차표준계약서_2023-04(사용용)_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H2a_주택임대차표준계약서_2023-04(원본게시용).pdf",
+      "rel": "standard_forms\\lease\\H2a_주택임대차표준계약서_2023-04(원본게시용).pdf",
+      "ext": ".pdf",
+      "size": 198683,
+      "ok": true,
+      "chars": 9771,
+      "preview_300": "이 계약서는 법무부가 국토교통부·서울시 및 관련 전문가들과 함께 민법, 주택임대차보호법, 공인중개사법 등 관계법령에 근거하여\n만들었습니다. 법의 보호를 받기 위해 【중요확인사항】(별지1)을 꼭 확인하시기 바랍니다.\n주택임대차표준계약서\nq보증금 있는 월세\nq전세 q월세\n임대인(이름 또는 법인명 기재)과 임차인(이름 또는 법인명 기재)은 아래와 같이 임대차 계약을 체결한다\n[임차주택의 표시]\n소 재 지 (도로명주소)\n토 지 지목 면적 ㎡\n건 물 구조‧용도 면적 ㎡\n임차할부분 상세주소가 있는 경우 동‧층‧호 정확히 기재 면적 ㎡\nq 신규",
+      "meta": {
+        "tables_found": true,
+        "method": "pdfplumber",
+        "table_cell_count": 105
+      },
+      "table_status": "표 추출됨(셀/테이블 텍스트 감지)",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H2a_주택임대차표준계약서_2023-04(원본게시용)_1_pdf.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3_민간임대주택표준임대차계약서(별지24호)_2025-10-31.hwp",
+      "rel": "standard_forms\\lease\\H3_민간임대주택표준임대차계약서(별지24호)_2025-10-31.hwp",
+      "ext": ".hwp",
+      "size": 81920,
+      "ok": true,
+      "chars": 36,
+      "preview_300": "\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 누락(가능) — hwp5txt 평문, 테이블 구조 없음",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3_민간임대주택표준임대차계약서(별지24호)_2025-10-31_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3_민간임대주택표준임대차계약서(별지24호)_2025-10-31.pdf",
+      "rel": "standard_forms\\lease\\H3_민간임대주택표준임대차계약서(별지24호)_2025-10-31.pdf",
+      "ext": ".pdf",
+      "size": 146813,
+      "ok": true,
+      "chars": 11006,
+      "preview_300": "■ 민간임대주택에 관한 특별법 시행규칙 [별지 제24호서식] <개정 2025. 10. 31.>\n표준임대차계약서\n(6쪽 중 1쪽)\n임대사업자와 임차인은 아래의 같이 임대차계약을 체결하고 이를 증명하기 위해 계약서 2통을 작성하\n여 임대사업자와 임차인이 각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n※ 개업공인중개사가 임대차계약서를 작성하는 경우에는 계약서 3통을 작성하여 임대사업자, 임차인, 개업공인중\n개사가 각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n계약일: 년 월 일\n1. 계약 당사자\n성명(법인명)\n(서명 또는 인)\n주",
+      "meta": {
+        "tables_found": true,
+        "method": "pdfplumber",
+        "table_cell_count": 60
+      },
+      "table_status": "표 추출됨(셀/테이블 텍스트 감지)",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3_민간임대주택표준임대차계약서(별지24호)_2025-10-31_1_pdf.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3a_민간임대주택표준임대차계약서(별지24호)_2020-12-10시행.hwp",
+      "rel": "standard_forms\\lease\\H3a_민간임대주택표준임대차계약서(별지24호)_2020-12-10시행.hwp",
+      "ext": ".hwp",
+      "size": 32768,
+      "ok": true,
+      "chars": 36,
+      "preview_300": "\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 누락(가능) — hwp5txt 평문, 테이블 구조 없음",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3a_민간임대주택표준임대차계약서(별지24호)_2020-12-10시행_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3a_민간임대주택표준임대차계약서(별지24호)_2020-12-10시행.pdf",
+      "rel": "standard_forms\\lease\\H3a_민간임대주택표준임대차계약서(별지24호)_2020-12-10시행.pdf",
+      "ext": ".pdf",
+      "size": 99764,
+      "ok": true,
+      "chars": 9034,
+      "preview_300": "■ 민간임대주택에 관한 특별법 시행규칙 [별지 제24호서식] <개정 2020. 12. 10.>\n표준임대차계약서\n(6쪽 중 1쪽)\n임대사업자와 임차인은 아래의 같이 임대차계약을 체결하고 이를 증명하기 위해 계약서 2통을 작성하여 임대\n사업자와 임차인이 각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n※ 개업공인중개사가 임대차계약서를 작성하는 경우에는 계약서 3통을 작성하여 임대사업자, 임차인, 개업공인중개사가\n각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n계약일: 년 월 일\n1. 계약 당사자\n성명(법인명)\n(서명 또는 인)\n주소",
+      "meta": {
+        "tables_found": true,
+        "method": "pdfplumber",
+        "table_cell_count": 55
+      },
+      "table_status": "표 추출됨(셀/테이블 텍스트 감지)",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3a_민간임대주택표준임대차계약서(별지24호)_2020-12-10시행_1_pdf.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3b_민간임대주택표준임대차계약서(별지24호)_2022-01-15시행.hwp",
+      "rel": "standard_forms\\lease\\H3b_민간임대주택표준임대차계약서(별지24호)_2022-01-15시행.hwp",
+      "ext": ".hwp",
+      "size": 83456,
+      "ok": true,
+      "chars": 36,
+      "preview_300": "\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 누락(가능) — hwp5txt 평문, 테이블 구조 없음",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3b_민간임대주택표준임대차계약서(별지24호)_2022-01-15시행_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3b_민간임대주택표준임대차계약서(별지24호)_2022-01-15시행.pdf",
+      "rel": "standard_forms\\lease\\H3b_민간임대주택표준임대차계약서(별지24호)_2022-01-15시행.pdf",
+      "ext": ".pdf",
+      "size": 135054,
+      "ok": true,
+      "chars": 9931,
+      "preview_300": "■ 민간임대주택에 관한 특별법 시행규칙 [별지 제24호서식] <개정 2022. 1. 14.>\n표준임대차계약서\n(6쪽 중 1쪽)\n임대사업자와 임차인은 아래의 같이 임대차계약을 체결하고 이를 증명하기 위해 계약서 2통을 작성하여 임대\n사업자와 임차인이 각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n※ 개업공인중개사가 임대차계약서를 작성하는 경우에는 계약서 3통을 작성하여 임대사업자, 임차인, 개업공인중개사가\n각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n계약일: 년 월 일\n1. 계약 당사자\n성명(법인명)\n(서명 또는 인)\n주소\n",
+      "meta": {
+        "tables_found": true,
+        "method": "pdfplumber",
+        "table_cell_count": 59
+      },
+      "table_status": "표 추출됨(셀/테이블 텍스트 감지)",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3b_민간임대주택표준임대차계약서(별지24호)_2022-01-15시행_1_pdf.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3c_민간임대주택표준임대차계약서(별지24호)_2023-01-01시행.hwp",
+      "rel": "standard_forms\\lease\\H3c_민간임대주택표준임대차계약서(별지24호)_2023-01-01시행.hwp",
+      "ext": ".hwp",
+      "size": 157184,
+      "ok": true,
+      "chars": 36,
+      "preview_300": "\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 누락(가능) — hwp5txt 평문, 테이블 구조 없음",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3c_민간임대주택표준임대차계약서(별지24호)_2023-01-01시행_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3c_민간임대주택표준임대차계약서(별지24호)_2023-01-01시행.pdf",
+      "rel": "standard_forms\\lease\\H3c_민간임대주택표준임대차계약서(별지24호)_2023-01-01시행.pdf",
+      "ext": ".pdf",
+      "size": 136865,
+      "ok": true,
+      "chars": 10236,
+      "preview_300": "■ 민간임대주택에 관한 특별법 시행규칙 [별지 제24호서식] <개정 2022. 12. 30.>\n표준임대차계약서\n(6쪽 중 1쪽)\n임대사업자와 임차인은 아래의 같이 임대차계약을 체결하고 이를 증명하기 위해 계약서 2통을 작성하여 임대\n사업자와 임차인이 각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n※ 개업공인중개사가 임대차계약서를 작성하는 경우에는 계약서 3통을 작성하여 임대사업자, 임차인, 개업공인중개사가\n각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n계약일: 년 월 일\n1. 계약 당사자\n성명(법인명)\n(서명 또는 인)\n주소",
+      "meta": {
+        "tables_found": true,
+        "method": "pdfplumber",
+        "table_cell_count": 59
+      },
+      "table_status": "표 추출됨(셀/테이블 텍스트 감지)",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3c_민간임대주택표준임대차계약서(별지24호)_2023-01-01시행_1_pdf.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3d_민간임대주택표준임대차계약서(별지24호)_2023-08-03시행.hwp",
+      "rel": "standard_forms\\lease\\H3d_민간임대주택표준임대차계약서(별지24호)_2023-08-03시행.hwp",
+      "ext": ".hwp",
+      "size": 83456,
+      "ok": true,
+      "chars": 36,
+      "preview_300": "\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 누락(가능) — hwp5txt 평문, 테이블 구조 없음",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3d_민간임대주택표준임대차계약서(별지24호)_2023-08-03시행_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3d_민간임대주택표준임대차계약서(별지24호)_2023-08-03시행.pdf",
+      "rel": "standard_forms\\lease\\H3d_민간임대주택표준임대차계약서(별지24호)_2023-08-03시행.pdf",
+      "ext": ".pdf",
+      "size": 142440,
+      "ok": true,
+      "chars": 10381,
+      "preview_300": "■ 민간임대주택에 관한 특별법 시행규칙 [별지 제24호서식] <개정 2023. 8. 3.>\n표준임대차계약서\n(6쪽 중 1쪽)\n임대사업자와 임차인은 아래의 같이 임대차계약을 체결하고 이를 증명하기 위해 계약서 2통을 작성하여 임대\n사업자와 임차인이 각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n※ 개업공인중개사가 임대차계약서를 작성하는 경우에는 계약서 3통을 작성하여 임대사업자, 임차인, 개업공인중개사가\n각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n계약일: 년 월 일\n1. 계약 당사자\n성명(법인명)\n(서명 또는 인)\n주소\n(",
+      "meta": {
+        "tables_found": true,
+        "method": "pdfplumber",
+        "table_cell_count": 57
+      },
+      "table_status": "표 추출됨(셀/테이블 텍스트 감지)",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3d_민간임대주택표준임대차계약서(별지24호)_2023-08-03시행_1_pdf.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3e_민간임대주택표준임대차계약서(별지24호)_2025-06-04시행.hwp",
+      "rel": "standard_forms\\lease\\H3e_민간임대주택표준임대차계약서(별지24호)_2025-06-04시행.hwp",
+      "ext": ".hwp",
+      "size": 81920,
+      "ok": true,
+      "chars": 36,
+      "preview_300": "\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n\n<표>\n\n",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 누락(가능) — hwp5txt 평문, 테이블 구조 없음",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3e_민간임대주택표준임대차계약서(별지24호)_2025-06-04시행_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\lease\\H3e_민간임대주택표준임대차계약서(별지24호)_2025-06-04시행.pdf",
+      "rel": "standard_forms\\lease\\H3e_민간임대주택표준임대차계약서(별지24호)_2025-06-04시행.pdf",
+      "ext": ".pdf",
+      "size": 146311,
+      "ok": true,
+      "chars": 10999,
+      "preview_300": "■ 민간임대주택에 관한 특별법 시행규칙 [별지 제24호서식] <개정 2025. 6. 4.>\n표준임대차계약서\n(6쪽 중 1쪽)\n임대사업자와 임차인은 아래의 같이 임대차계약을 체결하고 이를 증명하기 위해 계약서 2통을 작성하\n여 임대사업자와 임차인이 각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n※ 개업공인중개사가 임대차계약서를 작성하는 경우에는 계약서 3통을 작성하여 임대사업자, 임차인, 개업공인중\n개사가 각각 서명 또는 날인한 후 각각 1통씩 보관한다.\n계약일: 년 월 일\n1. 계약 당사자\n성명(법인명)\n(서명 또는 인)\n주소\n",
+      "meta": {
+        "tables_found": true,
+        "method": "pdfplumber",
+        "table_cell_count": 60
+      },
+      "table_status": "표 추출됨(셀/테이블 텍스트 감지)",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\H3e_민간임대주택표준임대차계약서(별지24호)_2025-06-04시행_1_pdf.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\loan\\D1_금전소비대차계약서-지연손해금특약(KLAC서식1770)_현행.hwp",
+      "rel": "standard_forms\\loan\\D1_금전소비대차계약서-지연손해금특약(KLAC서식1770)_현행.hwp",
+      "ext": ".hwp",
+      "size": 34304,
+      "ok": true,
+      "chars": 627,
+      "preview_300": "[서식 예] 금전소비대차 계약서(지연손해금 특약)\n<그림>\n\n\n\n금전소비대차 계약서\n\n\n차용금원  금 ○○○원\n\n채무자는 채권자로부터 위 금원을 아래와 같은 조건으로 차용한다.\n\n제1조(대여일시) 채무자는 채권자로부터 20○○년 ○월 ○일 금 ○○○원을 차용하며 채권자는 이 금액을 즉시 채무자에게 지급한다.\n제2조(변제기일 및 변제장소) 채무자는 위 금원의 차용금 원금을 20○○년 ○월 ○일까지 채권자의 주소지에서 채권자에게 변제한다.\n제3조(이자의지급등) 위 차용금의 이자는 연 ○○%로 하고 지급은 매월 ○일에 채권자의 주소지에서",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 누락(가능) — hwp5txt 평문, 테이블 구조 없음",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\D1_금전소비대차계약서-지연손해금특약(KLAC서식1770)_현행_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\loan\\D1_금전차용계약서(KLAC서식1769)_현행.hwp",
+      "rel": "standard_forms\\loan\\D1_금전차용계약서(KLAC서식1769)_현행.hwp",
+      "ext": ".hwp",
+      "size": 33792,
+      "ok": true,
+      "chars": 621,
+      "preview_300": "[서식 예] 금전차용계약서\n<그림>\n\n\n\n금  전  차  용  계  약  서\n\n제1조(당사자) 채권자 ○○○(이하 \"갑\"이라고 함.)는 20○○년 ○월 ○일 금○○○원을 채무자◎◎◎(이하 \"을\"이라고 함.)에게 대여하고 을은 이를 차용한다. \n제2조(변제기) 차용금의 변제기한은 20○○년 ○월 ○일로 한다. \n제3조(이자 및 지연손해금)  ① 이자는 연 ○%의 비율로 한다.\n  ② 원리금의 변제를 지체했을 때에는 을은 연  ○○%의 비율에 의한 지연손해금을 가산해서 지불해야 한다.\n제4조(변제방법) 채무의 변제는 갑의 주소 또는 갑",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 누락(가능) — hwp5txt 평문, 테이블 구조 없음",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\D1_금전차용계약서(KLAC서식1769)_현행_1_hwp.txt"
+    },
+    {
+      "path": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\standard_forms\\loan\\D2_보증계약서-일반(KLAC서식1807)_현행.hwp",
+      "rel": "standard_forms\\loan\\D2_보증계약서-일반(KLAC서식1807)_현행.hwp",
+      "ext": ".hwp",
+      "size": 33280,
+      "ok": true,
+      "chars": 457,
+      "preview_300": "[서식 예] 보증계약서(일반)\n<그림>\n\n\n\n보 증 계 약 서 \n\n\n\n채권자 ○○○을 갑으로 하고 보증인 ○○○을 을로 하여, 양당사자 간에 보증  채무에 관하여 다음의 계약을 체결한다. \n\n제1조(계약의 목적) 보증인 을은 20○○년 ○월 ○일 채권자 갑과 채무자 △△△(주소: ○○시 ○○구 ○○로 ○○번지) 간의 ○○계약서에 기재된 채무에 대해서 채무자가 이행을 하지 않을 때는 그 이행을 할 책임을 진다. \n제2조(검색의 항변권의 포기) 보증인은 검색의 이익을 포기한다. \n제3조(채무의 변제의무) 보증인은 채권자로부터 채무자가 ",
+      "meta": {
+        "method": "hwp5txt",
+        "tables_found": false,
+        "returncode": 0,
+        "stderr": "C:\\Users\\DMLAB\\anaconda3\\Lib\\site-packages\\hwp5\\importhelper.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\r\n  import pkg_resources\r\n"
+      },
+      "table_status": "표 누락(가능) — hwp5txt 평문, 테이블 구조 없음",
+      "out": "C:\\Users\\DMLAB\\Desktop\\학부-AI서비스 개발\\prep_contract\\t2_out\\D2_보증계약서-일반(KLAC서식1807)_현행_1_hwp.txt"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+card_id: LOAN-INTEREST
+day: '20261112'
+status: 수동 수정 필요
+needs_change: true
+reason: 법령 개정에 따라 최고이자율이 연 24%에서 연 20%로 변경됨
+before_card:
+  safe:
+  - 이율·계산법이 있고 연 20% 이하(개인 간 전제) 또는 이자 없음 명시
+  violation:
+  - 명시 약정이율이 법정 최고(연 20% 등)를 초과
+  - 원금에서 선이자·수수료를 공제해 실질 이율이 상한 초과
+  check_if:
+  - 이자 지급만 있고 이율·계산 불명 → 합의·법정이율
+  basis:
+  - law:이자제한법:2
+  - law:이자제한법:7
+  - law:민법:598
+  match_keywords:
+  - 이자
+  - 이자율
+  - 이율
+  - 연리
+  - 퍼센트
+  - 선이자
+  - 공제
+  - 수수료
+  uses_facts:
+  - 약정연이율
+  - 실제교부액
+  blocking_if: []
+  title: 이자율
+proposed:
+  safe:
+  - 이율·계산법이 있고 연 20% 이하(개인 간 전제) 또는 이자 없음 명시
+  violation:
+  - 명시 약정이율이 법정 최고(연 20% 등)를 초과
+  - 원금에서 선이자·수수료를 공제해 실질 이율이 상한 초과
+  check_if:
+  - 이자 지급만 있고 이율·계산 불명 → 합의·법정이율
+  basis:
+  - law:이자제한법:2
+  - law:이자제한법:7
+  - law:민법:598
+apply_rule: unknown
+rule_quote: null
+validation:
+  ok: false
+  errors:
+  - rule_quote_not_in_byeol
+  length: 125
+  apply_rule: unknown
+  rule_quote: null
+  manual: true
+llm_parse_ok: true
+created_at: '2026-11-12T16:19:46'

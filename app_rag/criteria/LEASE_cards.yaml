@@ -1,0 +1,269 @@
+# 임대차 기준 카드. GENERAL은 다른 카드 match_keywords 매칭 0일 때만(파이프라인).
+- id: LEASE-TERM
+  title: 계약기간
+  match_keywords:
+  - 임대차기간
+  - 계약기간
+  - 존속기간
+  - 임차기간
+  - 2년
+  safe:
+  - 시작·종료일이 명확하고 2년 미만이어도 법정 존속주장을 포기하지 않음
+  violation:
+  - 2년 미만만 유효·2년 주장 불가로 임차인 권리를 배제
+  check_if:
+  - 기간·날짜가 비거나 모순 → 실제 체결일
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:주택임대차보호법:4:1
+- id: LEASE-DEPOSIT
+  title: 보증금 반환·인도
+  match_keywords:
+  - 보증금
+  - 전세금
+  - 반환
+  - 인도
+  - 잔금
+  safe:
+  - 종료 시 보증금 반환·주택 인도를 정하고 입주 후 반환에 묶지 않음
+  violation:
+  - 신규 임차인 입주·재임대 후에만 보증금 반환
+  check_if:
+  - 공제·상계 범위가 넓음 → 손해 범위·합의
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:주택임대차보호법:4:2
+  - law:주택임대차보호법:3:2
+  - law:민법:536
+- id: LEASE-RENEW
+  title: 갱신요구권
+  match_keywords:
+  - 갱신
+  - 재계약
+  - 계약갱신
+  - 갱신요구
+  - 묵시적
+  safe:
+  - 갱신요구권을 법령에 따라 행사한다고 하거나 포기 문구 없음
+  violation:
+  - 갱신요구권 포기·행사 불가·묵시적 갱신 후 해지권 배제
+  check_if:
+  - 갱신 거절 사유 나열 → 정당 사유 해당 여부
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:주택임대차보호법:6:3
+  - law:주택임대차보호법:6
+  - law:주택임대차보호법:6:2
+- id: LEASE-RENT
+  title: 차임·보증금 증액
+  match_keywords:
+  - 차임
+  - 월세
+  - 임대료
+  - 증액
+  - 인상
+  safe:
+  - 법정 상한·협의에 따른 증액이거나 일방 확정 증액 없음
+  violation:
+  - 상한 초과·임대인 일방 차임·보증금 인상 확정
+  check_if:
+  - 민간임대 등록주택 여부 → 특별법 증액 한도
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:주택임대차보호법:7
+  - decree:주택임대차보호법 시행령:8
+  missing_basis:
+  - law:민간임대주택에관한특별법:44
+- id: LEASE-MOVEIN
+  title: 전입신고·확정일자
+  match_keywords:
+  - 전입
+  - 전입신고
+  - 확정일자
+  - 주민등록
+  - 대항력
+  safe:
+  - 전입신고·확정일자를 막지 않거나 협조한다고 적음
+  violation:
+  - 전입신고·확정일자 금지·임차인 신고 불가
+  check_if: []
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:주택임대차보호법:3
+  - law:주택임대차보호법:3:2
+- id: LEASE-REPAIR
+  title: 수선·출입·사용
+  match_keywords:
+  - 수선
+  - 보수
+  - 수리
+  - 출입
+  - 방문
+  - 열쇠
+  safe:
+  - 주요 수선은 임대인 부담 원칙, 출입은 긴급·사전 협의
+  violation:
+  - 대규모·노후 수선을 임차인 부담, 무단 출입·일방 해지로 사용 방해
+  check_if:
+  - 소모품·경미 수선 분담 → 실제 규모
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:민법:623
+  missing_basis:
+  - law:형법:319
+- id: LEASE-RESTORE
+  title: 원상복구
+  match_keywords:
+  - 원상복구
+  - 원상회복
+  - 퇴거
+  - 손모
+  - 상태
+  safe:
+  - 고의·과실 손해와 통상 손모를 구분
+  violation:
+  - 통상 손모·통상적 사용 흔적까지 전면 복구 요구
+  check_if: []
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:민법:615
+  - law:민법:654
+- id: LEASE-ARREARS
+  title: 차임 연체·해지
+  match_keywords:
+  - 연체
+  - 지체
+  - 해지
+  - 계약해지
+  - 체납
+  safe:
+  - 연체 해지에 법정 최고·기간을 따르거나 즉시 해지 문구 없음
+  violation:
+  - 1회 연체로 즉시 해지·강제퇴거
+  check_if:
+  - 연체 횟수·기간 조건 → 실제 연체 사정
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:민법:640
+- id: LEASE-PENALTY
+  title: 위약금
+  match_keywords:
+  - 위약금
+  - 위약
+  - 배상액
+  - 손해배상
+  - 몰수
+  safe:
+  - 위약금·보증금 몰수 예정이 없거나 비례 범위
+  violation:
+  - 과다 위약·보증금 전액 몰수 예정
+  check_if:
+  - 실손 배상만 정했는지 예정인지
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:민법:398
+- id: LEASE-UNFAIR
+  title: 불리한 약정
+  match_keywords:
+  - 특약
+  - 불리
+  - 임차인은
+  - 임차인이
+  - 포기
+  safe:
+  - 법정 권리·의무를 임차인에게 불리하게 바꾸지 않음
+  violation:
+  - 보호법상 임차인 권리를 박탈·의무 가중
+  check_if:
+  - 일반 준법 문구인지 실질 배제인지
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:주택임대차보호법:10
+- id: LEASE-NECESSARY
+  title: 필요비
+  match_keywords:
+  - 필요비
+  - 보존
+  - 상환청구
+  safe:
+  - 필요비 부담·상환을 법령·합의에 따름
+  violation:
+  - 필요비 상환청구권 포기·배제
+  check_if:
+  - 유익비·소액 수선 분담 → 경위
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:민법:626
+- id: LEASE-MGMT
+  title: 관리비
+  match_keywords:
+  - 관리비
+  - 공과금
+  - 수도
+  - 가스
+  - 전기요금
+  safe:
+  - 항목·부담 주체가 적혀 있고 임대인 일방 확정만 없음
+  violation: []
+  check_if:
+  - 산정 기준·명세 없이 임대인이 일방 확정
+  - 실제 사용분·정산 방법 불명
+  uses_facts: []
+  blocking_if: []
+  basis:
+  - law:주택임대차보호법:7:1
+- id: LEASE-PRIVATE
+  title: 민간임대
+  match_keywords:
+  - 민간임대
+  - 등록임대
+  - 임대등록
+  - 보증보험
+  - HUG
+  safe:
+  - 보증가입·증액 한도를 법령에 따른다고 하거나 위반 문구 없음
+  violation:
+  - 법정 보증가입 회피·등록 민간임대 증액 한도 초과 확정
+  check_if:
+  - 등록 유형·면제 해당 → 실제 등록 상태
+  uses_facts: []
+  blocking_if: []
+  basis: []
+  missing_basis:
+  - law:민간임대주택에관한특별법:49
+  - law:민간임대주택에관한특별법:44
+- id: LEASE-GENERAL
+  title: 평범한 조항
+  match_keywords: []
+  exclude_keywords:
+  - 포기
+  - 면제
+  - 배상
+  - 공제
+  - 위약
+  - 일방
+  - 통보
+  - 단축
+  - 강제
+  - 몰수
+  - 불가
+  safe:
+  - 권리박탈·의무가중 없이 협의·제공·기재·법령 준수만 있으면 문제 없음
+  violation:
+  - 위 exclude 단어로 임차인 권리를 줄이거나 의무를 늘림
+  check_if:
+  - exclude 단어가 있으면 이 카드 쓰지 말고 항목 카드 검토
+  uses_facts: []
+  blocking_if: []
+  basis: []
