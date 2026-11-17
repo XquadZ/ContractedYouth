@@ -96,9 +96,18 @@ def test_foreign_review_403():
         assert r.status_code == 403, r.text
 
 
+def _admin_login_json() -> dict:
+    """관리자 로그인 정보. 비밀번호는 환경변수/설정에서 읽고 출력하지 않는다."""
+    from rag.db import _admin_password_plain, ensure_admin
+
+    ensure_admin()
+    login_id = (os.environ.get("ADMIN_LOGIN_ID") or "user1").strip()
+    return {"login_id": login_id, "password": _admin_password_plain()}
+
+
 def test_admin_seeded():
     with TestClient(app) as client:
-        r = client.post("/api/auth/login", json={"login_id": "user1", "password": "pwd1"})
+        r = client.post("/api/auth/login", json=_admin_login_json())
         assert r.status_code == 200
         assert r.json()["user"]["role"] == "admin"
 

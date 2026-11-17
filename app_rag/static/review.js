@@ -1,6 +1,8 @@
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
-const samples = (window.CONTRACT_SAMPLES || []).filter((s) => s && s.id !== "sale");
+const samples = (window.CONTRACT_SAMPLES || []).filter(
+  (s) => s && s.id !== "sale" && s.id !== "private"
+);
 let selected = 0,
   activeHistoryId = null,
   reviewHistory = [],
@@ -128,7 +130,7 @@ function cardsToRisks(cards) {
         title: `${e.source_tag ? e.source_tag + " " : ""}${e.title || e.id || "근거"}`.trim(),
         url: e.url || "#",
         summary: e.quote || "",
-        connection: "검증을 통과한 corpus 근거입니다.",
+        connection: "법령 원문에서 확인한 근거입니다.",
         source_tag: e.source_tag || "",
         id: e.id || "",
       }));
@@ -465,7 +467,8 @@ function drawViewer() {
 
   $("#domainBanner").hidden = true;
   const s = data();
-  const textOnlySample = !customFile && s && (s.id === "loan" || s.bodyText);
+  // bodyText만 있고 페이지 이미지가 없는 샘플만 텍스트 뷰 (차용도 loan-N.jpg 사용)
+  const textOnlySample = !customFile && s && s.bodyText && !(s.count > 0 && !s.forceText);
   if (textOnlySample) {
     if (textStage) {
       textStage.hidden = false;
@@ -721,8 +724,10 @@ function evidenceBlock(r) {
     })
     .join("")}<small>${
     sampleMode
-      ? "출처: 예시 설명<br>미리 작성한 샘플 화면입니다."
-      : "출처: 국가법령정보센터 / 검증된 corpus 근거<br>관련 규정의 존재가 해당 계약의 위법성을 곧바로 의미하지는 않습니다."
+      ? data()?.analysisSource
+        ? `출처: ${esc(data().analysisSource)}`
+        : "출처: 예시 설명<br>미리 작성한 샘플 화면입니다."
+      : "출처: 국가법령정보센터 / 검증된 법령 근거<br>관련 규정의 존재가 해당 계약의 위법성을 곧바로 의미하지는 않습니다."
   }</small></section>`;
 }
 

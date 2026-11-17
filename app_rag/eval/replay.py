@@ -107,8 +107,15 @@ def replay_verify(row: dict, *, ax_review_to_ok: bool, ne_risky_only: bool | Non
     rs = list(verified.get("review_sources") or [])
     ax_raw = finding.get("verdict") or "확인 필요"
     no_ev_path = ("no_evidence" in rs) or ("no_evidence_keep_ok" in notes) or (not (verified.get("evidence") or []))
+    # 최저임금·이자 숫자 규칙 위반은 내리지 않음
+    locked = ("rule_numeric_lock" in notes) or (
+        verified.get("verdict") == "위반"
+        and set((verified.get("rule") or {}).get("fired") or []) & {"min_wage", "interest"}
+    )
 
-    if ne_risky_only:
+    if locked:
+        verified["verdict"] = "위반"
+    elif ne_risky_only:
         # 위반·위험만 확인 필요로. 문제 없음 유지. 확인 필요에는 no_evidence 태그 제거(규칙 미적용).
         if no_ev_path and ax_raw == "문제 없음":
             verified["verdict"] = "문제 없음"
@@ -287,7 +294,11 @@ def transform_row(
     verdict = verified.get("verdict") or "확인 필요"
     num_info = None
     flipped = False
-    if num2way:
+    locked = ("rule_numeric_lock" in (verified.get("notes") or [])) or (
+        verdict == "위반"
+        and set((verified.get("rule") or {}).get("fired") or []) & {"min_wage", "interest"}
+    )
+    if num2way and not locked:
         new_v, num_info = apply_num2way(
             verdict,
             row.get("text") or "",

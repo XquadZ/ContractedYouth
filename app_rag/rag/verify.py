@@ -164,6 +164,7 @@ def verify_finding(
 
     rule = numeric_rules(clause, facts)
     ax_verdict = ax_raw_verdict
+    why = finding.get("why") or ""
     # violation 목록이 비어 있는 카드만 맞았을 때 A.X 위반·위험은 확인 필요로 낮춘다
     cards = selected_cards or []
     if verdict in ("위반", "위험") and cards:
@@ -177,8 +178,29 @@ def verify_finding(
         verdict = rule["verdict"]
         notes.append("rule_override")
         if rule.get("why"):
-            # why가 비어 있으면 유지, 있으면 규칙 사유를 덧붙일 수 있게 notes에만
+            why = rule["why"]
             notes.append("rule_why")
+
+    numeric_lock = _numeric_violation_locked(rule, verdict)
+
+    # 최저임금·이자 숫자 규칙 위반: corpus에서 조문을 직접 붙이고 위반 고정
+    if numeric_lock:
+        law_ev = _rule_law_evidence(rule)
+        if law_ev:
+            have = {e.get("id") for e in tagged}
+            for ev in law_ev:
+                if ev.get("id") not in have:
+                    tagged.append(ev)
+                    have.add(ev.get("id"))
+            notes.append("rule_evidence_attached")
+        notes.append("rule_numeric_lock")
+        verdict = "위반"
+    elif verdict == "위반" and not tagged:
+        # 그 외 위반+근거0개 → 확인 필요
+        verdict = "확인 필요"
+        notes.append("no_evidence")
+        if "no_evidence" not in review_sources:
+            review_sources.append("no_evidence")
 
     return {
         "verdict": verdict,
@@ -186,7 +208,7 @@ def verify_finding(
         "rule": rule,
         "contract_quote": cq,
         "gap": finding.get("gap") or "",
-        "why": finding.get("why") or "",
+        "why": why,
         "suggestion": finding.get("suggestion") or "",
         "needs_fact": needs_fact,
         "needs_fact_action": nf_action,
@@ -251,15 +273,57 @@ def _is_wage_amount_clause(clause: str) -> bool:
     return False
 
 
+def _clause_local_wage_facts(clause: str, doc_facts: dict) -> dict | None:
+    """조항 문장에 시급·월급 금액이 있을 때만 로컬 facts. 연도는 문서 사실표를 보강."""
+    if not _is_wage_amount_clause(clause):
+        return None
+    from rag.facts import extract_facts
+
+    local = extract_facts(clause or "")
+    if local.get("hourly_wage") is None and local.get("monthly_wage") is None:
+        return None
+    # 적용 연도·계약일은 문서 값 우선(조항 단독에 날짜가 없는 경우)
+    out = dict(local)
+    for k in ("start_date", "end_date", "apply_year", "date_missing", "date_invalid"):
+        if out.get(k) is None and (doc_facts or {}).get(k) is not None:
+            out[k] = doc_facts.get(k)
+    return out
+
+
+def _clause_local_interest_values(clause: str) -> list[tuple[str, float]]:
+    """조항 자체에서 읽은 이율·지연이율만. 문서 전체 이율은 쓰지 않는다."""
+    t = clause or ""
+    if not any(k in t for k in ("이자", "이율")):
+        return []
+    out: list[tuple[str, float]] = []
+    try:
+        from rag.facts import _collect_interest_rates, extract_facts
+
+        for r in _collect_interest_rates(t):
+            rate = r.get("rate")
+            if rate is not None:
+                out.append(("이자율", float(rate)))
+        local = extract_facts(t)
+        delay = local.get("delay_interest_rate")
+        if delay is not None:
+            out.append(("지연 이율", float(delay)))
+    except Exception:
+        pass
+    return out
+
+
 def numeric_rules(clause: str, facts: dict) -> dict:
     fired = []
     verdict = None
     why = ""
-    wage = min_wage_verdict(facts)
-    if wage and wage.get("verdict") in ("위반", "확인 필요") and _is_wage_amount_clause(clause):
-        fired.extend(wage.get("fired") or ["min_wage"])
-        verdict = wage["verdict"]
-        why = wage.get("why") or ""
+    # 최저임금: 조항 안에 시급·월급 금액이 직접 있을 때만
+    local_wage = _clause_local_wage_facts(clause, facts)
+    if local_wage is not None:
+        wage = min_wage_verdict(local_wage)
+        if wage and wage.get("verdict") in ("위반", "확인 필요"):
+            fired.extend(wage.get("fired") or ["min_wage"])
+            verdict = wage["verdict"]
+            why = wage.get("why") or ""
     hours = facts.get("work_hours_per_day")
     brk = facts.get("break_minutes")
     if hours is not None and brk is not None and any(k in clause for k in ("휴게", "근로시간", "근무시간")):
@@ -277,14 +341,85 @@ def numeric_rules(clause: str, facts: dict) -> dict:
         fired.append("lease_increase")
         verdict = "위반"
         why = (why + " " if why else "") + f"증액률 {rate}는 상한 {LEASE_INCREASE_CAP}을 넘는다."
-    interest = facts.get("interest_rate")
-    delay = facts.get("delay_interest_rate")
-    for name, val in (("이자율", interest), ("지연 이율", delay)):
-        if val is not None and val > MAX_INTEREST and any(k in clause for k in ("이자", "이율")):
+    # 이자: 조항 로컬(금액형 포함) 이율만. 문서 max로 위반을 만들지 않음.
+    for name, val in _clause_local_interest_values(clause):
+        if val is not None and val > MAX_INTEREST:
             fired.append("interest")
             verdict = "위반"
-            why = (why + " " if why else "") + f"{name} {val}는 연 {MAX_INTEREST}를 넘는다."
+            pct = _pct_label(val)
+            cap = _pct_label(MAX_INTEREST)
+            why = (why + " " if why else "") + f"연 {pct}로 최고이자율 연 {cap}를 넘습니다"
+            break
     return {"fired": fired, "verdict": verdict, "why": why.strip()}
+
+
+def _pct_label(rate: float) -> str:
+    pct = float(rate) * 100.0
+    if abs(pct - round(pct)) < 1e-9:
+        return f"{int(round(pct))}%"
+    return f"{pct:g}%"
+
+
+_NUMERIC_LOCK_FIRED = frozenset({"min_wage", "interest"})
+_CORPUS_EV_CACHE: dict[str, dict | None] = {}
+
+
+def _numeric_violation_locked(rule: dict | None, verdict: str | None = None) -> bool:
+    """최저임금·이자 숫자 규칙이 위반을 낸 경우. 이후 단계에서 내리면 안 된다."""
+    if not rule:
+        return False
+    if verdict is not None and verdict != "위반" and rule.get("verdict") != "위반":
+        return False
+    fired = set(rule.get("fired") or [])
+    if not (fired & _NUMERIC_LOCK_FIRED):
+        return False
+    return rule.get("verdict") == "위반" or verdict == "위반"
+
+
+def _corpus_evidence_by_id(rec_id: str) -> dict | None:
+    """검색 없이 corpus 레코드를 근거 형태로 반환."""
+    if rec_id in _CORPUS_EV_CACHE:
+        return dict(_CORPUS_EV_CACHE[rec_id]) if _CORPUS_EV_CACHE[rec_id] else None
+    try:
+        import json
+
+        from rag.paths import CORPUS
+
+        data = json.loads(CORPUS.read_text(encoding="utf-8"))
+        records = data.get("records") or data if isinstance(data, list) else (data.get("records") or [])
+        for rec in records:
+            if rec.get("id") == rec_id:
+                item = {
+                    "id": rec.get("id"),
+                    "quote": (rec.get("text") or "").strip(),
+                    "title": rec.get("title") or rec_id,
+                    "source_tag": "[법령]",
+                    "doc_type": rec.get("doc_type") or "법률",
+                }
+                _CORPUS_EV_CACHE[rec_id] = item
+                return dict(item)
+    except Exception:
+        pass
+    _CORPUS_EV_CACHE[rec_id] = None
+    return None
+
+
+def _rule_law_evidence(rule: dict) -> list[dict]:
+    """숫자 규칙 위반에 붙일 법령 근거. 검색 설정은 건드리지 않는다."""
+    fired = rule.get("fired") or []
+    out: list[dict] = []
+    if "min_wage" in fired:
+        ev = _corpus_evidence_by_id("law:최저임금법:6:1")
+        if ev:
+            out.append(ev)
+    if "interest" in fired:
+        art2 = _corpus_evidence_by_id("law:이자제한법:2")
+        if art2:
+            out.append(art2)
+        notice = _corpus_evidence_by_id("notice:이자제한법 제2조제1항의 최고이자율에 관한 규정:본문")
+        if notice:
+            out.append(notice)
+    return out
 
 
 def is_critical(verdict: str, clause: str, facts: dict, rule: dict) -> list[str]:

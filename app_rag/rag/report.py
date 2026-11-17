@@ -35,6 +35,11 @@ def build_report(payload: dict) -> dict:
                 }
             )
     cards = [_card(row) for row in findings]
+    doc_text = "\n".join((s.get("text") or "") for s in segments)
+    for extra in _fact_conflict_cards(facts, doc_text=doc_text):
+        cards.append(extra)
+        v = extra.get("verdict") or "확인 필요"
+        counts[v] = counts.get(v, 0) + 1
     missing = missing_items(findings, domain)
     mismatches = find_mismatches(segments, facts)
     needs = []
@@ -157,6 +162,157 @@ def build_report(payload: dict) -> dict:
     }
 
 
+def _pct_phrase(rate: float) -> str:
+    pct = float(rate) * 100.0
+    if abs(pct - round(pct)) < 1e-9:
+        return f"연 {int(round(pct))}%"
+    return f"연 {pct:g}%"
+
+
+def _fact_conflict_cards(facts: dict, doc_text: str = "") -> list[dict]:
+    """문서 안 이자율·원금이 서로 다를 때 확인 필요 카드 추가.
+    원금은 '이번/추가/총 … 차용' 합산 관계면 불일치로 보지 않는다."""
+    out: list[dict] = []
+    rates = facts.get("interest_rates") or []
+    uniq_rates = sorted({float(r["rate"]) for r in rates if r.get("rate") is not None})
+    if len(uniq_rates) >= 2:
+        joined = ", ".join(_pct_phrase(r) for r in uniq_rates)
+        out.append(
+            {
+                "segment_id": "fact:interest_rate_conflict",
+                "order": None,
+                "article_title": "이자율 불일치",
+                "verdict": "확인 필요",
+                "contract_quote": "",
+                "clause_text": "",
+                "evidence": [],
+                "gap": "",
+                "why": f"같은 계약서 안에 이자율이 서로 다르게 적혀 있습니다({joined}). 어느 것이 실제 약정인지 확인하세요.",
+                "suggestion": "어느 이자율이 실제 약정인지 확인하세요.",
+                "state": "ok",
+                "notes": ["interest_rate_conflict"],
+                "anomaly": [],
+                "ax_verdict": None,
+                "rule": {},
+                "card_versions": [],
+                "law_version_note": None,
+                "critical": [],
+                "used_ids": [],
+                "passed_ids": [],
+            }
+        )
+    principals = facts.get("principals") or []
+    uniq_p = sorted({int(p["value"]) for p in principals if p.get("value") is not None})
+    if len(uniq_p) >= 2 and not _principals_are_cumulative(doc_text, uniq_p, principals):
+        joined_p = ", ".join(f"{v:,}원" for v in uniq_p)
+        out.append(
+            {
+                "segment_id": "fact:principal_conflict",
+                "order": None,
+                "article_title": "원금 불일치",
+                "verdict": "확인 필요",
+                "contract_quote": "",
+                "clause_text": "",
+                "evidence": [],
+                "gap": "",
+                "why": f"같은 계약서 안에 원금이 서로 다르게 적혀 있습니다({joined_p}). 어느 것이 실제 약정인지 확인하세요.",
+                "suggestion": "어느 원금이 실제 약정인지 확인하세요.",
+                "state": "ok",
+                "notes": ["principal_conflict"],
+                "anomaly": [],
+                "ax_verdict": None,
+                "rule": {},
+                "card_versions": [],
+                "law_version_note": None,
+                "critical": [],
+                "used_ids": [],
+                "passed_ids": [],
+            }
+        )
+    return out
+
+
+def _principals_are_cumulative(text: str, values: list[int], principals: list[dict] | None = None) -> bool:
+    """이번/추가/총 차용 문맥에서 큰 금액이 작은 금액 합과 같으면 True."""
+    t = text or ""
+    blob = t
+    if principals:
+        blob += "\n" + "\n".join((p.get("snippet") or "") for p in principals)
+    if not re.search(r"(?:이번|추가|총).{0,24}차용", blob):
+        return False
+    vals = sorted({int(v) for v in values})
+    if len(vals) < 2:
+        return False
+    largest = vals[-1]
+    smaller = vals[:-1]
+    if sum(smaller) == largest:
+        return True
+    # 총액이 본문에 있고 principals 합과 같으면 합산 관계
+    total_sum = sum(vals)
+    from rag.facts import hangul_amount_to_int, _to_int, NUM
+
+    for m in re.finditer(rf"총\s*([가-힣]+|{NUM})\s*원", blob):
+        raw = m.group(1)
+        tot = _to_int(raw) if re.search(r"\d", raw) else hangul_amount_to_int(raw)
+        if tot and int(tot) == total_sum:
+            return True
+        if tot and int(tot) == largest:
+            return True
+    return False
+
+
+
+_INTEREST_CAP_NOTICE_ID = "notice:이자제한법 제2조제1항의 최고이자율에 관한 규정:본문"
+_INTEREST_CAP_NOTICE_CACHE: dict | None = None
+
+
+def _interest_cap_notice() -> dict | None:
+    """corpus에 있는 최고이자율 규정(연 20%) 레코드. 검색 설정은 건드리지 않고 표시용."""
+    global _INTEREST_CAP_NOTICE_CACHE
+    if _INTEREST_CAP_NOTICE_CACHE is not None:
+        return _INTEREST_CAP_NOTICE_CACHE or None
+    try:
+        from rag.paths import CORPUS
+        import json
+
+        data = json.loads(CORPUS.read_text(encoding="utf-8"))
+        records = data.get("records") or data if isinstance(data, list) else (data.get("records") or [])
+        for rec in records:
+            if rec.get("id") == _INTEREST_CAP_NOTICE_ID:
+                _INTEREST_CAP_NOTICE_CACHE = {
+                    "id": rec.get("id"),
+                    "quote": (rec.get("text") or "").strip(),
+                    "title": rec.get("title") or "이자제한법 제2조제1항의 최고이자율에 관한 규정",
+                    "source_tag": "[법령]",
+                    "doc_type": rec.get("doc_type") or "시행령",
+                }
+                return _INTEREST_CAP_NOTICE_CACHE
+    except Exception:
+        _INTEREST_CAP_NOTICE_CACHE = {}
+        return None
+    _INTEREST_CAP_NOTICE_CACHE = {}
+    return None
+
+
+def _attach_interest_cap_evidence(evidence: list) -> list:
+    """이자제한법 제2조 근거가 있으면 최고이자율 규정(연 20%)을 함께 붙인다."""
+    evs = list(evidence or [])
+    if not evs:
+        return evs
+    has_art2 = any(
+        ("이자제한법" in ((e.get("title") or "") + (e.get("id") or "")) and "제2조" in ((e.get("title") or "") + (e.get("id") or "")))
+        for e in evs
+    )
+    if not has_art2:
+        return evs
+    if any(_INTEREST_CAP_NOTICE_ID in (e.get("id") or "") for e in evs):
+        return evs
+    notice = _interest_cap_notice()
+    if notice:
+        evs.append(dict(notice))
+    return evs
+
+
 def _card(row: dict) -> dict:
     law_note = None
     for cv in row.get("card_versions") or []:
@@ -166,6 +322,7 @@ def _card(row: dict) -> dict:
             elif cv.get("apply_rule") == "in_force":
                 law_note = f"현행 기준(시행 {cv.get('effective_from')}) 적용"
             break
+    evidence = _attach_interest_cap_evidence(row.get("evidence") or [])
     return {
         "segment_id": row.get("segment_id"),
         "order": row.get("order"),
@@ -173,7 +330,7 @@ def _card(row: dict) -> dict:
         "verdict": row.get("verdict"),
         "contract_quote": row.get("contract_quote") or "",
         "clause_text": row.get("text") or "",
-        "evidence": row.get("evidence") or [],
+        "evidence": evidence,
         "gap": row.get("gap") or "",
         "why": row.get("why") or "",
         "suggestion": row.get("suggestion") or "",
@@ -189,7 +346,7 @@ def _card(row: dict) -> dict:
         "doc_question": row.get("doc_question"),
         "latency_ms": row.get("latency_ms"),
         "passed_ids": [h["id"] for h in (row.get("hits") or [])],
-        "used_ids": [e["id"] for e in (row.get("evidence") or [])],
+        "used_ids": [e["id"] for e in evidence],
         "filter_mode": row.get("filter_mode"),
         "std_items": row.get("std_items") or [],
         "critical": row.get("critical") or [],

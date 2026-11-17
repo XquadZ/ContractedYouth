@@ -31,6 +31,15 @@ def _cookie(resp):
     return {"Cookie": raw.split(";", 1)[0]}
 
 
+def _admin_login_json() -> dict:
+    """관리자 로그인 정보. 비밀번호는 환경변수/설정에서 읽고 출력하지 않는다."""
+    from rag.db import _admin_password_plain, ensure_admin
+
+    ensure_admin()
+    login_id = (os.environ.get("ADMIN_LOGIN_ID") or "user1").strip()
+    return {"login_id": login_id, "password": _admin_password_plain()}
+
+
 def test_encrypt_roundtrip():
     n, ct = encrypt_bytes(b"hello-contract")
     assert decrypt_bytes(n, ct) == b"hello-contract"
@@ -74,7 +83,7 @@ def test_ttl_and_admin_delete_keeps_review():
         assert rev.status_code == 200
         assert rev.json()["original_deleted"] is True
         # admin delete another file
-        admin = c.post("/api/auth/login", json={"login_id": "user1", "password": "pwd1"})
+        admin = c.post("/api/auth/login", json=_admin_login_json())
         ah = _cookie(admin)
         files2 = {"file": ("a.txt", b"abc", "text/plain")}
         # need user upload then admin delete — re-login as user
@@ -82,7 +91,7 @@ def test_ttl_and_admin_delete_keeps_review():
         h2 = _cookie(login2)
         ex2 = c.post("/api/extract", files=files2, headers=h2)
         fid2 = ex2.json()["file_id"]
-        admin = c.post("/api/auth/login", json={"login_id": "user1", "password": "pwd1"})
+        admin = c.post("/api/auth/login", json=_admin_login_json())
         ah = _cookie(admin)
         d = c.post(f"/api/admin/files/{fid2}/delete", headers=ah)
         assert d.status_code == 200

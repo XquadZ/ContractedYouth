@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import re
 
+from rag.dates import DATE_INVALID_TMPL, DATE_MISSING_NOTE
+
+DATE_ORDER_NOTE = "계약 종료일이 시작일보다 빨라요."
 from rag.paths import REQUIRED_ITEMS
 from rag.yamlutil import load as load_yaml
 
@@ -35,13 +38,79 @@ def build_report(payload: dict) -> dict:
     missing = missing_items(findings, domain)
     mismatches = find_mismatches(segments, facts)
     needs = []
+    doc_questions = []
+    clause_checks = []
     for row in findings:
-        if row.get("needs_fact"):
-            needs.append({"segment_id": row.get("segment_id"), "fact": row["needs_fact"]})
+        nf = row.get("needs_fact")
+        action = row.get("needs_fact_action")
+        if nf:
+            needs.append({
+                "segment_id": row.get("segment_id"),
+                "fact": nf,
+                "action": action,
+            })
+        # blocking_if로 조항이 '확인 필요'가 된 경우 → 조항 확인 필요
+        if action == "blocking_if" or (
+            row.get("verdict") == "확인 필요" and "blocking_if" in (row.get("notes") or [])
+        ):
+            clause_checks.append({
+                "segment_id": row.get("segment_id"),
+                "fact": nf,
+                "article_title": row.get("article_title") or "",
+                "verdict": row.get("verdict"),
+                "kind": "조항 확인 필요",
+            })
+        # 비-blocking needs_fact → 직접 확인할 것(문서 질문). 판정은 바꾸지 않음.
+        dq = row.get("doc_question")
+        if action == "doc_question" or dq:
+            doc_questions.append({
+                "segment_id": row.get("segment_id"),
+                "fact": (dq or {}).get("fact") if isinstance(dq, dict) else nf,
+                "ax_verdict": (dq or {}).get("ax_verdict") if isinstance(dq, dict) else row.get("ax_verdict"),
+                "article_title": row.get("article_title") or "",
+                "verdict": row.get("verdict"),
+                "kind": "문서 질문",
+            })
     requests = [c["suggestion"] for c in cards if c.get("suggestion")]
+    date_note = DATE_MISSING_NOTE if facts.get("date_missing") else ""
+    if date_note:
+        requests = [date_note] + requests
+    # 법령 버전 안내
+    law_as_of = facts.get("start_date") or facts.get("contract_date") or ""
+    version_notices: list[str] = []
+    for row in findings:
+        for n in row.get("version_notices") or []:
+            if n and n not in version_notices:
+                version_notices.append(n)
+        for cv in row.get("card_versions") or []:
+            ef = cv.get("effective_from")
+            if ef and cv.get("version") is not None:
+                note = f"계약일 기준(시행 {ef}) 적용"
+                # 과거 버전 표시는 카드에 버전이 있을 때만
+                if note not in version_notices and cv.get("apply_rule") == "contract_date":
+                    # 리포트 카드별 표시용 — 전역 안내는 예정 개정만
+                    pass
+        for n in version_notices:
+            if n and n not in requests and ("바뀌어요" in n or "다를 수 있어요" in n or "계약일을 찾지" in n):
+                requests.append(n)
+    from rag.score import compute_score
+
+    # 누락·불일치: 목록이 있으면 반영, 없으면 미반영(0)
+    n_missing = len(missing or [])
+    n_mismatch = len(mismatches or [])
+    score_info = compute_score(
+        n_violation=counts.get("위반", 0),
+        n_risk=counts.get("위험", 0),
+        n_check=counts.get("확인 필요", 0),
+        n_missing=n_missing,
+        n_mismatch=n_mismatch,
+        missing_reflected=True,
+        mismatch_reflected=True,
+        check_cap79=True,
+    )
     return {
         "title": "계약서 점검 리포트",
-        "model": "A.X-4.0-Light",
+        "model": payload.get("model") or "A.X-4.0-Light",
         "domain": domain,
         "summary": {
             "n_segments": len(findings),
@@ -49,23 +118,54 @@ def build_report(payload: dict) -> dict:
             "n_risk": counts.get("위험", 0),
             "n_review": counts.get("확인 필요", 0),
             "n_ok": counts.get("문제 없음", 0),
+            "n_clause_check": len(clause_checks),
+            "n_doc_question": len(doc_questions),
         },
+        "score": score_info["score"],
+        "grade": score_info["grade"],
+        "score_detail": score_info,
         "critical": critical,
         "cards": cards,
         "missing": missing,
         "mismatches": mismatches,
         "needs_fact": needs,
+        "직접_확인할_것": {
+            "조항_확인_필요": clause_checks,
+            "문서_질문": doc_questions,
+        },
+        "clause_checks": clause_checks,
+        "doc_questions": doc_questions,
         "next_actions": {
             "requests": requests,
             "helpline": HELPLINE,
         },
         "disclaimer": DISCLAIMER,
+        "date_note": date_note,
+        "법령_기준일": law_as_of or None,
+        "law_as_of": law_as_of or None,
+        "card_versions_used": [
+            cv
+            for row in findings
+            for cv in (row.get("card_versions") or [])
+            if cv.get("version") is not None
+        ],
+        "version_notices": version_notices,
         "facts": {k: v for k, v in facts.items() if k != "raw"},
         "stats": payload.get("stats") or {},
+        "analyze_model": payload.get("analyze_model"),
+        "demo_notice": payload.get("demo_notice"),
     }
 
 
 def _card(row: dict) -> dict:
+    law_note = None
+    for cv in row.get("card_versions") or []:
+        if cv.get("effective_from") and cv.get("version") is not None:
+            if cv.get("apply_rule") in ("contract_date", "performance_period"):
+                law_note = f"계약일 기준(시행 {cv.get('effective_from')}) 적용"
+            elif cv.get("apply_rule") == "in_force":
+                law_note = f"현행 기준(시행 {cv.get('effective_from')}) 적용"
+            break
     return {
         "segment_id": row.get("segment_id"),
         "order": row.get("order"),
@@ -82,6 +182,11 @@ def _card(row: dict) -> dict:
         "anomaly": row.get("anomaly") or [],
         "ax_verdict": row.get("ax_verdict"),
         "rule": row.get("rule") or {},
+        "card_versions": row.get("card_versions") or [],
+        "law_version_note": law_note,
+        "needs_fact": row.get("needs_fact"),
+        "needs_fact_action": row.get("needs_fact_action"),
+        "doc_question": row.get("doc_question"),
         "latency_ms": row.get("latency_ms"),
         "passed_ids": [h["id"] for h in (row.get("hits") or [])],
         "used_ids": [e["id"] for e in (row.get("evidence") or [])],
@@ -165,6 +270,12 @@ def find_mismatches(segments: list[dict], facts: dict) -> list[dict]:
         bad = mm < 1 or mm > 12 or dd < 1 or dd > 31
         if bad:
             out.append({"type": "date_error", "value": f"{yy}-{mm:02d}-{dd:02d}"})
+    for raw in facts.get("date_invalid") or []:
+        out.append({"type": "date_invalid", "value": raw, "note": DATE_INVALID_TMPL.format(raw=raw)})
+    start = facts.get("start_date")
+    end = facts.get("end_date")
+    if start and end and str(end) < str(start):
+        out.append({"type": "date_order", "start": start, "end": end, "note": DATE_ORDER_NOTE})
     return out
 
 
@@ -212,12 +323,19 @@ def _hangul_to_int(s: str) -> int:
 
 def to_markdown(report: dict) -> str:
     s = report["summary"]
+    law_as_of = report.get("법령_기준일") or report.get("law_as_of")
     lines = [
         f"# {report['title']}",
         "",
         f"- 모델: {report['model']}",
         f"- 유형: {report.get('domain')}",
         f"- 위반 {s['n_violation']} / 위험 {s['n_risk']} / 확인 필요 {s['n_review']} / 문제 없음 {s['n_ok']}",
+    ]
+    if law_as_of:
+        lines.append(f"- 법령 기준일: {law_as_of}")
+    for n in report.get("version_notices") or []:
+        lines.append(f"- 참고: {n}")
+    lines += [
         "",
         "## 치명 항목",
         "",
@@ -247,6 +365,8 @@ def to_markdown(report: dict) -> str:
         lines += ["", "**차이**", "", card.get("gap") or "", "", "**왜 문제인지**", "", card.get("why") or "", ""]
         if card.get("suggestion"):
             lines += ["**수정 문구**", "", card["suggestion"], ""]
+        if card.get("law_version_note"):
+            lines += [f"*{card['law_version_note']}*", ""]
         if card.get("rule") and card["rule"].get("fired"):
             lines += [f"(숫자 규칙: {card['rule'].get('why')} / A.X 판정 {card.get('ax_verdict')})", ""]
     lines += ["## 누락 항목", ""]

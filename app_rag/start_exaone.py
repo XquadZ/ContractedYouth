@@ -47,10 +47,63 @@ def health() -> bool:
         return False
 
 
+def port_listening(port: int) -> bool:
+    """8083 등이 이미 LISTENING인지 netstat으로 확인."""
+    try:
+        out = subprocess.check_output(["netstat", "-ano"], text=True, errors="replace")
+    except Exception:
+        return False
+    suffix = f":{port}"
+    for line in out.splitlines():
+        parts = line.split()
+        if len(parts) < 4 or parts[3] != "LISTENING":
+            continue
+        if parts[1].endswith(suffix):
+            return True
+    return False
+
+
+def llama_server_running() -> bool:
+    """llama-server.exe 프로세스가 하나라도 있는지."""
+    try:
+        out = subprocess.check_output(
+            ["tasklist", "/FI", "IMAGENAME eq llama-server.exe", "/NH"],
+            text=True,
+            errors="replace",
+        )
+    except Exception:
+        return False
+    return "llama-server.exe" in out.lower()
+
+
+def existing_instance() -> bool:
+    return port_listening(PORT) or llama_server_running()
+
+
+def wait_existing_health(max_rounds: int = 300) -> bool:
+    """기존 인스턴스가 있으면 새 기동 없이 health 200까지 대기."""
+    print("EXISTING_INSTANCE wait health 8083", flush=True)
+    for i in range(max_rounds):
+        if health():
+            print("EXAONE_UP 8083 (existing)", flush=True)
+            return True
+        if not existing_instance():
+            print("EXISTING_GONE", flush=True)
+            return False
+        if i % 15 == 0:
+            print("WAIT_HEALTH_EXISTING", i * 2, "sec", flush=True)
+        time.sleep(2)
+    raise SystemExit("server_not_healthy_existing")
+
+
 def main() -> None:
     if health():
         print("ALREADY_UP 8083", flush=True)
         return
+    if existing_instance():
+        if wait_existing_health():
+            return
+        # 기존 프로세스가 사라진 경우에만 아래로 내려가 새로 기동
     if not SERVER.exists():
         raise SystemExit(f"missing {SERVER}")
     gguf = find_gguf()

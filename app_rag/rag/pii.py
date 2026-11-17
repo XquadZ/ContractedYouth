@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import re
 
-# 주민등록번호: 앞 6 + - + 뒤 7 → 앞6-*******
-_RRN = re.compile(r"(?<!\d)(\d{6})-(\d{7})(?!\d)")
+# 주민등록번호: 하이픈/공백/붙여쓰기 → 앞6-*******
+_RRN = re.compile(r"(?<!\d)(\d{6})\s*-\s*(\d{7})(?!\d)")
+_RRN_SPACE = re.compile(r"(?<!\d)(\d{6})\s+(\d{7})(?!\d)")
+_RRN_COMPACT = re.compile(r"(?<!\d)(\d{6})(\d{7})(?!\d)")
 
 # 전화번호: 날짜(YYYY-MM-DD 등)와 구분. 휴대폰/일반
 _PHONE = re.compile(
@@ -99,7 +101,11 @@ _NAME_ROLE_COLON = re.compile(
     rf"(?<![가-힣])({_ROLES})\s*[:：]\s*{_NAME_AFTER}"
 )
 # 역할어 + 공백 + 이름 + 허용 뒤문맥 (콜론 없음)
-_TRAIL = r"(?=(?:\(이하|[과와은는이가/,]|\(|（|\s*\(서명\)|\s*(?:\n|$)))"
+# 항목명(주민등록번호·주소 등)이 이름 뒤에 이어져도 가린다.
+_PII_FIELD = (
+    r"(?:주민등록번호|주민번호|생년월일|주소|연락처|전화|휴대폰|계좌번호|계좌)"
+)
+_TRAIL = rf"(?=(?:\(이하|[과와은는이가/,]|\(|（|\s*\(서명\)|\s+{_PII_FIELD}|\s*(?:\n|$)))"
 _NAME_ROLE_SPACE = re.compile(
     rf"(?<![가-힣])({_ROLES})\s+([가-힣]{{2,4}}){_TRAIL}"
 )
@@ -168,14 +174,40 @@ def _mask_name(m: re.Match, *, require_surname: bool = False) -> str:
     return f"{role_disp} {name[0]}{'*' * (len(name) - 1)}"
 
 
+_BANK_NEAR = re.compile(
+    r"(국민|신한|우리|하나|농협|기업|카카오뱅크|토스뱅크|SC제일|우체국|새마을|신협|케이뱅크|부산|대구|경남|광주|전북|제주)(?:은행)?"
+)
+
+
+def _rrn_date_ok(front6: str, gender_digit: str) -> bool:
+    """앞6이 유효 날짜(월 01~12, 일 01~31)이고 7번째 자리가 1~8."""
+    if len(front6) != 6 or not front6.isdigit():
+        return False
+    mm, dd = int(front6[2:4]), int(front6[4:6])
+    if mm < 1 or mm > 12 or dd < 1 or dd > 31:
+        return False
+    return gender_digit in "12345678"
+
+
 def _looks_like_date_fragment(text: str, start: int, end: int) -> bool:
-    """전화번호 매치가 날짜의 일부인지."""
+    """전화번호/계좌 매치가 날짜의 일부인지. 앞뒤 숫자 경계를 존중한다."""
+    # 매치가 더 긴 숫자열 안의 조각이면(계좌 등) 날짜로 보지 않음 — 호출측 경계와 함께 동작
+    left = text[start - 1] if start > 0 else ""
+    right = text[end] if end < len(text) else ""
+    if left.isdigit() or right.isdigit():
+        return False
     window = text[max(0, start - 6) : min(len(text), end + 6)]
-    if re.search(r"\d{4}[-./년]\s*\d{1,2}[-./월]\s*\d{1,2}", window):
+    # 독립된 YYYY-MM-DD 형태만
+    if re.search(r"(?<!\d)\d{4}[-./년]\s*\d{1,2}[-./월]\s*\d{1,2}(?!\d)", window):
         return True
-    if re.search(r"\d{4}-\d{1,2}-\d{1,2}", window):
+    if re.search(r"(?<!\d)\d{4}-\d{1,2}-\d{1,2}(?!\d)", window):
         return True
     return False
+
+
+def _bank_context(text: str, start: int) -> bool:
+    left = text[max(0, start - 16) : start]
+    return bool(_BANK_NEAR.search(left))
 
 
 def _looks_like_money_context(text: str, start: int, end: int) -> bool:
@@ -200,12 +232,19 @@ def mask_pii(text: str) -> tuple[str, dict]:
     }
 
     def sub_rrn(m: re.Match) -> str:
+        front, back = m.group(1), m.group(2)
+        # 붙여쓰기·공백 분리는 날짜+성별자리 검사
+        if m.re in (_RRN_SPACE, _RRN_COMPACT) and not _rrn_date_ok(front, back[0]):
+            return m.group(0)
         counts["rrn"] += 1
-        return f"{m.group(1)}-*******"
+        return f"{front}-*******"
 
     out = _RRN.sub(sub_rrn, src)
+    out = _RRN_SPACE.sub(sub_rrn, out)
+    out = _RRN_COMPACT.sub(sub_rrn, out)
 
     # 날짜를 잠시 보호한 뒤 전화번호 마스킹 (2026-03-02 등)
+    # 앞뒤 숫자 경계로 계좌 안 날짜 조각이 통째로 보호되지 않게 한다.
     date_holders: list[str] = []
 
     def _hold_date(m: re.Match) -> str:
@@ -213,7 +252,7 @@ def mask_pii(text: str) -> tuple[str, dict]:
         return f"§DATE{len(date_holders)-1}§"
 
     out = re.sub(
-        r"\d{4}\s*[.\/년\-]\s*\d{1,2}\s*[.\/월\-]\s*\d{1,2}\s*일?",
+        r"(?<!\d)\d{4}\s*[.\/년\-]\s*\d{1,2}\s*[.\/월\-]\s*\d{1,2}\s*일?(?!\d)",
         _hold_date,
         out,
     )
@@ -232,16 +271,17 @@ def mask_pii(text: str) -> tuple[str, dict]:
     for i, raw in enumerate(date_holders):
         out = out.replace(f"§DATE{i}§", raw)
 
-    # account with money/date guard
+    # account with money/date guard (은행명 앞이면 계좌로 강제)
     parts = []
     last = 0
     for m in _ACCOUNT.finditer(out):
-        if _looks_like_money_context(out, m.start(), m.end()):
+        bankish = _bank_context(out, m.start())
+        if not bankish and _looks_like_money_context(out, m.start(), m.end()):
             continue
-        if _looks_like_date_fragment(out, m.start(), m.end()):
+        if not bankish and _looks_like_date_fragment(out, m.start(), m.end()):
             continue
         a = m.group(1)
-        if re.fullmatch(r"19\d{2}|20\d{2}", a or ""):
+        if not bankish and re.fullmatch(r"19\d{2}|20\d{2}", a or ""):
             continue
         left = out[max(0, m.start() - 3) : m.start()]
         if "제" in left or "조" in out[m.end() : m.end() + 3]:

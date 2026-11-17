@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import time
 from typing import Callable
 
@@ -39,6 +40,29 @@ from rag.verify import verify_finding
 _INDEX = None
 _INDEX_N = -1
 _SKIPPED = []
+
+
+def _clause_interest_overlay(facts: dict, clause: str) -> dict:
+    """프롬프트용: 조항 안·금액형 이율이 있으면 그 값으로 interest_rate를 덮어쓴다.
+    문서 최대값(facts.interest_rate)은 숫자 규칙용으로 그대로 둔다."""
+    out = dict(facts or {})
+    t = clause or ""
+    local = None
+    try:
+        from rag.facts import _collect_interest_rates
+
+        found = _collect_interest_rates(t)
+        if found:
+            # 금액형이 있으면 그걸 우선(조항 자체 이율)
+            amount = [r for r in found if r.get("basis") == "amount"]
+            local = amount[0] if amount else found[0]
+    except Exception:
+        local = None
+    if local and local.get("rate") is not None:
+        out["interest_rate_doc_max"] = facts.get("interest_rate")
+        out["interest_rate"] = local.get("rate")
+        out["interest_rate_basis"] = local.get("basis")
+    return out
 
 
 def _log(row: dict) -> None:
@@ -149,7 +173,8 @@ def run(
         if use_c:
             cards, version_notices = _select_cards_dated(row["text"], facts, domain=domain, limit=2)
         if not no_llm and llm_ok:
-            finding = generate_finding_routed(row["text"], facts, hits, use_criteria=use_c)
+            facts_for_llm = _clause_interest_overlay(facts, row["text"])
+            finding = generate_finding_routed(row["text"], facts_for_llm, hits, use_criteria=use_c)
             hits = finding.get("hits_for_verify") or hits
             # generate 경로 카드 메타(버전·안내) 우선
             if finding.get("cards"):

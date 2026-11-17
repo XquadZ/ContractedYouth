@@ -21,13 +21,40 @@ PLACEHOLDER = re.compile(r"\{\{[^}]+\}\}")
 TABLE_LINE = re.compile(r"^[^:\n]{1,40}:\s*\S")
 MIN_LEN = 20
 
+# --- SPLIT_META: 꼬리·서식 부속 ---
+DATE_ONLY_FLEX = re.compile(
+    r"^("
+    r"\d{4}\s*년\s*\d{1,2}\s*월\s*\d{1,2}\s*일"
+    r"|\d{4}\s*[-./]\s*\d{1,2}\s*[-./]\s*\d{1,2}"
+    r"|20_{2,4}\s*년\s*_{1,4}\s*월\s*_{1,4}\s*일"
+    r")\s*$"
+)
+SIGN_MARK = re.compile(r"(\(서명\)|\(인\)|\(서명\s*또는\s*날인\)|\(서명\s*또는\s*인\))")
+PERSON_FIELD = re.compile(
+    r"^(성\s*명|성명|주\s*소|주소|연\s*락\s*처|연락처|전화|주민등록번호|사업체명|대\s*표\s*자|대표자)\s*:"
+)
+PARTY_START = re.compile(
+    r"^(\(채권자\s*[·･・]?\s*갑\)|\(채무자\s*[·･・]?\s*을\)|\(사업주\)|\(근로자\)|\(임대인\)|\(임차인\)|\(연대보증인\))"
+)
+DELIVERY_LINE = re.compile(
+    r"(계약서\s*2통을\s*작성하여.*각\s*1통을\s*보관한다|계약\s*당사자가\s*이의\s*없음을\s*확인하고.*서명)"
+)
+PAGE_MARK = re.compile(r"^\(\s*\d+\s*쪽\s*중\s*\d+\s*쪽\s*\)$")
+PAPER_MARK = re.compile(r"^\d+\s*mm\s*[x×]\s*\d+\s*mm\s*\[", re.I)
+CONSENT_TITLE = re.compile(r"개인정보.*(제\s*3\s*자\s*제공\s*동의|수집\s*[·･・]?\s*이용\s*동의)")
+ACK_UNDERSTAND = re.compile(r"본인은.+설명을\s*듣고.+이해했음")
+NOTE_LINE = re.compile(r"^※")
+NOTE_KEEP_SPECIAL = re.compile(r"^※\s*(기타|특약)")
+
 
 def strip_placeholders(text: str) -> str:
     return PLACEHOLDER.sub("", text or "")
 
 
 def _clean(text: str) -> str:
-    return (text or "").replace("\r\n", "\n").replace("\r", "\n").strip("\n")
+    # PDF 추출본은 줄 앞에 공백이 붙어 ARTICLE_SPLIT(^제N조)·①·번호 분할이 깨질 수 있다.
+    t = (text or "").replace("\r\n", "\n").replace("\r", "\n").strip("\n")
+    return "\n".join(ln.lstrip() for ln in t.splitlines())
 
 
 def _compact_len(text: str) -> int:
@@ -110,7 +137,7 @@ def _is_meta_line(line: str, index: int, total: int) -> bool:
         return True
     if _is_unit_start(s):
         return False
-    if DATE_ONLY.match(s):
+    if DATE_ONLY.match(s) or DATE_ONLY_FLEX.match(s):
         return True
     if SIGN_LINE.search(s):
         return True
@@ -121,6 +148,46 @@ def _is_meta_line(line: str, index: int, total: int) -> bool:
     if total > 1 and index == 0 and "계약서" in s and not s.startswith("제"):
         return True
     return False
+
+
+def _is_drop_line(s: str) -> bool:
+    t = (s or "").strip()
+    if not t:
+        return False
+    if PAGE_MARK.match(t):
+        return True
+    if PAPER_MARK.match(t):
+        return True
+    return False
+
+
+def _is_tail_meta_line(s: str) -> bool:
+    """마지막 조항 뒤에 오는 날짜·서명·인적·교부 줄. 줄 전체가 맞을 때만."""
+    t = (s or "").strip()
+    if not t:
+        return True
+    if ARTICLE_HEAD.match(t) or _is_unit_start(t):
+        return False
+    if DATE_ONLY_FLEX.match(t) or DATE_ONLY.match(t):
+        return True
+    if SIGN_MARK.search(t) and len(t) <= 40:
+        return True
+    if PERSON_FIELD.match(t):
+        return True
+    if PARTY_START.match(t):
+        return True
+    if DELIVERY_LINE.search(t):
+        return True
+    return False
+
+
+def _is_note_meta_line(s: str) -> bool:
+    t = (s or "").strip()
+    if not NOTE_LINE.match(t):
+        return False
+    if NOTE_KEEP_SPECIAL.match(t):
+        return False
+    return True
 
 
 def _same_unit(a: dict, b: dict) -> bool:
@@ -169,6 +236,162 @@ def _format_clause(title: str, body: str) -> str:
     if body.startswith("[") and "]" in body[:80]:
         return body
     return f"[{title}] {body}"
+
+
+def _piece(kind: str, title: str, text: str) -> dict:
+    return {"segment_type": kind, "article_title": title, "text": text}
+
+
+def _bare_text(s: str) -> str:
+    t = (s or "").strip()
+    if t.startswith("[") and "]" in t[:80]:
+        return t.split("]", 1)[1].strip()
+    return t
+
+
+def _peel_trailing_meta_lines(text: str) -> tuple[str, list[str]]:
+    """조각 끝의 꼬리 메타 줄을 떼어낸다."""
+    lines = [ln.strip() for ln in (text or "").splitlines() if ln.strip()]
+    if not lines:
+        return "", []
+    peeled: list[str] = []
+    while lines:
+        last = lines[-1]
+        bare = _bare_text(last)
+        if ARTICLE_HEAD.match(bare) or _is_unit_start(bare):
+            break
+        if _is_drop_line(bare) or _is_drop_line(last):
+            lines.pop()
+            continue
+        if _is_tail_meta_line(bare) or _is_tail_meta_line(last):
+            peeled.append(lines.pop())
+            continue
+        break
+    peeled.reverse()
+    return "\n".join(lines).strip(), peeled
+
+
+def _line_needs_form_split(ln: str) -> bool:
+    bare = _bare_text(ln)
+    return bool(
+        _is_drop_line(bare)
+        or _is_drop_line(ln)
+        or CONSENT_TITLE.search(bare)
+        or ACK_UNDERSTAND.search(bare)
+        or _is_note_meta_line(bare)
+    )
+
+
+def _apply_form_and_tail_meta(pieces: list[dict]) -> list[dict]:
+    """쪽·용지 삭제, 동의서·※·확인문구 meta, 마지막 조항 꼬리 meta."""
+    if not pieces:
+        return []
+
+    # 서식 부속 패턴이 섞인 조각: 해당 줄만 분리하고 본문 줄은 묶는다
+    expanded: list[dict] = []
+    for p in pieces:
+        t = (p.get("text") or "").strip()
+        if not t:
+            continue
+        kind0 = p.get("segment_type") or "clause"
+        title0 = p.get("article_title") or ""
+        lines = [ln.strip() for ln in t.splitlines() if ln.strip()]
+        if len(lines) > 1 and any(_line_needs_form_split(ln) for ln in lines):
+            buf: list[str] = []
+            for ln in lines:
+                if _line_needs_form_split(ln):
+                    if buf:
+                        expanded.append(_piece(kind0, title0, "\n".join(buf)))
+                        buf = []
+                    expanded.append(_piece(kind0, title0, ln))
+                else:
+                    buf.append(ln)
+            if buf:
+                expanded.append(_piece(kind0, title0, "\n".join(buf)))
+        else:
+            expanded.append(_piece(kind0, title0, t))
+
+    out: list[dict] = []
+    consent_mode = False
+    i = 0
+    while i < len(expanded):
+        cur = expanded[i]
+        t = (cur.get("text") or "").strip()
+        bare = _bare_text(t)
+        kind = cur.get("segment_type") or "clause"
+        title = cur.get("article_title") or ""
+
+        if _is_drop_line(bare) or _is_drop_line(t):
+            i += 1
+            continue
+
+        if ARTICLE_HEAD.match(bare):
+            consent_mode = False
+
+        if CONSENT_TITLE.search(bare):
+            consent_mode = True
+            out.append(_piece("meta", "", t))
+            i += 1
+            continue
+
+        if consent_mode:
+            if ARTICLE_HEAD.match(bare):
+                consent_mode = False
+            else:
+                out.append(_piece("meta", "", t))
+                i += 1
+                continue
+
+        if ACK_UNDERSTAND.search(bare):
+            out.append(_piece("meta", "", t))
+            if i + 1 < len(expanded):
+                nxt_t = (expanded[i + 1].get("text") or "").strip()
+                nb = _bare_text(nxt_t)
+                if _is_tail_meta_line(nb) or (SIGN_MARK.search(nb) and len(nb) <= 60):
+                    out.append(_piece("meta", "", nxt_t))
+                    i += 2
+                    continue
+            i += 1
+            continue
+
+        if _is_note_meta_line(bare):
+            out.append(_piece("meta", "", t))
+            i += 1
+            continue
+
+        out.append(_piece(kind, title, t))
+        i += 1
+
+    # 문서 끝에서 꼬리 메타 조각 강등 + 마지막 조항 조각 내부 꼬리 줄 분리
+    j = len(out) - 1
+    while j >= 0 and out[j]["segment_type"] == "meta":
+        j -= 1
+    while j >= 0:
+        if out[j]["segment_type"] not in ("clause", "special"):
+            break
+        t = out[j]["text"]
+        bare = _bare_text(t)
+        # 조각 전체가 꼬리면 meta
+        if "\n" not in t and (_is_tail_meta_line(bare) or _is_tail_meta_line(t)):
+            if not (ARTICLE_HEAD.match(bare) or _is_unit_start(bare)):
+                out[j] = _piece("meta", "", t)
+                j -= 1
+                continue
+        # 여러 줄이면 끝 꼬리만 분리
+        kept, peeled = _peel_trailing_meta_lines(t)
+        if peeled:
+            title = out[j].get("article_title") or ""
+            kind = out[j]["segment_type"]
+            new_rows = []
+            if kept:
+                new_rows.append(_piece(kind, title, kept))
+            new_rows.extend(_piece("meta", "", ln) for ln in peeled)
+            out[j : j + 1] = new_rows
+            # peeled는 이미 meta; kept가 있으면 더 이상 뒤로 가지 않음
+            break
+        break
+
+    return [p for p in out if (p.get("text") or "").strip()]
 
 
 def split_contract(text: str) -> list[dict]:
@@ -242,6 +465,7 @@ def split_contract(text: str) -> list[dict]:
                 continue
             pieces.append({"segment_type": "special", "article_title": "특약", "text": chunk})
 
+    pieces = _apply_form_and_tail_meta(pieces)
     merged = _merge_short(pieces)
     out = []
     for order, row in enumerate(merged, start=1):
